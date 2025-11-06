@@ -77,3 +77,4 @@ az vm create
 --admin-username virtualhermit
 --generate-ssh-keys
 ```
+With that out of the way I could move on and install Nginx (for the result see 4.png) *P.S I do apologize for the 4.png if it looks confusing at first, Azures CLI is clunky at times*
