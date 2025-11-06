@@ -29,3 +29,5 @@ From there I selected "Resource Groups" since the purpose of this task was to cr
 I have provided screenshots in the Module1-VM folder for further proof.
 
 Congrats! You now know how to deploy a VM in Microsoft Azure! Juhhuu!
+
+References: https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/
