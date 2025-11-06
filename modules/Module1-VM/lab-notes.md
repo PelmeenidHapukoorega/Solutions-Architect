@@ -1,4 +1,4 @@
-# Virtual Machines - Lab Notes
+# Virtual Machine creatin in Azure interface - Lab Notes
 # Module: Describe the core architectural components of Azure
 
 Goal: Create a virtual machine in Microsoft Azure
