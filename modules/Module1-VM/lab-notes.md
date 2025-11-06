@@ -22,4 +22,9 @@ The rest - left default
 
 No issues in creating the VM since it is pretty straight forward and this is pretty basic.
 
-After the VM was successfully deployed
+After the VM was successfully deployed I went back to home page and scrolled down to a section that is called "Navigate".
+From there I selected "Resource Groups" since the purpose of this task was to create a resource i.e the VM and we want to check whether we succeeded. We did.
+
+I have provided screenshots in the Module1-VM folder for further proof.
+
+Congrats! You now know how to deploy a VM in Microsoft Azure! Juhhuu!
