@@ -41,4 +41,10 @@ To do that I used the following command
 ```CLI
 az group delete --name MinuVirtukas
 ```
+Before I reverted back to task1 commandline I needed to know whether norway east region had the SKU needed to perform the task, and if not the exact same one as described in the learning path then at least an alternative that would work.
+
+To do that I used the command line
+```CLI
+az vm list-skus --location norwayeast --output table
+```
 
