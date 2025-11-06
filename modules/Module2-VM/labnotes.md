@@ -82,4 +82,17 @@ az vm create
 With that out of the way I could move on and install Nginx (for the result see 4.png) *P.S I do apologize for the 4.png if it looks confusing at first, Azures CLI is clunky at times*
 
 Task 3: Install Nginx
-Once I had my VM created I needed to use Custom script extension to install Nginx. For that we needed to run ``` az vm extension set``` command to configure Nginx to my VM
+Once I had my VM created I needed to use Custom script extension to install Nginx. For that we needed to run az vm extension set command to configure Nginx to my VM
+```CLI
+az vm extension set
+--resource-group MinuVirtukas
+--vm-name minu-virtukas
+--name customScript 
+--publisher Microsoft.Azure.Extensions
+--version 2.1
+--settings '{"fileUris":["https://raw.githubusercontent.com/MicrosoftDocs/mslearn-welcome-to-azure/master/configure-nginx.sh"]}' 
+--protected-settings '{"commandToExecute": "./configure-nginx.sh"}'
+```
+With that out of the way I had finally installed Nginx (see Nginx.png)
+
+
