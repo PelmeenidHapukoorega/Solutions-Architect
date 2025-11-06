@@ -15,7 +15,7 @@ az group create
 --name MinuVirtukas 
 --location eastus
 ```
-3. With that I created a resource group named MinuVirtukas (see 1.png)
+3. With that I created a resource group named MinuVirtukas (see resourcegrp.png)
 
 Task 2: Create a Linux virtual machine
 1. From the cloud shell I ran the command "az vm create" command to create Linux VM:
@@ -47,7 +47,7 @@ To do that I used the command line
 ```CLI
 az vm list-skus --location norwayeast --output table
 ```
-This command gave me an output of all the available SKUS in norwayeast region and in it I could see which ones I could use and which ones I couldn't due to subsrciption restrictions. (see 2.png)
+This command gave me an output of all the available SKUS in norwayeast region and in it I could see which ones I could use and which ones I couldn't due to subsrciption restrictions. (see skulist.png)
 
 However the list was a bit too long and uneasy for the eyes for me to properly filter out, additionally it showed me all the SKUs but I needed Standard_D2s speficically. 
 
@@ -59,7 +59,7 @@ However I modified the commandline to filter out specifically Standard_D2s and a
 ```CLI
 az vm list-skus --location norwayeast --size Standard_D2s --all false --output table
 ```
-With that commandline I managed to go from 100s of rows to pick from to just 4 (see 3.png)
+With that commandline I managed to go from 100s of rows to pick from to just 4 (see filteredskus.png)
 The end result was that Standard_D2s_v5 was in fact available in this region but I wanted to know how to filter SKUs with ease for my own benefit, this step was easily skippable, however I wanted to challenge my self and troubleshoot because that way what im doing I will also remember. Trial and error.
 
 Task 2: Create a Linux VM
@@ -79,7 +79,7 @@ az vm create
 --admin-username virtualhermit
 --generate-ssh-keys
 ```
-With that out of the way I could move on and install Nginx (for the result see 4.png) *P.S I do apologize for the 4.png if it looks confusing at first, Azures CLI is clunky at times*
+With that out of the way I could move on and install Nginx (for the result see VMcreation.png) *P.S I do apologize for the 4.png if it looks confusing at first, Azures CLI is clunky at times*
 
 Task 3: Install Nginx
 
