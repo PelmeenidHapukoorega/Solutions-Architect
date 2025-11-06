@@ -11,6 +11,7 @@ Task 1: Create a resource group using Cloud shell
 2. Opened up Cloud shell from the top right corner next to your profile and typed in:
 
 az group create 
+
 --name MinuVirtukas 
 --location eastus
 
