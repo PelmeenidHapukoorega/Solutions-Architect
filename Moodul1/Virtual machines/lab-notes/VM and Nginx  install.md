@@ -15,7 +15,7 @@ az group create
 --name MinuVirtukas 
 --location eastus
 ```
-3. With that I created a resource group named MinuVirtukas (see resourcegrp.png)
+3. With that I created a resource group named MinuVirtukas See [resourcegrp.png](../screenshots/resourcegrp.PNG)
 
 Task 2: Create a Linux virtual machine
 1. From the cloud shell I ran the command "az vm create" command to create Linux VM:
