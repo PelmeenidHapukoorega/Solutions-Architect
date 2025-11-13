@@ -3,7 +3,7 @@
 
 Goal: In this exercise I needed to configure network access to the Virtual machine I had created prior in the last exercise.
 
-**Note:** This exercise required me to use BASH version of cloud shell for some of the commands.
+**Note!** This exercise required me to use BASH version of cloud shell for some of the commands.
 
 Task 1: Accessing my web server
 
@@ -45,7 +45,7 @@ az network nsg list \
 ```
 Output ```minu-virtukasNSG``` 
 
-**Note** By default azure VMs have at least one NSG. If you leave the default name for vm its going to be ```my-vmNSG```. But that is not my case.
+**Note!** By default azure VMs have at least one NSG. If you leave the default name for vm its going to be ```my-vmNSG```. But that is not my case.
 
 
 
