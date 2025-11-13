@@ -5,6 +5,13 @@ Goal: In this exercise I needed to configure network access to the Virtual machi
 
 Task 1: Accessing my web server
 
-1. For starters I need to access web server that I had installed prior to this exercise. To start things off I used ```BASH az vm list-ip-addresses```
+1. For starters I need to access web server that I had installed prior to this exercise. To start things off I used ```az vm list-ip-addresses``` command to get my VMs IP address and store the result as a Bash variable:
+```bash
+IPADDRESS="$(az vm list-ip-addresses \
+--resource-group "MinuVirtukas" \
+--name my-vm \
+--query "[].virtualMachine.network.publicIpAddresses[*].ipAddress" \
+--output tsv)"
+```
 
 **Note:** This exercise required me to use BASH version of cloud shell for some of the commands.
