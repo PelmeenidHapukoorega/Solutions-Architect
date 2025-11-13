@@ -60,11 +60,16 @@ So I ran the ```az network nsg rule list``` again:
 
 ```bash
 az network nsg rule list \
---resource-group "MinuVirtukas"
+--resource-group MinuVirtukas \
 --nsg-name minu-virtukasNSG \ 
---query '[]{Name:name, Priority:priority, Port:destinationPortRange, Access:acess}' \
+--query "[].{Name:name, Priority:priority, Port:destinationPortRange, Access:acess}" \
 --output table
 ```
-
+Output:
+```bash
+Name               Priority    Port    Access
+-----------------  ----------  ------  --------
+default-allow-ssh  1000        22      Allow
+```
 
 
