@@ -7,7 +7,7 @@ Goal: In this exercise I needed to configure network access to the Virtual machi
 
 ### Task 1: Accessing my web server
 
-## 1. For starters I need to access web server that I had installed prior to this exercise. To start things off I used ```az vm list-ip-addresses``` command to get my VMs IP address and store the result as a Bash variable:
+# 1. For starters I need to access web server that I had installed prior to this exercise. To start things off I used ```az vm list-ip-addresses``` command to get my VMs IP address and store the result as a Bash variable:
 ```bash
 IPADDRESS="$(az vm list-ip-addresses \
 --resource-group "MinuVirtukas" \
@@ -15,11 +15,11 @@ IPADDRESS="$(az vm list-ip-addresses \
 --query "[].virtualMachine.network.publicIpAddresses[*].ipAddress" \
 --output tsv)"
 ```
-## 2. Ran into the error [error.png](../screenshots/error.PNG), instead of ```--resource-group``` I miss spelled it in my haste to ```--resource-grp```
+# 2. Ran into the error [error.png](../screenshots/error.PNG), instead of ```--resource-group``` I miss spelled it in my haste to ```--resource-grp```
 
 After fixing my GRAVE error the command went through [fix.png](../screenshots/fix.PNG)
 
-## 3. Now I needed to download the home page to see if the VM is reachable and whether I could access the webserver (Spoiler alert it wasnt and I couldnt for obvious reasons):
+# 3. Now I needed to download the home page to see if the VM is reachable and whether I could access the webserver (Spoiler alert it wasnt and I couldnt for obvious reasons):
 ```bash
 curl --connect-timeout 5 http://$IPADDRESS
 ```
@@ -27,7 +27,7 @@ We were met with the following error ```curl: (28) Connection timed out after 50
 
 Why? Because I didnt create any network security roles yet.
 
-## 4. As an option I tried to access web server from the browser by running the command ```echo $IPADDRESS```.
+# 4. As an option I tried to access web server from the browser by running the command ```echo $IPADDRESS```.
 
 With that I could copy Virtual machines IP address and copy paste it into URL for the same result just visible from the browser [unreachable.png](../screenshots/unreachable.PNG) 
 
@@ -35,7 +35,7 @@ So there are 2 ways to ping whether VMs web server is up or not.
 
 ### Task 2: Listing the current network security group rules
 
-## 1. Next I ran the command ```az network nsg list``` to see what NSG was associated with my VM
+# 1. Next I ran the command ```az network nsg list``` to see what NSG was associated with my VM
 
 ```bash
 az network nsg list \
@@ -47,7 +47,7 @@ Output ```minu-virtukasNSG```
 
 **Note!** By default azure VMs have at least one NSG. If you leave the default name for vm its going to be ```my-vmNSG```. But that is not my case.
 
-## 2. Now I needed to list the rules associated with the NSG:
+# 2. Now I needed to list the rules associated with the NSG:
 
 ```bash
 az network nsg rule list \
@@ -78,7 +78,7 @@ Next I needed to also allow inbound connections on port 80 to access over HTTP.
 
 ### Task 3: Create NSG rule
 
-## 1. Ran the following ```az network nsg rule create```
+# 1. Ran the following ```az network nsg rule create```
 ```bash
 az network nsg rule create \
 --resource-group MinuVirtukas \
