@@ -213,6 +213,10 @@ az vm user update \
 
 Now that I was able to make sure virtualhermit can use the key we needed to open the SSH session again using the commandline from before. See [Command: Open SSH session to VM](#command-Open-SSH-session-to-VM)
 
+Once I got in , then I could finally edit the HTML:
+```bash
+sudo nano /var/www/html/index.html
+```
+After some magic in the HTML, I got my final result I was working towards
 
-
-
+[![Resource Group](../screenshots/final.PNG)](../screenshots/final.PNG)
