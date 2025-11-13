@@ -3,6 +3,8 @@
 
 Goal: In this exercise I needed to configure network access to the Virtual machine I had created prior in the last exercise.
 
+**Note:** This exercise required me to use BASH version of cloud shell for some of the commands.
+
 Task 1: Accessing my web server
 
 1. For starters I need to access web server that I had installed prior to this exercise. To start things off I used ```az vm list-ip-addresses``` command to get my VMs IP address and store the result as a Bash variable:
@@ -17,4 +19,4 @@ IPADDRESS="$(az vm list-ip-addresses \
 
 After fixing my GRAVE error the command went thru (see here)
 
-**Note:** This exercise required me to use BASH version of cloud shell for some of the commands.
+
