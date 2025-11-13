@@ -19,8 +19,7 @@ IPADDRESS="$(az vm list-ip-addresses \
 
 After fixing my GRAVE error the command went through [fix.png](../screenshots/fix.PNG)
 
-3. Now I needed to download the home page to see if the VM is reachable and whether I could access the webserver (Spoiler alert it wasnt for obvious reasons):
+3. Now I needed to download the home page to see if the VM is reachable and whether I could access the webserver (Spoiler alert it wasnt and I couldnt for obvious reasons):
 ```bash
 curl --connect-timeout 5 http://$IPADDRESS
 ```
-Why?
