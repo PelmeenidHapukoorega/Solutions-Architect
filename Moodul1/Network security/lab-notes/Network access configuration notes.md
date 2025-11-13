@@ -47,6 +47,13 @@ Output ```minu-virtukasNSG```
 
 **Note!** By default azure VMs have at least one NSG. If you leave the default name for vm its going to be ```my-vmNSG```. But that is not my case.
 
+2. Now I needed to list the rules associated with the NSG:
+
+```bash
+az network nsg rule list \
+--resource-group MinuVirtukas \
+--nsg-name minu-vritukasNSG
+```
 
 
 
