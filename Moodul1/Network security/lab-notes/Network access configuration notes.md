@@ -123,5 +123,41 @@ We get the desired output:
 Then i refreshed my home page in my browser:
 [![Resource Group](../screenshots/welcome2.PNG)](../screenshots/welcome2.PNG)
 
-However the message is too "default" and I wanted to change it to smt more funny and welcoming
+However the message is too "default" and I wanted to change it to smt more funny and welcoming.
 
+So to change it I ran ```az vm list-ip-addresses``` again.
+
+### Command: List IP addresses
+```bash
+az vm list-ip-addresses \
+  --resource-group MinuVirtukas \
+  --name minu-virtukas \
+  --query "[].virtualMachine.network.publicIpAddresses[*].ipAddress" \
+  --output tsv
+```
+Output: ```20.251.205.43```
+
+Then I ran ```ssh virtualhermit@20.251.205.43```
+
+And got met with error 
+```
+The authenticity of host '20.251.205.43 (20.251.205.43)' can't be established.
+ED25519 key fingerprint is SHA256:WQTGqxuAfQLib9fh7rnsde1oz4zJnbCoDENircWH4FM.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '20.251.205.43' (ED25519) to the list of known hosts.
+sander@20.251.205.43: Permission denied (publickey).
+```
+As I understood then the server accepted the connection, however it rejected me because my SSH public key didnt match any authorized keys on the VM itself.
+
+I needed to confirm VMs actual admin username (because I forgot) since SSH keys are tied to specific user accounts.
+
+### Command: List admin username
+```bash
+az vm show \
+--resource-group MinuVirtukas \
+--name minu-virtukas \
+--query "osProfile.adminUsername" \
+--output tsv
+```
+Output: ```virtualhermit```
