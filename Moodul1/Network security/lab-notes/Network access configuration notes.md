@@ -52,9 +52,19 @@ Output ```minu-virtukasNSG```
 ```bash
 az network nsg rule list \
 --resource-group MinuVirtukas \
---nsg-name minu-vritukasNSG
+--nsg-name minu-virtukasNSG
 ```
+This prints out a large block of JSON which im not satisfied with because I needed specifically: name, priority, affected ports and access for each rule.
 
+So I ran the ```az network nsg rule list``` again:
+
+```bash
+az network nsg rule list \
+--resource-group "MinuVirtukas"
+--nsg-name minu-virtukasNSG \ 
+--query '[]{Name:name, Priority:priority, Port:destinationPortRange, Access:acess}' \
+--output table
+```
 
 
 
