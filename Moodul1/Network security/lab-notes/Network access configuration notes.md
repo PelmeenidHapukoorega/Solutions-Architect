@@ -195,11 +195,13 @@ So I created one with the following:
 ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -C "azure-vm-key"
 ```
 Output:
+
 [![Resource Group](../screenshots/passp.PNG)](../screenshots/passp.PNG)
 
 Since the VM is going to be deleted anyway I decided to leave the passphrase empty this time and just pressed ```Enter``` twice.
 
 Result:
+
 [![Resource Group](../screenshots/key.PNG)](../screenshots/key.PNG)
 
 Then I needed to make sure that virtualhermit could use this key with the following command:
