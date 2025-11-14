@@ -121,6 +121,7 @@ We get the desired output:
 [![Resource Group](../screenshots/welcome.PNG)](../screenshots/welcome.PNG)
 
 Then i refreshed my home page in my browser:
+
 [![Resource Group](../screenshots/welcome2.PNG)](../screenshots/welcome2.PNG)
 
 ### Challenge for myself
