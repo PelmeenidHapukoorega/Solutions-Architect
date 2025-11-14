@@ -183,7 +183,7 @@ az vm show \
 --query "osProfile.linuxConfiguration.ssh"\
 --output tsv
 ```
-[![Resource Group](../screenshots/sshret.PNG)](../screenshots/sshret.PNG)
+[![Resource Group](../screenshots/sshconfigret.PNG)](../screenshots/sshconfigret.PNG)
 
 Next I needed to list all SSH keys stored in my local ```~/.ssh``` to see which keys I had available and compare them to public key configed on VM
 
