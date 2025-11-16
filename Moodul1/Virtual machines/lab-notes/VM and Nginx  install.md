@@ -1,4 +1,4 @@
-# Module: Describe the core architectural components of Azure
+# Module: Describe Azure compute and networking services
 # Virtual machine creation and Nginx installation - Lab Notes
 
 
