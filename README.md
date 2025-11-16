@@ -8,6 +8,5 @@ Me doing my best to master Azure and eventually become Solutions architect in th
 
 ## Labs
 [Virtual Machines Folder](Moodul1/Virtual%20machines/)
+[Network Security Folder](Moodul1/Network%20security/)
 
-
-Moodul1/Virtual machines
