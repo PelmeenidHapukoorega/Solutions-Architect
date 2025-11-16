@@ -5,6 +5,7 @@ Me doing my best to master Azure and eventually become Solutions architect in th
 ## Additional Documentation
 - [Theory Infra Notes](Moodul1/Theory/Theory-Infra.md)
 - [Theory Computer and Networking services](Moodul1/Theory/Theory-computer-and-networking-services.md)
+- [Theory Storage services](Moodul1/Theory/Theory-Storage.md)
 
 ## Labs
 [Virtual Machines Folder](Moodul1/Virtual%20machines/)
