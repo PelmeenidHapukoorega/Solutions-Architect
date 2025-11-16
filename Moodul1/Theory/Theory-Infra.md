@@ -8,7 +8,7 @@ In this file I have written down most important pieces of theory that every curr
 * Geographical areas that contain at least 1 if not more datacentres that are nearby each other and networked together with low latency network.
 * Azure assigns and controls resources within each region to ensure balanced workloads.
 
-# Note! Some services or VM features are only available in certain regions: VM sizes or storage types.
+Note! Some services or VM features are only available in certain regions: VM sizes or storage types.
 
 ## Region pairs
 
@@ -83,6 +83,7 @@ In this file I have written down most important pieces of theory that every curr
 * 10 000 management groups can be supported in a single directiory.
 * Management group tree can support up to six levels of depth. The limit doesnt include the root level of the sub.
 * Each group and subscription can support only 1 parent.
+
 
 
 
