@@ -108,19 +108,16 @@ Azure Region
 * Unified policy and access management.
 * Examples of use: Hierarchy creation that applies a policy, provide user access to multiple subs.
 
+```pgsql
 Management Group
-
       ↓
-      
   Subscription
-  
       ↓
-      
  Resource Group
- 
       ↓
-      
      VM
+```
+
 
 # **Important!** 
 * 10 000 management groups can be supported in a single directiory.
