@@ -1,4 +1,4 @@
-# Module: Describe Azure compute and networking services
+# Module: Azure compute and networking services
 # Virtual machine creation and Nginx installation - Lab Notes
 
 
