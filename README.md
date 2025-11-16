@@ -7,7 +7,7 @@ Me doing my best to master Azure and eventually become Solutions architect in th
 - [Theory Computer and Networking services](Moodul1/Theory/Theory-computer-and-networking-services.md)
 
 ## Labs
-[Virtual machines](Moodul1/Virtual-machines/)
+[Virtual Machines Folder](Moodul1/Virtual%20machines/)
 
 
 Moodul1/Virtual machines
