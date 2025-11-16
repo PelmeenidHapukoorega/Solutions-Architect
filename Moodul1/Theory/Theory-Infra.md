@@ -9,10 +9,10 @@ In this file I have written down most important pieces of theory that every curr
 - [Sovereign Regions](#sovereign-regions)
 - [Availability Zones](#availability-zones)
 - [AzureDatacenters](#azure-datacenters)
-- [Azure Resources & Resource Groups](#azure-resources-&-resource-groups)
+- [Azure Resources and Resource groups](#azure-resources-and-resource-groups)
 - [Subscriptions](#subscriptions)
 - [Management Groups](#management-groups)
-- [Hierarchy](#hierarchy)
+- [Hierarchy of Resources](#hierarchy-of-resources)
 
 
 # Azure regions
@@ -64,7 +64,7 @@ Azure Region
 * Are not directly accessible.
 * Are grouped into: Azure regions or Azure availability Zones.
 
-# Azure Resources & Resource groups.
+# Azure Resources and Resource groups.
 
 **Key Takeaways**
 * **Resource** is a basic building block, basically anything you create is a resource (VM, databases, etc).
@@ -100,7 +100,7 @@ Azure Region
 * Can be nested.
 * Efficient way to manage access, policies and compliance for those subscriptions.
 
-# **Hierarchy of resource groups, subscriptions and management groups.**
+# **Hierarchy of resources**
 * You can build flexibile structure of management groups and subs to organize resources into hierarchy.
 * Unified policy and access management.
 * Examples of use: Hierarchy creation that applies a policy, provide user access to multiple subs.
@@ -117,6 +117,7 @@ Management Group
 * 10 000 management groups can be supported in a single directiory.
 * Management group tree can support up to six levels of depth. The limit doesnt include the root level of the sub.
 * Each group and subscription can support only 1 parent.
+
 
 
 
