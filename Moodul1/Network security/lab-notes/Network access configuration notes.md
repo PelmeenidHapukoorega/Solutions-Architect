@@ -1,4 +1,4 @@
-# Module: Describe the core architectural components of Azure
+# Module: Describe Azure compute and networking services
 # Configuring network access for installed VM and accessing web server - Lab Notes
 
 Goal: In this exercise I needed to configure network access to the Virtual machine I had created prior in the last exercise.
