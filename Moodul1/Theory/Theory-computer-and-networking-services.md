@@ -16,7 +16,7 @@ To actually design anything in Azure you gotta understand the compute and networ
 **Bottom line**
 Build smart now, because Future You aint trying to debug a busted network at 2 AM wondering why a VM cant talk to anything.
 
-## Azure virtual machines
+# Azure virtual machines
 
 **Key points**
 * Provides IaaS in a form of virtualized server
@@ -50,7 +50,7 @@ Scale sets = auto scaling
 
 Availability sets = HA within a datacentre
 
-## Azure virtual desktop (AVD)
+# Azure virtual desktop (AVD)
 
 **Key points**
 * Virtualized Win desktops and apps delivered from Azure
@@ -71,7 +71,7 @@ Availability sets = HA within a datacentre
 
 AVD = secure and scalable Windows desktop without managing desktop fleets
 
-## Azure containers
+# Azure containers
 
 **Key points**
 * Lightweight app packaing, no OS management needed
@@ -100,7 +100,7 @@ Containers
 
 Containers = microservices. ACA/ACI = simple: AKS = enterprise level
 
-## Azure functions
+# Azure functions
 
 **Key points**
 * Serverless, event driven compute
@@ -129,7 +129,7 @@ Event → Stateful Function
 
 Functions = code only focus, Azure handles scaling, infra and execution (KA POW!)
 
-## Application hosting options
+# Application hosting options
 
 **Azure app service**
 * Host web apps, APIs, background jobs, mobile backends
@@ -155,7 +155,7 @@ Functions = code only focus, Azure handles scaling, infra and execution (KA POW!
 
 App service = fully managed web hosting with CI/CD and automatic scaling built in
 
-## Azure virtual networking (VPN)
+# Azure virtual networking (VPN)
 
 **Key points**
 * Azure VPN is your on prem network extended into Azure
@@ -224,7 +224,7 @@ NSG = basic firewall: NVA = enterprise firewall
 
 Peering builds fast, private, global Azure networks
 
-## Azure ExpressRoute
+# Azure ExpressRoute
 
 **Key points**
 * Private dedicated connection between on prem and Microsoft cloud
@@ -297,7 +297,7 @@ Choose the model that fits your network design
 
 ExpressRoute protects the main transport path but not every last request
 
-## Azure DNS
+# Azure DNS
 
 **Key points**
 * DNS hosting service running on Microsoft Azure global infrastructure
