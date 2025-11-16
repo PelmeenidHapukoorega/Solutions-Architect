@@ -6,4 +6,4 @@ Me doing my best to master Azure and eventually become Solutions architect in th
 ## Additional Documentation
 
 ## Additional Documentation
-- [Theory Notes](Moodul1/Theory/Theory-Infra.md)
+- [Theory Infra Notes](Moodul1/Theory/Theory-Infra.md)
