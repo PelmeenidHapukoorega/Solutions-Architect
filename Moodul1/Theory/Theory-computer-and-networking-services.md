@@ -3,6 +3,16 @@
 
 To actually design anything in Azure you gotta understand the compute and networking stack like its your own toolbox. VMs, functions, containers, VNets, subnets, routing they all snap together like a puzzle that decides how fast, secure and reliable your whole setup runs.
 
+## Table of Contents
+- [Azure virtual machines](#azure-virtual-machines)
+- [Azure virtual desktop AVD](#azure-virtual-desktop-avd)
+- [Azure containers](#azure-containers)
+- [Azure functions](#azure-functions)
+- [Application hosting options](#application-hosting-options)
+- [Azure virtual networking VPN](#azure-virtual-networking-vpn)
+- [Azure ExpressRoute](#azure-expressroute)
+- [Azure DNS](#azure-dns)
+
 **Bottom line**
 Build smart now, because Future You aint trying to debug a busted network at 2 AM wondering why a VM cant talk to anything.
 
@@ -22,6 +32,15 @@ Build smart now, because Future You aint trying to debug a busted network at 2 A
 * Use update domains (UD) to stagger reboots
 * Use fault domains (FD) to seperate VMs across independent power, network racks
 * No extra cost
+```pgsql
+Availability Set
+ ├─ Fault Domain 1
+ │   ├─ Update Domain 1
+ │   └─ Update Domain 2
+ └─ Fault Domain 2
+     ├─ Update Domain 1
+     └─ Update Domain 2
+```
 
 **Takeaway**
 
@@ -71,7 +90,12 @@ AVD = secure and scalable Windows desktop without managing desktop fleets
 **Azyre kubernetes service (AKS)**
 * Full container orchestration
 * Manages scaling, updates, self healing (Think rejuvenation potion from diablo II) and deployment pipelines
-
+```scss
+Containers
+ ├─ ACI (simple)
+ ├─ ACA (scalable microservices)
+ └─ AKS (full orchestration)
+```
 **Takeaway**
 
 Containers = microservices. ACA/ACI = simple: AKS = enterprise level
@@ -89,7 +113,12 @@ Containers = microservices. ACA/ACI = simple: AKS = enterprise level
 
 **Stateful**
 * Uses durable functions to carry state between executions
+```vbnet
+Event → Stateless Function → Done
 
+Event → Stateful Function
+      ↳ Saves context → Next run
+```
 **Use cases**
 * REST endpoints
 * Scheduled tasks
@@ -220,7 +249,16 @@ ExpressRoute = private fiber straight into Azure
 2. **Global reach**
 * Connects your on prem sites through the Microsoft global network
 * Example Asia office to Europe datacenter without touching the public internet
-
+```graphql
+On-prem
+   │
+   │  ExpressRoute Circuit
+   ▼
+Microsoft Backbone Network
+   │
+   ▼
+Azure
+```
 **Takeaway**
 
 Global Reach = private global site to site network without VPN chaos
@@ -271,6 +309,10 @@ ExpressRoute protects the main transport path but not every last request
 * Hosted on global Azure DNS servers for strong availability
 * Uses anycast routing so the closest DNS server answers first
 * Gives faster and more resilient name lookups worldwide
+```pgsql
+Public DNS Zone  → Internet clients
+Private DNS Zone → VNet clients only
+```
 
 **Takeaway**
 
