@@ -39,6 +39,19 @@ Azure Region
 * It allows for the replication of resources across geography, helps reduce the likelihood of interruptions in case of natural disasters, civil unrest, power outages or meteor shower that killed the dinosaurs: point being, it survives.
 * Not all Azure services automaticallyt replicate data or fall back from failed region to cross replicate to another region. In this case recovery and replication must be confgured by customer aka user.
 
+```pgsql
+   Region Pair (Geo-based)
+
+   +-----------+      +-----------+
+   | Region A  | <--> | Region B  |
+   |  Primary  |      |   Backup  |
+   +-----------+      +-----------+
+        |                  |
+  Data replication    Disaster recovery
+        |                  |
+        +-------> High availability
+```
+
 # Additional advantages
 
 **Key Takeaways**
@@ -62,6 +75,22 @@ Azure Region
 * Set up as isolation boundary. If one goes down the other continues.
 * Each region has a minimum of 3 seperate AV zones, however not all regions support AZ zones.
 
+```pgsql
+        Azure Region
+   +-----------------------+
+   |     Availability      |
+   |        Zones          |
+   +---------+-------------+
+             |
+   +---------+---------+---------+
+   |    AZ 1          |   AZ 2   |   AZ 3   |
+   | (Datacenter 1)   |(Datacenter 2)|(DC3) |
+   +---------+---------+---------+
+         |             |             |
+   Isolated power  Isolated cooling  Isolated network
+         |             |             |
+        <---------- High Availability ---------->
+```
 # **Azure datacenters**
 
 **Key Takeaways**
@@ -125,6 +154,7 @@ Management Group
 * 10 000 management groups can be supported in a single directiory.
 * Management group tree can support up to six levels of depth. The limit doesnt include the root level of the sub.
 * Each group and subscription can support only 1 parent.
+
 
 
 
