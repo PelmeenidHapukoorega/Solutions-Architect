@@ -16,7 +16,7 @@ In this file I have written down most important pieces of theory that every curr
 * It allows for the replication of resources across geography, helps reduce the likelihood of interruptions in case of natural disasters, civil unrest, power outages or meteor shower that killed the dinosaurs: point being, it survives
 * Not all Azure services automaticallyt replicate data or fall back from failed region to cross replicate to another region. In this case recovery and replication must be confgured by customer aka user
 
-# Additional advantages
+## Additional advantages
 
 * During an extensive outage one region ot of every pair is prioritized to make sure at least one is restored ASAP for apps hosted in that region pair
 * Updates are rolled out a pair at a time to minimize downtime and risk outage
@@ -85,5 +85,6 @@ In this file I have written down most important pieces of theory that every curr
 * 10 000 management groups can be supported in a single directiory\
 * Management group tree can support up to six levels of depth. The limit doesnt include the root level of the sub
 * Each group and subscription can support only 1 parent
+
 
 
