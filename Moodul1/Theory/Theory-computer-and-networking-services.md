@@ -1,1 +1,7 @@
+# Module: Describe Azure compute and networking services
+# Key notes
+
+In this file I have written down most important pieces of theory that every current or prospective Solutions Architect should know.
+
+## Azure regions
 
