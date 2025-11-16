@@ -22,7 +22,7 @@ In this file I have written down most important pieces of theory that every curr
 * Updates are rolled out a pair at a time to minimize downtime and risk outage
 * Data continues to reside within the same geography for tax and law purposes
 * Regions paired in two directions allow being each others backup, however West india and Brazil south regions are one direction. In one direction pairing the primary region does not backup its secondary
-* 
+
 
 ## Sovereign regions
 
@@ -65,7 +65,7 @@ In this file I have written down most important pieces of theory that every curr
 * Billing boundary determines how Azure account is billed for using it. it can create multiple subs for different tyos of billing req. Azure generates billing reports and invoices for each sub so you can learn some organizing skills and manage costs. Think a mix between tetris and monopoly
 * Access control boundary applies access management policies at the sub level, you can create seperate subs to reflect organizational structures. Think different deparments, each having their own subscription policies. Allows you to manage and control access to resources that users provision with specific subs
 
-** When you first sign up to Azure you get a free trial subscription that lets you start exploring. Once you feel confident enough and want to deep dive further what Azure has to offer then you can get additional subscriptions at extra cost.
+# When you first sign up to Azure you get a free trial subscription that lets you start exploring. Once you feel confident enough and want to deep dive further what Azure has to offer then you can get additional subscriptions at extra cost.
 
 * Free account gives you access to 25 products that are always free.
 * Credit use for the first 30 days (200 Eur)
@@ -81,7 +81,8 @@ In this file I have written down most important pieces of theory that every curr
 * Unified policy and access management
 * Examples of use: Hierarchy creation that applies a policy, provide user access to multiple subs
 
-**Important! 
+# Important! 
 * 10 000 management groups can be supported in a single directiory\
 * Management group tree can support up to six levels of depth. The limit doesnt include the root level of the sub
 * Each group and subscription can support only 1 parent
+
