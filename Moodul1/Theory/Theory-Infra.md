@@ -3,6 +3,18 @@
 
 In this file I have written down most important pieces of theory that every current or prospective Solutions Architect should know.
 
+## Table of Contents
+- Azure Regions
+- Region Pairs
+- Sovereign Regions
+- Availability Zones
+- Datacenters
+- Resources & Resource Groups
+- Subscriptions
+- Management Groups
+- Hierarchy
+
+
 ## Azure regions
 
 * Geographical areas that contain at least 1 if not more datacentres that are nearby each other and networked together with low latency network.
@@ -83,6 +95,7 @@ Note! Some services or VM features are only available in certain regions: VM siz
 * 10 000 management groups can be supported in a single directiory.
 * Management group tree can support up to six levels of depth. The limit doesnt include the root level of the sub.
 * Each group and subscription can support only 1 parent.
+
 
 
 
