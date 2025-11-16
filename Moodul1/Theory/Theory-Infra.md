@@ -1,7 +1,8 @@
 # Module: Describe the core architectural components of Azure
 # Key notes
 
-In this file I have written down most important pieces of theory that every current or prospective Solutions Architect should know.
+In order to design anything you have to understand how regions, subs and resources all fit together like its a 25 piece puzzle. This foundation determines how stable, secure and scalable your solutions will end up.
+**Bottom line** Architect brain now so future you doesnt have to clean up dumb shit later.
 
 ## Table of Contents
 - [Azure Regions](#azure-regions)
@@ -124,6 +125,7 @@ Management Group
 * 10 000 management groups can be supported in a single directiory.
 * Management group tree can support up to six levels of depth. The limit doesnt include the root level of the sub.
 * Each group and subscription can support only 1 parent.
+
 
 
 
