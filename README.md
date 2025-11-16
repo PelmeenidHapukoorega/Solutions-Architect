@@ -11,5 +11,4 @@ Me doing my best to master Azure and eventually become Solutions architect in th
 
 [Network Security Folder](Moodul1/Network%20security/)
 
-[Theory Folder](Moodul1/Theory)
 
