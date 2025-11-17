@@ -1,6 +1,7 @@
 # Azure Learn Labs
 
-Me doing my best to master Azure and eventually become Solutions architect in the making
+Me doing my best to master Azure and eventually become Solutions architect in the making. 
+Ive listed below my notes from theory side of the labs and made it more convenient for myself to learn and added quick notes to myself to better memorize what I learned.
 
 ## Additional Documentation
 - [Theory Infra Notes](Moodul1/Theory/Theory-Infra.md)
