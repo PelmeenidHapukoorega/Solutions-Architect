@@ -6,12 +6,20 @@ To actually design anything in Azure you gotta understand the compute and networ
 **Bottom line:**
 Build smart now, because Future You aint trying to debug a busted network at 2 AM wondering why a VM cant talk to anything.
 
+
 ## Table of Contents
-- [Azure virtual machines](#azure-virtual-machines)
-- [Azure virtual desktop AVD](#azure-virtual-desktop-avd)
-- [Azure containers](#azure-containers)
-- [Azure functions](#azure-functions)
-- [Application hosting options](#application-hosting-options)
-- [Azure virtual networking VPN](#azure-virtual-networking-vpn)
-- [Azure ExpressRoute](#azure-expressroute)
-- [Azure DNS](#azure-dns)
+- [Azure storage accounts](#azure-storage-accounts)
+- [Azure storage redundancy](#azure-storage-redundancy)
+- [Azure storage services](#azure-storage-services)
+- [Identify Azure data migration](#identify-azure-data-migration)
+- [Identify Azure file movement](#identify-azure-file-movement)
+
+## Azure storage accounts
+
+## Azure storage redundancy
+
+## Azure storage services
+
+## Identify Azure data migration
+
+## Identify Azure file movement
