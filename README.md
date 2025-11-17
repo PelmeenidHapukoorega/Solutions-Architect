@@ -35,7 +35,5 @@ I sincerely hope that some of the readers may find a bit of hope in all this. Ju
 
 ## Labs
 - [Virtual Machines Folder](Moodul1/Virtual%20machines/)
-
 - [Network Security Folder](Moodul1/Network%20security/)
-
 - [Storage Folder](Moodul1/Storage/)
