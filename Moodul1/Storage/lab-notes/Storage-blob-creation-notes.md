@@ -8,7 +8,7 @@
 
 1. I started by going to Azure portal and selecting **Create a resource** from the left panel
    
-   [resc.png](../screenshots/resc.PNG) 
+   [![Resource Group](../screenshots/resc.PNG)](../screenshots/resc.PNG)
    
 
    Then under **Categories** I picked **Storage account**
