@@ -26,6 +26,7 @@ I sincerely hope that some of the readers may find a bit of hope in all this. Ju
 
 
 ## Ive listed below my notes from theory side of the labs and made it more convenient for myself to learn and added quick notes to myself to better memorize what I learned.
+Additionally you will find quick links to labs themselves.
 
 ## Additional Documentation
 - [Theory Infra Notes](Moodul1/Theory/Theory-Infra.md)
