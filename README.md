@@ -25,8 +25,7 @@ The whole point of this monologue is: This repo, this profile and everything in 
 I sincerely hope that some of the readers may find a bit of hope in all this. Just when you think that nothing is gonna work out, it does. And it didnt happen because i was sulking and cursing the world, it was the opposite. Never lose hope, never give up and most importantly... just start doing.
 
 
-## Ive listed below my notes from theory side of the labs and made it more convenient for myself to learn and added quick notes to myself to better memorize what I learned.
-Additionally you will find quick links to labs themselves.
+## Ive listed below my notes from theory side of the labs and made it more convenient for myself to learn and added quick notes to myself to better memorize what I learned. You will also find quick links to labs themselves.
 
 ## Additional Documentation
 - [Theory Infra Notes](Moodul1/Theory/Theory-Infra.md)
