@@ -7,6 +7,7 @@
 ### Task 1: Creating storage account
 
 1. I started by going to Azure portal and selecting **Create a resource** from the left panel
+   
    [resc.png](../screenshots/resc.PNG) 
    
 
