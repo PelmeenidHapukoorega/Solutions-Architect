@@ -23,18 +23,19 @@ Now with Azure, everything clicked for me instantly, the learning is super fun, 
 The whole point of this monologue is: This repo, this profile and everything in it, is a promise to myself that I can if I really want to.
 
 I sincerely hope that some of the readers may find a bit of hope in all this. Just when you think that nothing is gonna work out, it does. And it didnt happen because i was sulking and cursing the world, it was the opposite. Never lose hope, never give up and most importantly... just start doing.
-
-
-## Ive listed below my notes from theory side of the labs and made it more convenient for myself to learn and added quick notes to myself to better memorize what I learned. You will also find quick links to labs themselves.
+#
 
 ## Additional Documentation
+### Ive listed below my notes from theory side of the labs and made it more convenient for myself to learn and added quick notes to myself to better memorize what I learned. You will also find quick links to labs themselves.
+
+## Theory
 - [Theory Infra Notes](Moodul1/Theory/Theory-Infra.md)
 - [Theory Computer and Networking services](Moodul1/Theory/Theory-computer-and-networking-services.md)
 - [Theory Storage services](Moodul1/Theory/Theory-Storage-services.md)
 
 ## Labs
-[Virtual Machines Folder](Moodul1/Virtual%20machines/)
+- [Virtual Machines Folder](Moodul1/Virtual%20machines/)
 
-[Network Security Folder](Moodul1/Network%20security/)
+- [Network Security Folder](Moodul1/Network%20security/)
 
-[Storage Folder](Moodul1/Storage/)
+- [Storage Folder](Moodul1/Storage/)
