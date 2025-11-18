@@ -1,7 +1,7 @@
 # Module: Core architectural components of Azure
 # Virtual Machine creatin in Azure interface - Lab Notes
 
-Goal: Create a virtual machine in Microsoft Azure
+Objective: Create a virtual machine in Microsoft Azure
 
 Why is this important? VM deployment is the foundation for IaaS workloads
 
