@@ -20,7 +20,7 @@ Understand your storage game now, cuz Future You does not wanna be that guy tryi
 
 **Key points**
 * Storage account gives you a unique namespace for your data reachable anywhere through HTTP or HTTPS
-* Data stays secure highly available durable and built for massive scale
+* Data stays secure, highly available, durable and built for massive scale
 * Account type decides what services you get and what redundancy options you can use
 * You always start by choosing the account type based on your scenario
 
