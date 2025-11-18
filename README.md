@@ -23,6 +23,8 @@ Now with Azure, everything clicked for me instantly, the learning is super fun, 
 The whole point of this monologue is: This repo, this profile and everything in it, is a promise to myself that I can if I really want to.
 
 I sincerely hope that some of the readers may find a bit of hope in all this. Just when you think that nothing is gonna work out, it does. And it didnt happen because i was sulking and cursing the world, it was the opposite. Never lose hope, never give up and most importantly... just start doing.
+
+**Written on 15th Nov 2025**
 #
 
 ## Additional Documentation
