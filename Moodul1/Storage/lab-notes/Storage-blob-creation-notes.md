@@ -36,7 +36,7 @@ Focus is on understanding storage account configuration, blob security, and publ
 ### Actions
 1. Navigated to **Data storage → Containers**  
 2. Created container with:  
-   * Name: `<your-container>`  
+   * Name: `basement`  
    * Access level: Private (no anonymous access)
 
 ### Outcome
@@ -61,7 +61,58 @@ Attempted to open blob URL in a new browser tab.
 Result: Access denied because container is private.
 
 Expected error:
-`../screenshots/errorohno.png`
+[![Resource Group](../screenshots/errorohno.PNG)](../screenshots/errorohno.PNG)
 ### Outcome
 ✔ Blob uploaded 
 ✔ URL reachable but blocked due to private access level
+
+## 4. Change access level and retest
+
+**Actions**
+* Returned to the container  
+* Changed access level to **Blob (anonymous read access for blobs only)**  
+* Saved the new access configuration  
+* Refreshed the browser tab with the blob URL  
+
+**Outcome**
+* Blob became publicly readable without authentication  
+* Access control change verified successfully  
+
+**Evidence**
+[![Resource Group](../screenshots/blobbing.PNG)](../screenshots/blobbing.PNG)
+
+---
+
+## 5. Cleanup
+
+**Actions**
+* Deleted resource group **HermitBungalow**  
+* Verified all related resources were removed  
+
+**Outcome**
+* Environment cleaned up  
+* No unnecessary charges left behind  
+
+---
+
+## Key learnings
+
+### Storage accounts
+* Namespaces determine how your data is exposed globally  
+* Redundancy choice impacts durability and cost  
+
+### Containers
+* Default container state is private for security  
+* Public access must be intentionally enabled  
+
+### Blobs
+* Blob level access depends on container access configuration  
+* Changing access level immediately affects public visibility  
+
+### Security
+* Even when account level anonymous access is allowed  
+  each container still controls its own exposure  
+* Nothing becomes public unless **you** turn the key  
+
+**Takeaway**  
+You decide what gets exposed. Azure never makes data public unless you explicitly allow it.
