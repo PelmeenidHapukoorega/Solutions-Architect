@@ -27,8 +27,7 @@ Focus is on understanding storage account configuration, blob security, and publ
 ✔ Anonymous container access allowed (account level)
 
 ### Evidence
-*(Insert screenshot only of final overview page)*  
-`../screenshots/overview.png`
+[![Resource Group](../screenshots/overview.PNG)](../screenshots/overview.PNG)
 
 ---
 
@@ -45,7 +44,7 @@ Focus is on understanding storage account configuration, blob security, and publ
 ✔ No public access allowed (default secure posture)
 
 ### Evidence
-`../screenshots/basement.png`
+[![Resource Group](../screenshots/basement.PNG)](../screenshots/basement.PNG)
 
 ---
 
