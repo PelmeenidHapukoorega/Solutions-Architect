@@ -79,7 +79,7 @@ Expected error:
 * Access control change verified successfully  
 
 **Evidence**
-[![Resource Group](../screenshots/blobbing.PNG)](../screenshots/blobbing.PNG)
+[![Resource Group](../screenshots/blobbingC.PNG)](../screenshots/blobbingC.PNG)
 
 ---
 
