@@ -2,7 +2,7 @@
 # Virtual machine creation and Nginx installation - Lab Notes
 
 
-Goal: 
+Ovjective: 
 Create a virtual machine > Install Nginx 
  
 
