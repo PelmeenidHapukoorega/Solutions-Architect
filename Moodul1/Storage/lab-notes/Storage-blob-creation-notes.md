@@ -1,5 +1,5 @@
 # Module: Azure storage services
-## Lab: Azure Storage Account + Blob Access Control
+## Lab: Azure Storage Account + Blob creation and Access Control
 
 ### Objective
 Deploy a storage account, create a private blob container, upload a file, test access behavior, and modify access levels.  
