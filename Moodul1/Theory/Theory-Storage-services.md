@@ -1,10 +1,10 @@
 # Module: Azure storage services
 # Key notes
 
-To actually design anything in Azure you gotta understand the compute and networking stack like its your own toolbox. VMs, functions, containers, VNets, subnets, routing they all snap together like a puzzle that decides how fast, secure and reliable your whole setup runs.
+To actually build anything serious in Azure you gotta treat storage like the backbone of your whole setup (I know, not many do have a backbone, but to prevail here you have to have one). Blobs, files, tables, disks, redundancy levels it all decides whether your data survives a bad day or dies crying in a burning datacenter somewhere. Every choice you make here affects durability, performance, costs, and how smooth your apps run when real traffic hits.
 
 **Bottom line:**
-Build smart now, because Future You aint trying to debug a busted network at 2 AM wondering why a VM cant talk to anything.
+Understand your storage game now, cuz Future You does not wanna be that guy trying to recover corrupted blobs at 3 AM wondering why the whole app went down over a bad redundancy choice.
 
 
 ## Table of Contents
