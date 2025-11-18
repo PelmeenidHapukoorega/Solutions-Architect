@@ -1,7 +1,7 @@
 # Module: Azure storage services
 # Key notes
 
-To actually build anything serious in Azure you gotta treat storage like the backbone of your whole setup (I know, not many do have a backbone, but to prevail here you have to have one). Blobs, files, tables, disks, redundancy levels it all decides whether your data survives a bad day or dies crying in a burning datacenter somewhere. Every choice you make here affects durability, performance, costs, and how smooth your apps run when real traffic hits.
+To actually build anything serious in Azure you gotta treat storage like the backbone of your whole setup (I know, not many even have a backbone, but to prevail here you have to have one). Blobs, files, tables, disks, redundancy levels it all decides whether your data survives a bad day or dies crying in a burning datacenter somewhere. Every choice you make here affects durability, performance, costs, and how smooth your apps run when real traffic hits.
 
 **Bottom line:**
 Understand your storage game now, cuz Future You does not wanna be that guy trying to recover corrupted blobs at 3 AM wondering why the whole app went down over a bad redundancy choice.
