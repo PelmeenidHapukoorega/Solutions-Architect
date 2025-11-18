@@ -116,3 +116,10 @@ Expected error:
 
 **Takeaway**  
 You decide what gets exposed. Azure never makes data public unless you explicitly allow it.
+
+### References
+
+### Azure
+
+https://learn.microsoft.com/et-ee/training/modules/describe-azure-storage-services/5-exercise-create-storage-blob
+https://learn.microsoft.com/et-ee/azure/storage/blobs/
