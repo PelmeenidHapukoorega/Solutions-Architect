@@ -1,7 +1,7 @@
 # Module: Azure storage services
 ## Lab: Azure Storage Account + Blob creation and Access Control
 
-To really get storage in Azure you gotta stop acting like blobs are some bottomless magic bucket and start seeing how the whole thing fits together accounts tiers access levels endpoints all stacking up like Lego bricks that decide whether your setup rocks or crashes
+To really get storage in Azure you gotta stop acting like blobs are some bottomless magic bucket and start seeing how the whole thing fits together accounts tiers access levels endpoints all stacking up like Lego bricks that decide whether your setup rocks or crashes.
 
 **Bottomline:** If you know why a blob aint loading, not just how to upload it, you already thinking like someone who actually understands storage for real locked in scalable and not held together with duct tape and hope. Thats that Jimmy Neutron brain blast moment where everything suddenly makes sense and you feel smart as hell for once.
 
