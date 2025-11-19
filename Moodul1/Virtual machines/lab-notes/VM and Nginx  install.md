@@ -3,7 +3,7 @@
 
 To build anything meaningful in Azure compute you gotta master VM deployment and extension configuration. VM + networking + extensions is the foundation for real application hosting. 
 
-**Bottom line:** If you can deploy a VM and automate configuration with extensions, you’re already thinking like an architect or like Megamind (which is cool too).
+**Bottom line:** If you can deploy a VM and automate setup with extensions, you’re already thinking like an architect or like Megamind after three energy drinks, which is honestly the same thing.
 
 ## Task 1 Create a Resource Group (Cloud Shell)
 
