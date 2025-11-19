@@ -5,7 +5,6 @@ To actually understand Azure IaaS you gotta get cozy with the bread and butter V
 
 **Bottom line:** If you can bang out VMs with confidence you can build the whole foundation later thats the cloud version of knowing how to fry an egg before talkin bout opening your own restaurant. Gotta learn the pan before you run the kitchen feel me?
 
-
 ## Steps I took
 
 1. **Created Azure trial account**  
