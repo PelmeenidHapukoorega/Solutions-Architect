@@ -350,4 +350,90 @@ B2C
 * External identities let you bring people in without bringing in their problems
 * They keep auth flexible access controlled and your environment protected
 
+## Azure conditional access
 
+**Key points**
+* Conditional Access is the policy brain of Microsoft Entra ID that decides who gets in and how
+* It looks at signals like user location device and app being accessed
+* Based on those signals it can allow block or require extra verification like MFA
+* Idea is simple let people work from anywhere but still protect the important stuff
+
+**How it works**
+
+1. User tries to sign in to an app or resource  
+
+2. Entra collects signals  
+   * who the user is  
+   * where they are signing in from  
+   * what device they are on  
+   * what app they want to access  
+   * risk level of the sign in  
+   
+3. Conditional Access policy evaluates those signals
+  
+4. Decision is made  
+   * allow  
+   * require MFA  
+   * block
+   
+5. Enforcement happens automatically on that sign in
+
+**Example logic**
+
+* User on known device in trusted location  
+  * allow access with no extra challenge  
+
+* User on unknown device from risky country  
+  * require MFA  
+  * or fully block based on policy  
+
+* Admin role user  
+  * always require MFA no matter where they are  
+
+**When to use Conditional Access**
+
+* Require MFA only when needed  
+  * for admins  
+  * for access from outside office networks  
+  * for sensitive apps like finance or HR  
+
+* Force access through approved apps  
+  * for example allow only specific mail clients  
+
+* Allow access only from managed devices  
+  * devices that are compliant and tracked  
+
+* Block access from untrusted sources  
+  * unknown locations  
+  * unexpected countries  
+  * risky sign in patterns  
+
+**Conditional Access flow diagram**
+
+```ascii
+User sign in
+      |
+      v
++----------------------+
+|  Collect signals     |
+|  user device app     |
+|  location risk       |
++----------------------+
+      |
+      v
++----------------------+
+|   Policy decision    |
+|  allow  mfa  block   |
++----------------------+
+      |
+      v
++----------------------+
+|     Enforcement      |
+|  action applied      |
++----------------------+
+```
+
+**Takeaway**
+* If you understand how Conditional Access reads signals and chooses between allow MFA or block
+you already thinking like the person who controls the front door of the whole cloud setup
+the Entra version of a security guard who actually reads the guest list instead of just waving everyone in
