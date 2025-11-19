@@ -1,10 +1,9 @@
 # Module: Core architectural components of Azure
 # Virtual machine creation (Azure Portal) — Lab Notes
 
-To actually understand Azure IaaS you gotta know how the bread and butter VM gets deployed.  
-This is your entry point into workloads, networking, storage, identities — everything snaps around the VM later.
+To actually understand Azure IaaS you gotta get cozy with the bread and butter VM deployment. This is the front door the lobby the first handshake with the whole cloud stack. Workloads networking storage identity all that other fancy stuff plugs into the VM later like Lego bricks on a mission.
 
-**Bottom line:** If you can build VMs with confidence, you can build the whole foundation later thats the cloud equivalent of knowing how to fry an egg before opening your own restaurant.
+**Bottom line:** If you can bang out VMs with confidence you can build the whole foundation later thats the cloud version of knowing how to fry an egg before talkin bout opening your own restaurant. Gotta learn the pan before you run the kitchen feel me?
 
 
 ## Steps I took
