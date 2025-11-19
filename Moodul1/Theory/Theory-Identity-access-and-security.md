@@ -423,7 +423,7 @@ User sign in
       v
 +----------------------+
 |   Policy decision    |
-|  allow  mfa  block   |
+|  allow  MFA  block   |
 +----------------------+
       |
       v
@@ -437,3 +437,98 @@ User sign in
 * If you understand how Conditional Access reads signals and chooses between allow MFA or block
 you already thinking like the person who controls the front door of the whole cloud setup
 the Entra version of a security guard who actually reads the guest list instead of just waving everyone in
+
+## Azure role based access control
+
+**Key points**
+* Azure RBAC lets you control who can do what in your cloud setup  
+* Based on the principle of least privilege give people only what they need and nothing extra  
+* You assign roles instead of manually giving permissions one by one  
+* Roles contain permissions and users inherit whatever the role allows  
+* Makes access management way easier when teams grow  
+
+### How RBAC actually works
+
+When you give someone a role you are giving them a **bundle of permissions**  
+
+Example  
+* Reader role = can view but cant change anything  
+* Contributor role = can create and modify but cant change access  
+* Owner role = full control including access management  
+
+Instead of managing permissions per person you assign them to a role or Azure AD group and boom everyone in that group gets the exact same access  
+
+### What is a scope
+
+RBAC is always applied at a **scope**  
+A scope can be  
+
+* Management group  
+* Subscription  
+* Resource group  
+* Single resource  
+
+If you assign a role high in the hierarchy it trickles down to everything under it  
+
+### RBAC hierarchy
+
+```ascii
+Management Group
+      |
+      v
+ Subscription
+      |
+      v
+ Resource Group
+      |
+      v
+  Resource
+```
+
+* Assign access at the top and everything below inherits it
+* Assign access at the bottom and only that single thing gets it
+
+### Example of inheritance
+* Assign Owner at management group
+  * user now controls all subscriptions all resource groups all resources
+* Assign Reader at subscription
+  * user can view everything in that subscription but cant modify anything
+
+### Roles VS scopes diagram
+```ascii
++----------------------------+
+|        Role assigned       |
+|   (Owner Contributor etc)  |
++-------------+--------------+
+              |
+              v
++----------------------------+
+|          Scope             |
+| mgmt group subscription    |
+| resource group resource    |
++-------------+--------------+
+              |
+              v
++----------------------------+
+|    Effective permissions   |
+|   actions user can do      |
++----------------------------+
+```
+
+### How RBAC is enforced
+* It only applies to actions that go through Azure Resource Manager
+* That means portal CLI PowerShell REST API
+* RBAC does NOT protect your application data only Azure resource access
+* Uses an allow model
+  * if a role gives you permission you have it
+  * multiple role assignments stack together
+
+Example
+* one role gives you read
+* another gives you write
+  * → you got both read and write
+
+**Takeaway**
+* If you understand roles scopes and inheritance you already thinkin like the person who hands out the keys to the whole kingdom
+* The cloud version of deciding who gets backstage passes and who stays behind the barricade
+
