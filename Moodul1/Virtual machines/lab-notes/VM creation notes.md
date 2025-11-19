@@ -1,33 +1,65 @@
 # Module: Core architectural components of Azure
-# Virtual Machine creatin in Azure interface - Lab Notes
+# Virtual machine creation (Azure Portal) — Lab Notes
 
-Objective: Create a virtual machine in Microsoft Azure
+To actually understand Azure IaaS you gotta know how the bread and butter VM gets deployed.  
+This is your entry point into workloads, networking, storage, identities — everything snaps around the VM later.  
+Bottom line: If you can build VMs with confidence, you can build the whole foundation later.
 
-Why is this important? VM deployment is the foundation for IaaS workloads
 
 ## Steps I took
-1. Made a trial account for Microsoft Azure
-2. Selected "Virtual machines" option from Azure services menu
-3. From the upperside menu picked "+create" > "Virtual machine"
-4. Verified and entered the followin values provided by the learn path as following:
-Subscription - default (if using trial version then shows up as "Azure subscription 1"
-Resource group - Lab told me to name it IntroAzureRG but I named it instead "Virtukas"
-Virtual machine - named it "my-virtukas"
-Region - left default which was "Norway East"
-SSH - ports left open to internet for testin reasons
-Username - azurehermit
-The rest - left default
-5. Since the goal was to simply create a virtual machine then no other tabs needed to be specified so I went ahead and hit "Review + create"
-6. Waited for Validation of VM which took around 30sec, went ahead and pressed "Create"
-7. VM deployment took around 20 sec, deployment complete
 
-No issues in creating the VM since it is pretty straight forward and this is pretty basic.
+1. **Created Azure trial account**  
+   Fresh subscription shows up as *Azure subscription 1* if using a trial.
 
-After the VM was successfully deployed I went back to home page and scrolled down to a section that is called "Navigate".
-From there I selected "Resource Groups" since the purpose of this task was to create a resource i.e the VM and we want to check whether we succeeded. We did.
+2. **Opened the Virtual Machines service**  
+   From Azure Home → “Virtual machines”.
 
-I have provided screenshots in the Module1-VM folder for further proof.
+3. **Started deployment**  
+   Top menu → **+ Create** → **Azure virtual machine**
 
-Congrats! You now know how to deploy a VM in Microsoft Azure! Juhhuu!
+4. **Entered required values (from learning path)**  
+   **Subscription:** Azure subscription 1  
+   **Resource Group:** Lab suggested *IntroAzureRG*, I used **Virtukas**  
+   **VM Name:** **my-virtukas**  
+   **Region:** Left default (**Norway East**)  
+   **SSH Settings:** Allowed SSH from internet (lab scenario only)  
+   **Username:** **azurehermit**  
+   **Rest:** Left defaults (size, disks, networking, management)
 
-References: https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/
+5. **Reviewed & deployed**  
+   Hit **Review + create**  
+   Validation took ~30 sec  
+   Hit **Create**  
+   Deployment finished in ~20 sec
+
+6. **Verified the resource**  
+   Home → **Resource Groups** → opened **Virtukas**  
+   VM appeared correctly inside the RG.
+
+7. **Screenshots**  
+   Provided in:  
+   `Module1-VM/` folder inside repo  
+
+## What I learned
+
+**Key points**
+* Portal-based VM deployment is the simplest way to create IaaS resources  
+* Resource Group organizes the VM and all its related assets  
+* Region affects cost, latency, availability  
+* SSH authentication chosen at creation time becomes permanent unless reconfigured  
+* Defaults work for basic labs but are never recommended for production
+
+## Verification Evidence
+* VM successfully created  
+* Resource Group visible with all related components  
+* Deployment history in portal confirms steps  
+* Screenshots stored in repo
+
+## Takeaway
+If you can deploy a VM, you’ve officially unlocked the base layer of Azure IaaS.  
+Every future workload (networking, storage, security, automation) builds on this foundation.  
+
+Congrats — VM deployed like a champ.
+
+## References
+https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/
