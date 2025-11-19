@@ -1,9 +1,9 @@
 # Module: Azure compute and networking services
 # Configuring network access for VM and accessing web server lab notes
 
-To actually understand networking in Azure you gotta break a VM on purpose and then fix it. NSGs, ports, SSH, inbound rules this is where the cloud learning begins.
+To really get networking in Azure you gotta straight up break a VM on purpose then drag it back to life like its your side hustle. NSGs ports SSH inbound rules all that is where you stop being a button clicker and start being a real cloud detective for real.
 
-**Bottom line:** If you can troubleshoot why a VM wont respond, youre already thinkin like the kinda person who keeps real systems running basically the IT version of ScoobyDoo solving mysteries or Dexter fixing his lab after Dee Dee nukes it again.
+**Bottom line:** If you can figure out why a VM wont talk back you already thinkin like the kinda dude who keeps real systems alive basically the IT ScoobyDoo crackin clues or Dexter rebuildin his lab after Dee Dee wilds out again. Cloud mysteries solved player.
 
 ### Task 1  Retrieved VM IP address
 Used `az vm list-ip-addresses` and stored result in Bash variable.
