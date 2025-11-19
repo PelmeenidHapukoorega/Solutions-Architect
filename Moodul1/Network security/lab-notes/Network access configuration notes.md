@@ -1,9 +1,9 @@
 # Module: Azure compute and networking services
 # Configuring network access for VM and accessing web server lab notes
 
-To actually understand networking in Azure you gotta break a VM on purpose and then fix it. NSGs, ports, SSH, inbound rules this is where the cloud learning begins. 
+To actually understand storage in Azure you gotta stop treating blobs like some magic bucket and start digging into how accounts, tiers, access levels and endpoints really work. The moment your blob URL throws you an error and you fix it yourself? Thats when the learning hits for real.
 
-**Bottom line:** If you can troubleshoot why a VM wont respond, you’re already thinking like someone who builds and maintains real systems.
+**Bottom line:** If you know why a blob ain’t loading, not just how to upload it, you’re already thinking like someone who designs storage the right way secure, scalable, and never by accident.
 
 ### Task 1  Retrieved VM IP address
 Used `az vm list-ip-addresses` and stored result in Bash variable.
