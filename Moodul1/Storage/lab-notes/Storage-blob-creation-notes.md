@@ -5,8 +5,6 @@ To actually understand storage in Azure you gotta stop treating blobs like some 
 
 **Bottomline:** If you know why a blob aint loading, not just how to upload it, youre already thinking like someone who actually understands storage locked in, scalable, and not held together with duct tape. Thats the kinda energy where you lowkey feel like Jimmy Neutron catching a **brain blast** at the right moment.
 
-
-
 ## 1. Create storage account
 
 ### Actions
