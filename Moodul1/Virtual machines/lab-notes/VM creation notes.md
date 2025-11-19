@@ -4,7 +4,7 @@
 To actually understand Azure IaaS you gotta know how the bread and butter VM gets deployed.  
 This is your entry point into workloads, networking, storage, identities — everything snaps around the VM later.
 
-**Bottom line:** If you can build VMs with confidence, you can build the whole foundation later.
+**Bottom line:** f you can build VMs with confidence, you can build the whole foundation later thats the cloud equivalent of knowing how to fry an egg before opening your own restaurant.
 
 
 ## Steps I took
