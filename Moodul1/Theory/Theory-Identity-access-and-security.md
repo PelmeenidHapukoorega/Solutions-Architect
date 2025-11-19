@@ -42,8 +42,8 @@ Lock your house now, because Future You aint tryna explain to your boss why some
 * Anyone using Microsoft 365 Azure CRM basically all of em run through Entra ID
 
 **Takeaway**
-Entra ID is the identity backbone for everything you do in Azure  
-If the account aint right nothing else works right
+* Entra ID is the identity backbone for everything you do in Azure  
+* If the account aint right nothing else works right
 
 ### Connecting on premises AD with Microsoft Entra ID
 
@@ -62,7 +62,7 @@ Cloud apps and resources
 ```
 
 **Takeaway**
-Entra Connect makes on premises identity and cloud identity act like one system
+* Entra Connect makes on premises identity and cloud identity act like one system
 
 ### Microsoft Entra Domain Services
 
@@ -115,10 +115,9 @@ Apps VMs LDAP Kerberos NTLM
 ### Summary
 **Microsoft Entra ID**
   * The cloud identity boss that handles authentication SSO app access device registration and security intelligence
-
 **Entra Connect**
   * The sync bridge that merges your on prem AD with cloud identity so everything acts unified
-**Entra Domain Services (EDS)
+**Entra Domain Services (EDS)**
   * The managed old school domain environment for legacy workloads that need domain join and classic auth without you           running DCs
 
 ## Azure authentication methods
@@ -192,7 +191,7 @@ Low security Low convenience        = nobody uses that
 
 **Passwordless options**
 
-**1. Windows Hello for Business
+**1. Windows Hello for Business**
 
       * Tied to your PC
       * Uses biometrics or PIN
@@ -360,23 +359,23 @@ B2C
 
 **How it works**
 
-1. User tries to sign in to an app or resource  
+**1. User tries to sign in to an app or resource** 
 
-2. Entra collects signals  
+**2. Entra collects signals**  
    * who the user is  
    * where they are signing in from  
    * what device they are on  
    * what app they want to access  
    * risk level of the sign in  
    
-3. Conditional Access policy evaluates those signals
+**3. Conditional Access policy evaluates those signals**
   
-4. Decision is made  
+**4. Decision is made**  
    * allow  
    * require MFA  
    * block
    
-5. Enforcement happens automatically on that sign in
+**5. Enforcement happens automatically on that sign in**
 
 **Example logic**
 
@@ -437,6 +436,17 @@ User sign in
 * If you understand how Conditional Access reads signals and chooses between allow MFA or block
 you already thinking like the person who controls the front door of the whole cloud setup
 the Entra version of a security guard who actually reads the guest list instead of just waving everyone in
+
+### Summary
+* Makes access decisions based on signals like user device location and app
+* Lets you allow block or require MFA depending on the situation
+* Protects org assets while keeping users productive
+* More flexible than blanket MFA cuz it only challenges when needed
+* Enforces rules during sign in flow automatically
+* Perfect for blocking risky sign ins or unknown locations
+* Can force access only from managed or compliant devices
+* Can require specific approved apps for access
+* Lets admins build “if this then that” security logic without custom code
 
 ## Azure role based access control
 
@@ -532,3 +542,292 @@ Example
 * If you understand roles scopes and inheritance you already thinkin like the person who hands out the keys to the whole kingdom
 * The cloud version of deciding who gets backstage passes and who stays behind the barricade
 
+### Summary
+* Give people only the access they actually need
+* Use roles instead of manually assigning permissions
+* Built in roles cover most jobs you dont gotta reinvent nothing
+* Custom roles exist when you need that special sauce
+* Permissions apply at a scope like management group subscription resource group or resource
+* Higher level scopes pass permissions down the chain
+* Add someone to a role and boom they get all the permissions tied to it
+* Remove the role and poof access gone
+* Azure RBAC only handles control plane not data plane  
+  your apps still gotta protect themselves
+
+## Zero Trust model
+
+**Key points**
+* Zero Trust assumes everything is hostile by default  
+* No one gets a free pass not your users not your apps not even devices sitting inside your network  
+* Every request is verified every time using identity device health location and risk  
+* Access is granted with minimum permissions Just Enough Access and Just In Time  
+* You operate on the mindset of assume breach and contain everything  
+
+### What Zero Trust actually is
+
+Old school security  
+"if youre inside the network youre cool"
+
+Zero Trust  
+"nah fam show ID every time and even then you still only get what you absolutely need"
+
+Instead of trusting a network location Zero Trust trusts signals identity and context  
+
+## The three core pillars
+
+### 1 verify explicitly
+* Always authenticate  
+* Always authorize  
+* Use all signals  
+  * user identity  
+  * device health  
+  * location  
+  * risk score  
+  * workload context  
+
+### 2 least privilege access
+* JIT Just in time access  
+* JEA Just enough access  
+* Reduce blast radius  
+* No one gets more permissions than needed  
+
+### 3 assume breach
+* Always think something is compromised  
+* Segment networks  
+* Limit lateral movement  
+* Encrypt everything end to end  
+* Use analytics and threat detection everywhere  
+
+## Zero Trust compared to old school security
+
+```txt
+Classic model
+------------
+Inside network = trusted
+Outside network = untrusted
+VPN = magic tunnel of trust
+Attackers only get in if perimeter breaks
+
+Zero Trust model
+----------------
+Nothing trusted by default
+Every request authenticated
+Every device checked
+Permissions minimal
+Assume attacker is already inside
+```
+
+### Zero Trust flow diagram
+```txt
+User or device request
+         |
+         v
+  +--------------------+
+  |   Verify identity  |
+  |   device health    |
+  |   location risk    |
+  +--------------------+
+         |
+         v
++-----------------------+
+|   Evaluate policy     |
+|   JIT JEA conditions  |
++-----------------------+
+         |
+         v
++---------------------+
+| Enforce decision    |
+| allow deny or MFA   |
++---------------------+
+```
+
+### Why companies move to Zero Trust
+* remote work
+* mobile devices
+* cloud apps
+* attackers not respecting your old perimeter
+
+Organizations need a model that works anywhere not just inside some office building
+
+**Takeaway**
+* Zero Trust is basically Azure saying trust nobody
+verify everybody and lock down access like youre securing the last slice of pizza at a party
+That mindset keeps your environment safe no matter where the users or devices roam
+
+### Summary
+* Trust nothing by default
+* Verify every request like it owes you money
+* Always authenticate and authorize with all signals
+* Give users only the minimum access needed
+* Use just in time and just enough access
+* Assume breach all the time
+* Segment everything so one slip dont wreck the whole house
+* Encrypt end to end
+* Use analytics to detect and react fast
+
+## Defense in depth
+
+**Key points**
+* Defense in depth means you lock down your stuff in layers like an onion  
+* Goal is to slow an attacker down and stop the breach before they touch your data  
+* If one layer fails another layer steps in like backup dancers with hands  
+* Azure gives tools for every layer from physical building locks to data encryption  
+
+### Defense in depth layers
+Visualize it like a big stack with your data chilling in the center and every other layer acting like a shield around it
+
+**ASCII diagram**
+```pgsql
+          +----------------------+
+          |   Physical security  |
+          +----------------------+
+          | Identity and access  |
+          +----------------------+
+          |     Perimeter        |
+          +----------------------+
+          |       Network        |
+          +----------------------+
+          |       Compute        |
+          +----------------------+
+          |     Application      |
+          +----------------------+
+          |        Data          |
+          +----------------------+
+```
+
+### Physical security
+**What it does**
+* Protects buildings and hardware  
+* Ensures attackers cant bypass everything and just yank your drives  
+* Microsoft datacenters handle guards locks cameras biometric gates and all that  
+
+### Identity and access
+**What it does**
+* Controls who can touch what  
+* Uses SSO MFA audit logs and least privilege  
+* You limit access and track changes so nobody sneaks in  
+
+### Perimeter
+**What it does**
+* Shields your environment from big network attacks  
+* Uses DDoS protection and firewalls  
+* Filters malicious traffic before it even hits your network  
+
+### Network
+**What it does**
+* Controls communication between resources  
+* Enforces deny by default  
+* Limits inbound and outbound internet access  
+* Secures hybrid connections  
+
+### Compute
+**What it does**
+* Ensures VMs and devices are locked down  
+* Patch management endpoint protection secure access  
+* Reduces risk from malware or misconfigurations  
+
+### Application
+**What it does**
+* Keeps your apps clean of vulnerabilities  
+* Secrets stored properly  
+* Security added into dev workflow not tacked on later  
+
+### Data
+**What it does**
+- Protects the thing attackers actually want  
+- Encrypts and controls access to data in DBs storage accounts and SaaS apps  
+- Meets compliance and regulatory requirements  
+
+### Summary
+* Defense in depth stacks multiple layers of protection  
+* Each layer covers the one before it  
+* Designed to slow attackers down and alert defenders  
+* Azure provides tools across every layer to secure your apps and data  
+
+## Microsoft Defender for Cloud
+
+**Key points**
+* Defender for Cloud is your all in one security posture and threat protection platform  
+* Monitors Azure onprem hybrid and multicloud environments  
+* Helps harden resources identify vulnerabilities and detect threats  
+* Gives recommendations secure score and alerts so you always know what needs fixing  
+* Azure native so setup is instant for most Azure services  
+
+### What Defender for Cloud does
+* Continuously evaluates your security posture  
+* Finds misconfigurations and vulnerabilities across compute data and storage  
+* Protects Azure PaaS services networks SQL and containers  
+* Extends protection to hybrid servers through Azure Arc  
+* Extends protection to AWS and GCP with CSPM and Defender plans  
+* Detects threats and gives detailed alerts and remediation guidance  
+
+## Where it protects
+
+### Azure native services
+* App Service SQL Storage and more  
+* Threat detection and anomaly detection  
+* Vulnerability assessments for SQL and storage  
+* Just in time VM access to reduce open ports  
+* Adaptive application controls to limit what runs on a VM  
+
+### Hybrid resources
+* Uses Azure Arc to onboard non Azure machines  
+* Same alerting and posture checks for onprem servers  
+* Prioritized threat intelligence based on your environment  
+
+### Multicloud AWS and GCP
+* CSPM assessment for AWS  
+* AWS resources appear in secure score  
+* Defender for Containers protects Amazon EKS clusters  
+* Defender for Servers protects EC2 instances  
+
+## Core model: Assess Secure Defend
+
+### Continuously assess
+* Vulnerability assessment for VMs containers and SQL  
+* Native integration with Defender for Endpoint  
+* Regular scans across your stack  
+* Everything visible inside Defender for Cloud  
+
+### Secure
+* Security policies through Azure Policy  
+* Azure Security Benchmark as the baseline  
+* New resources scanned instantly  
+* Secure score shows posture health  
+* Recommendations grouped into security controls  
+
+### Defend
+* Security alerts with remediation steps  
+* Kill chain analysis for full attack story  
+* Automated responses with logic apps  
+* Threat protection for VMs SQL containers networks  
+
+## Defender for Cloud workflow diagram
+
+```txt
+          +----------------------------+
+          |   Continuously Assess      |
+          | vulnerabilities misconfigs |
+          +-------------+--------------+
+                        |
+                        v
+          +----------------------------+
+          |          Secure            |
+          | apply benchmarks policies  |
+          | improve secure score       |
+          +-------------+--------------+
+                        |
+                        v
+          +----------------------------+
+          |           Defend           |
+          | alerts threat detection    |
+          | kill chain correlation     |
+          +----------------------------+
+```
+
+**Takeaway**
+* Defender for Cloud monitors Azure onprem and multicloud
+* Shows what is wrong how risky it is and how to fix it
+* Secure score gives one glance at your overall security health
+* Threat detection uses correlation not just raw alerts
+* Works with AWS and GCP for one unified security view
