@@ -1,9 +1,9 @@
 # Module: Azure compute and networking services
 # Virtual machine creation and Nginx installation lab notes
 
-To build anything meaningful in Azure compute you gotta master VM deployment and extension configuration. VM + networking + extensions is the foundation for real application hosting. 
+To build anything real in Azure compute you gotta get tight with VM deployment and them extensions. VM plus networking plus extensions is like the holy trinity of makin apps actually run instead of sittin there lookin useless. This the groundwork the foundation the concrete slab under the whole cloud crib.
 
-**Bottom line:** If you can deploy a VM and automate setup with extensions, you’re already thinking like an architect or like Megamind after three energy drinks, which is honestly the same thing.
+**Bottom line:** If you can spin up a VM and make it set itself up with extensions you already thinkin like an architect or like Megamind after three energy drinks which is basically the same brainwave level just blue and shiny.
 
 ## Task 1 Create a Resource Group (Cloud Shell)
 
