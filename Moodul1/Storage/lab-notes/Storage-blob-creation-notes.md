@@ -21,10 +21,10 @@ Focus is on understanding storage account configuration, blob security, and publ
 * Anonymous access on containers: Enabled (Advanced tab)
 
 ### Outcome
-✔ Storage account successfully deployed  
-✔ Unique global namespace assigned  
-✔ LRS redundancy configured  
-✔ Anonymous container access allowed (account level)
+* Storage account successfully deployed  
+* Unique global namespace assigned  
+* LRS redundancy configured  
+* Anonymous container access allowed (account level)
 
 ### Evidence
 [![Resource Group](../screenshots/overview.PNG)](../screenshots/overview.PNG)
@@ -40,8 +40,8 @@ Focus is on understanding storage account configuration, blob security, and publ
    * Access level: Private (no anonymous access)
 
 ### Outcome
-✔ Private container created  
-✔ No public access allowed (default secure posture)
+* Private container created  
+* No public access allowed (default secure posture)
 
 ### Evidence
 [![Resource Group](../screenshots/basement.PNG)](../screenshots/basement.PNG)
@@ -61,10 +61,11 @@ Attempted to open blob URL in a new browser tab.
 Result: Access denied because container is private.
 
 Expected error:
+
 [![Resource Group](../screenshots/errorohno.PNG)](../screenshots/errorohno.PNG)
 ### Outcome
-✔ Blob uploaded 
-✔ URL reachable but blocked due to private access level
+* Blob uploaded 
+* URL reachable but blocked due to private access level
 
 ## 4. Change access level and retest
 
@@ -80,8 +81,6 @@ Expected error:
 
 **Evidence**
 [![Resource Group](../screenshots/blobbingC.PNG)](../screenshots/blobbingC.PNG)
-
----
 
 ## 5. Cleanup
 
