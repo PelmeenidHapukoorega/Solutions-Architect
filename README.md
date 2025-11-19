@@ -27,6 +27,8 @@ I sincerely hope that some of the readers may find a bit of hope in all this. Ju
 **Written on 14th Nov 2025**
 #
 
+**Important!** In order for transparency and defeating imposter syndrome: Some explanations in my Theory and Lab notes were refined using AI tools, however every lab, command and troubleshooting step was performed and verified by me.
+
 ## Additional Documentation
 ### Ive listed below my notes from theory side of the labs and made it more convenient for myself to learn and added quick notes to myself to better memorize what I learned. You will also find quick links to labs themselves.
 
