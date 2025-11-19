@@ -1,15 +1,14 @@
 # Module: Azure compute and networking services
 # Configuring network access for VM and accessing web server lab notes
 
-To actually understand networking in Azure you gotta break a VM on purpose and then fix it. NSGs, ports, SSH, inbound rules — this is where the real cloud learning hits. 
+To actually understand networking in Azure you gotta break a VM on purpose and then fix it. NSGs, ports, SSH, inbound rules this is where the cloud learning begins. 
 
-**Bottom line:** If you can troubleshoot why a VM won’t respond, you’re already thinking like someone who builds and maintains real systems.
+**Bottom line:** If you can troubleshoot why a VM wont respond, you’re already thinking like someone who builds and maintains real systems.
 
-## Task 1 Accessing the Web Server
+**Objective:** Show that I can deploy a VM, set up Nginx, and configure the network around it so I fully understand how traffic actually reaches a service running inside Azure.
 
-**Goal:** Retrieve the VM public IP and test whether Nginx is reachable.
 
-### Task 1 — Retrieved VM IP address
+### Task 1  Retrieved VM IP address
 Used `az vm list-ip-addresses` and stored result in Bash variable.
 
 ```bash
@@ -97,6 +96,8 @@ az network nsg rule create \
 --destination-port-range 80 \
 --access Allow
 ```
+
+Result:
 [![Resource Group](../screenshots/nsgrule.PNG)](../screenshots/nsgrule.PNG)
 
 ### Verified rules again:
@@ -105,6 +106,28 @@ Name               Priority    Port    Access
 -----------------  ----------  ------  --------
 default-allow-ssh  1000        22      Allow
 allow-http         100         80      Allow
+```
+
+### NSG flow explained:
+```pgsql
+        Client Request
+              |
+              v
+      +----------------+
+      | Public IP NIC  |
+      +----------------+
+              |
+              v
+      +----------------+
+      | Network NSG    |
+      | (inbound rules)|
+      +----------------+
+              |
+   allow? ----+---- deny?
+      |                |
+      v                v
+   Traffic         Blocked
+   allowed         (dropped)
 ```
 
 ## Task 4 Accessed Web Server Again
@@ -116,7 +139,7 @@ curl --connect-timeout 5 http://$IPADDRESS
 Now successful:
 [![Resource Group](../screenshots/welcome.PNG)](../screenshots/welcome.PNG)
 
-### Step 2 Browser refresh
+### Step 2 Browser refresh:
 [![Resource Group](../screenshots/welcome2.PNG)](../screenshots/welcome2.PNG)
 
 ## Challenge Customize Nginx Homepage
@@ -169,6 +192,8 @@ az vm show \
 --query "osProfile.linuxConfiguration.ssh" \
 --output tsv
 ```
+
+Result:
 [![Resource Group](../screenshots/sshconfigret.PNG)](../screenshots/sshconfigret.PNG)
 
 ### Step 5 Checked local SSH keys
@@ -181,7 +206,7 @@ Only `known_hosts` existed, no SSH keypair created.
 ```bash
 ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -C "azure-vm-key"
 ```
-Left passphrase empty (lab VM).
+Left passphrase empty (lab VM):
 [![Resource Group](../screenshots/passp.PNG)](../screenshots/passp.PNG)
 
 ### Step 7 Added new SSH key to VM user
