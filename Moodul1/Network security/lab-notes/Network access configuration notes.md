@@ -5,9 +5,6 @@ To actually understand networking in Azure you gotta break a VM on purpose and t
 
 **Bottom line:** If you can troubleshoot why a VM wont respond, you’re already thinking like someone who builds and maintains real systems.
 
-**Objective:** Show that I can deploy a VM, set up Nginx, and configure the network around it so I fully understand how traffic actually reaches a service running inside Azure.
-
-
 ### Task 1  Retrieved VM IP address
 Used `az vm list-ip-addresses` and stored result in Bash variable.
 
