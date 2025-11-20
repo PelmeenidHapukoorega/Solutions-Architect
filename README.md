@@ -26,4 +26,4 @@ I sincerely hope that some of the readers may find a bit of hope in all this. Ju
 
 Just start doing.
 
-**Written on 14th Nov 2025**
+**Nov 2025**
