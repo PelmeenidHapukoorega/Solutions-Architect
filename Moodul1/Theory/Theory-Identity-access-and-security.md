@@ -831,3 +831,6 @@ Visualize it like a big stack with your data chilling in the center and every ot
 * Secure score gives one glance at your overall security health
 * Threat detection uses correlation not just raw alerts
 * Works with AWS and GCP for one unified security view
+
+## References
+https://learn.microsoft.com/et-ee/training/modules/describe-azure-identity-access-security/
