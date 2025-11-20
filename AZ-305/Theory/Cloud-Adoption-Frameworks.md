@@ -7,3 +7,14 @@ Cloud aint just servers in the sky its a full lifestyle change for your tech you
 
 **Bottom line:**
 Follow the framework and you move smooth. Ignore it and you gonna end up troubleshooting your own bad decisions like you speedran cloud chaos percent any% no safety gear.
+
+## Table of Contents
+
+* [Strategy](#strategy)
+* [Plan](#plan)
+* [Ready](#ready)
+* [Migrate](#migrate)
+* [Innovate](#innovate)
+* [Govern](#govern)
+* [Manage](#manage)
+* [Secure](#secure)
