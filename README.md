@@ -32,7 +32,15 @@ I sincerely hope that some of the readers may find a bit of hope in all this. Ju
 ## Additional Documentation
 ### Ive listed below my notes from theory side of the labs and made it more convenient for myself to learn and added quick notes to myself to better memorize what I learned. You will also find quick links to labs themselves.
 
-## Theory
+# Module menu
+- [AZ-305 Architect Design Prerequisites (Moodul 1)](#az-305-architect-design-prerequisites-moodul-1)
+- [AZ-305 Design identity governance and monitor solutions (Moodul 2)](#az-305-design-identity-governance-and-monitor-solutions-moodul-2)
+- [AZ-305 Design business continuity solutsions (Moodul 3)](#az-305-design-business-continuity-solutsions-moodul-3)
+- [AZ-305 Design data storage solutions (Moodul 4)](#az-305-design-data-storage-solutions-moodul-4)
+- [AZ-305 Design IaaS](#az-305-design-iaas)
+- [Build great solutions with the Microsoft Azure Well-Architected Framework](#build-great-solutions-with-the-microsoft-azure-well-architected-framework)
+
+
 ## AZ-305 Architect Design Prerequisites (Moodul 1)
 - [Theory Infra Notes](Moodul1/Theory/Theory-Infra.md)
 - [Theory Computer and Networking services](Moodul1/Theory/Theory-computer-and-networking-services.md)
