@@ -1,11 +1,10 @@
-
-
-
-**Important!** In order for transparency and defeating imposter syndrome: Some explanations in my Theory and Lab notes were refined using AI tools, however every lab, command and troubleshooting step was performed and verified by me.
+# My Journey through AZ-305
+From labs and theory to eventually getting the certification. Here I have documented everything I have done so far towards AZ-305 certification. You can find both labs and theory. Theory has been revamped to be more concise without unnecessary information that hogs the brain, so I have structured my notes accordingly for ease of memory and study in preperation for my exam.
 
 ## Additional Documentation
 ### Ive listed below my notes from theory side of the labs and made it more convenient for myself to learn and added quick notes to myself to better memorize what I learned. You will also find quick links to labs themselves.
 
+**Important!** In order for transparency and defeating imposter syndrome: Some explanations in my Theory and Lab notes were refined using AI tools, however every lab, command and troubleshooting step was performed and verified by me.
 
 # Module menu
 - [AZ-305 Architect Design Prerequisites (Moodul 1)](#az-305-architect-design-prerequisites-moodul-1)
