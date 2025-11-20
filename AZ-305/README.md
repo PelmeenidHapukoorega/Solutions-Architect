@@ -8,12 +8,12 @@ I hope the reader enjoys going through this as much as I do!
 **Important!** In order for transparency and defeating imposter syndrome: Some explanations in my Theory and Lab notes were refined using AI tools, however every lab, command and troubleshooting step was performed and verified by me.
 
 # Module menu
-- [AZ-305 Architect Design Prerequisites (Moodul 1)](#az-305-architect-design-prerequisites-module-1)
-- [AZ-305 Design identity governance and monitor solutions (Moodul 2)](#az-305-design-identity-governance-and-monitor-solutions-module-2)
-- [AZ-305 Design business continuity solutsions (Moodul 3)](#az-305-design-business-continuity-solutsions-module-3)
-- [AZ-305 Design data storage solutions (Moodul 4)](#az-305-design-data-storage-solutions-module-4)
+- [AZ-305 Architect Design Prerequisites (Module 1)](#az-305-architect-design-prerequisites-module-1)
+- [AZ-305 Design identity governance and monitor solutions (Module 2)](#az-305-design-identity-governance-and-monitor-solutions-module-2)
+- [AZ-305 Design business continuity solutsions (Module 3)](#az-305-design-business-continuity-solutsions-module-3)
+- [AZ-305 Design data storage solutions (Module 4)](#az-305-design-data-storage-solutions-module-4)
 - [AZ-305 Design IaaS (Moodul 5)](#az-305-design-iaas-module-5)
-- [AZ-305 Build great solutions with the Microsoft Azure Well-Architected Framework (Moodul 6)](#az-305-build-great-solutions-with-the-microsoft-azure-well-architected-framework-module-6)
+- [AZ-305 Build great solutions with the Microsoft Azure Well-Architected Framework (Module 6)](#az-305-build-great-solutions-with-the-microsoft-azure-well-architected-framework-module-6)
 
 
 ## AZ-305 Architect Design Prerequisites (Module 1)
