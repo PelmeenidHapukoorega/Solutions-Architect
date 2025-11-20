@@ -1,8 +1,9 @@
 # My Journey through AZ-305
-From labs and theory to eventually getting the certification. Here I have documented everything I have done so far towards AZ-305 certification. You can find both labs and theory. Theory has been revamped to be more concise without unnecessary information that hogs the brain, so I have structured my notes accordingly for ease of memory and study in preperation for my exam.
+From labs and theory all the way to becoming a full blown Solutions Architect in the making. This is where ive documented every step of my AZ-305 journey. Im not doing this just to pass an exam, im doing this to actually build the skills, confidence and technical muscle needed to design solutions.
 
-## Additional Documentation
-### Ive listed below my notes from theory side of the labs and made it more convenient for myself to learn and added quick notes to myself to better memorize what I learned. You will also find quick links to labs themselves.
+Here youll find all my labs and theory notes. The theory has been rebuilt to be concise and practical, no pointless brain hogging stuff, structured so I can remember and apply it in real scenarios now and in the future. Ive added quick notes to reinforce learning for myself and below youll find easy menu for fast navigation.
+
+I hope the reader enjoys going through this as much as I do!
 
 **Important!** In order for transparency and defeating imposter syndrome: Some explanations in my Theory and Lab notes were refined using AI tools, however every lab, command and troubleshooting step was performed and verified by me.
 
