@@ -11,7 +11,7 @@ So i decided to quit my job without knowing what exactly it is that im going to 
 However Im not the type of person who gives up. Ever. 
 
 So I remembered what a close friend of mine told me at the start of the year when i told him that i wanted to quit sales entirely and move back to IT. He said instinctively "Cloud" (Shout out to you Arthur if you are reading this. +rep). 
-After talking about it for few moments, i went home, looked it up and got started with AWS on coursera (which i have useless certs of). I knew of Azure but i was thinking at the time (July) that i should stick to 1 and learn it entirely and specialize it. It was an impulsive descision but i just kept telling myself "dude just start". 
+After talking about it for few moments, i went home, looked it up and got started with AWS on coursera (which i have useless certs of). I knew of Azure but i was thinking at the time (July) that i should stick to 1 and learn it entirely and specialize in it. It was an impulsive descision but i just kept telling myself "dude just start". 
 
 And i did. 
 
