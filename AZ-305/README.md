@@ -18,7 +18,7 @@
 
 ## AZ-305 Architect Design Prerequisites (Moodul 1)
 - [Theory Infra Notes](AZ-305/Theory/Theory-Infra.md)
-- [Theory Computer and Networking services](AZ-305/Theory/Theory-computer-and-networking-services.md)
+- [Theory Computer and Networking services](Theory/Theory-computer-and-networking-services.md)
 - [Theory Storage services](AZ-305/Theory/Theory-Storage-services.md)
 - [Theory Identity access and security](AZ-305/Theory/Theory-Identity-access-and-security.md)
 - [Cloud Adoption Frameworks](AZ-305/Theory/Cloud-Adoption-Frameworks.md)
@@ -43,14 +43,3 @@
 ## Build great solutions with the Microsoft Azure Well-Architected Framework (Moodul 6)
 ### Labs
 
-## Theory
-- [Theory Infra Notes](AZ-305/Theory/Theory-Infra.md)
-- [Theory Computer and Networking services](AZ-305/Theory/Theory-computer-and-networking-services.md)
-- [Theory Storage services](AZ-305/Theory/Theory-Storage-services.md)
-
-## Labs
-- [Virtual Machines Folder](AZ-305/Virtual%20machines/)
-
-- [Network Security Folder](AZ-305/Network%20security/)
-
-- [Storage Folder](AZ-305/Storage/)
