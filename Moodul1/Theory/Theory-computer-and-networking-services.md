@@ -355,6 +355,8 @@ Private DNS keeps internal names clean consistent and invisible to the public
 
 Alias records = DNS that updates itself and always stays correct
 
+## References
+https://learn.microsoft.com/et-ee/training/modules/describe-azure-compute-networking-services/
 # **Important!**
 * Azure DNS cannot purchase domain names
 * Buy domains through App Service Domains or a third party
