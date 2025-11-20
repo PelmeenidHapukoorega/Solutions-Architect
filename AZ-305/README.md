@@ -13,7 +13,7 @@ I hope the reader enjoys going through this as much as I do!
 - [AZ-305 Design business continuity solutsions (Moodul 3)](#az-305-design-business-continuity-solutsions-moodul-3)
 - [AZ-305 Design data storage solutions (Moodul 4)](#az-305-design-data-storage-solutions-moodul-4)
 - [AZ-305 Design IaaS (Moodul 5)](#az-305-design-iaas-moodul-5)
-- [Build great solutions with the Microsoft Azure Well-Architected Framework (Moodul 6)](#build-great-solutions-with-the-microsoft-azure-well-architected-framework-moodul-6)
+- [AZ-305 Build great solutions with the Microsoft Azure Well-Architected Framework (Moodul 6)](#az-305-build-great-solutions-with-the-microsoft-azure-well-architected-framework-moodul-6)
 
 
 ## AZ-305 Architect Design Prerequisites (Moodul 1)
@@ -40,6 +40,6 @@ I hope the reader enjoys going through this as much as I do!
 ## AZ-305 Design IaaS (Moodul 5)
 ### Labs
 
-## Build great solutions with the Microsoft Azure Well-Architected Framework (Moodul 6)
+## AZ-305 Build great solutions with the Microsoft Azure Well-Architected Framework (Moodul 6)
 ### Labs
 
