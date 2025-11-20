@@ -33,12 +33,29 @@ I sincerely hope that some of the readers may find a bit of hope in all this. Ju
 ### Ive listed below my notes from theory side of the labs and made it more convenient for myself to learn and added quick notes to myself to better memorize what I learned. You will also find quick links to labs themselves.
 
 ## Theory
+## AZ-305 Architect Design Prerequisites (Moodul 1)
 - [Theory Infra Notes](Moodul1/Theory/Theory-Infra.md)
 - [Theory Computer and Networking services](Moodul1/Theory/Theory-computer-and-networking-services.md)
 - [Theory Storage services](Moodul1/Theory/Theory-Storage-services.md)
 - [Theory Identity access and security](Moodul1/Theory/Theory-Identity-access-and-security.md)
 - [Cloud Adoption Frameworks](Moodul1/Theory/Cloud-Adoption-Frameworks.md)
-## Labs
+### Labs
 - [Virtual Machines Folder](Moodul1/Virtual%20machines/)
 - [Network Security Folder](Moodul1/Network%20security/)
 - [Storage Folder](Moodul1/Storage/)
+
+
+## AZ-305 Design identity, governance and monitor solutions (Moodul 2)
+### Labs
+
+## AZ-305 Design business continuity solutsions (Moodul 3)
+### Labs
+
+## AZ-305 Design data storage solutions (Moodul 4)
+### Labs
+
+## AZ-305 Design IaaS
+### Labs
+
+## Build great solutions with the Microsoft Azure Well-Architected Framework
+### Labs
