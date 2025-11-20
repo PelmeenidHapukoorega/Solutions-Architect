@@ -51,5 +51,8 @@ az storage blob service-properties update \
 ```
 Azure created a special container for me called $web. This is now my public website root. It expects index.html and error.html
 
-Step 4 Uploading files to website.
+Step 4 Uploading files to website index.html and error.html
+
+Uploading index.html
+```
 
