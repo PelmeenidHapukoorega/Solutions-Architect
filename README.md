@@ -37,7 +37,7 @@ I sincerely hope that some of the readers may find a bit of hope in all this. Ju
 - [Theory Computer and Networking services](Moodul1/Theory/Theory-computer-and-networking-services.md)
 - [Theory Storage services](Moodul1/Theory/Theory-Storage-services.md)
 - [Theory Identity access and security](Moodul1/Theory/Theory-Identity-access-and-security.md)
-- [Cloud Adoption Frameworks](Moodul1/Theory/Cloud-Adoption-Frameworks-(best-practices))
+- [Cloud Adoption Frameworks](Moodul1/Theory/Cloud-Adoption-Frameworks)
 ## Labs
 - [Virtual Machines Folder](Moodul1/Virtual%20machines/)
 - [Network Security Folder](Moodul1/Network%20security/)
