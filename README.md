@@ -37,8 +37,8 @@ I sincerely hope that some of the readers may find a bit of hope in all this. Ju
 - [AZ-305 Design identity governance and monitor solutions (Moodul 2)](#az-305-design-identity-governance-and-monitor-solutions-moodul-2)
 - [AZ-305 Design business continuity solutsions (Moodul 3)](#az-305-design-business-continuity-solutsions-moodul-3)
 - [AZ-305 Design data storage solutions (Moodul 4)](#az-305-design-data-storage-solutions-moodul-4)
-- [AZ-305 Design IaaS](#az-305-design-iaas)
-- [Build great solutions with the Microsoft Azure Well-Architected Framework](#build-great-solutions-with-the-microsoft-azure-well-architected-framework)
+- [AZ-305 Design IaaS (Moodul 5)](#az-305-design-iaas-moodul-5)
+- [Build great solutions with the Microsoft Azure Well-Architected Framework (Moodul 6)](#build-great-solutions-with-the-microsoft-azure-well-architected-framework-moodul-6)
 
 
 ## AZ-305 Architect Design Prerequisites (Moodul 1)
@@ -62,8 +62,8 @@ I sincerely hope that some of the readers may find a bit of hope in all this. Ju
 ## AZ-305 Design data storage solutions (Moodul 4)
 ### Labs
 
-## AZ-305 Design IaaS
+## AZ-305 Design IaaS (Moodul 5)
 ### Labs
 
-## Build great solutions with the Microsoft Azure Well-Architected Framework
+## Build great solutions with the Microsoft Azure Well-Architected Framework (Moodul 6)
 ### Labs
