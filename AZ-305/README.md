@@ -17,15 +17,15 @@
 
 
 ## AZ-305 Architect Design Prerequisites (Moodul 1)
-- [Theory Infra Notes](AZ-305/Theory/Theory-Infra.md)
+- [Theory Infra Notes](Theory/Theory-Infra.md)
 - [Theory Computer and Networking services](Theory/Theory-computer-and-networking-services.md)
-- [Theory Storage services](AZ-305/Theory/Theory-Storage-services.md)
-- [Theory Identity access and security](AZ-305/Theory/Theory-Identity-access-and-security.md)
-- [Cloud Adoption Frameworks](AZ-305/Theory/Cloud-Adoption-Frameworks.md)
+- [Theory Storage services](Theory/Theory-Storage-services.md)
+- [Theory Identity access and security](Theory/Theory-Identity-access-and-security.md)
+- [Cloud Adoption Frameworks](Theory/Cloud-Adoption-Frameworks.md)
 ### Labs
-- [Virtual Machines Folder](AZ-305/Virtual%20machines/)
-- [Network Security Folder](AZ-305/Network%20security/)
-- [Storage Folder](AZ-305/Storage/)
+- [Virtual Machines Folder](Virtual%20machines/)
+- [Network Security Folder](Network%20security/)
+- [Storage Folder](Storage/)
 
 
 ## AZ-305 Design identity, governance and monitor solutions (Moodul 2)
