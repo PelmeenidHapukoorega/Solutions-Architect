@@ -1,4 +1,4 @@
-# My Journey through AZ-305
+# My Journey through AZ-305 (Ongoing)
 From labs and theory all the way to becoming a full blown Solutions Architect in the making. This is where ive documented every step of my AZ-305 journey. Im not doing this just to pass an exam, im doing this to actually build the skills, confidence and technical muscle needed to design solutions.
 
 Here youll find all my labs and theory notes. The theory has been rebuilt to be concise and practical, no pointless brain hogging stuff, structured so I can remember and apply it in real scenarios now and in the future. Ive added quick notes to reinforce learning for myself and below youll find easy menu for fast navigation.
