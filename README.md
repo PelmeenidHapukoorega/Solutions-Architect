@@ -6,7 +6,7 @@ I figured id make a short description of why this profile and repo exist in the 
 
 However it was never smt that i wanted to do, all my life ive been searching for this 1 thing as im guessing a lot of people look for throught their lives, some may not even ever find it. 
 I was lucky, and i did the unthinkable. In 2025 August i decided i had enough. I had worked in sales for 6 years total (well technically) and it had made me extremely unhappy. 
-So i decided to quit my job without knowing what exactly it is that im going to do, i had no idea where to start, i had to move from Tallinn back to my parents house. Literal ground 0. For weeks i was stressed, unmotivated, with no idea what to do.
+So i decided to quit my job without knowing what exactly it is that im going to do, i had no idea where to start, i had to move from the city i had lived in for 7 years, back to my parents house. Literal ground 0. For weeks i was stressed, unmotivated, with no idea what to do.
 
 However Im not the type of person who gives up. Ever. 
 
