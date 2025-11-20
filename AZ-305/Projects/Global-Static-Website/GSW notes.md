@@ -231,8 +231,65 @@ az storage blob upload \
   --overwrite true \
   --auth-mode login
 
-
 Success again.
 
+Step: Started working on CDN for the static website
+Did this: tried to create a CDN profile using Azure CLI in Git Bash.
 
+Command:
+
+az cdn profile create \
+  --name StaticWeb-CDN \
+  --resource-group StaticWeb-RG \
+  --sku Standard_Microsoft
+
+
+What happened:
+Azure first said the resource provider Microsoft.Cdn was not registered and that it was registering it for me.
+
+Message (part of it):
+
+Resource provider 'Microsoft.Cdn' used by this operation is not registered. We are registering for you.
+Registration succeeded.
+
+
+Then immediately after that it failed with a BadRequest error about classic CDN:
+
+(BadRequest) Azure CDN from Microsoft (classic) no longer support new profile creation.
+Code: BadRequest
+Message: Azure CDN from Microsoft (classic) no longer support new profile creation.
+
+
+Realisation:
+The SKU Standard_Microsoft is tied to the old “Azure CDN from Microsoft (classic)” and Microsoft no longer allows creating new classic CDN profiles. So I couldn’t use this path at all on my subscription.
+
+Step: Switched approach from Classic CDN to Azure Front Door (modern CDN)
+Did this: tried to create an Azure Front Door Standard profile instead of classic CDN, still in Git Bash.
+
+Command:
+
+az afd profile create \
+  --resource-group StaticWeb-RG \
+  --name StaticWeb-FD \
+  --sku Standard_AzureFrontDoor
+
+
+What happened:
+Azure rejected it because of the subscription type (free trial / student).
+
+Error:
+
+(BadRequest) Free Trial and Student account is forbidden for Azure Frontdoor resources.
+Code: BadRequest
+Message: Free Trial and Student account is forbidden for Azure Frontdoor resources.
+
+
+Realisation:
+Even though Azure Front Door Standard is the modern replacement for CDN, my current Azure subscription type (Free Trial / Student) is not allowed to create any Azure Front Door resources. So:
+
+– Classic CDN is blocked because it’s deprecated for new profiles.
+– Front Door is blocked because free trial / student accounts are not allowed to use it.
+
+Conclusion at this point:
+On this subscription I can fully run a static website on Storage, but I cannot actually provision a CDN / Front Door layer. CDN for this project has to stay as a “future enhancement” for when I’m on a Pay-As-You-Go or normal paid subscription.
 
