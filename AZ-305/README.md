@@ -12,7 +12,7 @@ I hope the reader enjoys going through this as much as I do!
 - [AZ-305 Design identity governance and monitor solutions (Module 2)](#az-305-design-identity-governance-and-monitor-solutions-module-2)
 - [AZ-305 Design business continuity solutsions (Module 3)](#az-305-design-business-continuity-solutsions-module-3)
 - [AZ-305 Design data storage solutions (Module 4)](#az-305-design-data-storage-solutions-module-4)
-- [AZ-305 Design IaaS (Moodul 5)](#az-305-design-iaas-module-5)
+- [AZ-305 Design IaaS (Module 5)](#az-305-design-iaas-module-5)
 - [AZ-305 Build great solutions with the Microsoft Azure Well-Architected Framework (Module 6)](#az-305-build-great-solutions-with-the-microsoft-azure-well-architected-framework-module-6)
 
 
