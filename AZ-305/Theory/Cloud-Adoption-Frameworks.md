@@ -18,3 +18,7 @@ Follow the framework and you move smooth. Ignore it and you gonna end up trouble
 * [Govern](#govern)
 * [Manage](#manage)
 * [Secure](#secure)
+
+
+### References
+[Strategy methodology](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/strategy/)
