@@ -492,3 +492,6 @@ Azure File Sync = hybrid file server done right local speed with cloud scale
 
 Azure storage is not one service but a full toolbox.  
 Choosing the right account type, redundancy model, and movement tool decides your performance, cost, durability, and how clean your architecture stays in the long run.
+
+## References
+https://learn.microsoft.com/et-ee/training/modules/describe-azure-storage-services/
