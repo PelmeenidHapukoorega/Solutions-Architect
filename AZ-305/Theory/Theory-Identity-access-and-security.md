@@ -272,7 +272,3 @@ graph LR
 * **Defend:** "Alert: Brute force attack detected on VM-01." (Threat Protection).
 
     **Integration:**  Defender works on **Azure**, **AWS**, **GCP**, and **On-Prem** (via Azure Arc). It provides a single pane of glass for multi-cloud security.
-    
-## References
-
-https://learn.microsoft.com/et-ee/training/modules/describe-azure-identity-access-security/
