@@ -39,9 +39,8 @@ Managing one VM is easy. Managing 1,000 requires strategy.
 *   **Update Domains (UD):** Separate reboot cycles during Azure maintenance.
 
 ```mermaid
-graph TB
+graph TD
     subgraph Availability_Set ["Availability Set"]
-        direction TB
         
         subgraph FD1 ["Fault Domain 1 ('Rack A')"]
             VM1[VM 1]
@@ -54,23 +53,18 @@ graph TB
         end
     end
     
-    %% --- STYLING ---
+    %% --- MONOCHROME STYLING ---
     
-    %% 1. Style the VMs (Nodes)
-    %% Fill: Black, Stroke: White, Text: White
-    classDef vmNode fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
-    class VM1,VM2,VM3,VM4 vmNode;
+    %% 1. VMs: Pure Black background
+    classDef vm fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
+    class VM1,VM2,VM3,VM4 vm;
 
-    %% 2. Style the Subgraphs (Containers)
-    
-    %% Outer Container: Dark Grey
+    %% 2. Outer Container: Very Dark Grey
     style Availability_Set fill:#1a1a1a,stroke:#fff,stroke-width:2px,color:#fff
     
-    %% Rack A: Dark Blue
-    style FD1 fill:#1565c0,stroke:#fff,stroke-width:2px,color:#fff
-    
-    %% Rack B: Dark Green
-    style FD2 fill:#2e7d32,stroke:#fff,stroke-width:2px,color:#fff
+    %% 3. Racks (Fault Domains): Dark Grey (lighter than outer)
+    style FD1 fill:#333,stroke:#fff,stroke-width:2px,color:#fff
+    style FD2 fill:#333,stroke:#fff,stroke-width:2px,color:#fff
 ```
 
 **Takeaway**
@@ -92,29 +86,10 @@ graph TB
 
 ```mermaid
 graph TD
-    %% Nodes ordered by Complexity/Control
+    Code[Docker Container]
     
-    %% Level 1: Simple
-    ACI["🚀 **ACI** (Container Instances)<br><br>**Best For:** Speed / Burst<br>**Arch:** No Orchestration"]
-    
-    %% Level 2: Balanced
-    ACA["☁️ **ACA** (Container Apps)<br><br>**Best For:** Microservices / Autoscaling<br>**Arch:** K8s (Hidden Complexity)"]
-    
-    %% Level 3: Complex
-    AKS["🏢 **AKS** (Kubernetes Service)<br><br>**Best For:** Enterprise / Full Control<br>**Arch:** Full Orchestration"]
-
-    %% Connections showing the hierarchy
-    ACI -->|More Features / More Complexity| ACA
-    ACA -->|Full Control / Manual Management| AKS
-
-    %% DARK MODE STYLING
-    %% Fill: Dark Grey (#222) | Stroke: White (#fff) | Text: White (#fff)
-    classDef darkmode fill:#111,stroke:#fff,stroke-width:2px,color:#fff;
-    
-    %% Apply style
-    class ACI,ACA,AKS darkmode
-    
-    %% White arrows
-    linkStyle default stroke:#fff,stroke-width:2px;
+    Code --> ACI[ACI: Simple/Isolated]
+    Code --> ACA[ACA: Microservices/Events]
+    Code --> AKS[AKS: Full Orchestration]
 ```
 
