@@ -183,13 +183,6 @@ graph TD
 * Management group trees can support up to **six levels** of depth (excluding the root level).
 * Each group and subscription can support only **one parent**.
 
-# References
-
-https://learn.microsoft.com/et-ee/training/modules/describe-core-architectural-components-of-azure/
-
-
-
-
 
 
 
