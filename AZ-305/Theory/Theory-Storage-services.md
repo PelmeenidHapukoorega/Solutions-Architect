@@ -1,6 +1,10 @@
 # Azure Storage Services
 
+[![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)](https://learn.microsoft.com/et-ee/training/modules/describe-azure-storage-services/)
 
+[![Repo Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge&logo=github)](https://github.com/PelmeenidHapukoorega/Solutions-Architect)
+
+[![Microsoft Learn Plan](https://img.shields.io/badge/Study_Plan-Microsoft_Learn-0078D4?style=for-the-badge&logo=microsoft)](https://learn.microsoft.com/et-ee/plans/d8gdbny2gjwr62)
 
 > **Architectural Philosophy:** To build anything serious in Azure, you treat storage like the backbone of your setup. Blobs, files, redundancy levels—it all decides whether your data survives a bad day or dies crying in a burning datacenter somewhere.
 
