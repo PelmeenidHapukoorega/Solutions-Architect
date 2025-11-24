@@ -1,6 +1,6 @@
 # Azure Compute & Networking Services
 
-![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)](https://learn.microsoft.com/et-ee/training/modules/describe-azure-compute-networking-services/)
+![Azure](https://learn.microsoft.com/et-ee/training/modules/describe-azure-compute-networking-services/)
 ![Status](https://img.shields.io/badge/Status-Learning_Path-yellow?style=for-the-badge)
 
 > **Architectural Philosophy:** Compute provides the horsepower, but Networking provides the highway. VMs, containers, functions, VNets, and routing all snap together like a puzzle that determines the speed, security, and reliability of your solution.
@@ -37,19 +37,37 @@ Managing one VM is easy. Managing 1,000 requires strategy.
 
 ```mermaid
 graph TB
-    subgraph Availability_Set [Availability Set]
+    subgraph Availability_Set ["Availability Set"]
+        direction TB
+        
         subgraph FD1 ["Fault Domain 1 ('Rack A')"]
             VM1[VM 1]
             VM3[VM 3]
         end
+        
         subgraph FD2 ["Fault Domain 2 ('Rack B')"]
             VM2[VM 2]
             VM4[VM 4]
         end
     end
     
-    style FD1 fill:#e1f5fe
-    style FD2 fill:#e0f2f1
+    %% --- STYLING ---
+    
+    %% 1. Style the VMs (Nodes)
+    %% Fill: Black, Stroke: White, Text: White
+    classDef vmNode fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
+    class VM1,VM2,VM3,VM4 vmNode;
+
+    %% 2. Style the Subgraphs (Containers)
+    
+    %% Outer Container: Dark Grey
+    style Availability_Set fill:#1a1a1a,stroke:#fff,stroke-width:2px,color:#fff
+    
+    %% Rack A: Dark Blue
+    style FD1 fill:#1565c0,stroke:#fff,stroke-width:2px,color:#fff
+    
+    %% Rack B: Dark Green
+    style FD2 fill:#2e7d32,stroke:#fff,stroke-width:2px,color:#fff
 ```
 
 **Takeaway**
