@@ -1,8 +1,10 @@
 # Azure Identity, Access, & Security
 
-![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Learning_Path-yellow?style=for-the-badge)
+[![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)](https://learn.microsoft.com/et-ee/training/modules/describe-azure-identity-access-security/)
 
+[![Repo Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge&logo=github)](https://github.com/PelmeenidHapukoorega/Solutions-Architect)
+
+[![Microsoft Learn Plan](https://img.shields.io/badge/Study_Plan-Microsoft_Learn-0078D4?style=for-the-badge&logo=microsoft)](https://learn.microsoft.com/et-ee/plans/d8gdbny2gjwr62)
 > **Architectural Philosophy:** Identity is the new firewall. If you want to secure anything in Azure, you treat identity like the front door to your kingdom. Permissions, policies, and verifications lock together like a vault puzzle.
 
 > **Bottom line:** Lock your house now, because Future You isn't trying to explain to your boss why some rogue Service Principal just joy-rode through your subscription like it's GTA Free Roam.
