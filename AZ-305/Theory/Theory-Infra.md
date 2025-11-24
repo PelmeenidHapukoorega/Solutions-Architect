@@ -1,9 +1,12 @@
 # Module: Core architectural components of Azure
 # Key notes
 
-In order to design anything you have to understand how regions, subs and resources all fit together like its a 25 piece puzzle. This foundation determines how stable, secure and scalable your solutions will end up.
+![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Learning_Path-yellow?style=for-the-badge)
 
-**Bottom line:** Architect brain now so future you doesnt have to clean up dumb shit later.
+In order to design anything you have to understand how regions, subscriptions, and resources all fit together like a 25-piece puzzle. This foundation determines how stable, secure, and scalable your solutions will end up.
+
+> **Bottom line:** Architect brain now so future you doesn't have to clean up Technical Debt later.
 
 ## Table of Contents
 - [Azure Regions](#azure-regions)
@@ -16,164 +19,170 @@ In order to design anything you have to understand how regions, subs and resourc
 - [Management Groups](#management-groups)
 - [Hierarchy of Resources](#hierarchy-of-resources)
 
-
 # Azure regions
 
-* Geographical areas that contain at least 1 if not more datacentres that are nearby each other and networked together with low latency network.
-* Azure assigns and controls resources within each region to ensure balanced workloads.
+**Geographical areas** that contain at least one (but usually more) datacenters, networked together with a low-latency network.
+*   Azure assigns and controls resources within each region to ensure balanced workloads.
 
-Note! Some services or VM features are only available in certain regions: VM sizes or storage types.
-```mathematica
-Azure Region
-
- ├── AZ 1
- 
- ├── AZ 2
- 
- └── AZ 3
- ```
+> **Note:** Some services or VM features are only available in certain regions (e.g., specific VM sizes or storage types like Ultra Disk).
 
 # Region pairs
 
 **Key Takeaways**
-* Most regions are paired with other regions for further resiliency.
-* It allows for the replication of resources across geography, helps reduce the likelihood of interruptions in case of natural disasters, civil unrest, power outages or meteor shower that killed the dinosaurs: point being, it survives.
-* Not all Azure services automaticallyt replicate data or fall back from failed region to cross replicate to another region. In this case recovery and replication must be confgured by customer aka user.
 
-```pgsql
-   Region Pair (Geo-based)
+*   Most regions are paired with another region in the same geography for resiliency.
+*   It allows for the replication of resources across geography, reducing the likelihood of interruptions from natural disasters, civil unrest, or power outages.
+*   *Crucial:* Not all Azure services automatically replicate data. In many cases (IaaS), recovery and replication must be configured by the customer.
 
-   +-----------+      +-----------+
-   | Region A  | <--> | Region B  |
-   |  Primary  |      |   Backup  |
-   +-----------+      +-----------+
-        |                  |
-  Data replication    Disaster recovery
-        |                  |
-        +-------> High availability
+```mermaid
+graph LR
+    subgraph Geography [Geography: North America]
+        style Geography fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+        
+        subgraph Region_A [Region A: Primary]
+            style Region_A fill:#fff,stroke:#333
+            Primary[Primary Workload]
+        end
+        
+        subgraph Region_B [Region B: Backup]
+            style Region_B fill:#fff,stroke:#333
+            Backup[Recovery Target]
+        end
+    end
+
+    Primary -.->|Data Replication| Backup
+    Region_A <==>|300+ Miles Separation| Region_B
 ```
-
 # Additional advantages
-
 **Key Takeaways**
-* During an extensive outage one region ot of every pair is prioritized to make sure at least one is restored ASAP for apps hosted in that region pair.
-* Updates are rolled out a pair at a time to minimize downtime and risk outage.
-* Data continues to reside within the same geography for tax and law purposes.
-* Regions paired in two directions allow being each others backup, however West india and Brazil south regions are one direction. In one direction pairing the primary region does not backup its secondary.
 
+  * **Prioritized Recovery:** During an extensive outage, one region out of every pair is prioritized to ensure at least one is restored ASAP.
+  * **Sequential Updates:** System updates are rolled out to one region at a time (never both simultaneously) to minimize downtime risk.
+  *  **Data Residency:** Data continues to reside within the same geography for tax and legal jurisdiction purposes.
+  *  **Pairing logic:** Regions are paired in two directions to back each other up.
+       * Exception: West India and Brazil South are one-direction only (Primary does not backup the Secondary).
 
-# **Sovereign regions**
-
+# Sovereign regions
 **Key Takeaways**
-* Instances isolated from the main instance of Azure.
-* Mostly used for compliance or legal purposes.
-  
-# **Availability zones**
 
+* Instances isolated from the main instance of Azure (physical and logical separation).
+* **Use case:** Mostly used for strict compliance or legal purposes (e.g., US Gov, China).
+
+# Availability zones
 **Key Takeaways**
-* Physically seperate datacentres within a region.
-* Each zone is self sufficient (independent power, cooling and networking).
-* Set up as isolation boundary. If one goes down the other continues.
-* Each region has a minimum of 3 seperate AV zones, however not all regions support AZ zones.
 
-```pgsql
-        Azure Region
-   +-----------------------+
-   |     Availability      |
-   |        Zones          |
-   +---------+-------------+
-             |
-   +---------+---------+---------+
-   |    AZ 1          |   AZ 2   |   AZ 3   |
-   | (Datacenter 1)   |(Datacenter 2)|(DC3) |
-   +---------+---------+---------+
-         |             |             |
-   Isolated power  Isolated cooling  Isolated network
-         |             |             |
-        <---------- High Availability ---------->
+* Physically separate datacenters within a single region.
+* **Isolation:** Each zone is self-sufficient with independent power, cooling, and networking.
+* **Boundary:** Acts as an isolation boundary—if one zone goes down, the others continue.
+* **Minimum:** Each supported region has a minimum of 3 separate Availability Zones.
+
+```mermaid
+graph TB
+    subgraph Region [Azure Region]
+        style Region fill:#f9f9f9,stroke:#333,stroke-width:2px
+        
+        subgraph AZ1 [Zone 1]
+            style AZ1 fill:#fff,stroke:#333
+            P1[⚡ Power]
+            N1[🌐 Network]
+        end
+        
+        subgraph AZ2 [Zone 2]
+            style AZ2 fill:#fff,stroke:#333
+            P2[⚡ Power]
+            N2[🌐 Network]
+        end
+        
+        subgraph AZ3 [Zone 3]
+            style AZ3 fill:#fff,stroke:#333
+            P3[⚡ Power]
+            N3[🌐 Network]
+        end
+    end
+
+    LB[Load Balancer] --> AZ1
+    LB --> AZ2
+    LB --> AZ3
 ```
-# **Azure datacenters**
 
+# Azure datacenters
 **Key Takeaways**
-* Large datacentres that are part of the physical infrastructure of Azure. Has everything that large corporate datacentres have.
-* Are not directly accessible.
-* Are grouped into: Azure regions or Azure availability Zones.
+
+* Large facilities that form the physical infrastructure of Azure.
+* They contain everything corporate datacenters have (racks, servers, cooling) but at massive scale.
+* **Access:** Not directly accessible or visible to users.
+* **Grouping:** They are grouped physically into **Availability Zones** and **Regions**.
 
 # Azure Resources and Resource groups.
-
 **Key Takeaways**
-* **Resource** is a basic building block, basically anything you create is a resource (VM, databases, etc).
-* **Resource group** is a group that contains all created resources.
-* Resource groups cant be nested.
-* Single resource can only be in one group at a time.
-* Moving resources between groups will no longer be associated with the former group.
-* Convenient to group everything together.
-* Deleting the group will delete everything in it.
-* When provisioning resources, think about resource group structure that best suit the needs.
-* Its best to group resources based on access schema and then assign access at the resource group level
-* Maximize their usefulness.
 
-# **Subscriptions**
+* **Resource:** The basic building block. Anything you create is a resource (VM, Database, VNet, Public IP).
+* **Resource Group (RG): A logical container that holds related resources.
+* **Rules:**
+    * Resource groups **cannot** be nested.
+    * A single resource can only exist in **one** group at a time.
+    * Moving resources between groups removes their association with the former group.
+* **Lifecycle:** Deleting the group deletes **everything** inside it (great for cleaning up labs).
+* **Strategy:** Group resources based on lifecycle (created/deleted together) and access schema (RBAC).
 
+# Subscriptions
 **Key Takeaways**
-* Unit of management, billing and scale.
-* A way to logically organize resource groups and facilitate billing (think resource groups).
-* Account can have multiple subs.
-* In a multi sub account you can use subs to configure billing models and apply different access management policies.
-* You can define boundaries: Billing boundary and Access control boundary.
-* Billing boundary determines how Azure account is billed for using it. it can create multiple subs for different tyos of billing req. Azure generates billing reports and invoices for each sub so you can learn some organizing skills and manage costs. Think a mix between tetris and monopoly.
-* Access control boundary applies access management policies at the sub level, you can create seperate subs to reflect organizational structures. Think different deparments, each having their own subscription policies. Allows you to manage and control access to resources that users provision with specific subs.
-* When you first sign up to Azure you get a free trial subscription that lets you start exploring. Once you feel confident enough and want to deep dive further what Azure has to offer then you can get additional subscriptions at extra cost.
-* Free account gives you access to 25 products that are always free.
-* Credit use for the first 30 days (200 Eur).
-* Free access to most popular Azure products for 12 months.
 
-# **Management groups**
+* The unit of management, billing, and scale.
+* **Structure:** A way to logically organize resource groups.
+* **Multi-Sub:** An account can have multiple subscriptions to configure different billing models or access policies.
+* **Boundaries:**
+    1. **Billing Boundary:** Determines how an Azure account is billed. You can generate separate invoices for different departments.
+    2. **Access Control Boundary:** Applies management policies at the sub level (e.g., Prod vs. Dev).
+* **Types:**
+    * *Free Trial:* Access to 25 products, €200 credit for 30 days.
+    * *Pay-As-You-Go: Standard monthly billing.
 
+# Management groups
 **Key Takeaways**
-* Enterprise level management at a larger scale no matter the subscription type.
-* Can be nested.
-* Efficient way to manage access, policies and compliance for those subscriptions.
 
-# **Hierarchy of resources**
-* You can build flexibile structure of management groups and subs to organize resources into hierarchy.
-* Unified policy and access management.
-* Examples of use: Hierarchy creation that applies a policy, provide user access to multiple subs.
+* Enterprise-level management at a scale *above* subscriptions.
+* **Inheritance:** Policies applied here cascade down to all subscriptions (e.g., "Restrict VM creation to West Europe only").
+* **Nesting:**  Can be nested to create a governance tree.
 
-```pgsql
-Management Group
-      ↓
-  Subscription
-      ↓
- Resource Group
-      ↓
-     VM
+# Hierarchy of resources
+
+* You can build a flexible structure of management groups and subscriptions to organize resources into a hierarchy.
+* Allows for unified policy and access management (RBAC).
+
+```mermaid
+graph TD
+    Root[Root Management Group]
+    MG_HR[MG: HR Dept]
+    MG_IT[MG: IT Dept]
+    
+    Sub_Prod[Sub: IT Production]
+    Sub_Dev[Sub: IT Dev]
+    
+    RG_App[RG: App Resources]
+    VM[Resource: VM-01]
+
+    Root --> MG_HR
+    Root --> MG_IT
+    MG_IT --> Sub_Prod
+    MG_IT --> Sub_Dev
+    Sub_Prod --> RG_App
+    RG_App --> VM
+    
+    style Root fill:#ffcc80
+    style MG_IT fill:#ffe0b2
+    style Sub_Prod fill:#fff3e0
 ```
 
+# Important!
 
-# **Important!** 
-* 10 000 management groups can be supported in a single directiory.
-* Management group tree can support up to six levels of depth. The limit doesnt include the root level of the sub.
-* Each group and subscription can support only 1 parent.
+* **10,000** management groups can be supported in a single directory.
+* Management group trees can support up to **six levels** of depth (excluding the root level).
+* Each group and subscription can support only **one parent**.
 
-## References
+# References
+
 https://learn.microsoft.com/et-ee/training/modules/describe-core-architectural-components-of-azure/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
