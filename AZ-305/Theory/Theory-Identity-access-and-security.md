@@ -211,22 +211,42 @@ Security is an onion. The goal is to slow the attacker down at every layer.
 
 ```mermaid
 graph TD
-    Physical[🏢 Physical Security]
-    Identity[bust_in_silhouette Identity & Access]
-    Perimeter[🚧 Perimeter (DDoS/Firewall)]
-    Network[🕸️ Network (NSG/VNet)]
-    Compute[💻 Compute (Patching/Malware)]
-    App[📱 Application (Code Security)]
-    Data[💾 Data (Encryption)]
+    %% Layer 1
+    Physical["🏢 Physical Security"]
+    
+    %% Layer 2
+    Identity["👤 Identity & Access"]
+    
+    %% Layer 3 - This was the error line. 
+    %% FIX: Wrapped in outer quotes, changed inner quotes to single quotes.
+    Perimeter["🚧 Perimeter ('DDoS/Firewall')"]
+    
+    %% Layer 4
+    Network["🕸️ Network Security"]
+    
+    %% Layer 5
+    Compute["💻 Compute / Host"]
+    
+    %% Layer 6
+    App["📱 Application"]
+    
+    %% Layer 7 (The Core)
+    Data["💾 Data (Encryption)"]
 
+    %% Connect the Defense in Depth layers
     Physical --> Identity
     Identity --> Perimeter
     Perimeter --> Network
     Network --> Compute
     Compute --> App
     App --> Data
-    
-    style Data fill:#ffcc80,stroke:#ff9800,stroke-width:2px
+
+    %% DARK MODE STYLING
+    classDef dark fill:#111,stroke:#fff,stroke-width:2px,color:#fff;
+    class Physical,Identity,Perimeter,Network,Compute,App,Data dark;
+
+    %% Make the connecting arrows white
+    linkStyle default stroke:#fff,stroke-width:2px;
 ```
 
 **The Strategy:** If one layer fails (e.g., Phishing bypasses Identity), the next layer (Network/Compute) stops the breach from reaching the Data.
