@@ -195,6 +195,3 @@ graph TD
 * Security: Protected by RBAC and Resource Locks (prevents accidental deletion).
 
     **Important:** Azure DNS hosts the records. You still buy the domain name (e.g., 'cool-cloud-architect.com') from a registrar (GoDaddy, Namecheap, or App Service Domains).
-
-### References
-https://learn.microsoft.com/et-ee/training/modules/describe-azure-compute-networking-services/
