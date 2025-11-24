@@ -93,3 +93,108 @@ graph TD
     Code --> AKS[AKS: Full Orchestration]
 ```
 
+## 4. Azure Functions (Serverless)
+**Event-Driven Compute:** No servers, no VMs, no containers. You upload code, and Azure runs it when something happens (HTTP, Timer, Queue, or "Karen" from HR sending an email).
+
+**Billing:** Pay only while the code is running (Consumption Plan).
+
+### Logic Flow
+
+* **Stateless:** Function runs -> Finishes -> Forgets everything.
+* **Stateful (Durable):** Function runs -> Saves context -> Next function picks up where it left off.
+```mermaid
+sequenceDiagram
+    participant Trigger as Event (HTTP/Timer)
+    participant Func as Azure Function
+    participant Output as Storage/Database
+
+    Trigger->>Func: Wakes up Function
+    Func->>Func: Executes Code
+    Func->>Output: Writes Data
+    Func-->>Trigger: Returns 200 OK
+    Note over Func: Function goes back to sleep (Cost = $0)
+```
+
+## 5. Application Hosting (App Service)
+**PaaS (Platform as a Service):** Fully managed hosting for Web Apps, APIs, and Mobile Backends.
+
+**Core Benefits:**
+
+* **OS:** Windows or Linux (Tux the Penguin approved).
+* **Languages:** .NET, Java, Node, Python, PHP, Ruby.
+* **DevOps:** Built-in CI/CD integration with GitHub/Azure DevOps.
+* **Deployment Slots:** Swap "Staging" to "Production" instantly with zero downtime.
+
+     **Takeaway:** App Service is the "Easy Button" for web hosting. No VM management required.
+
+## 6. Virtual Networking (VPN)
+**The Nervous System:** Connects VMs, Services, and On-Premises sites.
+
+### Core Capabilities
+
+1. **Isolation:** You control the IP address space (VNet) and segmentation (Subnets).
+2. **Internet Access:** Public IPs & Load Balancers. You decide what is exposed ("Red pill or blue pill").
+3. **Filtering:**
+   
+       * NSG (Network Security Group): Basic L4 Firewall (Allow/Deny Port 80, 443, etc).
+       * NVA (Network Virtual Appliance): Enterprise Firewall (Palo Alto, Fortinet, Azure Firewall).
+
+5. **Peering:** Connect two VNets together securely via Microsoft's backbone (Global reach).
+
+### Connectivity Models
+```mermaid
+graph LR
+    subgraph OnPrem [On-Premises]
+        User[Client Laptop]
+        Office[Head Office]
+    end
+
+    subgraph Azure [Azure Cloud]
+        VNet[Virtual Network]
+        GW[VPN Gateway]
+    end
+
+    User -.->|P2S VPN| GW
+    Office <==>|S2S VPN| GW
+    Office <==>|"ExpressRoute ('Private')"| GW
+```
+
+## 7. Azure ExpressRoute
+**Private Fiber Connection:*** A dedicated physical link between your on-prem datacenter and Azure. Traffic never touches the public internet.
+
+**Why use it?**
+
+1. Security: Private connectivity (Mission critical / Regulated industries).
+2. Reliability: Consistent latency and no packet loss.
+3. Global Reach: Connect Asia office to Europe Azure region via Microsoft's backbone.
+
+**Routing:** Routing: Uses **BGP** (Border Gateway Protocol) to dynamically exchange routes between your network and Azure.
+
+```mermaid
+graph TD
+    %% Define Nodes
+    VPN["🌐 **VPN Gateway**<br><br>Medium: Public Internet<br>Speed: 10 Gbps<br>SLA: Good"]
+    ER["🔒 **ExpressRoute**<br><br>Medium: Private Fiber<br>Speed: 100 Gbps<br>SLA: Enterprise"]
+
+    %% Positioning
+    VPN ~~~ ER
+
+    %% DARK MODE MONOCHROME STYLES
+    %% Fill: Black | Stroke: White | Text: White
+    classDef dark fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
+    class VPN,ER dark;
+```
+
+## 8. Azure DNS
+**Domain Name System:** Microsoft's global network answering "Where is website.com?"
+**Features:**
+
+* Global: Uses Anycast routing (closest server answers first).
+* Private Zones: Resolve internal hostnames (e.g., 'db.internal.corp') inside your VNets.
+* Alias Records: Auto-updating records. If your Public IP changes, the DNS record updates automatically.
+* Security: Protected by RBAC and Resource Locks (prevents accidental deletion).
+
+    **Important:** Azure DNS hosts the records. You still buy the domain name (e.g., 'cool-cloud-architect.com') from a registrar (GoDaddy, Namecheap, or App Service Domains).
+
+### References
+https://learn.microsoft.com/et-ee/training/modules/describe-azure-compute-networking-services/
