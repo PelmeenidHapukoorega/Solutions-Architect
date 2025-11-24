@@ -66,12 +66,34 @@ graph TB
 
 ## 3. Azure Containers (ACI, ACA, AKS)
 **Containers:** Lightweight, portable application packaging. No OS management. Fast startup.
+
+**Service:**
+
 ```mermaid
 graph TD
-    Code[Docker Container]
+    %% Nodes ordered by Complexity/Control
     
-    Code --> ACI[ACI: Simple/Isolated]
-    Code --> ACA[ACA: Microservices/Events]
-    Code --> AKS[AKS: Full Orchestration]
+    %% Level 1: Simple
+    ACI["🚀 **ACI** (Container Instances)<br><br>**Best For:** Speed / Burst<br>**Arch:** No Orchestration"]
+    
+    %% Level 2: Balanced
+    ACA["☁️ **ACA** (Container Apps)<br><br>**Best For:** Microservices / Autoscaling<br>**Arch:** K8s (Hidden Complexity)"]
+    
+    %% Level 3: Complex
+    AKS["🏢 **AKS** (Kubernetes Service)<br><br>**Best For:** Enterprise / Full Control<br>**Arch:** Full Orchestration"]
+
+    %% Connections showing the hierarchy
+    ACI -->|More Features / More Complexity| ACA
+    ACA -->|Full Control / Manual Management| AKS
+
+    %% DARK MODE STYLING
+    %% Fill: Dark Grey (#222) | Stroke: White (#fff) | Text: White (#fff)
+    classDef darkmode fill:#111,stroke:#fff,stroke-width:2px,color:#fff;
+    
+    %% Apply style
+    class ACI,ACA,AKS darkmode
+    
+    %% White arrows
+    linkStyle default stroke:#fff,stroke-width:2px;
 ```
 
