@@ -1,7 +1,7 @@
 # Module: Core architectural components of Azure
 # Key notes
 
-![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![Azure]([https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white](https://learn.microsoft.com/et-ee/training/paths/microsoft-azure-architect-design-prerequisites/))
 ![Status](https://img.shields.io/badge/Status-Learning_Path-yellow?style=for-the-badge)
 
 In order to design anything you have to understand how regions, subscriptions, and resources all fit together like a 25-piece puzzle. This foundation determines how stable, secure, and scalable your solutions will end up.
@@ -183,6 +183,7 @@ graph TD
 # References
 
 https://learn.microsoft.com/et-ee/training/modules/describe-core-architectural-components-of-azure/
+
 
 
 
