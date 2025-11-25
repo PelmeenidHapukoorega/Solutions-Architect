@@ -1,8 +1,10 @@
 # Module: Azure Well-Architected Framework pillars
-# Key notes
 
-![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)](https://learn.microsoft.com/en-us/azure/well-architected/)
-![Status](https://img.shields.io/badge/Status-Best_Practices-yellow?style=for-the-badge)
+[![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)](https://learn.microsoft.com/et-ee/training/modules/azure-well-architected-introduction/)
+
+[![Repo Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge&logo=github)](https://github.com/PelmeenidHapukoorega/Solutions-Architect)
+
+[![Microsoft Learn Plan](https://img.shields.io/badge/Study_Plan-Microsoft_Learn-0078D4?style=for-the-badge&logo=microsoft)](https://learn.microsoft.com/et-ee/plans/d8gdbny2gjwr62)
 
 The role of a solution architect is to balance business requirements with technical capabilities. You are not just delivering features; you are designing systems that are scalable, resilient, efficient, and secure. The **Azure Well-Architected Framework (WAF)** provides the guiding tenets to do this.
 
