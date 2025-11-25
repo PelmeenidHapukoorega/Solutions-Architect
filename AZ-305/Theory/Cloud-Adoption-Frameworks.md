@@ -1,4 +1,4 @@
-# Module: Microsoft Cloud Adoption Framework (Best practices)
+# Microsoft Cloud Adoption Framework (Best practices)
 
 [![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)](https://learn.microsoft.com/et-ee/training/modules/describe-azure-identity-access-security/)
 
