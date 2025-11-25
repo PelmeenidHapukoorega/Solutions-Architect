@@ -22,6 +22,7 @@ I hope the reader enjoys going through this as much as I do!
 - [Theory Storage services](Theory/Theory-Storage-services.md)
 - [Theory Identity access and security](Theory/Theory-Identity-access-and-security.md)
 - [Theory Cloud Adoption Frameworks](Theory/Theory-Cloud-Adoption-Frameworks.md)
+- [Theory Well Architected Framework](Theory/Theory-Well-Architected-Framework.md)
 ### Labs
 - [Virtual Machines Folder](Virtual%20machines/)
 - [Network Security Folder](Network%20security/)
