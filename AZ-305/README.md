@@ -21,7 +21,7 @@ I hope the reader enjoys going through this as much as I do!
 - [Theory Computer and Networking services](Theory/Theory-computer-and-networking-services.md)
 - [Theory Storage services](Theory/Theory-Storage-services.md)
 - [Theory Identity access and security](Theory/Theory-Identity-access-and-security.md)
-- [Cloud Adoption Frameworks](Theory/Cloud-Adoption-Frameworks.md)
+- [Theory Cloud Adoption Frameworks](Theory/Theory-Cloud-Adoption-Frameworks.md)
 ### Labs
 - [Virtual Machines Folder](Virtual%20machines/)
 - [Network Security Folder](Network%20security/)
