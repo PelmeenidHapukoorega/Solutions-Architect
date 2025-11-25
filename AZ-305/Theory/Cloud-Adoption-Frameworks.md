@@ -1,8 +1,10 @@
 # Module: Microsoft Cloud Adoption Framework (Best practices)
-# Key notes
 
-![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)](https://learn.microsoft.com/en-us/training/modules/microsoft-cloud-adoption-framework-for-azure/)
-![Status](https://img.shields.io/badge/Status-Best_Practices-yellow?style=for-the-badge)
+[![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)](https://learn.microsoft.com/et-ee/training/modules/describe-azure-identity-access-security/)
+
+[![Repo Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge&logo=github)](https://github.com/PelmeenidHapukoorega/Solutions-Architect)
+
+[![Microsoft Learn Plan](https://img.shields.io/badge/Study_Plan-Microsoft_Learn-0078D4?style=for-the-badge&logo=microsoft)](https://learn.microsoft.com/et-ee/plans/d8gdbny2gjwr62)
 
 If you wanna actually adopt the cloud the right way you gotta stop thinking of Azure like some big magic button and start seeing it like a whole roadmap. Strategy plan ready migrate innovate govern manage secure every step snaps together like a blueprint that tells you what to build why to build it and how not to blow your whole environment up by guessing.
 
