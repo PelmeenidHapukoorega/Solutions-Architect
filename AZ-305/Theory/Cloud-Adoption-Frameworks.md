@@ -20,7 +20,7 @@ Follow the framework and you move smooth. Ignore it and you gonna end up trouble
 * [Ready](#ready)
 * [Migrate](#migrate)
 * [Modernize](#modernize)
-* [cloud-native](#cloud-native)
+* [Cloud-native](#cloud-native)
 * [Govern](#govern)
 * [Manage](#manage)
 * [Secure](#secure)
