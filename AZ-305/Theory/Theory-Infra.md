@@ -9,7 +9,7 @@
 
 In order to design anything you have to understand how regions, subscriptions, and resources all fit together like a 25-piece puzzle. This foundation determines how stable, secure, and scalable your solutions will end up.
 
-> **Bottom line:** Architect brain now so future you doesn't have to clean up Technical Debt later.
+> **Bottom line:** Architect brain now so future you doesn't have to clean up technical debt later.
 
 ## Table of Contents
 - [Azure Regions](#azure-regions)
