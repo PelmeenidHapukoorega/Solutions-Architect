@@ -56,6 +56,7 @@ graph LR
     Primary -.->|Data Replication| Backup
     Region_A <==>|300+ Miles Separation| Region_B
 ```
+
 # Additional advantages
 **Key Takeaways**
 
