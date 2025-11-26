@@ -33,14 +33,14 @@ I hope the reader enjoys going through this as much as I do!
 
 
 ## AZ-305 Design business continuity solutsions (Module 3)
-### Labs
+
 
 ## AZ-305 Design data storage solutions (Module 4)
-### Labs
+
 
 ## AZ-305 Design IaaS (Module 5)
-### Labs
+
 
 ## AZ-305 Build great solutions with the Microsoft Azure Well-Architected Framework (module 6)
-### Labs
+
 
