@@ -30,7 +30,7 @@ I hope the reader enjoys going through this as much as I do!
 
 
 ## AZ-305 Design identity, governance and monitor solutions (Module 2)
-### Labs
+
 
 ## AZ-305 Design business continuity solutsions (Module 3)
 ### Labs
