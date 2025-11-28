@@ -31,7 +31,7 @@ I hope the reader enjoys going through this as much as I do!
 
 ## AZ-305 Design identity, governance and monitor solutions (Module 2)
 - [Theory Design Governance Notes](Theory/Theory-Design-Governance.md)
-- [Theory Computer and Networking services](Theory/Theory-computer-and-networking-services.md)
+- [Theory Design Authentication and authorization solutions notes](Theory/Theory-Design-Authentication-and-authorization-solutions.md)
 - [Theory Storage services](Theory/Theory-Storage-services.md)
 
 ## AZ-305 Design business continuity solutsions (Module 3)
