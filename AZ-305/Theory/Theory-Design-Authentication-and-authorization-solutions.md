@@ -19,7 +19,7 @@ Secure the identity first. If you don't, you aren't an Architect; you're just se
 * [Design for identity and access management](#design-for-identity-and-access-management)
 * [Design for Microsoft Entra ID](#design-for-microsoft-entra-id)
 * [Design for Microsoft Entra business-to-business (B2B)](#design-for-microsoft-entra-business-to-business-b2b)
-* [Design for Azure Active Directory B2C (business-to-customer)](#design-for-azure-active-directory-b2c-business-to-customer)
+* [Design for Azure Active Directory B2C (business-to-customer)](#design-for-azure-active-directory-b2c)
 * [Design for conditional access](#design-for-conditional-access)
 * [Design for identity protection](#design-for-identity-protection)
 * [Design for access reviews](#design-for-access-reviews)
@@ -154,3 +154,178 @@ graph LR
 
 **Takeaway**
 In a Hybrid world, On-Prem AD is the database, but Entra ID is the door. Keep them in sync, or you'll be managing two sets of keys for one house.
+
+## Design for Microsoft Entra business-to-business (B2B)
+
+**Key points**
+*   **Definition:** A feature enabling secure collaboration with external partners (Vendors, Suppliers).
+*   **Mechanism:** "Bring Your Own Identity" (BYOI). Partners use their own credentials (Gmail, Outlook, their own Corporate ID).
+*   **Lifecycle:** You do **not** manage their passwords. You only manage their access to your specific resources.
+
+**The B2B Workflow**
+The Guest User is a specific object type in your directory (`UserType = Guest`).
+
+```mermaid
+graph LR
+    %% --- PARTNER SIDE (Left Tower) ---
+    subgraph Partner_Side ["👤 Partner Env"]
+        direction TB
+        User["Partner User"]
+        HomeID["🔑 Home Identity<br>(Gmail/AD)"]
+    end
+
+    %% --- HOST SIDE (Right Tower) ---
+    subgraph Host_Side ["🏢 Tailwind Traders"]
+        direction TB
+        Invite["📩 Invitation"]
+        Entra["🛡️ Entra ID B2B"]
+        App["📂 Shared App"]
+    end
+
+    %% --- LABEL NODES (Black Box / White Text) ---
+    L1["Uses"]
+    L2["Auths"]
+    L3["Onboards"]
+    L4["Access"]
+
+    %% --- CONNECTIONS ---
+    %% 1. Stacking the Left Tower
+    User --> L1 --> HomeID
+
+    %% 2. Stacking the Right Tower
+    %% (Invisible spacer is below on its own line now)
+    Invite ~~~ Entra
+    Entra --> L4 --> App
+
+    %% 3. Crossing the towers
+    Invite -.-> L3 -.-> User
+    HomeID --> L2 --> Entra
+
+    %% --- DARK MODE STYLING ---
+    %% 1. Node Styling
+    classDef dark fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
+    class User,HomeID,Invite,Entra,App,L1,L2,L3,L4 dark;
+    
+    %% 2. Subgraph Styling
+    style Partner_Side fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    style Host_Side fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    
+    %% 3. Arrow Styling
+    linkStyle default stroke:#fff,stroke-width:2px;
+```
+
+### Strategic Design Considerations
+
+1. **Delegation (App Owners)**
+     * **Recommendation:** Do not make IT responsible for inviting every single vendor.
+     * **Action:** Delegate permission to **App Owners**. They know which vendors need access to their application better than IT does.
+2. **Security (MFA & Conditional Access)**
+     * **Rule:** Guests are untrusted by default.
+     * **Policy:** Enforce **MFA**. Even if the guest doesn't use MFA at their home company, you can force them to perform MFA to access your data.
+     * **Compliance:** You can block guests based on location ("No logins from outside US") or device health.
+3. **Identity Providers (Federation)**
+     * Don't force partners to create a new "Microsoft Account."
+     * Federate with **Google** or **Facebook** so they can just click "Sign in with Google." It reduces friction and support tickets.
+4. **Self-Service Sign-Up**
+     * Instead of manually sending emails, create a **Self-Service User Flow**.
+     * The partner visits a URL, signs up, performs MFA, and gets access automatically (or after approval).
+
+**Takeaway**
+Entra B2B lets you work with outsiders without polluting your directory with passwords you have to reset. You control the Door (Access), they control the Key (Password).
+
+## Design for Azure Active Directory B2C
+
+**Important Note!** Azure AD B2C was discontinued as of May 1 2025, i have kept this part for exam purposes. Microsoft Entra External ID is the next gen CIAM plaform built on the Entra stack
+
+**Key points**
+*   **Definition:** A specialized directory for managing **Customer** identities (not employees).
+*   **Architecture:** Requires a **separate** tenant. It does not sit inside your main Corporate Entra ID.
+*   **Goal:** Scale to millions of users without cluttering your corporate directory.
+*   **Features:** Social Logins (Facebook/Google), White-label Branding, Self-Service Profile Management.
+
+**The Separation of Church and State**
+You must strictly separate your **Workforce** (Employees/Partners) from your **Customers**.
+
+```mermaid
+graph TD
+    subgraph Corp_Tenant ["🏢 Corporate Tenant ('Internal')"]
+        direction TB
+        
+        %% --- SPACER FIX (CORP) ---
+        %% Pushes the top row down
+        SpacerCorp[" "]
+
+        Emp["👤 Employee"]
+        Partner["👤 B2B Guest"]
+        IntApp["📱 Internal HR App"]
+        
+        %% Spacer Connections
+        SpacerCorp ~~~ Emp
+        SpacerCorp ~~~ Partner
+
+        %% Real Connections
+        Emp --> IntApp
+        Partner --> IntApp
+    end
+
+    subgraph B2C_Tenant ["🛒 Azure AD B2C Tenant ('External')"]
+        direction TB
+        
+        %% --- SPACER FIX (B2C) ---
+        %% Pushes the top row down
+        SpacerB2C[" "]
+
+        Social["🌐 Social ID ('FB/Google')"]
+        Cust["👤 Customer"]
+        PubApp["📱 Public Store App"]
+        
+        %% Label Node
+        L_Fed["Federation"]
+        
+        %% Spacer Connections
+        SpacerB2C ~~~ Social
+        
+        %% Real Connections
+        Social -.-> L_Fed -.-> Cust
+        Cust --> PubApp
+    end
+
+    %% --- DARK MODE STYLING ---
+    %% 1. Node Styling (Black Fill, White Text/Stroke)
+    classDef dark fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
+    class Emp,Partner,IntApp,Cust,Social,PubApp,L_Fed dark;
+    
+    %% 2. Transparent Spacer Style (Hidden)
+    classDef transparent fill:none,stroke:none,color:transparent,font-size:1px;
+    class SpacerCorp,SpacerB2C transparent;
+    
+    %% 3. Subgraph Styling (Force Black Background)
+    style Corp_Tenant fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    style B2C_Tenant fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    
+    %% 4. Arrow Styling (White)
+    linkStyle default stroke:#fff,stroke-width:2px;
+```
+
+### Strategic Design Considerations
+
+1. **User Flows (The Journey):**
+     * Pre-configured policies for common tasks: **Sign-Up**, **Sign-In**, **Profile Edit**, **Password Reset**.
+     * Benefit: You don't write code for these pages; you just configure them.
+2. **Branding (White-labeling):**
+     * You can fully customize the HTML/CSS so the login page looks exactly like your website. The user shouldn't know they left your site.
+3. **External User Stores (CRM):**
+     * B2C can hold data (100 custom attributes), OR it can act as a gateway to your CRM.
+     * Scenario: User logs in -> B2C asks CRM "Is this a VIP?" -> CRM says "Yes" -> User gets VIP access.
+
+| Feature | Microsoft Entra B2B 🤝 | Azure AD B2C 🛒 |
+| :--- | :--- | :--- |
+| **Target Audience** | **Partners / Vendors**<br>*(Collaboration focused)* | **Customers / Consumers**<br>*(SaaS & E-commerce)* |
+| **Directory Location** | **Main Corporate Tenant**<br>*(Added as Guest Object)* | **Separate B2C Tenant**<br>*(Isolated Directory)* |
+| **Privacy Model** | **Visible**<br>*(Users can see directory/GAL)* | **Invisible**<br>*(Users are isolated from each other)* |
+| **Profile Management** | **IT Managed**<br>*(Access Reviews, Governance)* | **Self-Service**<br>*(Sign-up, Edit Profile flows)* |
+| **Identity Source** | **Work / School Account**<br>*(Bring Your Own Identity)* | **Social or Local**<br>*(Facebook, Google, Email)* |
+
+**Takeaway**
+If you are building an app for your Sales Team and a Vendor, use **B2B**. If you are building an app for millions of people to buy shoes, use **B2C**.
+
