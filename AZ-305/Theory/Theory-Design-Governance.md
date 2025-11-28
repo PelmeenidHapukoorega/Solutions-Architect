@@ -230,7 +230,7 @@ graph TD
 **Takeaway**
 Treat subscriptions as flexible tools, not rigid boxes. Use them to isolate costs ("Who pays?"), isolate environments ("Prod vs Dev"), and bypass resource limits.
 
-# Design for resource groups
+## Design for resource groups
 
 **Key points**
 *   **Definition:** Logical containers where Azure resources are deployed and managed.
@@ -449,5 +449,209 @@ graph TD
 **Takeaway**
 RBAC stops the wrong people from touching your environment. Azure Policy stops the right people from doing the wrong things (like creating a $5,000/month VM by accident).
 
+## Design for role-based access control (RBAC)
 
+**Key points**
+*   **Definition:** An authorization system that determines who can access Azure resources and what they can do with them.
+*   **The Model:** RBAC is an **Allow Model**. By default, you have NO access (Deny). Assigning a role *adds* permissions.
+*   **Additive Nature:** Permissions stack. If you are a "Contributor" on the Subscription and a "Reader" on a Resource Group inside it, you are effectively a **Contributor** on both. The higher privilege wins.
 
+**Strategic Design Considerations**
+
+1.  **Scope & Inheritance**
+    *   Assign roles at the **highest scope** that meets the requirement.
+    *   *Example:* If a team needs to manage *all* VMs in a subscription, assign "VM Contributor" at the **Subscription** level. Do not assign it 50 times on 50 individual VMs.
+
+```mermaid
+graph TD
+    %% Main Nodes
+    User([👤 User / Group])
+    Role[📜 Role: Contributor]
+    
+    subgraph Scope_Hierarchy ["🏗️ Scope Hierarchy"]
+        direction TB
+        Sub["💳 Subscription"]
+        RG["📦 Resource Group"]
+        Res["🖥️ Resource"]
+    end
+    
+    %% Label Nodes (Created to ensure they are Black, not Grey)
+    L1["Assigned Role"]
+    L2["Inherits Access"]
+    L3["Inherits Access"]
+
+    %% Connections
+    Role -.-> User
+    
+    %% Flow with Labels
+    User --> L1 --> Sub
+    Sub === L2 ===> RG
+    RG === L3 ===> Res
+
+    %% --- DARK MODE STYLING ---
+    %% Fill: Black | Stroke: White | Text: White
+    classDef dark fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
+    
+    %% Apply style to ALL nodes (Entities + Labels)
+    class User,Role,Sub,RG,Res,L1,L2,L3 dark;
+    
+    %% Apply style to Subgraph (Big Box)
+    style Scope_Hierarchy fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    
+    %% Make arrows white
+    linkStyle default stroke:#fff,stroke-width:2px;
+```
+
+1. **Groups vs. Users**
+     * **Rule:** Avoid assigning roles directly to users.
+     * **Best Practice:** Assign roles to **Microsoft Entra Groups**. When a new employee joins, you just add them to the group. You don't have to touch Azure RBAC settings.
+2. **Least Privilege**
+     * Give users only the specific access they need to do their job.
+     * Risk: If you give everyone "Owner" rights, a compromised account can delete your entire environment.
+3. **Custom Roles**
+     * Use **Built-in Roles** (Owner, Contributor, Reader, User Access Administrator) whenever possible.
+     * Create **Custom Roles** only if the built-in options don't meet specific needs (e.g., "Can restart VMs but cannot delete them").
+
+| Feature | Azure Policy 📜 | Azure RBAC 🔑 |
+| :--- | :--- | :--- |
+| **Description** | Enforces rules on **Resource Properties**.<br>*(Ensures the config is correct)* | Fine-grained **Access Control** system.<br>*(Ensures the user is authorized)* |
+| **Main Focus** | **Resource State**<br>_("Is this resource compliant?")_ | **User Access**<br>_("Can this user perform this action?")_ |
+| **Implementation** | **Rules & Effects**<br>*(Audit, Deny, Modify, Append)* | **Roles & Scopes**<br>*(Owner, Contributor, Reader)* |
+| **Default Access** | **Allow**<br>*(Unless a specific policy blocks it)* | **Deny**<br>*(Access is blocked until a role grants it)* |
+
+```mermaid
+graph TD
+    %% Define Nodes
+    Action([⚡ User Attempts Action])
+    
+    %% RBAC Side
+    subgraph RBAC ["🔑 RBAC (The 'Who')"]
+        direction TB
+        Q1["Can User perform Action?"]
+        R1["**Default: DENY**<br>(Need Role to Allow)"]
+    end
+
+    %% Policy Side
+    subgraph Policy ["📜 Policy (The 'What')"]
+        direction TB
+        Q2["Is Resource Compliant?"]
+        R2["**Default: ALLOW**<br>(Need Policy to Deny)"]
+    end
+
+    %% Flow
+    Action --> Q1
+    Q1 --> R1
+    
+    Action --> Q2
+    Q2 --> R2
+
+    %% --- DARK MODE STYLING ---
+    %% Fill: Black | Stroke: White | Text: White
+    classDef dark fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
+    
+    %% Apply style to nodes
+    class Action,Q1,R1,Q2,R2 dark;
+    
+    %% Apply style to Subgraphs (Big Boxes)
+    style RBAC fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    style Policy fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    
+    %% Make arrows white
+    linkStyle default stroke:#fff,stroke-width:2px;
+```
+
+### Scenario Examples
+
+* **Segregation of Duties:** Allow User A to manage VMs, but User B to manage the Network.
+* **App Access:** Allow an application (Service Principal) to access a specific Resource Group to write logs, but nothing else.
+* **DBA Access:** Allow the "DBA Group" to manage SQL Databases across the entire Subscription.
+
+**Takeaway**
+RBAC answers "Who can touch this?" Policy answers "What can they build?" Use them together for full control.
+
+## Design for Azure landing zones
+
+**Key points**
+*   **Definition:** An infrastructure environment for hosting your workloads.
+*   **The Analogy:** Think of it like **City Utilities**. Water, gas, and electricity must be installed *before* you build a new house. Similarly, your Network, Identity, Policies, and Monitoring must be active *before* you deploy an application.
+*   **Purpose:** To streamline migration by ensuring the foundation is ready, secure, and compliant from Day 1.
+
+**Core Characteristics**
+1.  **Scalable Structure:** Built on Management Groups and Subscriptions aligned with business needs.
+2.  **Code-Driven:** Landing zones are pre-provisioned through code (Infrastructure as Code) to ensure consistency.
+3.  **Guardrails:** Azure Policies are baked in to ensure compliance automatically.
+4.  **Accelerator:** You can use the **Azure Landing Zone Accelerator** (Portal-based) to deploy a full, opinionated architecture into your tenant.
+
+**Conceptual Architecture**
+The Landing Zone splits the "Platform" (Utilities) from the "Workloads" (Applications).
+
+```mermaid
+graph TD
+    Root["🏢 **Tenant Root Group**"]
+    
+    subgraph Platform ["🏗️ Platform ('The Utilities')"]
+        direction TB
+        Identity["🆔 Identity Sub"]
+        Network["🌐 Connectivity Sub"]
+        Mgmt["📊 Management Sub"]
+    end
+    
+    subgraph LandingZones ["🏠 Landing Zones ('The Workloads')"]
+        direction TB
+        
+        %% --- SPACER FIX ---
+        %% " " is smaller than "&nbsp;", and font-size:1px makes it tiny
+        LZ_Spacer[" "]
+        
+        SAP["🏭 SAP Corp"]
+        Online["🛒 Online Store"]
+        Corp["💼 Internal Apps"]
+    end
+
+    %% Label Node
+    L1["Provides Services"]
+
+    %% Connections
+    Root --> Platform
+    Root --> LandingZones
+    
+    %% Spacer Logic
+    LZ_Spacer ~~~ SAP
+    LZ_Spacer ~~~ Online
+    LZ_Spacer ~~~ Corp
+
+    %% Dotted connection
+    Platform -.- L1 -.-> LandingZones
+
+    %% --- DARK MODE STYLING ---
+    %% 1. Standard Dark Node
+    classDef dark fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
+    class Root,Identity,Network,Mgmt,SAP,Online,Corp,L1 dark;
+    
+    %% 2. Transparent Spacer Style
+    %% font-size:1px shrinks the text height to almost nothing
+    classDef transparent fill:none,stroke:none,color:transparent,font-size:1px;
+    class LZ_Spacer transparent;
+
+    %% 3. Subgraph Styling (Black Background)
+    style Platform fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    style LandingZones fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    
+    %% 4. Arrow Styling
+    linkStyle default stroke:#fff,stroke-width:2px;
+``` 
+
+### Design Considerations
+
+1. **Infrastructure as Code (IaC):**
+     * Expect to **refactor**. Use an iterative approach.
+     * Central IT reviews short-term and long-term scenarios to minimize rework.
+2. **Application-Centric:**
+     * Focus on how the infrastructure supports the Application, rather than just lifting and shifting VMs.
+     * Favor **Azure-Native** services (PaaS) over legacy infrastructure where possible.
+3. **Brownfield vs. Greenfield:**
+     * **Greenfield:** Build fresh for new apps.
+     * **Brownfield (Existing):** You can deploy the Landing Zone Accelerator in parallel with your current environment. It creates a new Management Group structure that doesn't break your existing setup, allowing you to migrate over time.
+
+**Takeaway**
+A Landing Zone is the difference between "Building a cabin in the woods" (Manual, isolated, risky) and "Building a house in a master-planned community" (Connected, secure, managed utilities).
