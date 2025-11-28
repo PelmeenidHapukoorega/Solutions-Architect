@@ -329,7 +329,8 @@ A robust taxonomy usually mixes these five categories to cover all bases:
 graph LR
     Resource["💻 **VM-Web-Prod**"]
     
-    subgraph Metadata [🏷️ Applied Tags]
+    subgraph Metadata ["🏷️ Applied Tags"]
+        direction TB
         T1["**Env:** Production"]
         T2["**Dept:** Finance"]
         T3["**Owner:** JSmith"]
@@ -344,7 +345,14 @@ graph LR
     %% --- DARK MODE STYLING ---
     %% Fill: Black | Stroke: White | Text: White
     classDef dark fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
+    
+    %% Apply style to Nodes
     class Resource,T1,T2,T3,T4 dark;
+    
+    %% Apply style to the Subgraph (The Box around the tags)
+    style Metadata fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    
+    %% Make lines white
     linkStyle default stroke:#fff,stroke-width:2px;
 ```
 
@@ -359,5 +367,87 @@ graph LR
 
 **Takeaway**
 Tags are the only way to make sense of your billing bill at the end of the month. Without `CostCenter` tags, your Azure bill is just one big unrecognizable number.
+
+## Design for Azure Policy
+
+**Key points**
+*   **Definition:** A service that enforces rules on your resources to ensure they comply with corporate standards (e.g., "All VMs must use Managed Disks").
+*   **Scope:** Policies are **inherited**. If you apply a policy at the Management Group level, it applies to every Subscription and Resource Group below it.
+*   **Initiatives:** A group of related policies bundled together (e.g., "ISO 27001 Compliance Initiative" contains 50+ individual policies).
+
+**Policy vs. RBAC (The Critical Distinction)**
+This is the #1 confusion point. You must use them together.
+
+| Feature | Azure RBAC | Azure Policy |
+| :--- | :--- | :--- |
+| **Focus** | **User Actions** (Who?) | **Resource State** (What?) |
+| **Logic** | "Does John have permission to create a VM?" | "Is the VM in the allowed region?" |
+| **Result** | Allow or Deny Access. | Allow, Deny, or **Modify** the resource. |
+| **Analogy** | The **Bouncer** checking IDs at the club door. | The **Dress Code**. (Even if the bouncer lets you in, you can't enter without a tie). |
+
+```mermaid
+graph TD
+    %% Define Main Nodes
+    User([👤 User / Admin])
+    Request[📝 Request: Create VM in 'West US']
+    
+    subgraph Gatekeepers ["🛡️ The Governance Gate"]
+        direction TB
+        RBAC{🔑 RBAC Check}
+        Policy{📜 Policy Check}
+    end
+    
+    Result_Success[✅ Resource Created]
+    Result_Fail[⛔ Action Blocked]
+
+    %% Define Decision "Label" Nodes 
+    %% (These replace the text on the lines so they can be styled black)
+    L1[No Permission]
+    L2[Has Permission]
+    L3[Region Not Allowed]
+    L4[Compliant]
+
+    %% Connections
+    User --> Request
+    Request --> RBAC
+    
+    %% RBAC Flow
+    RBAC --> L1 --> Result_Fail
+    RBAC --> L2 --> Policy
+    
+    %% Policy Flow
+    Policy --> L3 --> Result_Fail
+    Policy --> L4 --> Result_Success
+
+    %% --- DARK MODE STYLING ---
+    %% Fill: Black | Stroke: White | Text: White
+    classDef dark fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
+    
+    %% Apply style to ALL nodes (including the decision labels)
+    class User,Request,RBAC,Policy,Result_Success,Result_Fail,L1,L2,L3,L4 dark;
+    
+    %% Apply style to the Gatekeepers Box (Force Black Background)
+    style Gatekeepers fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    
+    %% Make arrows white
+    linkStyle default stroke:#fff,stroke-width:2px;
+```
+
+### Policy Effects (How it handles non-compliance)
+
+1. **Deny:** Blocks the request. The resource is never created. (Best for strict security).
+2. **Audit:** Allows the creation but flags it as "Non-Compliant" in the dashboard. (Best for existing brownfield resources).
+3. **Modify / Append:** Automatically changes the resource during deployment. (e.g., "If `CostCenter` tag is missing, add `CostCenter: 999`").
+4. **DeployIfNotExist:** If a required extension (like the Monitoring Agent) is missing, Policy deploys it for you.
+
+### Evaluation Triggers (When does it check?)
+
+* **Real-time:** When a resource is Created, Updated, or Deleted.
+* **Periodic:** A full compliance scan runs every 24 hours.
+* **Assignment:** When a policy is newly assigned or updated.
+
+**Takeaway**
+RBAC stops the wrong people from touching your environment. Azure Policy stops the right people from doing the wrong things (like creating a $5,000/month VM by accident).
+
 
 
