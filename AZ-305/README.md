@@ -32,7 +32,7 @@ I hope the reader enjoys going through this as much as I do!
 ## AZ-305 Design identity, governance and monitor solutions (Module 2)
 - [Theory Design Governance Notes](Theory/Theory-Design-Governance.md)
 - [Theory Design Authentication and authorization solutions notes](Theory/Theory-Design-Authentication-and-authorization-solutions.md)
-- [Theory Storage services](Theory/Theory-Storage-services.md)
+- [Theory Design a solution to log and monitor Azure resources](Theory/Theory-Design-a-solution-to-log-and-monitor-Azure-resources.md)
 
 ## AZ-305 Design business continuity solutsions (Module 3)
 
