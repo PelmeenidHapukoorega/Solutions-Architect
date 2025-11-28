@@ -15,3 +15,15 @@ If you treat Identity like a simple phonebook instead of a security layer, you a
 **Bottom line:**
 Secure the identity first. If you don't, you aren't an Architect; you're just setting the table for an attacker to come in, sit down, and eat your lunch using valid credentials.
 
+## Table of Contents
+* [Design for identity and access management](#design-for-identity-and-access-management)
+* [Design for Microsoft Entra ID](#design-for-microsoft-entra-id)
+* [Design for Microsoft Entra business-to-business (B2B)](#design-for-microsoft-entra-business-to-business-b2b)
+* [Design for Azure Active Directory B2C (business-to-customer)](#design-for-azure-active-directory-b2c-business-to-customer)
+* [Design for conditional access](#design-for-conditional-access)
+* [Design for identity protection](#design-for-identity-protection)
+* [Design for access reviews](#design-for-access-reviews)
+* [Design for managed identities](#design-for-managed-identities)
+* [Design for service principals for applications](#design-for-service-principals-for-applications)
+* [Design for Azure Key Vault](#design-for-azure-key-vault)
+
