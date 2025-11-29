@@ -586,4 +586,77 @@ When designing a review plan (e.g., for a Sensitive Finance App), define the log
 **Takeaway**
 Access Reviews are the "Garbage Collector" for your identity system. If you don't run them, your directory becomes a museum of stale permissions waiting to be exploited.
 
+## Design for service principals for applications
+
+**Key points**
+*   **Definition:** A Service Principal (SP) is an **Identity for an Application**. Just as a user has a User Principal, an app has a Service Principal to sign in and access resources.
+*   **The Relationship:**
+    *   **Application Object:** The global "Definition" or "Class" (stored in the Home Tenant).
+    *   **Service Principal:** The local "Instance" or "Object" (created in every Tenant where the app is used).
+*   **Cardinality:** An App Object has a **1:Many** relationship with Service Principals. (1 App Definition -> SP in Tenant A, SP in Tenant B, etc.).
+
+**Types of Service Principals**
+
+| Type | Description | Management Overhead |
+| :--- | :--- | :--- |
+| **Application** | The standard local representation of a global app object. | Medium (You manage secrets/certs). |
+| **Managed Identity** | A special SP linked to an Azure resource (like a VM). Azure manages the password rotation automatically. | **Zero** (Best Practice). |
+| **Legacy** | Old apps created before App Registrations existed. | High (Avoid these). |
+
+**The Multi-Tenant Architecture**
+How a SaaS app (like Salesforce or a custom multi-tenant app) exists in multiple directories.
+
+```mermaid
+graph TD
+    subgraph Home_Tenant ["🏠 Home Tenant (Developer)"]
+        AppObj["📝 **App Object**<br>(The Template/Definition)"]
+    end
+
+    subgraph Client_Tenant_A ["🏢 Client Tenant A"]
+        SP_A["🤖 **Service Principal**<br>(Local Instance A)"]
+    end
+
+    subgraph Client_Tenant_B ["🏢 Client Tenant B"]
+        SP_B["🤖 **Service Principal**<br>(Local Instance B)"]
+    end
+
+    %% Label Nodes (Converted from text-on-lines)
+    L1["Instantiates"]
+    L2["Instantiates"]
+
+    %% Connections
+    %% Using dotted lines (-.-) to represent the instantiation relationship
+    AppObj -.- L1 -.-> SP_A
+    AppObj -.- L2 -.-> SP_B
+
+    %% --- DARK MODE STYLING ---
+    %% 1. Node Styling (Black Fill, White Text/Stroke)
+    classDef dark fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
+    class AppObj,SP_A,SP_B,L1,L2 dark;
+    
+    %% 2. Subgraph Styling (Force Black Background)
+    style Home_Tenant fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    style Client_Tenant_A fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    style Client_Tenant_B fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    
+    %% 3. Arrow Styling (White)
+    linkStyle default stroke:#fff,stroke-width:2px;
+```
+
+### Strategic Design Considerations
+
+1. **Managed Identities (The Gold Standard):**
+     * If the app runs on Azure (VM, Function, App Service), **always** use a Managed Identity.
+     * Why? There is no credential to steal. The "password" is handled internally by Azure and rotated automatically.
+2. **Least Privilege Permissions:**
+     * **Rule:** Only ask for what you need.
+     * Example: If your app reads emails, ask for `Mail.Read`. Do **not** ask for `Mail.ReadWrite` just in case.
+     * Security Risk: Over-privileged Service Principals are a favorite target for attackers.
+3. **User Consent (The Phishing Vector):**
+     * **Problem:** Users tend to click "Accept" on any pop-up asking for permission.
+     * **Solution: Restrict User Consent**.
+     * Policy: Only allow users to consent to apps from **Verified Publishers** for low-impact permissions (like "Sign In"). For everything else (like "Read all files"), require **Admin Consent**.
+
+**Takeaway**
+Service Principals are ghost users. If you give them keys (Client Secrets) and high permissions, and you don't rotate those keys, you have created a permanent, silent backdoor into your environment. Use Managed Identities to eliminate the keys entirely.
 
