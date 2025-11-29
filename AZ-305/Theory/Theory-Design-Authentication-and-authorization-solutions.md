@@ -329,3 +329,261 @@ graph TD
 **Takeaway**
 If you are building an app for your Sales Team and a Vendor, use **B2B**. If you are building an app for millions of people to buy shoes, use **B2C**.
 
+## Design for conditional access
+
+**Key points**
+*   **Definition:** The "If This Then That" logic engine for Identity. It evaluates signals to make access decisions.
+*   **Logic:** `Signal (Who/Where/Device)` + `Policy` = `Decision (Allow/MFA/Block)`.
+*   **Licensing:** Requires **Microsoft Entra ID P1 or P2**.
+*   **Goal:** Move away from a static perimeter (Firewall) to a dynamic perimeter (Identity).
+
+**The Decision Flow**
+Conditional Access evaluates every sign-in attempt in real-time.
+
+```mermaid
+graph TD
+    subgraph Signals ["📡 Signals (Input)"]
+        direction TB
+        User["👤 User / Group"]
+        Loc["🌍 Location / IP"]
+        Dev["📱 Device Health"]
+        App["☁️ Application"]
+    end
+
+    Engine{"🛡️ Conditional Access Engine"}
+
+    subgraph Decisions ["⚡ Enforcement (Output)"]
+        direction TB
+        Allow["✅ Allow Access"]
+        MFA["📲 Require MFA"]
+        Block["⛔ Block Access"]
+    end
+
+    %% Label Nodes (Converted from text-on-lines)
+    L_Safe["Safe"]
+    L_Risk["Risky / New Device"]
+    L_Ban["Banned Region / Legacy Auth"]
+
+    %% Connections
+    User --> Engine
+    Loc --> Engine
+    Dev --> Engine
+    App --> Engine
+
+    %% Decision Flow
+    Engine --> L_Safe --> Allow
+    Engine --> L_Risk --> MFA
+    Engine --> L_Ban --> Block
+
+    %% --- DARK MODE STYLING ---
+    %% 1. Node Styling (Black Fill, White Text/Stroke)
+    classDef dark fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
+    class User,Loc,Dev,App,Engine,Allow,MFA,Block,L_Safe,L_Risk,L_Ban dark;
+    
+    %% 2. Subgraph Styling (Force Black Background)
+    style Signals fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    style Decisions fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    
+    %% 3. Arrow Styling (White)
+    linkStyle default stroke:#fff,stroke-width:2px;
+```
+
+### Strategic Design Considerations
+
+1. **Zero Trust Configuration:**
+     * **Named Locations:** Create a list of countries you never do business with (e.g., North Korea, Russia) and Block them globally. Exempt your Admins!
+     * **Device Compliance:** Require devices to be "Managed" (Intune Compliant) to access sensitive data. If the device is infected or not updated, access is denied.
+2. **Legacy Authentication (CRITICAL):**
+     * **The Risk:** Older protocols (POP3, IMAP, SMTP) do not support MFA. Hackers use them to bypass your security.
+     * **Action:** Create a policy to **Block Legacy Authentication** for everyone.
+3. **Application Controls:**
+     * **Approved Client Apps:** You can force users to use Outlook Mobile (which you can wipe) instead of the native Mail app (which you can't control).
+4. **Testing (Don't Lock Yourself Out):**
+     * **Report-Only Mode:** "What would have happened?" Run policies in simulation mode to see impact without breaking production.
+     * **What If Tool:** Simulate a specific login scenario (e.g., "What if John logs in from China?") to see which policies apply.
+     * **Break Glass Account:** Always exclude one emergency admin account from your Conditional Access policies in case you misconfigure something and lock everyone out.
+
+**Takeaway**
+Conditional Access is the brain of Zero Trust. It allows you to say: "I don't care if you have the correct password; if you are logging in from a jailbroken iPad in a country we don't operate in, you aren't getting in."
+
+## Design for identity protection
+
+**Key points**
+*   **Definition:** An automated monitoring tool that detects suspicious activities related to identities.
+*   **The "Three Tasks":**
+    1.  **Automate Detection:** Find risks (e.g., leaked passwords).
+    2.  **Automate Remediation:** Fix them without IT intervention (e.g., force a password reset).
+    3.  **Investigate:** Feed data into a SIEM (like Microsoft Sentinel) for deep analysis.
+
+**Risk Types (Critical Distinction)**
+You must know the difference between "The User is bad" and "The Login is bad."
+
+| Risk Type | Question it Answers | Calculation Time | Examples |
+| :--- | :--- | :--- | :--- |
+| **User Risk** | "Is this *Identity* compromised?" | Offline (Background) | • **Leaked Credentials** (Found on Dark Web)<br>• **Threat Intelligence** (Known attack patterns) |
+| **Sign-in Risk** | "Is this *Login attempt* suspicious?" | Real-time & Offline | • **Anonymous IP** (Tor Browser)<br>• **Atypical Travel** (Login from London, then NY 1 hour later)<br>• **Password Spray** |
+
+**The Automated Remediation Flow**
+Instead of waking up an admin at 3 AM, Identity Protection handles it.
+
+```mermaid
+graph TD
+    %% Main Entities
+    Attacker([🥷 Threat Actor])
+    User([👤 Legitimate User])
+    
+    subgraph Risk_Engine ["🛡️ Identity Protection Engine"]
+        direction TB
+        Detection{Risk Detected?}
+        Type{User or Sign-in?}
+    end
+    
+    subgraph Policy ["📜 Remediation Policy"]
+        direction TB
+        Reset["🔄 Force Password Reset"]
+        MFA["📲 Force MFA"]
+        Block["⛔ Block Access"]
+    end
+
+    %% Label Nodes (Converted from text-on-lines)
+    L_Creds["Leaked Creds"]
+    L_Travel["Impossible Travel"]
+    L_Yes["Yes"]
+    L_UserRisk["User Risk (High)"]
+    L_SigninRisk["Sign-in Risk (Medium)"]
+    L_Fix1["User Fixes It"]
+    L_Fix2["User Fixes It"]
+
+    %% Connections
+    Attacker --> L_Creds --> Risk_Engine
+    User --> L_Travel --> Risk_Engine
+    
+    %% Internal Engine Flow
+    Risk_Engine --> Detection
+    Detection --> L_Yes --> Type
+    
+    %% Decision Flow
+    Type --> L_UserRisk --> Reset
+    Type --> L_SigninRisk --> MFA
+    
+    %% Remediation Loop
+    Reset -.-> L_Fix1 -.-> User
+    MFA -.-> L_Fix2 -.-> User
+
+    %% --- DARK MODE STYLING ---
+    %% 1. Node Styling (Black Fill, White Text/Stroke)
+    classDef dark fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
+    class Attacker,User,Detection,Type,Reset,MFA,Block,L_Creds,L_Travel,L_Yes,L_UserRisk,L_SigninRisk,L_Fix1,L_Fix2 dark;
+    
+    %% 2. Subgraph Styling (Force Black Background)
+    style Risk_Engine fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    style Policy fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    
+    %% 3. Arrow Styling (White)
+    linkStyle default stroke:#fff,stroke-width:2px;
+```
+
+### Strategic Design Considerations
+
+1. **User Risk Policy (The "You are Hacked" Rule):**
+     * **Recommendation:** Set threshold to High.
+     * **Action:** Block access and **Require Password Change**.
+     * Why? If Microsoft found the user's password on the dark web, MFA isn't enough. The password is dead. Change it.
+2. **Sign-in Risk Policy (The "This looks weird" Rule):**
+     * **Recommendation:** Set threshold to **Medium and above**.
+     * **Action:** Require **MFA**.
+     * Why? If a user logs in from a new country, it might be them on vacation. MFA proves it. If they can't pass MFA, block them.
+3. **Self-Remediation:**
+     * This is the biggest value add. It reduces Helpdesk tickets. The user fixes their own security issue (via MFA or Password Reset) and gets back to work immediately.
+4. **SIEM Integration:**
+     * Identity Protection data should not stay in Entra ID. Export it to **Microsoft Sentinel** to correlate it with other logs (e.g., Firewall logs).
+
+**Takeaway**
+Identity Protection is the **Automated Immune System** for your directory. It creates a self-healing identity infrastructure where risky users clean up their own mess.
+
+## Design for access reviews
+
+**Key points**
+*   **The Problem:** "Permission Creep." Employees move teams, accumulate access, and never lose the old access. When they leave, they might still have a backdoor.
+*   **The Solution:** Microsoft Entra Access Reviews. A scheduled process to validate if a user *still* needs access.
+*   **Scope:** You can review access to **Groups** (Teams/Security), **Applications**, **Access Packages**, and **Privileged Roles** (PIM).
+
+**The Lifecycle Challenge**
+Without reviews, access only goes *up*. With reviews, access is pruned.
+
+```mermaid
+graph LR
+    subgraph Problem ["📈 The Permission Creep"]
+        direction TB
+        Hire([User Hired])
+        Role1[Role A Access]
+        Role2[Role B Access]
+        Role3[Role C Access]
+    end
+
+    subgraph Solution ["✂️ The Access Review"]
+        direction TB
+        Review{📅 Quarterly Review}
+        Manager([👤 Manager / Owner])
+        Action[🗑️ Revoke Old Access]
+    end
+
+    %% Label Nodes (Converted from text-on-lines)
+    L_Promoted["Promoted"]
+    L_Moved["Moved"]
+    L_Retains1["Retains"]
+    L_Retains2["Retains"]
+    L_Denies["Denies"]
+
+    %% --- CONNECTIONS ---
+
+    %% 1. The Creep Flow
+    Hire --> Role1
+    Role1 --> L_Promoted --> Role2
+    Role2 --> L_Moved --> Role3
+    
+    %% 2. The Retention (Dotted Lines)
+    Role3 -.- L_Retains1 -.-> Role1
+    Role3 -.- L_Retains2 -.-> Role2
+
+    %% 3. The Solution Flow
+    Role3 --> Review
+    Manager --> L_Denies --> Review
+    Review --> Action
+
+    %% --- DARK MODE STYLING ---
+    %% 1. Node Styling (Black Fill, White Text/Stroke)
+    classDef dark fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
+    class Hire,Role1,Role2,Role3,Review,Manager,Action dark;
+    class L_Promoted,L_Moved,L_Retains1,L_Retains2,L_Denies dark;
+    
+    %% 2. Subgraph Styling (Force Black Background)
+    style Problem fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    style Solution fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    
+    %% 3. Arrow Styling (White)
+    linkStyle default stroke:#fff,stroke-width:2px;
+```
+
+**Who performs the review?**
+
+* **Resource Owner:** Best for checking access to specific Apps or Project Groups.
+* **Manager:** Best for checking their direct reports' access.
+* **Self-Review:** Useful for low-risk groups ("Do you still need to be in the 'Lunch Menu' group?").
+
+### Strategic Design Considerations
+When designing a review plan (e.g., for a Sensitive Finance App), define the logic clearly:
+
+| Component | Implementation Strategy |
+| :--- | :--- |
+| **Target Resources** | **Microsoft Dynamics**<br>*(Focus on critical Finance Data)* |
+| **Frequency** | **Monthly** (High Risk) vs. **Quarterly** (Standard Risk)<br>*(Adaptive scheduling based on sensitivity)* |
+| **Reviewers** | **Program Managers**<br>*(They possess the business context on who needs access)* |
+| **Duration** | **48 Hours**<br>*(Short time window to force immediate action)* |
+| **Auto-Action** | **Remove Access (Fail Closed)**<br>*(If reviewer does not respond, access is automatically revoked)* |
+| **Inactive Users** | **Auto-Remove**<br>*(Automatically revoke access if not used for 90 days)* |
+
+**Takeaway**
+Access Reviews are the "Garbage Collector" for your identity system. If you don't run them, your directory becomes a museum of stale permissions waiting to be exploited.
+
+
