@@ -23,8 +23,8 @@ Secure the identity first. If you don't, you aren't an Architect; you're just se
 * [Design for conditional access](#design-for-conditional-access)
 * [Design for identity protection](#design-for-identity-protection)
 * [Design for access reviews](#design-for-access-reviews)
-* [Design for managed identities](#design-for-managed-identities)
 * [Design for service principals for applications](#design-for-service-principals-for-applications)
+* [Design for managed identities](#design-for-managed-identities)
 * [Design for Azure Key Vault](#design-for-azure-key-vault)
 
 ## Design for identity and access management
