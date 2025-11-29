@@ -756,7 +756,79 @@ graph TD
 **Takeaway**
 Managed Identities are the single most effective way to prevent credential theft. If there is no password to steal, the hacker cannot steal it.
 
+## Design for Azure Key Vault
 
+**Key points**
+*   **The Problem:** Storing connection strings and API keys in code (GitHub) is the #1 way companies get hacked.
+*   **The Solution:** Azure Key Vault (AKV). A centralized, secure storage for sensitive data.
+*   **Three Main Artifacts:**
+    1.  **Secrets:** Passwords, API Keys, Connection Strings (Things you read).
+    2.  **Keys:** Encryption keys used to lock data (Things you use to encrypt/decrypt).
+    3.  **Certificates:** SSL/TLS Certificates (Things you use for identity/web security).
 
+**Service Tiers**
 
+| Tier | Backed By | Use Case |
+| :--- | :--- | :--- |
+| **Standard** | Software Encryption | General purpose secrets, passwords, standard apps. |
+| **Premium** | **HSM** (Hardware Security Module) | FIPS 140-2 Level 2 compliance. High-security encryption keys. |
 
+**The Access Flow (The "Bootstrapping" Pattern)**
+How an app gets a password without having a password.
+
+```mermaid
+graph LR
+    subgraph App_Side ["💻 Application Server"]
+        direction TB
+        Code["App Code"]
+        Identity["🆔 Managed Identity"]
+    end
+
+    subgraph Security_Boundary ["🔒 Azure Key Vault"]
+        direction TB
+        Policy["🛡️ Access Policy"]
+        Secret["🔑 Secret: 'db-password'"]
+    end
+
+    %% Label Nodes (Converted from text-on-lines)
+    L_Calls["Calls"]
+    L_Auth["Authenticates"]
+    L_Allow["Allow Get"]
+    L_Return["Returns Password"]
+
+    %% Connections
+    Code --> L_Calls --> Identity
+    Identity --> L_Auth --> Policy
+    Policy --> L_Allow --> Secret
+    
+    %% Return Path (Secret -> Code)
+    Secret -- " " --> L_Return --> Code
+
+    %% --- DARK MODE STYLING ---
+    %% 1. Node Styling (Black Fill, White Text/Stroke)
+    classDef dark fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
+    class Code,Identity,Secret,Policy,L_Calls,L_Auth,L_Allow,L_Return dark;
+    
+    %% 2. Subgraph Styling (Force Black Background)
+    style App_Side fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    style Security_Boundary fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    
+    %% 3. Arrow Styling (White)
+    linkStyle default stroke:#fff,stroke-width:2px;
+```
+
+### Strategic Design Considerations
+
+1. **Blast Radius (Segmentation):**
+     * **Rule:** Do not create one giant "Corporate Vault" for everyone.
+     * **Strategy:** Create **one Key Vault per Application** (or per environment).
+     * Why? If the "App A" team gets compromised, they shouldn't be able to read "App B's" database password.
+2. **Safety Nets (Delete vs. Purge):**
+     * **Soft Delete:** The "Recycle Bin." If you accidentally delete a vault, you can recover it for 90 days. (Enabled by default).
+     * **Purge Protection:** The "Time Lock." Prevents a malicious insider (or hacker) from permanently emptying the recycle bin. Even Admins cannot bypass this.
+3. **Network Security:**
+     * Key Vaults are public by default.
+     * **Action:** Turn on the **Firewall** and use **Private Endpoints** so only traffic from within your VNet can reach the vault.
+
+**Takeaway**
+Key Vault separates Configuration from Secrets. Your code should say "Go get the password," not "Here is the password."
