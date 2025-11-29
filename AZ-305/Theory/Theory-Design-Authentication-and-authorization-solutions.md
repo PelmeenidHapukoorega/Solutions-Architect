@@ -660,3 +660,103 @@ graph TD
 **Takeaway**
 Service Principals are ghost users. If you give them keys (Client Secrets) and high permissions, and you don't rotate those keys, you have created a permanent, silent backdoor into your environment. Use Managed Identities to eliminate the keys entirely.
 
+## Design for managed identities
+
+**Key points**
+*   **The Problem:** Developers hardcoding passwords/connection strings in code or config files.
+*   **The Solution:** Managed Identities. An identity wrapper for your Azure resource that authenticates automatically.
+*   **Value:** No passwords to rotate. No secrets to manage. It is **Free**.
+
+**Types of Managed Identities**
+
+| Feature | System-Assigned | User-Assigned |
+| :--- | :--- | :--- |
+| **Creation** | Created *on* the resource (e.g., toggle a switch on the VM). | Created as a *standalone* Azure Resource. |
+| **Lifecycle** | Tied to the resource. If you delete the VM, the identity dies. | Independent. If you delete the VM, the identity survives. |
+| **Sharing** | Cannot be shared. 1:1 relationship. | Can be shared. 1:Many relationship (e.g., 1 Identity assigned to 50 VMs). |
+| **Use Case** | Unique workloads requiring specific, isolated permissions. | Farm workloads where many resources need the exact same access. |
+
+**Supported Ecosystem**
+You use a Managed Identity on a "Source" resource to talk to a "Target" resource without ever seeing a password.
+
+| Source (Where code runs) | Target (What you access) |
+| :--- | :--- |
+| **Azure Virtual Machines** | **Azure Key Vault** (Secrets/Certs) |
+| **Azure App Service** | **Azure Storage** (Blobs/Files) |
+| **Azure Functions** | **Azure SQL Database** |
+| **Azure Kubernetes Service (AKS)** | **Microsoft Graph API** |
+| **Azure Logic Apps** | **Custom APIs** (that trust Entra ID) |
+
+**Architecture Visualization**
+
+```mermaid
+graph TD
+    subgraph System_Assigned ["⚙️ System-Assigned"]
+        direction TB
+        VM1["💻 **VM-01**"]
+        ID1["🆔 **Identity**<br>(Lives inside VM)"]
+        %% Structural link
+        VM1 --- ID1
+    end
+
+    subgraph User_Assigned ["👤 User-Assigned"]
+        direction TB
+        UAID["🆔 **Shared Identity**<br>(Standalone Resource)"]
+        
+        %% Target VMs
+        VM_A["💻 **VM-A**"]
+        VM_B["💻 **VM-B**"]
+        VM_C["💻 **VM-C**"]
+        
+        %% Label Nodes (Converted from text-on-lines)
+        L_Assign1["Assigned to"]
+        L_Assign2["Assigned to"]
+        L_Assign3["Assigned to"]
+        
+        %% Assignment Connections
+        UAID -.- L_Assign1 -.- VM_A
+        UAID -.- L_Assign2 -.- VM_B
+        UAID -.- L_Assign3 -.- VM_C
+    end
+    
+    Target["🛢️ **Azure SQL**<br>(Allow Access)"]
+    
+    %% Label Nodes for Auth
+    L_Auth1["Auth"]
+    L_Auth2["Auth"]
+
+    %% Auth Connections
+    ID1 --> L_Auth1 --> Target
+    UAID --> L_Auth2 --> Target
+
+    %% --- DARK MODE STYLING ---
+    %% 1. Node Styling (Black Fill, White Text/Stroke)
+    classDef dark fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
+    class VM1,ID1,UAID,VM_A,VM_B,VM_C,Target dark;
+    class L_Assign1,L_Assign2,L_Assign3,L_Auth1,L_Auth2 dark;
+    
+    %% 2. Subgraph Styling (Force Black Background)
+    style System_Assigned fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    style User_Assigned fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    
+    %% 3. Arrow Styling (White)
+    linkStyle default stroke:#fff,stroke-width:2px;
+```
+
+### Strategic Design Considerations
+
+1. **The "Bootstrapping" Pattern (Key Vault):**
+     * If a legacy app must use a password (e.g., it connects to an old Oracle DB that doesn't support Entra ID), store that Oracle password in **Azure Key Vault**.
+     * Use a **Managed Identity** to give the App permission to read the Key Vault.
+     * Result: No secrets in code. The app retrieves the secret at runtime.
+2. **User-Assigned for Scale:**
+     * If you have a scale set of 100 web servers, do not use System-Assigned (you would have to add 100 individual identities to the SQL allow-list).
+     * Use **User-Assigned**. Add one identity to the SQL allow-list, and assign that identity to all 100 servers.
+
+**Takeaway**
+Managed Identities are the single most effective way to prevent credential theft. If there is no password to steal, the hacker cannot steal it.
+
+
+
+
+
