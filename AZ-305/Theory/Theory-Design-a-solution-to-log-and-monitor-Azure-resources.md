@@ -285,6 +285,78 @@ graph TD
 **Takeaway**
 Dashboards are static. Workbooks are interactive stories. Use Workbooks to explain why something happened, not just that it happened.
 
+## Design for Azure Data Explorer (ADX)
+
+**Key points**
+*   **Definition:** A fast, highly scalable data exploration service designed for **Big Data** (Log and Telemetry).
+*   **The Engine:** It uses the **Kusto Query Language (KQL)** (same as Azure Monitor) but is built for massive ingestion speeds and distinct cost structures.
+*   **Use Case:** When you have high-volume streams (IoT, Website Clickstreams, Custom App Traces) that require near real-time analysis.
+
+**The Hybrid Monitoring Architecture**
+Sometimes Azure Monitor isn't enough (or is too expensive for massive raw data). You can run ADX alongside it.
+
+```mermaid
+graph LR
+    subgraph Sources ["📡 High Volume Sources"]
+        direction TB
+        IoT["🤖 **IoT Devices**"]
+        Click["🖱️ **Clickstreams**"]
+        Custom["📝 **Custom App Logs**"]
+    end
+
+    subgraph Analytics_Tier ["⚙️ The Engine Room"]
+        direction TB
+        Sentinel["🛡️ **Microsoft Sentinel**<br>(Security Logs)"]
+        Monitor["📊 **Azure Monitor**<br>(IT Ops Logs)"]
+        ADX["🚀 **Azure Data Explorer**<br>(Raw / Big Data)"]
+    end
+
+    subgraph Output ["👀 Visualization & ML"]
+        direction TB
+        PBI["📈 **Power BI**"]
+        ML["🧠 **Machine Learning**"]
+        Dash["🖥️ **Custom Dashboards**"]
+    end
+
+    %% Connections
+    IoT --> ADX
+    Click --> ADX
+    Custom --> ADX
+    
+    ADX --> PBI
+    ADX --> ML
+    ADX --> Dash
+
+    %% --- DARK MODE STYLING ---
+    %% 1. Node Styling (Black Fill, White Text/Stroke)
+    classDef dark fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
+    class IoT,Click,Custom,Sentinel,Monitor,ADX,PBI,ML,Dash dark;
+    
+    %% 2. Subgraph Styling (Force Black Background)
+    style Sources fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    style Analytics_Tier fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    style Output fill:#000,stroke:#fff,stroke-width:2px,color:#fff
+    
+    %% 3. Arrow Styling (White)
+    linkStyle default stroke:#fff,stroke-width:2px;
+```
+
+### Strategic Design Considerations
+
+1. **When to use ADX vs. Log Analytics?**
+     * **Log Analytics:** Optimized for **IT Operations** (VMs, Insights, Alerts). Pre-built schemas. Higher cost per GB.
+     * **ADX:** Optimized for **Raw Data Exploration**. Complete schema flexibility. Lower cost for massive storage/retention.
+     * Decision: If you are logging terabytes of custom telemetry and need to write your own analytics queries, use ADX.
+2. **Advanced Analytics & ML:**
+     * ADX is integrated with **Azure Databricks** and **Azure Machine Learning**.
+     * You can train models in Databricks and export them to ADX to score data in real-time.
+3. **Long-Term Retention:**
+     * ADX is extremely cost-effective for long data retention compared to standard Log Analytics workspaces.
+     * Strategy: Keep hot operational data in Monitor (30-90 days), and dump raw historical traces into ADX for years.
+
+**Takeaway**
+Azure Monitor is for checking if your server is healthy. Azure Data Explorer is for asking, "What happened across 5 billion IoT events last year?"
+
 
 
 
