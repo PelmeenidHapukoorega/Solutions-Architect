@@ -57,6 +57,8 @@ It helps businesses keep everything in 1 place without the need for various equi
 The shared responsibility model was created to set clear boundaries as in who is responsible for what exactly to avoid confusion. Cloud provider for example is responsible for the physical side of things, such as network, datacentre and the security of it. The user or consumer is responsible for how they do things within the cloud. Otherwise people would assume that they move all their infra and stuff to the cloud and if anything breaks the cloud service provider would be responsible for everthing, including the mistakes the consumers themselves did. 
 Responsibility also depends on the service type, if its IaaS its mostly on the user because they create most of it. In SaaS its mostly on cloud provider because they offer the applications and tools necessary for the creation, therefore they are responsible for how they operate, In PaaS its the middle ground of both because you create the platform but the cloud provider offers you tool for the creation of it. Basically responsibility model was created to clearly distinguish who is responsible for what if stuff breaks.
 
+[IaaS vs SaaS vs PaaS](./Diagrams/IaaS%20vs%20SaaS%20vs%20PaaSmodel.md)
+
 ### WHAT does it do?
 
 Shared responsibility sets clear boundaries who is responsible for what. It forces customers to actually think for a second before making an informed decision about what service type they will use. Do they want more responsibility or less? if they need IaaS service type then they will need to be comfortable with the idea of being responsible for most things in the cloud.
@@ -171,6 +173,7 @@ Multi cloud works by having different types of cloud modules depending on what y
 ### Summary
 
 Multi cloud is perfect if you have a lot of different needs and concerns about your business needs. You get to handpick where you keep what, what services you use from what cloud provider and put into a mixed bag. Total customisation.
+
 
 
 
