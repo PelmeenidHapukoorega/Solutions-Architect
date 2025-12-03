@@ -21,7 +21,8 @@ I hope the reader enjoys going through this as much as I do!
 - [Theory Computer and Networking services](Theory/Theory-computer-and-networking-services.md)
 - [Theory Storage services](Theory/Theory-Storage-services.md)
 - [Theory Identity access and security](Theory/Theory-Identity-access-and-security.md)
-- [Cloud Adoption Frameworks](Theory/Cloud-Adoption-Frameworks.md)
+- [Theory Cloud Adoption Frameworks](Theory/Theory-Cloud-Adoption-Frameworks.md)
+- [Theory Well Architected Framework](Theory/Theory-Well-Architected-Framework.md)
 ### Labs
 - [Virtual Machines Folder](Virtual%20machines/)
 - [Network Security Folder](Network%20security/)
@@ -29,17 +30,19 @@ I hope the reader enjoys going through this as much as I do!
 
 
 ## AZ-305 Design identity, governance and monitor solutions (Module 2)
-### Labs
+- [Theory Design Governance Notes](Theory/Theory-Design-Governance.md)
+- [Theory Design Authentication and authorization solutions notes](Theory/Theory-Design-Authentication-and-authorization-solutions.md)
+- [Theory Design a solution to log and monitor Azure resources](Theory/Theory-Design-a-solution-to-log-and-monitor-Azure-resources.md)
 
 ## AZ-305 Design business continuity solutsions (Module 3)
-### Labs
+
 
 ## AZ-305 Design data storage solutions (Module 4)
-### Labs
+
 
 ## AZ-305 Design IaaS (Module 5)
-### Labs
+
 
 ## AZ-305 Build great solutions with the Microsoft Azure Well-Architected Framework (module 6)
-### Labs
+
 

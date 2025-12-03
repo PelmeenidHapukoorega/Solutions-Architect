@@ -1,5 +1,5 @@
 # Module: Azure compute and networking services
-# Configuring network access for VM and accessing web server lab notes
+# Configuring network access for VM and accessing web server
 
 To really get networking in Azure you gotta straight up break a VM on purpose then drag it back to life like its your side hustle. NSGs ports SSH inbound rules all that is where you stop being a button clicker and start being a real cloud detective for real.
 

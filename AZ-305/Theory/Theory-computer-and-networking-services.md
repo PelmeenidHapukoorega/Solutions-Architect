@@ -1,364 +1,197 @@
-# Module: Azure compute and networking services
-# Key notes
+# Azure Compute & Networking Services
 
-To actually design anything in Azure you gotta understand the compute and networking stack like its your own toolbox. VMs, functions, containers, VNets, subnets, routing they all snap together like a puzzle that decides how fast, secure and reliable your whole setup runs.
+[![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)](https://learn.microsoft.com/et-ee/training/modules/describe-azure-compute-networking-services/)
 
-**Bottom line:**
-Build smart now, because Future You aint trying to debug a busted network at 2 AM wondering why a VM cant talk to anything.
+[![Repo Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge&logo=github)](https://github.com/PelmeenidHapukoorega/Solutions-Architect)
+
+[![Microsoft Learn Plan](https://img.shields.io/badge/Study_Plan-Microsoft_Learn-0078D4?style=for-the-badge&logo=microsoft)](https://learn.microsoft.com/et-ee/plans/d8gdbny2gjwr62)
+
+> **Architectural Philosophy:** Compute provides the horsepower, but Networking provides the highway. VMs, containers, functions, VNets, and routing all snap together like a puzzle that determines the speed, security, and reliability of your solution.
+
+> **Bottom line:** Build smart now, because Future You isn't trying to debug a busted network at 2 AM wondering why a VM can't talk to anything.
 
 ## Table of Contents
-- [Azure virtual machines](#azure-virtual-machines)
-- [Azure virtual desktop AVD](#azure-virtual-desktop-avd)
-- [Azure containers](#azure-containers)
-- [Azure functions](#azure-functions)
-- [Application hosting options](#application-hosting-options)
-- [Azure virtual networking VPN](#azure-virtual-networking-vpn)
-- [Azure ExpressRoute](#azure-expressroute)
-- [Azure DNS](#azure-dns)
+- [1. Azure Virtual Machines](#1-azure-virtual-machines)
+- [2. Azure Virtual Desktop (AVD)](#2-azure-virtual-desktop-avd)
+- [3. Azure Containers](#3-azure-containers-aci-aca-aks)
+- [4. Azure Functions](#4-azure-functions-serverless)
+- [5. Application Hosting](#5-application-hosting-app-service)
+- [6. Virtual Networking (VNet)](#6-virtual-networking-vpn)
+- [7. Azure ExpressRoute](#7-azure-expressroute)
+- [8. Azure DNS](#8-azure-dns)
 
-# Azure virtual machines
+---
 
-**Key points**
-* Provides IaaS in a form of virtualized server
-* Fully customize all software and configs without physical hardware
-* Can scale for redundancy, availability and load
+## 1. Azure Virtual Machines
 
-**Scale sets**
-* Manage groups of identical, load balanced VMs
-* Ideal for compute heavy, big data and container workloads
+**IaaS (Infrastructure as a Service):** You get raw control. You manage the OS, the software, and the config.
 
-**Availability sets**
-* Protection agains planned (think updates) and unplanned (think power, network failures)
-* Use update domains (UD) to stagger reboots
-* Use fault domains (FD) to seperate VMs across independent power, network racks
-* No extra cost
-```pgsql
-Availability Set
- ├─ Fault Domain 1
- │   ├─ Update Domain 1
- │   └─ Update Domain 2
- └─ Fault Domain 2
-     ├─ Update Domain 1
-     └─ Update Domain 2
+### Scaling & Availability
+Managing one VM is easy. Managing 1,000 requires strategy.
+
+**1. Virtual Machine Scale Sets (VMSS)**
+*   **What:** Automatically create and manage a group of load-balanced VMs.
+*   **Why:** Ideal for big data, compute-heavy workloads, and auto-scaling apps.
+
+**2. Availability Sets**
+*   **What:** Logical grouping to keep VMs separate within a datacenter to ensure high availability.
+*   **Fault Domains (FD):** Separate racks (Power/Network).
+*   **Update Domains (UD):** Separate reboot cycles during Azure maintenance.
+
+```mermaid
+graph TD
+    subgraph Availability_Set ["Availability Set"]
+        
+        subgraph FD1 ["Fault Domain 1 ('Rack A')"]
+            VM1[VM 1]
+            VM3[VM 3]
+        end
+        
+        subgraph FD2 ["Fault Domain 2 ('Rack B')"]
+            VM2[VM 2]
+            VM4[VM 4]
+        end
+    end
+    
+    %% --- MONOCHROME STYLING ---
+    
+    %% 1. VMs: Pure Black background
+    classDef vm fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
+    class VM1,VM2,VM3,VM4 vm;
+
+    %% 2. Outer Container: Very Dark Grey
+    style Availability_Set fill:#1a1a1a,stroke:#fff,stroke-width:2px,color:#fff
+    
+    %% 3. Racks (Fault Domains): Dark Grey (lighter than outer)
+    style FD1 fill:#333,stroke:#fff,stroke-width:2px,color:#fff
+    style FD2 fill:#333,stroke:#fff,stroke-width:2px,color:#fff
 ```
 
 **Takeaway**
-
-VMS = raw control
-
-Scale sets = auto scaling
-
-Availability sets = HA within a datacentre
-
-# Azure virtual desktop (AVD)
-
-**Key points**
-* Virtualized Win desktops and apps delivered from Azure
-* Works on nearly any device, OS or location
-* Built on Microsoft Entra ID for secure access and identity
-
-**Enhanced security**
-* Centralized identity, MFA
-* RBAC for precise user permissions
-* No date stored on local devices
-* Supports isolated singel or multi sessions
-
-**Multi session Win 10/11**
-* Enables multi users on single VM
-* Better performance and app compatibility than Windows server RDS
-
-**Takeaway**
-
-AVD = secure and scalable Windows desktop without managing desktop fleets
-
-# Azure containers
-
-**Key points**
-* Lightweight app packaing, no OS management needed
-* Fast startup, high density, great for microservices
-* Quick restarts during crashes or changes to hardware
-* Supports docker fully
-
-**Azure container instances (ACI)**
-* Fastest way to run containers with zero IaaS
-* Pure PaaS, upload and run
-
-**Azure container apps (ACA)**
-* Simplifies container deployments, scaling and load balancing.
-* Event driven, elastic design (Think Helen from incredibles)
-
-**Azyre kubernetes service (AKS)**
-* Full container orchestration
-* Manages scaling, updates, self healing (Think rejuvenation potion from diablo II) and deployment pipelines
-```scss
-Containers
- ├─ ACI (simple)
- ├─ ACA (scalable microservices)
- └─ AKS (full orchestration)
-```
-**Takeaway**
-
-Containers = microservices. ACA/ACI = simple: AKS = enterprise level
-
-# Azure functions
-
-**Key points**
-* Serverless, event driven compute
-* No VM, no container, no IaaS to manage
-* Trigger by events (HTTP, timers, queues, Karen, etc)
-* Auto scales instantly and you only pay while code runs
-
-**Stateless**
-* Function restarts fresh every time
-
-**Stateful**
-* Uses durable functions to carry state between executions
-```vbnet
-Event → Stateless Function → Done
-
-Event → Stateful Function
-      ↳ Saves context → Next run
-```
-**Use cases**
-* REST endpoints
-* Scheduled tasks
-* Message processing
-* Background logic
-
-**Takeaway**
-
-Functions = code only focus, Azure handles scaling, infra and execution (KA POW!)
-
-# Application hosting options
-
-**Azure app service**
-* Host web apps, APIs, background jobs, mobile backends
-* Automatic scaling, high availability
-* Supports Windows and a penguin named TUX
-* Continuous deployment from Github, DevOps or an repo
-
-**Sercive types**
-* **Web apps**
-* **API apps**
-* **WebJobs**
-* **Mobile apps**
-
-**Built in advantages**
-* Handles load balancing
-* Traffic manager
-* Secure endpoints
-* Fast scaling
-* No underlying VM management
-* Multi language support (ASP.NET, Java, Node, Python, PHP, Ruby)
-
-**Takeaway**
-
-App service = fully managed web hosting with CI/CD and automatic scaling built in
-
-# Azure virtual networking (VPN)
-
-**Key points**
-* Azure VPN is your on prem network extended into Azure
-* Connects VMs, databases, services, apps and on prem systems
-* Supports both public(internet facing) and private(internal) endpoints
-
-**Core capabilities**
-1. **Isolation and segmentation**
-* Create fully isolated VNets
-* Define private IP ranges
-* Split VNets into subnets for organized seperation
-* Internal and external DNS support
-
-**Takeaway**
-
-You control your own IP space and how its segmented
-
-2. **Internet connectivity**
-* Public IP: accessible from internet
-* Public load balancer: controlled exposure
-
-**Takeaway**
-
-You choose what is public and what stays internal. Red pill or blue pill Neo?
-
-3. **Communication between azure resources**
-* VNet based comms support VMs, AKS, App service environments, scale sets
-* Service endpoints secure access to SQL, storage and other azure services
-
-**Takeaway**
-
-Internal traffic stays secure and optimized
-
-4. **Hybrid connectivity**
-* Point to site VPN: individual client: Azure
-* Site to site VPN: on prem firewall: Azure gateway
-* ExpressRoute: private fiber link, no internet usage
-
-**Takeaway**
-
-You can extend your on prem network directly into Azure at 3 levels
-
-5. **Routing control**
-* Azure auto routes between subnets and networks
-* Route tables (UDR) override defaults
-* BGP propagates routes from on prem to Azure
-
-**Takeaway**
-
-Architect defines traffic flow, not Azure
-
-6. **Traffic filtering**
-* NSG (Network security groups): inbound/outbound rules at L4
-* NVA (Network virtual appliances): full firewall appliances inside Azure
-
-**Takeaway**
-
-NSG = basic firewall: NVA = enterprise firewall
-
-7. **VNet peering**
-* Directly link VNets in same or different regions
-* Traffic stays on Microsofts backbone, never internet
-* Enables global network topologies
-
-**Takeaway**
-
-Peering builds fast, private, global Azure networks
-
-# Azure ExpressRoute
-
-**Key points**
-* Private dedicated connection between on prem and Microsoft cloud
-* Traffic never touches the public internet giving more stability and security
-* Uses an ExpressRoute circuit provided through a connectivity partner
-* Supports Azure Microsoft 365 and Dynamics 365
-
-**Why it matters**
-* High reliability stable latency and enterprise grade hybrid setups
-* Strong choice for regulated environments datacenter extension and mission critical workloads
-
-**Core benefits**
-
-1. **Private connectivity**
-* Traffic flows on the Microsoft private backbone instead of the public internet
-* Avoids instability packet loss and random routing events
-
-**Takeaway**
-
-ExpressRoute = private fiber straight into Azure
-
-2. **Global reach**
-* Connects your on prem sites through the Microsoft global network
-* Example Asia office to Europe datacenter without touching the public internet
-```graphql
-On-prem
-   │
-   │  ExpressRoute Circuit
-   ▼
-Microsoft Backbone Network
-   │
-   ▼
-Azure
-```
-**Takeaway**
-
-Global Reach = private global site to site network without VPN chaos
-
-3. **Dynamic routing BGP**
-* Uses BGP for automatic route exchange between your network and Azure
-* Keeps routing fresh updated and clean without manual work
-
-**Takeaway**
-
-BGP keeps hybrid routing automatic and stable
-
-4. **Built in redundancy**
-* Every peering location uses redundant hardware
-* Multiple circuits possible for extra high availability
-
-**Takeaway**
-
-Redundancy built in so you can sleep without stress
-
-**Connectivity models**
-* CloudExchange colocation request virtual cross connect
-* Point to point Ethernet direct private link
-* Any to any WAN integration Azure becomes part of your WAN
-* ExpressRoute Direct connect straight into Microsoft peering sites with ten or one hundred gig throughput
-
-**Takeaway**
-
-Choose the model that fits your network design
-
-**Security considerations**
-* Traffic avoids the public internet which reduces exposure
-* Some services like DNS checks certificate checks and CDN may still use public paths
-
-**Takeaway**
-
-ExpressRoute protects the main transport path but not every last request
-
-# Azure DNS
-
-**Key points**
-* DNS hosting service running on Microsoft Azure global infrastructure
-* Provides name resolution for Azure resources and external resources
-* Managed with the same Azure credentials portal CLI and APIs
-* Supports public and private DNS zones
-
-**Reliability and performance**
-* Hosted on global Azure DNS servers for strong availability
-* Uses anycast routing so the closest DNS server answers first
-* Gives faster and more resilient name lookups worldwide
-```pgsql
-Public DNS Zone  → Internet clients
-Private DNS Zone → VNet clients only
+* **VMs** = Raw Control.
+* **Scale Sets** = Auto-scaling.
+* **Availability Sets** = 99.95% HA within a Datacenter.
+
+## 2. Azure Virtual Desktop (AVD)
+**Desktop as a Service:** Delivers Windows 10/11 desktops and apps to any device (Mac, iOS, Android, HTML5).
+
+**Key Features:**
+* **Multi-Session:** Windows 10/11 Enterprise allows multiple users on a single VM (better cost/performance than Windows Server RDS).
+* **Security:** No data stored on the local device. Identity managed by Entra ID + MFA.
+
+## 3. Azure Containers (ACI, ACA, AKS)
+**Containers:** Lightweight, portable application packaging. No OS management. Fast startup.
+
+**Service:**
+
+```mermaid
+graph TD
+    Code[Docker Container]
+    
+    Code --> ACI[ACI: Simple/Isolated]
+    Code --> ACA[ACA: Microservices/Events]
+    Code --> AKS[AKS: Full Orchestration]
 ```
 
-**Takeaway**
+## 4. Azure Functions (Serverless)
+**Event-Driven Compute:** No servers, no VMs, no containers. You upload code, and Azure runs it when something happens (HTTP, Timer, Queue, or "Karen" from HR sending an email).
 
-Azure DNS = fast reliable global name resolution without extra hardware
+**Billing:** Pay only while the code is running (Consumption Plan).
 
-**Security**
-* Built on Azure Resource Manager
-* RBAC controls who can change DNS zones or records
-* Activity logs help with audits and issue tracking
-* Resource locks prevent someone from deleting important DNS zones by accident
+### Logic Flow
 
-**Takeaway**
+* **Stateless:** Function runs -> Finishes -> Forgets everything.
+* **Stateful (Durable):** Function runs -> Saves context -> Next function picks up where it left off.
+```mermaid
+sequenceDiagram
+    participant Trigger as Event (HTTP/Timer)
+    participant Func as Azure Function
+    participant Output as Storage/Database
 
-RBAC and locks keep you safe from accidental DNS disasters
+    Trigger->>Func: Wakes up Function
+    Func->>Func: Executes Code
+    Func->>Output: Writes Data
+    Func-->>Trigger: Returns 200 OK
+    Note over Func: Function goes back to sleep (Cost = $0)
+```
 
-**Ease of use**
-* Manage DNS through portal PowerShell CLI REST API or SDK
-* Integrates smoothly with other Azure services
-* Same billing support and identity as the rest of Azure
+## 5. Application Hosting (App Service)
+**PaaS (Platform as a Service):** Fully managed hosting for Web Apps, APIs, and Mobile Backends.
 
-**Takeaway**
+**Core Benefits:**
 
-DNS management works exactly like everything else in Azure clean simple and unified
+* **OS:** Windows or Linux (Tux the Penguin approved).
+* **Languages:** .NET, Java, Node, Python, PHP, Ruby.
+* **DevOps:** Built-in CI/CD integration with GitHub/Azure DevOps.
+* **Deployment Slots:** Swap "Staging" to "Production" instantly with zero downtime.
 
-**Private DNS**
-* Lets you use custom internal domain names inside Azure VNets
-* Helps you avoid long Azure provided hostnames
-* Perfect for internal services and hybrid deployments
+     **Takeaway:** App Service is the "Easy Button" for web hosting. No VM management required.
 
-**Takeaway**
+## 6. Virtual Networking (VPN)
+**The Nervous System:** Connects VMs, Services, and On-Premises sites.
 
-Private DNS keeps internal names clean consistent and invisible to the public
+### Core Capabilities
 
-**Alias records**
-* DNS record that points directly to an Azure resource
-* Updates itself if the resource IP changes
-* Removes manual edits when your app scales or shifts
+1. **Isolation:** You control the IP address space (VNet) and segmentation (Subnets).
+2. **Internet Access:** Public IPs & Load Balancers. You decide what is exposed ("Red pill or blue pill").
+3. **Filtering:**
+   
+       * NSG (Network Security Group): Basic L4 Firewall (Allow/Deny Port 80, 443, etc).
+       * NVA (Network Virtual Appliance): Enterprise Firewall (Palo Alto, Fortinet, Azure Firewall).
 
-**Takeaway**
+5. **Peering:** Connect two VNets together securely via Microsoft's backbone (Global reach).
 
-Alias records = DNS that updates itself and always stays correct
+### Connectivity Models
+```mermaid
+graph LR
+    subgraph OnPrem [On-Premises]
+        User[Client Laptop]
+        Office[Head Office]
+    end
 
-# **Important!**
-* Azure DNS cannot purchase domain names
-* Buy domains through App Service Domains or a third party
-* After purchase you can host and manage DNS in Azure DNS
+    subgraph Azure [Azure Cloud]
+        VNet[Virtual Network]
+        GW[VPN Gateway]
+    end
 
-## References
-https://learn.microsoft.com/et-ee/training/modules/describe-azure-compute-networking-services/
+    User -.->|P2S VPN| GW
+    Office <==>|S2S VPN| GW
+    Office <==>|"ExpressRoute ('Private')"| GW
+```
+
+## 7. Azure ExpressRoute
+**Private Fiber Connection:*** A dedicated physical link between your on-prem datacenter and Azure. Traffic never touches the public internet.
+
+**Why use it?**
+
+1. Security: Private connectivity (Mission critical / Regulated industries).
+2. Reliability: Consistent latency and no packet loss.
+3. Global Reach: Connect Asia office to Europe Azure region via Microsoft's backbone.
+
+**Routing:** Routing: Uses **BGP** (Border Gateway Protocol) to dynamically exchange routes between your network and Azure.
+
+```mermaid
+graph TD
+    %% Define Nodes
+    VPN["🌐 **VPN Gateway**<br><br>Medium: Public Internet<br>Speed: 10 Gbps<br>SLA: Good"]
+    ER["🔒 **ExpressRoute**<br><br>Medium: Private Fiber<br>Speed: 100 Gbps<br>SLA: Enterprise"]
+
+    %% Positioning
+    VPN ~~~ ER
+
+    %% DARK MODE MONOCHROME STYLES
+    %% Fill: Black | Stroke: White | Text: White
+    classDef dark fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
+    class VPN,ER dark;
+```
+
+## 8. Azure DNS
+**Domain Name System:** Microsoft's global network answering "Where is website.com?"
+**Features:**
+
+* Global: Uses Anycast routing (closest server answers first).
+* Private Zones: Resolve internal hostnames (e.g., 'db.internal.corp') inside your VNets.
+* Alias Records: Auto-updating records. If your Public IP changes, the DNS record updates automatically.
+* Security: Protected by RBAC and Resource Locks (prevents accidental deletion).
+
+    **Important:** Azure DNS hosts the records. You still buy the domain name (e.g., 'cool-cloud-architect.com') from a registrar (GoDaddy, Namecheap, or App Service Domains).
