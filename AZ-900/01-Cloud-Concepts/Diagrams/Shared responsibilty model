@@ -31,3 +31,9 @@
 | IaaS → Customer handles most things                           |
 +---------------------------------------------------------------+
 ```
+
+```kotlin
+In IaaS → Customer manages more (VMs, OS, configs).
+In PaaS → Customer manages app + data, Azure manages platform.
+In SaaS → Customer only manages data & access, Azure manages everything else.
+```
