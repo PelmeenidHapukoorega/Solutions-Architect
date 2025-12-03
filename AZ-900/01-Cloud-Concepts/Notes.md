@@ -174,9 +174,39 @@ Multi cloud works by having different types of cloud modules depending on what y
 
 Multi cloud is perfect if you have a lot of different needs and concerns about your business needs. You get to handpick where you keep what, what services you use from what cloud provider and put into a mixed bag. Total customisation.
 
+## Azure Arc
 
+Azure arc is a set of technologies that helps manage your cloud environment.
 
+### WHAT does it do?
 
+It helps you manage your cloud whether its private, public, hybrid or multi cloud that runs on multiple cloud providers at once. Additionally it extents Azure control plane which is the central management layer which allows you to set rules, manage servers, clusters and data services located anywhere.
 
+### WHY does this exist?
 
+It solves the modern challenge of managing IT resources that are spread out everywhere, in short its purpose is to make anything look and act like its a native resource of Azure. Think unified control panel for management.
 
+### HOW does it work? 
+
+It works by installing a small piece of software on a resource that is outside Azure cloud but it tricks the Azure system into thinking that resources that it is applied to are hosted on Azure. 
+You install the Azure arc agent onto the machine or cluster living in either datacentre, aws or gcp. The agent establishes secure outbound connection to Azure management service. Then the external resource is registered and appears as standard resource withing Azure portal and recieves a unique Azure resource ID.
+
+### Summary
+
+Azure arc acts like a translator and connector that brings both management, governance and deployment capabilities of Azure to your entire IT infra regardless of location.
+
+## Azure VMware
+
+Say you have a lot of VMs on VMware that are organized in your way, but now you want to move to a bigger playground which is Azure. Instead of taking them all out and re organize everthing for Azure, Azure VMware Solution or AVS lifts everything at once and places it right into Azure.
+
+### WHAT does it do?
+
+It creates software that enables one physical server to run multiple isolate VM systems at the same time
+
+### WHY does this exist?
+
+It exists because it allows large companies to move ther existing VMware systems quickly into cloud without having to rebuild them brick by brick, all while retaining their familiar management tools.
+
+### HOW does it work? 
+
+It works by hosting customers dedicated VMware environment on the physical serves within Azure data centre, allowing seamless migration and integration to Azure services.
