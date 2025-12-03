@@ -78,6 +78,8 @@ Basically shared responsibility model clearly seperates the responsibility betwe
 
 Cloud models define the deployment type of cloud resources. As in if its private then you own the cloud. If its public its provided by someone. If its hybrid its like having both.
 
+[Cloud Models](./Diagrams/Cloud%20Models.md)
+
 ### WHY does this exist?
 
 Different cloud models exist because there are different needs to be met, you cant have one cloud for everthing because you cant simply please everyone.
@@ -169,6 +171,7 @@ Multi cloud works by having different types of cloud modules depending on what y
 ### Summary
 
 Multi cloud is perfect if you have a lot of different needs and concerns about your business needs. You get to handpick where you keep what, what services you use from what cloud provider and put into a mixed bag. Total customisation.
+
 
 
 
