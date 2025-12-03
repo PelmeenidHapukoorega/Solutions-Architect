@@ -77,12 +77,12 @@ Shared responsibility model works in a way that it sorts everthing, as to what t
 If you pick a service type then you have a clear direction and you know exactly who is responsible for what.
 The provider focuses on the security and physical side of things, and the user is responsible for what they put in the cloud and security within the cloud. The seperation ensures that different tasks are handled by the party best equipped to do so.
 
-[Shared Responsibility Diagram](Diagrams/shared-responsibility-model.md)
+[Shared Responsibility Model](Diagrams/shared-responsibility-model.md)
 
-AZ-900/01-Cloud-Concepts/Diagrams/Shared responsibilty model.md
 ### Summary
 
 Basically shared responsibility model clearly seperates the responsibility between partys and forces accounatibility accordingly.
+
 
 
 
