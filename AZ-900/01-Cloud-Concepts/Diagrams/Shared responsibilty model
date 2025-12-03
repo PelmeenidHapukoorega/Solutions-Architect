@@ -1,4 +1,4 @@
-```pgsql
+```ascii
 +---------------------------------------------------------------+
 |                  SHARED RESPONSIBILITY MODEL                 |
 +--------------------------+------------------------------------+
@@ -16,5 +16,18 @@
 +--------------------------+------------------------------------+
 | Host OS & Platform       | Application Security               |
 | (depends on service type)| - Code, configs, updates           |
-|                          | - Vulnerabilities
+|                          | - Vulnerabilities                  |
++--------------------------+------------------------------------+
+| Network Security         | Resource Configuration             |
+| - Firewalls              | - NSGs, subnet rules               |
+| - DDOS protection        | - VM setup, storage settings       |
++--------------------------+------------------------------------+
+| Service Maintenance      | Operational Policies               |
+| - Patching host OS       | - Monitoring                       |
+| - Updating platform      | - Logging / alerting               |
++--------------------------+------------------------------------+
+| SaaS → Provider handles most things                           |
+| PaaS → Shared control depending on layer                      |
+| IaaS → Customer handles most things                           |
++---------------------------------------------------------------+
 ```
