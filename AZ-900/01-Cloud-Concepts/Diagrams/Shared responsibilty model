@@ -1,0 +1,20 @@
+```pgsql
++---------------------------------------------------------------+
+|                  SHARED RESPONSIBILITY MODEL                 |
++--------------------------+------------------------------------+
+| Cloud Provider (Azure)   | Customer (You / Business)          |
++--------------------------+------------------------------------+
+| Physical Datacenter      | Data                               |
+| - Buildings              | - Files, databases, backups        |
+| - Power, cooling         |                                    |
+| - Physical security      |                                    |
++--------------------------+------------------------------------+
+| Hardware & Infrastructure| Identities & Access                |
+| - Servers                | - Users, roles, MFA                |
+| - Storage devices        | - Permissions / RBAC               |
+| - Networking equipment   |                                    |
++--------------------------+------------------------------------+
+| Host OS & Platform       | Application Security               |
+| (depends on service type)| - Code, configs, updates           |
+|                          | - Vulnerabilities
+```
