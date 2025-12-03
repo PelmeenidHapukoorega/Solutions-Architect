@@ -22,7 +22,7 @@ In order to design anything you have to understand how regions, subscriptions, a
 Cloud computing was made with business in mind in a sense that before you had to have your own physical infra, workforce,
 spending a lot of money for equipment that would handle storage, data etc. Cloud tackled that problem by letting users do all of that in the cloud,
 with only spending money on resources that you as the user actually use. Before cloud the main limitations was needing a lot of money to build datacentres, 
-hire additional personal to manage each sector of different computing aspects, cloud lets you do it all in one place.
+hire additional personnel to manage each sector of different computing aspects, cloud lets you do it all in one place.
 
 
 ### WHAT does it do?
@@ -49,4 +49,5 @@ In the background that information goes to clouds own datacentre over the intern
 
 Bsically Cloud computing is as having physical infra and all the workers but instead on the internet and without the workers.
 It helps businesses keep everything in 1 place without the need for various equipment, its cost efficient and easier to manager than phsysical infra.
+
 
