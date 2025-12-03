@@ -1,9 +1,5 @@
 # Describe Cloud concepts
 
-In order to design anything you have to understand how regions, subscriptions, and resources all fit together like a 25-piece puzzle. This foundation determines how stable, secure, and scalable your solutions will end up.
-
-> **Bottom line:** Architect brain now so future you doesn't have to clean up technical debt later.
-
 ## What is cloud computing?
 
 * Cloud computing is the delivery of computing services (like virtual machines, storage, databases, and networking) over the internet.
@@ -84,4 +80,5 @@ The provider focuses on the security and physical side of things, and the user i
 ### Summary
 
 Basically shared responsibility model clearly seperates the responsibility between partys and forces accounatibility accordingly.
+
 
