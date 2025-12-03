@@ -1,11 +1,10 @@
 # Describe Cloud concepts
 
 ## Table of contents
-
-* What is Shared Responsibility Model?
-* Cloud Models
-* Azure Arc
-* Azure VMware
+* [What is Shared Responsibility Model?](#what-is-shared-responsibility-model)
+* [Cloud Models](#cloud-models)
+* [Azure Arc](#azure-arc)
+* [Azure VMware](#azure-vmware)
 
 ## What is cloud computing?
 
@@ -217,4 +216,5 @@ It exists because it allows large companies to move ther existing VMware systems
 ### HOW does it work? 
 
 It works by hosting customers dedicated VMware environment on the physical serves within Azure data centre, allowing seamless migration and integration to Azure services.
+
 
