@@ -5,6 +5,7 @@
 * [Cloud Models](#cloud-models)
 * [Azure Arc](#azure-arc)
 * [Azure VMware](#azure-vmware)
+* [Consumption Model](#consumption-model)
 
 ## What is cloud computing?
 
@@ -236,4 +237,5 @@ It meters and tracks users resources that are actually being used and then later
 ### Summary
 
 Consumption model or pay as you go model allows consumers to set up their service types and infra by avoiding the need for physical infra and additonal equipment by letting users pay only for the resources they actually use.
+
 
