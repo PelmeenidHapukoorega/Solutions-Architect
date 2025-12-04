@@ -222,7 +222,7 @@ It works by hosting customers dedicated VMware environment on the physical serve
 
 Consumption based model is literally pay as you go. Meaning that it has no upfront costs, you dont need to purchase costly infrastructure that you might not even use to its full potential, you pay only for resources that you actually and you can stop paying for resources that you no longer need either currently or once you expand your service. You can gradually check and expand and delete based on your current needs. 
 
-[Consumption model](./Diagrams/Consumption%20Model.md)
+[Consumption model](./Diagrams/Consumption%20model.md)
 
 ### WHAT does it do?
 
@@ -239,6 +239,7 @@ It meters and tracks users resources that are actually being used and then later
 ### Summary
 
 Consumption model or pay as you go model allows consumers to set up their service types and infra by avoiding the need for physical infra and additonal equipment by letting users pay only for the resources they actually use.
+
 
 
 
