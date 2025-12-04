@@ -217,4 +217,23 @@ It exists because it allows large companies to move ther existing VMware systems
 
 It works by hosting customers dedicated VMware environment on the physical serves within Azure data centre, allowing seamless migration and integration to Azure services.
 
+## Consumption model
+
+Consumption based model is literally pay as you go. Meaning that it has no upfront costs, you dont need to purchase costly infrastructure that you might not even use to its full potential, you pay only for resources that you actually and you can stop paying for resources that you no longer need either currently or once you expand your service. You can gradually check and expand and delete based on your current needs. 
+
+### WHAT does it do?
+
+It allows consumers to pick and choose how to scale, what resources to use, avoid upfront costs, delete resources that are no longer neede. No need for physical infra itself, no need for workforce for maintenance and additional equipment for power, cooling etc
+
+### WHY does this exist?
+
+It exists because its cheaper and allows businesses to still do their work with less management, less costs and more freedom and efficiency.
+
+### HOW does it work? 
+
+It meters and tracks users resources that are actually being used and then later being billed for them, so you dont have to pay anything up front. You set up what you need to set up, for example spin up couple VMs, storage blobs and so on and then later you are being billed for their usage.
+
+### Summary
+
+Consumption model or pay as you go model allows consumers to set up their service types and infra by avoiding the need for physical infra and additonal equipment by letting users pay only for the resources they actually use.
 
