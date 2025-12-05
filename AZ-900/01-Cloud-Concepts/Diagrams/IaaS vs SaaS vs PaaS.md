@@ -10,7 +10,7 @@
 | Operating System          |  Provider (PaaS/SaaS)  |
 +---------------------------+------------------------+
 | Virtual Machines          |                        |
-| Storage                   |   Provider (all)       |
+| Storage                   |   Provider (Nearly all)|
 | Networking / Datacenter   |                        |
 +---------------------------+------------------------+
 
