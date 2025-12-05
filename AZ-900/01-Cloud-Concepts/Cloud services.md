@@ -3,9 +3,8 @@
 ## Table of contents
 * [Benefits of high availability and scalability](#benefits-of-high-availability-and-scalability)
 * [Benefits of reliability and predictability](#benefits-of-reliability-and-predictability)
-* [Azure Arc](#azure-arc)
-* [Azure VMware](#azure-vmware)
-* [Consumption Model](#consumption-model)
+* [Benefits of security and governance](#benefits-of-security-and-governance)
+* [Benefits of managebility](#benefits-of-managebility)
 
 ## My interprentations
 
@@ -172,3 +171,83 @@ Using cloud analytics and information you can predict your future costs and adju
 ### Summary
 
 Cost predictability allows you to pick resources and adjust them accordingly to your budget without the risk of overspending on resources that you dont need, as well as help predict your future costs.
+
+## Benefits of security and governance
+
+Security and Governance are 2 intertwined concepts by offering benefits that protect data and resources while ensuring compliance and controlled management. 
+
+## Governance
+
+### Why does this exist?
+
+Governance exists to provide structure, rules and control mechanisms necessary for organizations to manager resources effectively, securely and cost efficiently based on the organizations needs and specifics.
+
+### What does it do?
+
+It allows you to set rules, policies and management structures that ensures its cloud resources are used in a secure, compliant and cost effective way.
+
+### How does it work?
+
+It works by defining, implementing and enforcing a set of automated rules, policies and processes across the cloud to ensure that all acitivities comply with security, cost and operational standards.
+
+### Summary
+
+Governance is pretty much like setting clear boundaries to make sure everyone does what they are supposed to.
+
+## Security
+
+### Why does it exist?
+
+It exists because you data, digital assets are valuable and in todays world they are under constant threat which makes protection necessary to prevent damage, loss or even theft.
+
+### What does it do?
+
+It protects your data and prevents unauthorized access and additionally maintains the integrity and availability of all systems and applications. 
+
+### How does it work?
+
+It works by implementing security layers across the entire environment using a combination of policies, access control, encryption and continuous monitoring to protect your data and systems.
+
+### Summary
+
+Cloud security is basically a huge shield that protects everything you hold dear within the cloud.
+
+## Benefits of managebility
+
+Managebility is the ease, efficiency and effectiveness which an organization can operata, maintain, monitor and govern its cloud computing resources, applications and infra. Its about reducing complexity and operational overhead while maximizing control over said environment.
+
+## Management of the cloud
+
+### Why does it exist?
+
+It exists so it can ensure that organizations can use the cloud effectively, efficently and safely. It turns the raw into a stable. controll and sustainable business platform.
+
+### What does it do?
+
+It makes sure that all its resources are being used effectively, efficently, maintained properly by having control of it and turned into a manageble platform.
+
+### How does it work?
+
+It works by implementing set of automated tools, policies and continous monitoring systems that provide centralized control and visibility over highly distributed and dynamic cloud environment.
+
+### Summary
+
+Bsically management of the cloud is a set of tools and practices that make it easy to control and manage your environment so its organized and not a mess.
+
+## Management in the cloud
+
+### Why does it exist?
+
+It exists so organizations can use the cloud effectively, efficently and safely on a sustainable business platform.
+
+### What does it do?
+
+It allows users to operate efficiently and effectively with their resources on a manageable platform.
+
+### How does it work?
+
+It works by implementing set of automated tools, policies and continous monitoring systems that provide centralized control and visibility over highly distributed and dynamic cloud environment.
+
+### Summary
+
+Same principle as management of the cloud just within the service. Centralized control.
