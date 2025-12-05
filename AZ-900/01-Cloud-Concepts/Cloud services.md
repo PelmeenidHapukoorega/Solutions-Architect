@@ -1,7 +1,7 @@
 # Describe Cloud services
 
 ## Table of contents
-* [What is Shared Responsibility Model?](#what-is-shared-responsibility-model)
+* [Benefits of high availability and scalability](#benefits-of-high-availability-and-scalability)
 * [Cloud Models](#cloud-models)
 * [Azure Arc](#azure-arc)
 * [Azure VMware](#azure-vmware)
