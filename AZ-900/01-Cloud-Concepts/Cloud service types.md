@@ -25,7 +25,7 @@ It works by allowing users to rent and remotely access fundamental computing res
 
 In a IaaS scenario most of the responsibilty is on the user. Cloud provider gives you the datacentre and is responsible for the physical side of things and its internet connection, while you the user is responsible for installation and configuration as well as patching, updates and the security of it.
 
-### Use case scenarios
+### Use case scenario examples
 
 * Lift and shift migration: You are setting up cloud resources just like you would on your own on prem datacentre and then simply moving the things running on prem to running on IaaS
 * Testing and development: You have established configurations for development and test environments that you need to rapidly replicate. You can start up or shut down the different environments rapidly with IaaS while maintaining complete control.
@@ -54,7 +54,7 @@ It works by abstracting away the operating system and infra management so develo
 
 In PaaS scenario the responsibility is shared because its the middle ground. Like in IaaS the cloud provider is responsible for the physical side but it will also maintain the OS systems, databases and development tools provided to you. Its like having your own IT department who does regular updates, patches and refreshes.
 
-### Use case scenarios
+### Use case scenario examples
 
 * Development framework: PaaS provides a framework that you as the developer can use to build upon to develop or customize cloud based applications using built in software components. Features such as high availability, scalability and multi tenant cababilities are included which helps reduce the amount of coding you would need to do.
 * Analytics or business intelligence: Tools provied as a service with PaaS allow you to analyze and mine your data which helps finding insights, patterns and predicting outcomes to improve forecasting, design decisions, investment returns and other business decisions.
@@ -63,4 +63,32 @@ In PaaS scenario the responsibility is shared because its the middle ground. Lik
 
 PaaS is a combination between IaaS and SaaS. You are being provided with the physical datacentre as well as network connection, in addition you are being given complete and pre configured environment over the internet allowing you to focus on your code.
 
+## Describe Software as a Service
 
+In SaaS scenario you are essentially renting a fully developed application. Email, financial software, messaging apps and connectivity software are all common examples of SaaS implementation.
+
+### Why does it exist?
+
+It exists to provide ready to use complete software applications to end users over the internet, eliminating the need to install, manager or maintain the software or its underlying infra. It also requires the least amount of technical knowledge.
+
+### What does it do?
+
+Provides a complete ready to use software apps to end users over the internet while handling all the management and maintenance of the software and its infra.
+
+### How does it work?
+
+It works by having a vendor to host and manage a single version of the software on your own cloud infra, which is then made accessible to many different customers simultaneously over the internet.
+
+### Responsibility
+
+In SaaS scenario the responsiblity lies mostly with the cloud provider. In SaaS environment you as the user are only responsible for the data that you put into the system, the devices that you allow to connect to the system and the users that have access to it. Nearly everything else is the responsiblity of the cloud provider including updates, patches, network connectivity, datacentres etc.
+
+### Use case scemario examples
+
+* Email and messaging
+* Business productivity apps
+* Finance and expense tracking
+
+### Summary
+
+SaaS is like deploying a fully developed app that you would get to customize. You control the access of users, which devices are used but you dont need to worry about managing infrastructre, pushing updates, patching and anything else that requires more technical knowledge.
