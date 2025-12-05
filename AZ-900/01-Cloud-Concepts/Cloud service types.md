@@ -5,6 +5,8 @@
 * [Describe Platform as a Service](#describe-platform-as-a-service)
 * [Describe Software as a Service](#describe-software-as-a-service)
 
+[IaaS vs SaaS vs PaaS](./Diagrams/IaaS%20vs%20SaaS%20vs%20PaaS.md)
+
 ## Describe Infrastructure as a Service
 
 IaaS gives you remote access to the basic cloud building block like virtual machines, storage and networks over which you manage the OS and application.
