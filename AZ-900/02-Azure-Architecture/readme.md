@@ -6,4 +6,4 @@
 
 ## Mini labs
 
-[Mini-Lab: Using AZ CLI](Mini-labs/Using AZ CLI.md)
+[Mini-Lab: Using AZ CLI](Mini-labs/Using%20AZ%20CLI.md)
