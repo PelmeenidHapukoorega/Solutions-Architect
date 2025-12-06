@@ -1,11 +1,11 @@
 # Describe Azure management infrastructure
 
 ## Table of contents
-* [Azure physical infrastructure](#azure-physical-infrastructure)
-* [Regions](#regions)
-* [Availability zones](#availability-zones)
-* [Region pairs](#region-pairs)
-* [Sovereign regions](#sovereign-regions)
+* [Management infrastructure](#management-infrastructure)
+* [Resources](#resources)
+* [Resource groups](#resource-groups)
+* [Subscriptions](#subscriptions)
+* [Management groups](#management-groups)
 
 ## Management infrastructure
 
@@ -27,7 +27,7 @@ By using integrated software tools and application programming interface i.e API
 
 Simply put, if you dont have the tools then how exactly can you build or do anything?
 
-### Resources
+## Resources
 
 Resources are the fundamental components of computing, storage and networking that organizations rent on a pay as you go basis from cloud provider.
 
@@ -47,7 +47,7 @@ Resources work by being provisioned and controlled through API which then transf
 
 Resources are like physical components and hardware used in physical on prem data centers but virtualized. Aka building blocks.
 
-### Resource groups
+## Resource groups
 
 Resource group is a grouping of different or the same resources. When you create a resource you are required to place it into a resource group. Resource group can contain many resources however a single resource can only be in one resource group at a time. If you move the resource into a different group, it will no longer be associated with the former group.
 
@@ -67,7 +67,7 @@ It creates a logical boundary within the cloud management system where policies,
 
 Resource group is a logical container where you can stack different resources, you can add policies to the resource group and all the resources inside the group will adopt the policy thus removing the need to seperately apply policies to each individual resource. Its a lot easier to manage and organize your resources.
 
-### Subscriptions
+## Subscriptions
 
 Subscriptions are a unit of management, billing and scale. Similar to resource groups logically. Subscriptions help you logically organize resource groups and facilitate billing.
 
@@ -92,7 +92,7 @@ By acting as the primary administrative account that provides the financial iden
 
 Subscriptions are used for billing and also governance, you can say build an IaaS for someone under a specific subscription and then set up the billing for the customer who ordered the infra. Its a good method to seperate who has to pay for what project, app or service.
 
-### Management groups
+## Management groups
 
 Management group is a governance structure that sits above the subscription level.  The hierarchy is: Management groups > Subscriptions > Resource groups > resources.
 
