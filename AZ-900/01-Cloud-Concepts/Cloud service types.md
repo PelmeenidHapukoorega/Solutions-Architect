@@ -38,7 +38,7 @@ Basically IaaS as a service provides you with everything that a normal on prem d
 
 ## Describe Platform as a Service
 
-Platform as a Service or PaaS is the middle ground between renting soace in a datacentre (IaaS) and paying for a complete and deployed solution (SaaS).
+Platform as a Service or PaaS is the middle ground between renting space in a datacentre (IaaS) and paying for a complete and deployed solution (SaaS).
 
 ### Why does it exist?
 
