@@ -1,9 +1,11 @@
 # Describe Azure physical infrastructure
 
 ## Table of contents
-* [What is Microsoft Azure](#what-is-microsoft-azure)
-* [What does Azure offer](#what-does-azure-offer)
-
+* [Azure physical infrastructure](#azure-physical-infrastructure)
+* [Regions](#regions)
+* [Availability zones](#availability-zones)
+* [Region pairs](#region-pairs)
+* [Sovereign regions](#sovereign-regions)
 
 ## My interprentions
 
