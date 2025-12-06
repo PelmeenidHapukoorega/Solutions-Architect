@@ -1,5 +1,5 @@
 ```ascii
-# Azure hierarchy – Management Groups, Subscriptions, Resource Groups
+# Azure hierarchy: Management Groups, Subscriptions, Resource Groups
 
 Management Group
 └── Management Group (optional child)
