@@ -3,3 +3,6 @@
 3. Selected Virtual Machine and pressed `create` under it
 4. Verified the following settings:
     <img width="667" height="792" alt="image" src="https://github.com/user-attachments/assets/303ef3e0-19ef-484e-9bbc-a07b225549ca" />
+
+5. Selected `Review and Create`
+6. 
