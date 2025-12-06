@@ -1,5 +1,6 @@
 ## Quick menu
 
-- [Cloud concepts](Cloud%20concepts.md)
-- [Cloud services](Cloud%20services.md)
-- [Cloud service types](Cloud%20service%20types.md)
+- [Physical infrastructure](Physical%20infrastructure.md)
+- [Management infrastructure](Management%20infrastructure.md)
+- [Architectular components of Azure](Architectular%20components%20of%20Azure.md)
+
