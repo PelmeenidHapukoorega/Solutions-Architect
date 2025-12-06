@@ -103,6 +103,22 @@ It works by creating a pre defined, non physical logical link between seperate a
 
 Basically region pairs is like backup but instead of the data copy its the replication of the same system just in a different region. If one region pair fails another takes over. Additionally updates and maintenance are always done 1 region pair at a time, to ensure there is no downtime and risk outage.
 
+### Sovereign regions
 
+Azure also has sovereign regions, that are instances of Azure which are isolated from the main instances. These are primarily used for compliance or legal purposes.
 
+### Why does this exist?
 
+Sovereign regions exist mostly if you need them for compliance or legal purposes
+
+### What does it do?
+
+Ensures that all data and operations withing that region are exclusively subject to the legal jurisdiction and governance structures of a specific country or geopolitical area.
+
+### How does it work?
+
+It implements strict controls over the physical location, operational management and legal governance of cloud infra. Isolating it from foreign jurisdiction while using standard cloud technologies.
+
+### Summary
+
+Sovereign regions are used for compliance and legal purposes. You need to use one if you deal with highly sensitive data, if its related to national security or financial complience or a specific requirement that your stored data must stay withing your countrys legal control.
