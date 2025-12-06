@@ -94,7 +94,9 @@ Subscriptions are used for billing and also governance, you can say build an Iaa
 
 ## Management groups
 
-Management group is a governance structure that sits above the subscription level.  The hierarchy is: Management groups > Subscriptions > Resource groups > resources.
+Management group is a governance structure that sits above the subscription level.  
+
+[Hierarchy Diagram](../02-Azure-Architecture/Diagrams/Hierarchy.md)
 
 ### Why does it exist?
 
