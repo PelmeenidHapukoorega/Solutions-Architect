@@ -112,3 +112,8 @@ It works by creating a hierarchical tree structure where rules applied at a high
 
 Management groups are the highest level of governance with in the cloud, every rule or policy you apply it to will cascade down. Only apply policies at the management level if they are non negotiable, enterprise wide security or compliance requirement because if you add the wrong one, everyone gets it.
 
+### Important facts about management groups
+
+* 10,000 management groups can be supported in a single directory.
+* Management group tree can support up to six levels of depth. This limit doesnt include root level or the subscription level.
+* Each management group and subscription can support only one parent.
