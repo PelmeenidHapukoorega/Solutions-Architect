@@ -4,3 +4,5 @@
 - [Management infrastructure](Management%20infrastructure.md)
 - [Architectular components of Azure](Architectular%20components%20of%20Azure.md)
 
+## Mini labs
+
