@@ -1,8 +1,8 @@
 # Describe Virtual machines
 
 ## Table of contents
-* [What is Microsoft Azure](#what-is-microsoft-azure)
-* [What does Azure offer](#what-does-azure-offer)
+* [Virtual machines](#virtual-machines)
+* [Availability sets](#availability-sets)
 
 ## My interpretations
 
@@ -35,8 +35,23 @@ You can either run single VMs for testing, minor task or development tasks, or y
 Virtual machine availability sets are a tool to help you build a more resilient and highly available environment. They are designed to ensure that VMs stagger updates and have a varied power, network connectivity preventing you from losing all your VMs with a single network or power failure.
 
 ### Why does it exist?
+
+To provide local redundancy for VMs within a single data center thus ensuring that apps remain available even when hardware fails or maintenance event occurs
+
 ### What does it do?
+
+Availability sets distribute your VMs across seperate physical hardware within a single data center to ensure high availability for your apps.
+
 ### How does it work?
 
+By using providers underlying control plane to group VMs and then automatically enforce the distribution of those VMs across distinct physical failure boundaries within a data center.
 
+### Summary
 
+Availability sets is like duplication of all your VMs in different places. It distributes your VMs automatically across seperate physical servers within a data center to create high availability and redundancy. Its like having your own real estate agent that picks you real estate in different locations to ensure variety. I.e you dont want to have your virtual machines all in 1 place, because if an outage occurs, all of that is lost.
+
+### VM resources
+
+* Size (purpose, number of processor cores, amount of RAM)
+* Storage disks (HDD, SSD, etc)
+* Networking (virtual network, public IP address, port configuration)
