@@ -30,4 +30,13 @@ Virtual machines are fundamental building blocks for building raw infrastructure
 
 You can either run single VMs for testing, minor task or development tasks, or you can group them together to provide high availability, scalability and redundancy. In Azure you can also manage the grouping of VMs with features such as scale sets and availability sets.
 
-##
+## Availability sets
+
+Virtual machine availability sets are a tool to help you build a more resilient and highly available environment. They are designed to ensure that VMs stagger updates and have a varied power, network connectivity preventing you from losing all your VMs with a single network or power failure.
+
+### Why does it exist?
+### What does it do?
+### How does it work?
+
+
+
