@@ -12,7 +12,8 @@
 
 Creating a VM through the API is pretty straightforward and easy, nothing too complex. Learned how to provision VM, and how to better navigate in the API. 
 
-For more in depth provisioning of VM see: [VM and Nginx Install Lab](../../../AZ-305/Virtual%20machines/lab-notes/VM-and-Nginx-install.md)
+For more in depth provisioning of VM see: [VM and Nginx Install Lab](../../../AZ-305/Virtual%20machines/lab-notes/VM%20and%20Nginx%20%20install.md)
+
 
 
 
