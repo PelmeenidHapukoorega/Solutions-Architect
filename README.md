@@ -66,5 +66,7 @@ Granted this is probably not something new, im sure there are people who think l
 
 So to put it shortly, this months focus has been going back to fundamentals to really get this right and reorganize and create a structure to follow for all my future learnings. 
 
-My goal still remains the same, and i dont see this as setback, if anything this has been a great learning point and i will continue to push on. Next update will be after I pass AZ 900 which im sure i will do now that i have genuine foundation without the hype.
+My goal still remains the same, and i dont see this as setback, if anything this has been a great learning point and i will continue to push on. 
+
+Next update will be after I pass AZ 900 which im sure i will do now that i have genuine foundation without the hype.
 #
