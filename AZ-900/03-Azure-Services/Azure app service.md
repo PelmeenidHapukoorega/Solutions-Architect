@@ -39,6 +39,8 @@ App service handles most of the infra decisions you would deal with in hosting w
 * Sites can be scaled quickly for incoming high traffic loads
 * Built in load balancer which automatically allocates resources where its needed to provide high availability based on defined rules.
 
+[Azure app service flavors](./Diagrams/Azure%20app%20service%20flavors.md)
+
 ## Web apps
 
 App service includes full support for hosting web apps by using ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP or Python. You can choose either windows or linux for OS.
