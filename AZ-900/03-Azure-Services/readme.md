@@ -1,6 +1,6 @@
 ## Quick menu
 
-- [Cloud concepts](Cloud%20concepts.md)
-- [Cloud services](Cloud%20services.md)
-- [Cloud service types](Cloud%20service%20types.md)
-
+- [Virtual machines](Virtual%20machines.md)
+- [Containers](containers.md)
+- [Functions](functions.md)
+- [Azure app service](azure%20app%20service.md)
