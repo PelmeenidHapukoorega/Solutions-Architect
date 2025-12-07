@@ -38,9 +38,15 @@ In any case, i was struggling with actually finding a method that would make me 
 
 This way of studying is slow, tiring, tedious but if anything it has taught me more discipline and genuine understanding of the concepts that im learning. If i hit a wall or dont understand say a specific wording, or dont fully grasp the concept of what something is or how exactly it works, i google or use AI to help explain it to me in simple terms which i in return verify by testing it in Azure asking on Azure subreddit or the simple way of googling.
 
-I also reformed my folders and note structures while thinking of ways to make it easier to navigate and more clean for myself. In 305 path i did this way too simplified which i never was happy with and honestly? its just confusing. In there i have a folder theory which contains all the theory and in paragraphs, while it does have link menus its just a wall of text and i didnt like that, i just didnt like the structure of the entire path, i needed something more concrete, something that i could apply to all my future certification learnings.
+I also reformed my folders and note structures while thinking of ways to make it easier to navigate and more clean for myself. 
 
-So i decided to go more in detail but keep it simple and logical but i was still struggling with seperation of concepts, how do i distinguish what is a concept and whats a service, what goes where?. I thought back on the why, what and how format briefly which made it easier. 
+In 305 path i did this way too simplified which i never was happy with and honestly? its just confusing. In there i have a folder theory which contains all the theory and in paragraphs and while it does have link menus its just a wall of text and i didnt like that, i just didnt like the structure of the entire path.
+
+I needed something more concrete, something that i could apply to all my future certification learnings.
+
+So i decided to go more in detail but keep it simple and logical but i was still struggling with seperation of concepts, how do i distinguish what is a concept and whats a service, what goes where?. 
+
+I thought back on the why, what and how format briefly which made it easier. 
 
 So from now on each lab will contain folders with the following premise of seperation of topics:
 
