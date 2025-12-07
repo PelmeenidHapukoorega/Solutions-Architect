@@ -1,6 +1,8 @@
 ## My Journey to become Microsoft Azure Solutions Architect
 
-## The start of it all November 15.11
+## The start of it all 
+
+### November 15.11
 
 Me doing my best to master Azure and eventually become Solutions architect.
 
@@ -28,9 +30,8 @@ I sincerely hope that some of the readers may find a bit of hope in all this. Ju
 
 Just start doing.
 
-**Nov 2025**
 
-## December update 07.12
+### December update 07.12
 
 I admit, i got too greedy at first by starting 305 learn path as the first thing, but it was a good lesson in humility and i had to remind myself that rushing stuff doesnt get me far. Getting into 305 was fun until i reached concepts which i struggled to understand, so instead of pushing myself to the finish i decided to F that basically and get this thing right. So i started as everyone does with Azure which is back to basics. Currently ive been focusing on studying the materials for AZ 900 which if you have browsed this repo would know. 
 
