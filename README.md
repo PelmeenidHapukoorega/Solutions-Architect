@@ -1,9 +1,10 @@
 ## My Journey to become Microsoft Azure Solutions Architect
 
 ## The start of it all 
+#
 
 ### November 15.11
-#
+
 Me doing my best to master Azure and eventually become Solutions architect.
 
 I figured id make a short description of why this profile and repo exist in the first place. I used to study IT years ago but never grasped the concepts at the time but always wanted to work in IT since its always been my passion. After finishing trades school I wounded up working in sales. Over the years ive continued to work in sales but in various companys and in various roles.
@@ -29,10 +30,10 @@ The whole point of this monologue is: This repo, this profile and everything in 
 I sincerely hope that some of the readers may find a bit of hope in all this. Just when you think that nothing is gonna work out, it does. And it didnt happen because i was sulking and cursing the world, it was the opposite. Never lose hope, never give up and most importantly... 
 
 Just start doing.
-
+#
 
 ### December update 07.12
-#
+
 I admit, i got too greedy at first by starting 305 learn path as the first thing, but it was a good lesson in humility and i had to remind myself that rushing stuff doesnt get me far. Getting into 305 was fun until i reached concepts which i struggled to understand, so instead of pushing myself to the finish i decided to F that basically and get this thing right. So i started as everyone does with Azure which is back to basics. Currently ive been focusing on studying the materials for AZ 900 which if you have browsed this repo would know. 
 
 In any case, i was struggling with actually finding a method that would make me understand the concepts i am learning. I dont learn by watching videos where people talk, i dont learn just by reading. So i adopted the WHY, WHAT, HOW method and wow is it a game changer. Now my study approach is using that, for example if i take a topic i use that same method about everything the modules cover. Yep even simple terminology like virtual machines. Every. Single. One. Additionally to that i hold myself to a standard when it comes to explanations, so in AZ 900 folders i decided to explain everything in my own words as to how I interpret it instead of using AI, granted AI is a great tool for making bulletpoints, but there isnt much use of those bulletpoints if i myself dont fully understand what does what, why it does so and how exactly.
@@ -42,4 +43,4 @@ This way of studying is slow, tiring, tedious but if anything it has taught me m
 So to put it shortly, this months focus has been going back to fundamentals to really get this right and reorganize and create a structure to follow for all my future learnings. 
 
 My goal still remains the same, and i dont see this as setback, if anything this has been a great learning point and i will continue to push on. Next update will be after I pass AZ 900 which im sure i will do now that i have genuine foundation without the hype.
-
+#
