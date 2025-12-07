@@ -44,11 +44,11 @@ So i decided to go more in detail but keep it simple and logical but i was still
 
 So from now on each lab will contain folders with the following premise of seperation of topics:
 
-If it explains WHAT the cloud is - concepts
-If it explains HOW Azure is organized - architecture/management
-If it explains a SERVICE - services
-If it explains RULES and CONTROL - governance/security
-If it explains MONEY - cost management
+* If it explains WHAT the cloud is - concepts
+* If it explains HOW Azure is organized - architecture/management
+* If it explains a SERVICE - services
+* If it explains RULES and CONTROL - governance/security
+* If it explains MONEY - cost management
 
 In additonm each of these folders will have notes regarding the topics related, mini labs and diagrams. All seperately but inlinked where needed.
 
