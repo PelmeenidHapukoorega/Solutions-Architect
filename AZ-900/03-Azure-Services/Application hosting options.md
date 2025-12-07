@@ -3,7 +3,7 @@
 ## Table of contents
 * [Types of app services](#types-of-app-services)
 * [Web apps](#web-apps)
-* [APS apps](#api-apps)
+* [API apps](#api-apps)
 * [Web jobs](#web-jobs)
 * [Mobile apps](#mobile-apps)
 
