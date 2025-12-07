@@ -1,7 +1,5 @@
-## My Journey to become Microsoft Azure Solutions Architect
-
 ## The start of it all 
-#
+
 
 ### November 15.11
 
