@@ -7,7 +7,7 @@
 * [Region pairs](#region-pairs)
 * [Sovereign regions](#sovereign-regions)
 
-## My interprentions
+## My interpretations
 
 ## Azure physical infrastructure
 
