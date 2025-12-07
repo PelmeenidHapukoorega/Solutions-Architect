@@ -1,5 +1,7 @@
 ## My Journey to become Microsoft Azure Solutions Architect
 
+## The start of it all November 15.11
+
 Me doing my best to master Azure and eventually become Solutions architect.
 
 I figured id make a short description of why this profile and repo exist in the first place. I used to study IT years ago but never grasped the concepts at the time but always wanted to work in IT since its always been my passion. After finishing trades school I wounded up working in sales. Over the years ive continued to work in sales but in various companys and in various roles.
