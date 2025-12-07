@@ -38,6 +38,24 @@ In any case, i was struggling with actually finding a method that would make me 
 
 This way of studying is slow, tiring, tedious but if anything it has taught me more discipline and genuine understanding of the concepts that im learning. If i hit a wall or dont understand say a specific wording, or dont fully grasp the concept of what something is or how exactly it works, i google or use AI to help explain it to me in simple terms which i in return verify by testing it in Azure asking on Azure subreddit or the simple way of googling.
 
+I also reformed my folders and note structures while thinking of ways to make it easier to navigate and more clean for myself. In 305 path i did this way too simplified which i never was happy with and honestly? its just confusing. In there i have a folder theory which contains all the theory and in paragraphs, while it does have link menus its just a wall of text and i didnt like that, i just didnt like the structure of the entire path, i needed something more concrete, something that i could apply to all my future certification learnings.
+
+So i decided to go more in detail but keep it simple and logical but i was still struggling with seperation of concepts, how do i distinguish what is a concept and whats a service, what goes where?. I thought back on the why, what and how format briefly which made it easier. 
+
+So from now on each lab will contain folders with the following premise of seperation of topics:
+
+If it explains WHAT the cloud is - concepts
+If it explains HOW Azure is organized - architecture/management
+If it explains a SERVICE - services
+If it explains RULES and CONTROL - governance/security
+If it explains MONEY - cost management
+
+In additonm each of these folders will have notes regarding the topics related, mini labs and diagrams. All seperately but inlinked where needed.
+
+Every notes file in addition to WHY, WHAT, HOW also has summary where i try to explain the topic in simple terms for myself.
+
+Granted this is probably not something new, im sure there are people who think like this, but to me it was eye opening.
+
 So to put it shortly, this months focus has been going back to fundamentals to really get this right and reorganize and create a structure to follow for all my future learnings. 
 
 My goal still remains the same, and i dont see this as setback, if anything this has been a great learning point and i will continue to push on. Next update will be after I pass AZ 900 which im sure i will do now that i have genuine foundation without the hype.
