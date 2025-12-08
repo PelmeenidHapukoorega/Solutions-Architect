@@ -47,6 +47,8 @@ VNet enables communication between resources which is essential if you want to d
 
 It exists as a fundamental principle in computing, networking and security to achieve the following goals: Security, stability and control. Its a mechanism that prevents different systems, applications and network zones from interfering with each other, ensuring that a problem in one area doesnt spread to others.
 
+[Isolation and segmentation](./Diagrams/Isolation%20and%20segmentation.md)
+
 ### What does it do?
 
 It works to seperate, contain and control different parts of a system or network to enhance security, stability and management.
@@ -64,6 +66,8 @@ Basically isolation and segmentation is used to clearly define boundaries so res
 * Virtual networks can connect not only VMs, but other resources such as the App service environment for power apps, AKS and azure virtual machine scale sets.
 * Service endpoints can connect to other Azure resource types such as Azure SQL databases and storage acconts. This enables you to link multiple Azure resources to virtual networks in order to improve security and provide optimal routing between resources.
 
+[Comms between resources (same VNet)](./Diagrams/Comms%20between%20resources%20(same%20VNet).md)
+
 ## Communication between on prem resources
 
 Azure VNet allows you to link resources together in your on prem environment and withing your Azure subscription. You can create a network that spans both your local and cloud environments. To achieve this there are 3 mechanisms for it:
@@ -72,12 +76,16 @@ Azure VNet allows you to link resources together in your on prem environment and
 * Site to site VPN links your on prem VPN device or gateway to the Azure VPN gateway in a VNet. In effect the devices in Azure can appear as being on the local network. The connection is encrypted and works over the internet.
 * Express route provides a dedicated private connectivity to Azure that doesnt travel over the internet. Its useful for environments where you need greater bandwidth and even higher levels of security.
 
+[Comms with on prem (VPN)](./Diagrams/Comms%20with%20on%20prem%20(VPN).md)
+
 ### Route network traffic
 
 Azure routes traffic between subnets or any connected VNets, on prem networks and the internet by default. You also can control routing and override those settings as follows:
 
 * Route tables allow you to define rules about how traffic should be directed. You can create custom route tables that control how packets are routed between subnets.
 * Border gateway protoco or BGP works with Azure VPN gateways, route server or express route to propagate on prem BGP routes to Azure VNets.
+
+[Route network traffic (UDR)](./Diagrams/Route%20network%20traffic%20(UDR).md)
 
 ### Why does it exist?
 
@@ -98,6 +106,8 @@ Route network traffic is like a system for trains that regulates the trains path
 ## Filter network traffic
 
 Enables you to filter traffic between subnets by using network security groups or NSG to define inbound and outbound security rules based on factors like source, destination IP address, port and protocol. Additionally use specialized VMs called network vritual appliances which then carries out a particular network function, such as running a firewall or performing wide area network aka WAN for optimization.
+
+[Filter network traffic (NSG)](./Diagrams/Filter%20network%20traffic%20(NSG).md)
 
 ### Why does it exist?
 
@@ -120,3 +130,5 @@ Filtering network traffic is like the guy who inspects the trains before sending
 You can link VNets together by VNet peering. Peering allows 2 seperate virtual networks connect directly to each other. Network traffick between peered networks is private and travels on the microsoft backbone network, never entering the public internet. Peering enables resources in each VNet to communicate with each other. These VNets can be in seperate regions, this allows you to create a global interconnected network through Azure.
 
 User defined routes or UDR allows you to control routing tables between subnest within a virtual network or between virtual networks which in turn allows for greater control over the network traffic flow.
+
+[Connect virtual networks (VNet peering)](./Diagrams/Connect%20virtual%20networks%20(VNet%20peering).md)
