@@ -46,7 +46,7 @@ In 305 path i did this way too simplified which i never was happy with and hones
 
 I needed something more concrete, something that i could apply to all my future certification learnings.
 
-So i decided to go more in detail but keep it simple and logical but i was still struggling with seperation of concepts, how do i distinguish what is a concept and whats a service, what goes where?. 
+So i decided to go more in detail but keep it simple and logical but i was still struggling with seperation of concepts, how do i distinguish what is a concept and whats a service, what goes where? 
 
 I thought back on the why, what and how format briefly which made it easier. 
 
@@ -58,7 +58,7 @@ So from now on each lab will contain folders with the following premise of seper
 * If it explains RULES and CONTROL - governance/security
 * If it explains MONEY - cost management
 
-In additonm each of these folders will have notes regarding the topics related, mini labs and diagrams. All seperately but inlinked where needed.
+In addition each of these folders will have notes regarding the topics related, mini labs and diagrams. All seperately but inlinked where needed.
 
 Every notes file in addition to WHY, WHAT, HOW also has summary where i try to explain the topic in simple terms for myself.
 
