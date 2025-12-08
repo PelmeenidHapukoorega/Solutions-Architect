@@ -95,7 +95,7 @@ Runs background tasks, scripts and programs alongside your main web application 
 
 ### How does it work?
 
-It executes code as background process on the same set of VMs that host your maint app service (web app or API app) utilizing simple built in management system and a runtime monitor. You deploy the script or executable program directly to existing app service.
+It executes code as background process on the same set of VMs that host your main app service (web app or API app) utilizing simple built in management system and a runtime monitor. You deploy the script or executable program directly to existing app service.
 
 ### Summry
 
