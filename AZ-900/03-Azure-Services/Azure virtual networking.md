@@ -99,7 +99,7 @@ Since its the orchestration and direction of all IP based traffic to, from and w
 
 It works by using a combination of default system rules and user defined rules to direct data packets to the correct destination within Azure environment.
 
-### Summar
+### Summary
 
 Route network traffic is like a system for trains that regulates the trains path to avoid collision with other trains and to make sure the train reaches its destination securely and on point.
 
