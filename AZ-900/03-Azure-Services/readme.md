@@ -7,3 +7,4 @@
 - [Azure virtual networking](Azure%20virtual%20networking.md)
 - [Azure VPN](Azure%20VPN.md)
 - [Azure ExpressRoute](Azure%20ExpressRoute.md)
+- [Azure DNS](Azure%20DNS.md)
