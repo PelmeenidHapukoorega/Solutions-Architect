@@ -6,7 +6,7 @@
 * [Security](#security)
 * [Ease of use](#ease-of-use)
 * [Customizable VNets with private domains](#customizable-vnets-with-private-domains)
-* [Alias records](#alias=records)
+* [Alias records](#alias-records)
 
 Customizable VNets with private domains
 ## My interpretations
