@@ -21,7 +21,9 @@ To provide globally distributed, highly available and fully integrated DNS hosti
 It hosts and manages the DNS records and zones for your domains using Microsoft global infrastructure for name resolution.
 
 * What is DNS record?
-    * Fundamental piece of information stored in a DNS zone file on a DNS server. It is essentially a mapping instruction that        provides specific details like an IP address, a mail server name or text information associated with a domain name. Every       time someone accesses a website, sends an email or connects to cloud service, a DNS record is queried to find the correct       path.
+    * Fundamental piece of information stored in a DNS zone file on a DNS server. It is essentially a mapping instruction    that        provides specific details like an IP address, a mail server name or text information associated with a domain name. Every       time someone accesses a website, sends an email or connects to cloud service, a DNS record is queried to find the correct       path.
 
 ### How does it work?
+
+It works by being an authoritative, globally distributed DNS server network that hosts your domain names and translates them into IP addresses for users, both for public internet traffic and private Azure networks.
 
