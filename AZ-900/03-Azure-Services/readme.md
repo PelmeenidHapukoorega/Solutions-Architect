@@ -6,3 +6,4 @@
 - [Azure app service](Azure%20app%20service.md)
 - [Azure virtual networking](Azure%20virtual%20networking.md)
 - [Azure VPN](Azure%20VPN.md)
+- [Azure ExpressRoute](Azure%20ExpressRoute.md)
