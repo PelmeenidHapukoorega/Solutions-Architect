@@ -79,7 +79,7 @@ Works like Azure web apps, its a process of continous loop of requests and respo
 
 ### Summary
 
-API apps are similar to web apps. Web app is like a storefront, and API is the warehouse manager. API apps job is to rpocess requests for data or execute commands and return the result in a machine readable format aka JSON or XML. I.e web app is what you see and interact with, API app is the powerful engine working behind the scenes that the web app talks to. Its like the system behind the vending machine.
+API apps are similar to web apps. Web app is like a storefront, and API is the warehouse manager. API apps job is to process requests for data or execute commands and return the result in a machine readable format aka JSON or XML. I.e web app is what you see and interact with, API app is the powerful engine working behind the scenes that the web app talks to. Its like the system behind the vending machine.
 
 ## Web jobs
 
