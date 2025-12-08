@@ -13,7 +13,7 @@ App service enables you to build and host web apps, baground jobs, mobile back e
 
 ### Why does it exist?
 
-App service exists as PaaS offering developers to build, deploy and scale web apps and APIs without the management of infra.
+App service exists as PaaS offering for developers to build, deploy and scale web apps and APIs without the management of infra.
 
 ### What does it do?
 
