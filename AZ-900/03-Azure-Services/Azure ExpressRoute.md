@@ -64,7 +64,8 @@ The circuit does the job of defining, authorizing and configuring high performan
 ### Global connectivity
 
 You can enable ExpressRoute Global reach so can exchange data across your on prem sites by connecting your Circuits.
-      * Example: Lets say you have office in Europe and a data center in America, both with ExpressRoute circuits                   connecting them to Microsoft network. You could use it to connect those 2 facilities allowing them to communicate           without transferring data over the public internet.
+
+ * Example: Lets say you have office in Europe and a data center in America, both with ExpressRoute circuits                   connecting them to Microsoft network. You could use it to connect those 2 facilities allowing them to communicate           without transferring data over the public internet.
 
 ### Built in redundancy
 
