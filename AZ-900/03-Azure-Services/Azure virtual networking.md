@@ -1,5 +1,15 @@
 # Describe Azure virtual networking
 
+## Table of contents
+* [Isolation and segmentation](#isolation-and-segmentation)
+* [Communication between resources](#communication-between-resources)
+* [Communication between on prem resources](#communication-between-on-prem-resources)
+* [Route network traffic](#route-network-traffic)
+* [Filter network traffic](#filter-network-traffic)
+* [Connect virtual networks](#connect-virtual-networks)
+
+## My interpretations
+
 Azure virtual networks and virtual subnets enable Azure resources to communicate with each other, with users over the iternet
 and with your on prem client computers. Think of it as an extension of your on prem network with resources that link other Azure resources.
 
