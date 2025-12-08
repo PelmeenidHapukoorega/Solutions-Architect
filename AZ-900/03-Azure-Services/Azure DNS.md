@@ -1,8 +1,14 @@
 # Describe Azure DNS
 
 ## Table of contents
-* [Benefits of Azure DNS](#benefits-of-azure-resource)
+* [Benefits of Azure DNS](#benefits-of-Azure-DNS)
+* [Reliability and performance](#reliability-and-performance)
+* [Security](#security)
+* [Ease of use](#ease-of-use)
+* [Customizable VNets with private domains](#customizable-vnets-with-private-domains)
+* [Alias records](#alias=records)
 
+Customizable VNets with private domains
 ## My interpretations
 
 Azure DNS is a hosting service for DNS domains that provide name resolution by using Microsoft Azure infra. Hosting your domains in Azure means you can manager you DNS records using the same credentials, APIs, tools and billing as your other Azure services.
@@ -31,7 +37,7 @@ It works by being an authoritative, globally distributed DNS server network that
 
 In short Azure handles all the complexities of hosting the DNS infra, routing queries to the closest server and managing redundancy, leaving you to simply define the records.
 
-### Benefits of Azure DNS
+## Benefits of Azure DNS
 
 * Reliability and performance.
 * Security.
@@ -51,7 +57,7 @@ DNS domains in Azure DNS are hosted on Azures global network of DNS name servers
 
 It means that Azure DNS is set up to be extremely reliable, fast and always available for finding your websites and cloud services.
 
-### Security
+## Security
 
 Azure DNS is based on Azure resource manager with features like:
 
@@ -59,18 +65,18 @@ Azure DNS is based on Azure resource manager with features like:
 * Activity logs to monitor how a user in your organization modified resources or to find an error when troubleshooting.
 * Resource locking to lock a subscription, resource group or resource. Locking prevents other users in your organization from accidentally deleting or modifying critical resources.
 
-### Ease of use
+## Ease of use
 
 * Azure DNS can manage DNS records for your services and provide DNS for your external resources.
 * Its integrated into Azure portal and uses the same credentials, support contract and biilling as your other Azure services.
 * Since its running on Azure means you can manage domains and records within the portal, powershell cmdlets and Azure CLI.
 * Applications that require automated DNS management can integrate with the service using REST API and SDKs.
 
-### Customizable VNets with private domains
+## Customizable VNets with private domains
 
 Azure DNS supports private DNS domains. This allows you to use your own custom domain names in your private VNet, rather than being stuck with Azure provided names.
 
-### Alias records
+## Alias records
 
 Its like Azure DNS, its a special type of record that allows you to point a domain name to an Azure resource instead of a static IP address. If the IP changes then the alias record set seamlessly updates itself during DNS resolution. I.e it points to service instance and the service instance is associated with IP address.
 
