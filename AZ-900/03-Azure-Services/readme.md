@@ -10,3 +10,4 @@
 - [Azure DNS](Azure%20DNS.md)
 - [Storage accounts](Storage%20accounts.md)
 - [Storage redundancy](Storage%20redundancy.md)
+- [Storage services](Storage%20services.md)
