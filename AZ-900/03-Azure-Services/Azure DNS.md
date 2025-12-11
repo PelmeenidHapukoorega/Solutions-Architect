@@ -8,8 +8,6 @@
 * [Customizable VNets with private domains](#customizable-vnets-with-private-domains)
 * [Alias records](#alias-records)
 
-Customizable VNets with private domains
-
 ## My interpretations
 
 Azure DNS is a hosting service for DNS domains that provide name resolution by using Microsoft Azure infra. Hosting your domains in Azure means you can manager you DNS records using the same credentials, APIs, tools and billing as your other Azure services.
