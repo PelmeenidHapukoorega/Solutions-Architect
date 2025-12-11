@@ -8,3 +8,4 @@
 - [Azure VPN](Azure%20VPN.md)
 - [Azure ExpressRoute](Azure%20ExpressRoute.md)
 - [Azure DNS](Azure%20DNS.md)
+- [Storage accounts](Storage%20accounts.md)
