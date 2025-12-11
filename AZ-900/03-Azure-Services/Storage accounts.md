@@ -8,6 +8,7 @@
 * [Zone redundant storage (ZRS)](#zone-redundant-storage-zrs)
 * [Geo zone redundant storage (GZRS)](#geo-zone-redundant-storage-gzrs)
 * [Read access geo zone redundant storage (RA-GZRS)](#read-access-geo-zone-redundant-storage-ra-gzrs)
+* [For future reference](#for-future-reference)
 
 ## My interpretations
 
@@ -138,4 +139,21 @@ It provides ultimate local resilience by synchronously replicating your data acr
 ### Summary
 
 In short the RA-GZRS exists to do 1 thing, to enusre your mission critical data is protected agains every possible infra failure (local, zone or regional) and remains available for reading under virtually all circumstances.
+
+## For future reference:
+
+<img width="912" height="447" alt="image" src="https://github.com/user-attachments/assets/9e5a2653-5bce-45ff-b47e-2d398944a24c" />
+
+### Storage account endpoints
+
+One of the benefits of Azure storage account is having unique namespace in Azure for your data. In order to do this, every storage acc in Azure must have a unique in Azure account name. The combination of account name and the storage service endpoint forms the endpoints for your storage account.
+
+### When naming
+
+* Must be between 3 and 24 characters in length, may contain numbers and lowercase only.
+* Must be unique within Azyre.
+
+Example table:
+
+<img width="915" height="317" alt="image" src="https://github.com/user-attachments/assets/cfca1b9e-5b4b-4e72-adc7-0ae3fcc4da08" />
 
