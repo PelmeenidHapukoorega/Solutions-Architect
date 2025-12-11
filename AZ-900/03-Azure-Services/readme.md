@@ -11,3 +11,9 @@
 - [Storage accounts](Storage%20accounts.md)
 - [Storage redundancy](Storage%20redundancy.md)
 - [Storage services](Storage%20services.md)
+
+
+## Mini labs
+
+- [Mini-Lab 1: Using AZ CLI](Mini-labs/Using%20AZ%20CLI.md)
+- [Mini-Lab 2: Create Azure resource](Mini-labs/Create%20Azure%20resource.md)
