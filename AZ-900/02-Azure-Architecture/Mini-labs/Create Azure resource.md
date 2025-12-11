@@ -1,3 +1,5 @@
+## Mini lab: Creating a resource
+
 1. Logged into Azure
 2. Selected `create a resource` button on home page
 3. Selected Virtual Machine and pressed `create` under it
