@@ -151,7 +151,7 @@ One of the benefits of Azure storage account is having unique namespace in Azure
 ### When naming
 
 * Must be between 3 and 24 characters in length, may contain numbers and lowercase only.
-* Must be unique within Azyre.
+* Must be unique within Azure.
 
 Example table:
 
