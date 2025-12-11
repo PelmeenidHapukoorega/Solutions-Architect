@@ -9,3 +9,4 @@
 - [Azure ExpressRoute](Azure%20ExpressRoute.md)
 - [Azure DNS](Azure%20DNS.md)
 - [Storage accounts](Storage%20accounts.md)
+- [Storage redundancy](Storage%20redundancy.md)
