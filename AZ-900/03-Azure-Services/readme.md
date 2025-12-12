@@ -11,7 +11,7 @@
 - [Storage accounts](Storage%20accounts.md)
 - [Storage redundancy](Storage%20redundancy.md)
 - [Storage services](Storage%20services.md)
-
+- [Data migration options](Data%20migration%20options.md)
 
 ## Mini labs
 
