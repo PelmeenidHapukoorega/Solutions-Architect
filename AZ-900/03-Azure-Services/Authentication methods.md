@@ -27,3 +27,5 @@ It works by having the system compare the "proof" you provide against the securi
 ### Summary
 
 Authentication makes sure that only registered users allowed to access apss or data can do so. Its a protection layer.
+
+[Security vs convenience](./Diagrams/Security%20vs%20convenience.md)
