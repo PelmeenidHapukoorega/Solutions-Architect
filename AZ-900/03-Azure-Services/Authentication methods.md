@@ -28,6 +28,6 @@ It works by having the system compare the "proof" you provide against the securi
 
 Authentication makes sure that only registered users allowed to access apss or data can do so. Its a protection layer.
 
-[Security vs convenience](./Diagrams/security%20vs%20convenience.md)
+[Security vs convenience](./Diagrams/Security%20vs%20convenience.md)
 
 AZ-900/03-Azure-Services/Diagrams/Security vs convenience.md
