@@ -1,12 +1,8 @@
 # Describe Azure authentication methods
 
 ## Table of contents
-* [Benefits of Azure DNS](#benefits-of-Azure-DNS)
-* [Reliability and performance](#reliability-and-performance)
-* [Security](#security)
-* [Ease of use](#ease-of-use)
-* [Customizable VNets with private domains](#customizable-vnets-with-private-domains)
-* [Alias records](#alias-records)
+* [SSO](#sso)
+* [Multifactor authentication MFA](#multifactor-authentication-MFA)
 
 ## My interpretations
 
@@ -51,3 +47,26 @@ Its managed by 2 main entities using secure communication protocols (often SAML 
 
 In short SSO performs the function of sharing a single verified identity securely across an ecosystem of apps, moving the focus from many individual passwords to 1 highly protected authentication process.
 
+**Important!**
+
+SSO is only as secure as the inital authenticator because the subsequent connections are all based on the security of the inital authenticator.
+
+## Multifactor authentication MFA
+
+Is the process of prompting user for an extra form or factor of identification during the sign in process.
+
+### Why does it exist?
+
+It exists to protect accounts from compromise by requiring a secondary verification factor, making stolen passwords useless to attackers.
+
+### What does it do?
+
+It performs the core function of verifying a users identity by requiring proof from 2 or more distint categories (think password and a phone)
+
+### How does it work?
+
+It works by requiring a sequential, 2 stage verification process that must successfully pass 2 or more independent factors before granting access.
+
+### Summary
+
+Essentially MFA is almost like SSO with extra steps, instead of giving you access straight away MFA makes you jump through hoops. Example, you type in your password and login, then the app requires you to type in a code that was sent on your secondary email, or you have an app for the authentication code required before MFA accepts full authorization to let you in.
