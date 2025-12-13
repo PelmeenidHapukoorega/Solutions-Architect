@@ -3,6 +3,8 @@
 ## Table of contents
 * [SSO](#sso)
 * [Multifactor authentication MFA](#multifactor-authentication-MFA)
+* [Microsoft Entra multifactor authentication](#microsoft-entra-multifactor-authentication)
+
 
 ## My interpretations
 
@@ -70,3 +72,23 @@ It works by requiring a sequential, 2 stage verification process that must succe
 ### Summary
 
 Essentially MFA is almost like SSO with extra steps, instead of giving you access straight away MFA makes you jump through hoops. Example, you type in your password and login, then the app requires you to type in a code that was sent on your secondary email, or you have an app for the authentication code required before MFA accepts full authorization to let you in.
+
+## Microsoft Entra multifactor authentication
+
+Is a Microsoft service that provides multifactor authentication capabilities.
+
+### Why does it exist?
+
+To provide the most effective defense available against credential theft and unauthorized cloud access, serving as the essential security foundation for Microsofts identity platform.
+
+### What does it do?
+
+It hardens the logic gateway to all cloud apps, dynamically challenging users based on risk and policy to prevent the vast majority of identity based attacks.
+
+### How does it work?
+
+By intercepting the standard sign in process and injecting a mandatory, real time security check that relies on the user providing proof from 2 different factors.
+
+### Summary
+
+Entra multifactor authentication is part of MFA in general, it acts as the security side of MFA, meaning that it provides defense against potential credential theft and unauthorized access.
