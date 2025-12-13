@@ -3,7 +3,7 @@
 ## Table of contents
 * [Microsoft Entra ID](#microsoft-entra-id)
 * [Can you connect on prem AD with Entra ID?](#can-you-connect-on-prem-ad-with-entra-id)
-* [Is information synchronized?](#is-information-synchronized?)
+* [Is information synchronized?](#is-information-synchronized)
 
 ## My interpretations
 
