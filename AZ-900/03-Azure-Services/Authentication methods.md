@@ -4,7 +4,10 @@
 * [SSO](#sso)
 * [Multifactor authentication MFA](#multifactor-authentication-MFA)
 * [Microsoft Entra multifactor authentication](#microsoft-entra-multifactor-authentication)
-
+* [Passwordless authentication methods](#passwordless-authentication-methods)
+* [Windows Hello for business](#windows-hello-for-business)
+* [Microsoft authenticator app](#microsoft-authenticator-app)
+* [FIDO2 security keys](#fido2-security-keys)
 
 ## My interpretations
 
@@ -92,3 +95,67 @@ By intercepting the standard sign in process and injecting a mandatory, real tim
 ### Summary
 
 Entra multifactor authentication is part of MFA in general, it acts as the security side of MFA, meaning that it provides defense against potential credential theft and unauthorized access.
+
+## Passwordless authentication methods
+
+Passwordless authentication methods are more convenient because the password is removed and replaced with something you have, something you are or something you know. It needs to be set up on a device before it can work.
+
+## Windows Hello for business
+
+Windows hello for business is a robust enterprise grade authentication method from Microsoft that allows users to sign in to their Windows devices and access corporate resources without using a traditional password.
+
+### Why does it exist?
+
+To solve the fundamental enterprise problems of password vulnerability, user friction and decentralized identity management by delivering a phishing resistant, passwordless authentication solution.
+
+### What does it do?
+
+It uses security of a cryptographic key combined with the convenience of a PIN or biometric to makinge logging into the network or cloud services easier, safer and centrally manageable.
+
+### How does it work?
+
+In essence it replaces the password base login with a secure, cryptographic key based handshake.
+
+### Summary
+
+Basically windows hello for business is like replacing your physical house key with a highly secure, uncopyable digital key thats stored in a safe, which you unlock using only your fingerprint or a simple secret PIN.
+
+## Microsoft authenticator app
+
+Is a convenient multifactor authentication option in addition to a password.
+
+### Why does it exist?
+
+To provide a highly secure, convenient and managed in 1 place mobile platform for users to perform phishing resistant, multi factor and passwordless authenticaion to all their online accounts.
+
+### What does it do?
+
+The app is central, secure and convenient repository for all the secondary verification factors needed to protect a users digital identity.
+
+### How does it work?
+
+It works by acting as a secure, physical validator that proves you have a registered device, allowin it to complete the second step of 2 step login.
+
+### Summary
+
+Microsoft authenticator app is basically like, say you wanna go to the clubs VIP section, you enter the club aka sign in so to speak, but then the bouncer says that in order to get into VIP section you need to have a special invitation. This is authenticator app in a nutshell.
+
+## FIDO2 security keys
+
+FIDO or Fast IDentity Online helps to promote open authentication standards and reduce the use of passwords as a form of authentication.
+
+### Why does it exist?
+
+To solve the vulnerability of passwords and one time codes to phishing and Man in the Middle or MITM attacks.
+
+### What does it do?
+
+It acts as a portable, hardware vault that holds your unphishable login proof and only releases it to the specific websites for which it was registered.
+
+### How does it work?
+
+It replaces the traditional password login with an unstealable, hardware secured digital signature using public key cryptography.
+
+### Summary
+
+FIDO2 is like tamper proof USB identity stamp that unlike a password, can only digitally sign a transaction for the correct bank website, making them completely useless to a thief on a fake website. In essence it works quite similar to Smart ID which is eID platform, the difference being in hardware. 
