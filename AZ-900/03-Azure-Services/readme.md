@@ -14,6 +14,7 @@
 - [Data migration options](Data%20migration%20options.md)
 - [File movement options](File%20movement%20options.md)
 - [Directory services](Directory%20services.md)
+- [Authentication methods](Authentication%20methods.md)
 
 
 ## Mini labs
