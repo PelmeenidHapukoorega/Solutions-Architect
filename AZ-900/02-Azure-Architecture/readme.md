@@ -5,7 +5,7 @@
 - [Architectular components of Azure](Architectular%20components%20of%20Azure.md)
 - [External identities](External%20identities.md)
 - [Conditional access](Conditional%20access.md)
-- [Role based access control (RBAC)](role%20based%20access%20control%20(rbac).md)
+- [Role based access control (RBAC)](Role%20based%20access%20control%20(RBAC).md)
 
 
 ## Mini labs
