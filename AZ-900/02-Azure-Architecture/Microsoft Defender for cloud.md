@@ -1,9 +1,32 @@
 # Describe Microsoft Defender for Cloud
 
 ## Table of contents
-* [Conditional access](#conditional-access)
-* [When to use?](#when-to-use)
+## Table of contents
 
+* [Microsoft Defender for Cloud](#microsoft-defender-for-cloud)
+* [Protection everywhere you are deployed](#protection-everywhere-you-are-deployed)
+* [Azure native protections](#azure-native-protections)
+* [Defending hybrid resources](#defending-hybrid-resources)
+* [Defending resources on other clouds](#defending-resources-on-other-clouds)
+* [Assess, secure and defend](#assess-secure-and-defend)
+* [Continuously assess](#continuously-assess)
+* [Secure](#secure)
+* [Defend](#defend)
+* [Advanced threat protection](#advanced-threat-protection)
+
+
+
+
+Microsoft Defender for cloud
+Protection everywhere you are deployed
+Azure native protections
+Defending hybrid resources
+Defending resources on other clouds
+Assess, secure and defend
+Continuosly assess
+Secure
+Defend
+Advanced threat protection
 ## My interprentations
 
 ## Microsoft Defender for cloud
@@ -91,3 +114,38 @@ MDC fills 3 vital needs as you manage security of resources and workloads in the
   * All vulnerability findings and results from these detailed scans are aggregated and available within the MDC portal.
   * This provides a single place to review, prioritize, and respond to all discovered security weaknesses.
 
+## Secure
+
+* Goal: Ensure your cloud workloads are secure using core principles like Zero Trust and proper access control.
+
+* Policy Engine: MDC uses Azure Policy for creating flexible security rules.
+  * These rules can cover your entire environment (tenant, groups, subscriptions).
+
+* Scalability & Monitoring:
+  * It constantly checks new resources as you scale up.
+  * It flags resources that are misconfigured.
+
+* Guidance:
+  * Recommendations are based on the Azure Security Benchmark (Microsoft's standard for security best practices).
+
+* Prioritization:
+  * Recommendations are grouped into Security Controls.
+  * Each control contributes to your Secure Score, which is the single metric that tells you how healthy your security posture is.
+
+## Defend
+
+MDC also helps you defend your environment by providing security alerts and advanced threat protection features.
+
+## Security alerts
+
+When MDC detects a threat in any are of the environment it generates security alert. Security alerts: 
+
+* Describe details of the affected resources.
+* Suggest remediation steps.
+* Provide in some cases an option to trigger a logic app in response.
+
+MDC threat protection includes fusion kill chain analysis, which means that it automatically correlates alerts in your environment based on cyber kill chain analysis, to help you better understand the full story of an attack campaign where it started and what impact it had on your resources.
+
+## Advanced threat protection
+
+It provides advanced threat protection features for many of your deployed resources, including VMs, SQL databases, containers, web apps and your network. It includes securing the management ports of your VMs with just in time access, and adaptive app controls to create allowlistst for what apps should and shouldnt run on machines.
