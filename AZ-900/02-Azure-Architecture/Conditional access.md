@@ -23,6 +23,8 @@ It acts as the central policy enforcement point for all access to your cloud app
 
 By evaluating set of criteria in a real time during a users sign in attempt and then enforcing a specific outcome based on those criteria.
 
+[Hierarchy Diagram](../02-Azure-Architecture/Diagrams/Conditional%20access%20flow.md)
+
 ### Summary
 
 Conditional access allows you to filter essentially who gets to use what resources and who doesnt, however it makes those decisions dynamically based on real time conditions and risk signals associated with the sign in attempt.
