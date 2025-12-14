@@ -3,16 +3,19 @@
 ## Table of contents
 ## Table of contents
 
-* [Microsoft Defender for Cloud](#microsoft-defender-for-cloud)
+## Table of contents
+
+* [Microsoft Defender for cloud](#microsoft-defender-for-cloud)
 * [Protection everywhere you are deployed](#protection-everywhere-you-are-deployed)
 * [Azure native protections](#azure-native-protections)
 * [Defending hybrid resources](#defending-hybrid-resources)
 * [Defending resources on other clouds](#defending-resources-on-other-clouds)
 * [Assess, secure and defend](#assess-secure-and-defend)
-* [Continuously assess](#continuously-assess)
+* [Continuosly assess](#continuosly-assess)
 * [Secure](#secure)
 * [Defend](#defend)
 * [Advanced threat protection](#advanced-threat-protection)
+
 
 
 
