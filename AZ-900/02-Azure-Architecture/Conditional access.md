@@ -23,7 +23,7 @@ It acts as the central policy enforcement point for all access to your cloud app
 
 By evaluating set of criteria in a real time during a users sign in attempt and then enforcing a specific outcome based on those criteria.
 
-[Hierarchy Diagram](../02-Azure-Architecture/Diagrams/Conditional%20access%20flow.md)
+[Conditional access flow](../02-Azure-Architecture/Diagrams/Conditional%20access%20flow.md)
 
 ### Summary
 
