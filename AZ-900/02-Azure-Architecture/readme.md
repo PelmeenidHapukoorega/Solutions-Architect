@@ -7,6 +7,7 @@
 - [Conditional access](Conditional%20access.md)
 - [Role based access control (RBAC)](Role%20based%20access%20control%20(RBAC).md)
 - [Zero trust model](Zero%20trust%20model.md)
+- [Defense in depth](Defense%20in%20depth.md)
 
 ## Mini labs
 
