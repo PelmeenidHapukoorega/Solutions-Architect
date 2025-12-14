@@ -38,3 +38,5 @@ Core elements being:
 ## How is RBAC applied to resources?
 
 RBAC is applied to a scope aka the WHERE, which in essence is a resource or resources that this access applies to.
+
+[RBAC and scopes relationship](../02-Azure-Architecture/Diagrams/RBAC%20and%20scopes%20relationship.md)
