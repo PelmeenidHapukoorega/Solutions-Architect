@@ -14,4 +14,3 @@
 - [Mini-Lab 2: Create Azure resource](Mini-labs/Create%20Azure%20resource.md)
 
 
-Role based access control (RBAC).md
