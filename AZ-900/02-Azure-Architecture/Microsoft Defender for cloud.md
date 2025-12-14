@@ -16,20 +16,6 @@
 * [Defend](#defend)
 * [Advanced threat protection](#advanced-threat-protection)
 
-
-
-
-
-Microsoft Defender for cloud
-Protection everywhere you are deployed
-Azure native protections
-Defending hybrid resources
-Defending resources on other clouds
-Assess, secure and defend
-Continuosly assess
-Secure
-Defend
-Advanced threat protection
 ## My interprentations
 
 ## Microsoft Defender for cloud
