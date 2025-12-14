@@ -24,12 +24,12 @@ Conditional Access flow (signals → decision → enforcement)
                             v
             ┌───────────────────────────────┐
             │            Decision           │
-            │   ┌──────────────┬──────────┐ │
-            │   │ Allow access  │ Block   │ │
-            │   │               │ access  │ │
-            │   └───────┬───────┴─────┬───┘ │
-            │           │             │     │
-            │           v             v     │
+            │   ┌──────────────┬─────────┐  │
+            │   │ Allow access │ Block   │  │
+            │   │              │ access  │  │
+            │   └───────┬──────┴─────┬───┘  │
+            │           │            │      │
+            │           v            v      │
             │   (Optional) Challenge MFA    │
             └───────────────┬───────────────┘
                             │
