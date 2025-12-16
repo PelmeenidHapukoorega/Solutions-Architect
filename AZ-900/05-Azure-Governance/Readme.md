@@ -1,6 +1,7 @@
 ## Quick menu
 
-- [Cost management tool](Cost%20management%20tool.md)
+- [Factors affecting cost](Factors%20affecting%20cost.md)
+- [Purpose of tags](Purpose%20of%20tags.md)
 
 ## Mini labs
 
