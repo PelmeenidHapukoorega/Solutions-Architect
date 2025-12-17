@@ -1,5 +1,7 @@
 ## Quick menu
 
+This folder covers all the core services used in Azure cloud.
+
 - [Virtual machines](Virtual%20machines.md)
 - [Containers](Containers.md)
 - [Functions](Functions.md)
