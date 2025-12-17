@@ -1,5 +1,7 @@
 ## Quick menu
 
+This folder covers both Governance and compliance in AZ 900
+
 - [Factors affecting cost](Factors%20affecting%20cost.md)
 - [Purpose of tags](Purpose%20of%20tags.md)
 - [Microsoft Purview](Microsoft%20Purview.md)
