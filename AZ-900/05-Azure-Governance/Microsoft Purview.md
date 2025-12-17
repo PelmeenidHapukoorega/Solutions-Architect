@@ -1,4 +1,4 @@
-# Describe Microsoft Purview
+## Describe Microsoft Purview
 
 ## Table of contents
 * [Microsoft Purview](#microsoft-purview)
