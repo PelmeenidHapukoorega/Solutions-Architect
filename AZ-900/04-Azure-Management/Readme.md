@@ -4,5 +4,6 @@ This folder covers all the management aspects of the cloud. This includes both c
 
 - [Cost management tool](Cost%20management%20tool.md)
 - [Tools for Azure interaction](Tools%20for%20Azure%20interaction.md)
-- [Purpose of Azure Arc](Purpose%20of%20Azure%20arc.md)
+- [Purpose of Azure Arc](Purpose%20of%20Azure%20Arc.md)
+
 
