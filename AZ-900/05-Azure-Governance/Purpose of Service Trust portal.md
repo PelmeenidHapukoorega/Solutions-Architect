@@ -18,6 +18,12 @@ It provides access to audit reports, compliance guides and whitepapers that deta
 
 Authenticated users (Entra ID) sign in, accept a Non Disclosure Agreement (NDA) and then can download specific compliance materials and tools.
 
+## Main menu categories:
+
+* Service trust portal: Provides a quick access hyperlink to return to the service trust portal homepage.
+* My library: Lets you save or pin docs to quickly access the on your library page. You can also set notifications when docs in your library are updated.
+* All documents: Is a single landing place for docs on the service trust portal. From All Documents, you can pink docs to show up in My library.
+
 ### Summary
 
 It is a secured digital library where you go to download official proof so to speak (like audit certificates) to show that Microsofts cloud meets legal and safety standards.
