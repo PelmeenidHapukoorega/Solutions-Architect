@@ -1,6 +1,6 @@
 ## Quick menu
 
-This folder covers both Governance and compliance in AZ 900
+This folder covers both Governance and compliance in AZ 900, meaning how to monitor costs and additionally options that help you control who has access to what.
 
 - [Factors affecting cost](Factors%20affecting%20cost.md)
 - [Purpose of tags](Purpose%20of%20tags.md)
