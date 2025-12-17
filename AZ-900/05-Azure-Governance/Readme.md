@@ -10,3 +10,6 @@ Purpose of resource locks
 ## Mini labs
 
 - [Mini-Lab 1: Estimating workload costs](Mini-labs/Estimating%20workload%20costs.md)
+- [Mini-Lab 2: Configuring a resource lock](Mini-labs/Configuring%20a%20resource%20lock.md)
+
+
