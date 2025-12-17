@@ -1,4 +1,4 @@
-<img width="568" height="898" alt="image" src="https://github.com/user-attachments/assets/7b8f902c-3b69-4e0b-94b2-d465c1c83f86" />## Mini lab: Configuring a resource lock
+## Mini lab: Configuring a resource lock
 
 1. Went to portal `https://portal.azure.com/#home`
 2. Created new resource group titled `Treasure_chest`
@@ -40,3 +40,4 @@ And with that the lab was done.
 ### Summary
 
 Locks are pretty nice in terms of controlling who can access your valuables and who cant. The process of adding locks is quick, simple and quite easy to manage. Nothing complicated. With this lab i learned how to add locks, what both 2 types of locks do, what needs to be done in order to change resources, what prevents the deletion of resources and the logic that you need to remove locks prior to changing anything and that includes deletion.
+
