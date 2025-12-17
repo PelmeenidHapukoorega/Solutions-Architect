@@ -1,6 +1,6 @@
 ## Quick menu
 
-This folder covers all the core services used in Azure cloud.
+This folder covers all the core services used in Azure cloud. Which service does what and why and when to use them.
 
 - [Virtual machines](Virtual%20machines.md)
 - [Containers](Containers.md)
