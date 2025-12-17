@@ -7,8 +7,8 @@ This folder covers both Governance and compliance in AZ 900, meaning how to moni
 - [Microsoft Purview](Microsoft%20Purview.md)
 - [Purpose of Azure policy](Purpose%20of%20Azure%20policy.md)
 - [Purpose of resource locks](Purpose%20of%20resource%20locks.md)
+- [Purpose of Service Trust portal](Purpose%20of%20Service%20Trust%20portal.md)
 
-Purpose of resource locks
 ## Mini labs
 
 - [Mini-Lab 1: Estimating workload costs](Mini-labs/Estimating%20workload%20costs.md)
