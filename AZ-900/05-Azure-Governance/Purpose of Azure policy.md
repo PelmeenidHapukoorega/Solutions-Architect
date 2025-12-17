@@ -4,7 +4,7 @@
 * [Azure policy](#azure-policy)
 * [How does it define policies?](#how-does-it-define-policies)
 * [Other important details](#other-important-details)
-* [Azure policy initatives](#azure-policy-iniatives)
+* [Azure policy initiatives](#azure-policy-initiatives)
 
 ## My interpretations
 
@@ -56,7 +56,7 @@ Its a system of "smart rules" that pass down from top folders to everything insi
 
 Think of Azure policies as a smart filter  that comes with premade rules, it automatically passes rules down to all sub folders, checks your old work for mistakes and can be told to basically skip certain items if necessary.
 
-## Azure policy initatives
+## Azure policy initiatives
 
 Is a way of grouping related policies together.
 
