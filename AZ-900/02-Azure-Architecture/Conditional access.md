@@ -8,7 +8,7 @@
 
 ## Conditional access
 
-Its a tool that Entra ID uses to allow or deny access to resources based on identity signals. These signals inclue who the user is, where the user is and what device the user is requesting access from.
+Its a tool that Entra ID uses to allow or deny access to resources based on identity signals. These signals include who the user is, where the user is and what device the user is requesting access from.
 
 ### Why does it exist?
 
