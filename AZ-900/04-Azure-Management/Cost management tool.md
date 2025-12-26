@@ -7,7 +7,7 @@
 * [Cost alerts](#cost-alerts)
 * [Budget alerts](#budget-alerts)
 * [Credit alerts](#credit-alerts)
-* [Deparment spending quota alerts](#deparment-spending-quota-alerts)
+* [Department spending quota alerts](#department-spending-quota-alerts)
 * [Budget](#budget)
 
 ## My interpretations
@@ -78,7 +78,7 @@ It automatically tracks the EA (Enterprise agreements) credit balance and genera
 
 Credit alerts are an automatic financial warning system for EA customers that notifies account owners when their pre paid monetary commitment is nearly or fully consumed to avoid moving to standard billing rates.
 
-## Deparment spending quota alerts
+## Department spending quota alerts
 
 ### Why does it exist?
 
