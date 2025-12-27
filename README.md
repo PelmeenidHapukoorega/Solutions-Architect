@@ -70,3 +70,27 @@ My goal still remains the same, and i dont see this as setback, if anything this
 
 Next update will be after I pass AZ 900 which im sure i will, now that i have genuine foundation without the hype.
 #
+
+### December update 27.12
+
+Well, I did it! I passed AZ-900 just like I said I would! 
+
+The exam was actually more challenging than I initally thought, MS learn does paint the picture with most things sure but its definetly not enough. 
+
+Microsoft is very clever with their questions and they talked about services and scenarios that are not really covered in the learn path itself. 
+
+I can say that asking questions WHY, WHAT and HOW definetly helped a lot to fully grasp the concepts and cement them. To say that im overjoyed is an understatement, i felt for a while there that i was an impostor or i dont know enough, but i proved myself wrong and now i dont feel like an imposter either.
+
+Next up is AZ-104 and as much as ive read about it or heard from other people its a tough exam. MS learn path itself is not gonna cover nearly enough of what is needed in the actual exam. So my study approach for AZ-104 is gonna be different, i will still use the WHY, WHAT and HOW method but since its extremely hands on exam (which im personally looking forward to since i lack practical knowledge) I will adopt a method of "breaking stuff" meaning that i will intentionally break the labs, switch settings to better understand what the alternative approaches are, how to fix stuff when pushed into the unknown and etc. Additionally ive decided to watch John Saville courses on Youtube about it and will do a lot of labs.
+
+AZ-900 taught me that Microsoft will feed you scenarios to see how you adapt against a scenario thats unpredictable, and that is exactly what AZ-104 will most likely be about, its not about whether you know how to follow steps towards solution, its about if you can make sense of scenarios that are unfamiliar or if something is broken, how do you filter out information quickly, how do you pivot when X and Y and Z are broken. Anyway you get the idea, its about how you handle complex scenarios and the unknown.
+
+For me its gonna be difficult since 104 is recommended to take if you have at least 6 months of experience with Azure, which i dont have. The exam is being failed by people who have been working in the industry for years and still fail to grasp it.
+
+To say its gonna be challenging is an understatement of the year, however! I will always bet on myself, I can do it, it will just require a lot more from me than it would from someone with an experience. I wouldnt necessarily say that its a complete disadvantage, im seeing it more of a challenge and i do have more time on my hands than vast majority who are studying MS materials for Certifications and for that im blessed.
+
+For now I will take a day or 2 to just get a breather before getting into it.
+
+Overall the mood has improved, im finally certified when it comes to fundamentals and it definetly gave me a confidence boost that im on the right track.
+
+#
