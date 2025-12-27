@@ -1,9 +1,6 @@
 # Describe Microsoft Defender for Cloud
 
 ## Table of contents
-## Table of contents
-
-## Table of contents
 
 * [Microsoft Defender for cloud](#microsoft-defender-for-cloud)
 * [Protection everywhere you are deployed](#protection-everywhere-you-are-deployed)
