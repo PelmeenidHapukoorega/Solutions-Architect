@@ -2,4 +2,6 @@
 
 Rules to follow:
 
+How did i ruin it and how did i fix it?
+
 The Mistake: What is the most common way to break this? (e.g., "Deleting the storage"). Write the fix in one sentence.
