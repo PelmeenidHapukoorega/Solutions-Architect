@@ -2,8 +2,6 @@
 
 Browser based authenticated terminal for managing Azure resources.
 
-# 3 Whys
-
 ## Why use it?
 
 Browser based, accessed from anywhere, no install needed.
