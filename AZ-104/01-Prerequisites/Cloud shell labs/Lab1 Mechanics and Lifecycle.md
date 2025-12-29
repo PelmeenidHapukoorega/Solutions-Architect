@@ -14,3 +14,11 @@ To validate the "Cloud Shell Runbook" theory by getting hands-on with the underl
 
 **Disaster Recovery:** Intentionally unmounting (break) the storage and successfully reconnecting it without losing data.
 
+IMPORTANT FOR EACH LAB!!!!:
+
+What did I build?
+Why does this exist?
+What breaks if I remove X?
+What permissions are actually required?
+Where would this fail in prod?
+How would I detect it’s broken?
