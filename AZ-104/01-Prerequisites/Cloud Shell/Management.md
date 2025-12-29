@@ -14,7 +14,7 @@ The manual, how to do X to achieve Y
   * **Paste (Windows/Linux):** `CTRL + Shift + V` (Regular `CTRL + V` wont work)
   * **Paste (Mac):** `cmd + V`.
 
-* The command:
+* **The command:**
   * `exit`: Closes current session immediately.
 
 
