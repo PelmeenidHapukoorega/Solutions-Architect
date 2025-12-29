@@ -15,4 +15,4 @@ What this means: It means that you can upload scripts and code to built in Drive
 
 3. **Rule (Isolation):** Files saved outside of `CloudDrive` folder are temporary and will be deleted when the session ends.
 
-4. **Rule (Access): Accessible via `shell.azure.com` Azure portal or Azure Mobile app.
+4. **Rule (Access):** Accessible via `shell.azure.com` Azure portal or Azure Mobile app.
