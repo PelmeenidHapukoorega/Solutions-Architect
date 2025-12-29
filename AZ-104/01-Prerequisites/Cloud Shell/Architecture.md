@@ -2,18 +2,16 @@
 
 ## Things needed for Cloud Shell to function properly
 
-1. **Rule:** Must have an **Azure Storage Account** and **Azure File Share** (CloudDrive) to persist data.
-  * Files on CloudDrive may be persisted but you need to start a new session to access Cloud Shell environment.
+Below i have listed below all the DOs and DONTs for cloud shell to function properly.
 
-What this means: It means that you can upload scripts and code to built in Drive within CloudShell which then allows you to open another session from a different device and still access the same file.
+### What to do
 
-2. **Rule (Timeout):** Sessions terminate after 20 mins of inactivity.
-  * Unsaved work that was created outside of `clouddrive` folder are terminated permanently.
+* Remember that each browser tab is a **seperate process**, however they all run on the **same machine (container)**
+* Use the **Web Preview** feature if you need to test an app on  a specific port
 
- **DO:** Save all scripts and logs in the `~/clouddrive` directory. Only place where data survives timeout.
 
- **DONT:** Run long scripts (Like 30 min migration) directly in the shell wihtout a keep alive activity.
+### What not to do
 
-3. **Rule (Isolation):** Files saved outside of `CloudDrive` folder are temporary and will be deleted when the session ends.
+* Expect files in `/home/user` to survive a **Restart** or a **Timeout**. Only the `clouddrive` folder is safe
+* Try to upload **folders** using the drag and drop feature; it only supports individual files.
 
-4. **Rule (Access):** Accessible via `shell.azure.com` Azure portal or Azure Mobile app.
