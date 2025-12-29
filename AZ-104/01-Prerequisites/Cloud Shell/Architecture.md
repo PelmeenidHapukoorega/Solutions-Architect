@@ -11,6 +11,7 @@ What this means: It means that you can upload scripts and code to built in Drive
   * Unsaved work that was created outside of `clouddrive` folder are terminated permanently.
 
 **DO:** Save all scripts and logs in the `~/clouddrive` directory. Only place where data survives timeout.
+
 **DONT:** Run long scripts (Like 30 min migration) directly in the shell wihtout a keep alive activity.
 
 3. **Rule (Isolation):** Files saved outside of `CloudDrive` folder are temporary and will be deleted when the session ends.
