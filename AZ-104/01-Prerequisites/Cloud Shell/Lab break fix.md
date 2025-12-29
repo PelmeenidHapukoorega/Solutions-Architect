@@ -1,7 +1,3 @@
-## Lab break fix of Cloud Shell
+# Lab break fix of Cloud Shell
 
-Rules to follow:
-
-How did i ruin it and how did i fix it?
-
-The Mistake: What is the most common way to break this? (e.g., "Deleting the storage"). Write the fix in one sentence.
+# The "I was here" log of mistakes, what went wrong, how i fixed it.
