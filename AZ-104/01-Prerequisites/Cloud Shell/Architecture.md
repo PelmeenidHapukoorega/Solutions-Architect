@@ -1,6 +1,6 @@
 # Architecture of Cloud Shell
 
-## If you dont follow these, the service wont start or will act weird
+## Things needed for Cloud Shell to function properly
 
 1. **Rule:** Must have an **Azure Storage Account** and **Azure File Share** (CloudDrive) to persist data.
   * Files on CloudDrive may be persisted but you need to start a new session to access Cloud Shell environment.
