@@ -4,7 +4,7 @@
 
 **Table of Contents**
 1. [The Concept](#1-the-concept)
-2. [Architecture & Constraints (Exam Critical)](#2-architecture--constraints-exam-critical)
+2. [Architecture & Constraints (For Exam prep)](#2-architecture--constraints-for-exam-prep)
 3. [Operations (CLI & PowerShell)](#3-operations-cli--powershell)
 4. [Troubleshooting & Labs (Break-Fix)](#4-troubleshooting--labs-break-fix)
 5. [Advanced Mechanics (The "Gotchas")](#5-advanced-mechanics-the-gotchas)
@@ -16,6 +16,8 @@
 ## 1. The Concept
 *   **What is it?** An interactive, authenticated, browser-accessible shell for managing Azure resources.
 *   **Why use it?** No installation required. It maintains your credentials so you don't have to log in repeatedly. It has common tools pre-installed (Terraform, Ansible, Az CLI, PowerShell).
+*   **Security:** Compliant by default with double encryption at rest.
+*   **Access Methods:** Portal icon, MS Learn snippets, or the direct URL: https://shell.azure.com.
 
 ## 2. Architecture & Constraints (For Exam prep)
 *   **Storage Requirement:** Cloud Shell **requires** an Azure Storage Account (Files share) to persist your `$HOME` directory.
@@ -23,6 +25,9 @@
 *   **Timeout:** The shell times out after **20 minutes** of inactivity. You cannot increase this.
 *   **Networking:** Cloud Shell runs in a container managed by Microsoft. To access resources inside a Private VNET, you must configure "Cloud Shell in a VNET" (Advanced topic).
 *   **Editor:** Contains a built-in code editor (Monaco). Open it by typing `code .`.
+*   **No Root Access (sudo):** You are a standard user. You cannot run commands requiring admin permissions (like sudo apt-get install). You must install tools to your local user scope.
+*   **Concurrency Limit:** You generally cannot open multiple independent sessions simultaneously; it is designed for one active instance per user.
+*   **Long-Running Scripts:** Because of the 20-minute timeout, Cloud Shell is not suitable for long background tasks. If the connection drops, the state is lost.
 
 ## 3. Operations (CLI & PowerShell)
 
@@ -44,6 +49,12 @@
 ```bash
 cd clouddrive
 ```
+
+* **Pre-installed Tool Categories:**
+  * **Containers:** Docker, Kubectl, Helm.
+  * **Databases:** MySQL client, PostgreSQL client, sqlcmd.
+  * **Infrastructure:** Terraform, Ansible, Chef, Puppet.
+
 ## 4. Troubleshooting & Labs (Break-Fix)
 
 ### Issue: "Storage Account Creation Failed"
