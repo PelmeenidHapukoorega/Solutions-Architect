@@ -17,3 +17,11 @@ This mini lab is about how to locate commands and run them to understand more ab
 ### Summary
 
 I had always wondered that in order to learn more about different PowerShell commands i would have to scan a lot of forums, which is still somewhat useful mind you but using get commands and specifying them with needed verbs and nouns i can filter out commands i need a lot quicker. This is a good way to filter and find commands you know and want specifically, or if you dont remember the entire command but remember keywords then its a good way to find relevant commands.
+
+**Note**
+
+When searching for commands what matters is how you filter for example:
+
+* Prefix: `Alias*` = When you know how the noun starts.
+* Suffix: `*Network` = When you know how the noun ends.
+* Contains: `*Network*` = When the term could be anywhere in the noun.
