@@ -3,9 +3,18 @@
 ## Writing Bicep in VSC
 
 1. Opened up VSC
-2. Created a new file by clicking top left on 3 lines and selecting `file` > `new file`. Named it `main.bicep`.
+2. Created a new folder for Bicep Projects
+```PWSL
+New-Item -Path "$home\Desktop\Bicep-Projects" -ItemType Directory
+```
+3. Navigated to that folder
+```PWSL
+cd "$home\Desktop\Bicep-Projects"
+```
+4. Entered `code .` to start working on the Bicep.
+5. Created a new file by clicking in the main menu that pops up fresh after new directory. Named it `main.bicep`.
    * Saved the file so that VSC could load Bicep tooling.
-3. Added the following Bicep code which i wrote out myself:
+6. Added the following Bicep code which i wrote out myself:
 ```Bicep
 resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   name: 'toylaunchstorage'
@@ -19,12 +28,11 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   }
 }
 ```
-
 Made changes to the `name` to somthing more unique, since its needs to be globally unique name. Named it `toys4bob`
 
 4. Saved changes using CTRL + S
 
-## Deploying Bicep to Azure
+## Signing into Azure
 
 1. Opened up Terminal on VSC (Azure powershell has already been installed priorly) and opened up New terminal.
 2. I created a new path for Bicep seperately and now I needed to set the location:
@@ -89,6 +97,23 @@ This meant I needed to log in and specify my tenant ID:
 
 Entered my code and got in!
 
+<img width="671" height="214" alt="image" src="https://github.com/user-attachments/assets/dcbdd7ff-33e0-4712-98cb-7d568dce9a20" />
 
+3. Needed to get subscription ID for the lab:
+   
+```PWSL
+ Get-AzSubscription
+```
 
+4. Set the default subscription for all the AZ PWSL commands that i ran in the session:
+```PWSL
+Set-AzContext -SubscriptionID {f37270cc-38a5-41a1-bd72-30ffc482d6c2}
+```
+
+## Deployment of Bicep
+
+Now that I managed to sign in, set default subscription ID for PWSL command i could move onto deployment.
+```PWSL
+New-AzResourceGroupDeployment -name toyshop -TemplateFile main.bicep
+```
 
