@@ -5,7 +5,7 @@ Since i have already covered the overall understanding of IaC and deployment typ
 ## Bicep Language
 
 Bicep is ARM template language that is used to declaratively deploy Azure resources.
-Its designe for a specific scenario or domain which makes it a domain specific language.
+Its designed for a specific scenario or domain which makes it a domain specific language.
 
 Its not meant to be used as a standard programming language for writing apps. Its used only to create ARM templates.
 
