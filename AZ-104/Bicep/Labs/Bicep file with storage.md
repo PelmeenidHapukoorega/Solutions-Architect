@@ -53,8 +53,42 @@ At line:1 char:1
 
 I realised i created the bicep file to a different repository where Az PowerShell module wasnt installed on for the current session.
 
-Fixed it by running:
+So i ran:
 ```PWSL
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
 ```
+
+Tried to run `Connect-AzAccount` again and got met with another error:
+```error
+Import-Module : File C:\Users\Mooses\Documents\WindowsPowerShell\Modules\Az\15.1.0\Az.psm1 cannot be loaded  
+because running scripts is disabled on this system. For more information, see about_Execution_Policies at ht 
+tps:/go.microsoft.com/fwlink/?LinkID=135170.
+At line:1 char:1
++ Import-Module Az
++ ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : SecurityError: (:) [Import-Module], PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess,Microsoft.PowerShell.Commands.ImportModuleCommand
+```
+
+New error confirmed that the module is installed but my systems Execution Policy blocked it from running. 
+By default Windows disables script execution to prevent malicious scripts from running.
+
+So i needed to change execution policy for the current session so PowerShell would be allowed to load the `Az` module i installed.
+
+Ran the following:
+```PWSL
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+And then tried `Import-Module Az` again. Success.
+
+Used `Connect-AzAccount` again but forgot I had MFA enabled.
+
+This meant I needed to log in and specify my tenant ID:
+`Connect-AzAccount -TenantId df983b9b-4e77-48d8-8a4a-f8f606a43268`
+
+Entered my code and got in!
+
+
+
 
