@@ -13,9 +13,13 @@ For Azure deployments Bicep has some advantages, but Bicep doesnt work as a lang
 If Azure is the main cloud platform, here are the advantages to consider of using Bicep:
 
 * **Azure-native:** With Bicep, you are using a language that is native to Azure. When new Azure resources are released or updated, Bicep supports those features on day one. When you use other 3rd party tools, it might take some time for new features to be defined in the tool set.
+
 * **Azure integration:** Azure Resource Manager (ARM) templates, both JSON and Bicep are fully integrated within the Azure platform. With ARM deployments, you can monitor the progress of your deployment in the Azure portal.
+
 * **Azure support:** Bicep is a fully supported product with Microsoft Support.
+
 * **No state management:** Bicep deployments compare the current state of your Azure resources with the state that you define in the template. You dont need to keep your resource state information somewhere else, like in a storage account. Azure automatically keeps track of this state for you.
+
 * **Easy transition from JSON:** If you already use JSON templates as your declarative ARM template language, it isnt a difficult process to transition to using Bicep. You can use the Bicep CLI to decompile any ARM template into a Bicep template by using the `bicep decompile` command.
 
 ## When is Bicep not the right tool?
