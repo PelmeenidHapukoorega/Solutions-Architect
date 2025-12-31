@@ -1,4 +1,4 @@
-## Bicep learn path
+## What is Bicep exactly?
 
 Since i have already covered the overall understanding of IaC and deployment types i will outline things necessary for me to understand here.
 
