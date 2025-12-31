@@ -2,6 +2,63 @@
 
 Since i have already covered the overall understanding of IaC and deployment types i will outline things necessary for me to understand here.
 
+## Bicep Language
+
+Bicep is ARM template language that is used to declaratively deploy Azure resources.
+Its designe for a specific scenario or domain which makes it a domain specific language.
+
+Its not meant to be used as a standard programming language for writing apps. Its used only to create ARM templates.
+
+Its intentended to be easy to understand and straightforward to learn, regardless of experience with other programming languages.
+
+All resource types, API versions and properties are valid in Bicep templates.
+
+### Bicep over JSON
+
+Bicep provides many improvements over JSON for template authoring:
+
+* **Simpler syntax:** Easier to write templates. You can reference parameters and variables directly, without using complicated functions. String inerpolation (combining) is used in place of concatenation to combine values for names and other items. You can reference the properties of a resource directly by using its symbolic name instead of complex reference statements. These syntax improvements help both with authoring and reading Bicep templates.
+
+* **Modules:** You can break down complex template deployments into smaller module files and reference them in a main template. These modules provide easier management and greater reusability. You can even share your modules with your team.
+
+* **Automatic dependency management:** In most situations, Bicep automatically detects dependencies between your resources. This process removes some of the work involved in template authoring.
+
+* **Type validation and IntelliSense:** The Bicep extension for Visual Studio Code features rich validation and IntelliSense for all Azure resource type API definitions. This feature helps provide an easier authoring experience.
+
+**In short:**
+
+* Bicep simplifies the template creation experience.
+* Syntax is much easier to understand.
+* Better support for modularity and reusable code.
+* Improved type safety.
+* Creating JSON ARM template requires complicated expressions and the final result might be verbose.
+
+Here is an example of Bicep template that defines Azure storage account:
+
+```Bicep
+param location string = resourceGroup().location
+param namePrefix string = 'storage'
+
+var storageAccountName = '${namePrefix}${uniqueString(resourceGroup().id)}'
+var storageAccountSku = 'Standard_RAGRS'
+
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+  name: storageAccountName
+  location: location
+  kind: 'StorageV2'
+  sku: {
+    name: storageAccountSku
+  }
+  properties: {
+    accessTier: 'Hot'
+    supportsHttpsTrafficOnly: true
+  }
+}
+
+output storageAccountId string = storageAccount.id
+```
+
+The template automatically generates the name of the storage account. After deployment the resource ID is returned as output to the user who executes the template.
 
 ## Imperative code
 
