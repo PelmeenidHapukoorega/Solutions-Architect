@@ -4,7 +4,8 @@ In this folder the focus will be on Bicep learning, as in i need to understand h
 
 Table of Contents
 
-- [Cloud concepts](Cloud%20concepts.md)
-- [Cloud services](Cloud%20services.md)
-- [Cloud service types](Cloud%20service%20types.md)
-- [Storage redundancy](Storage%20redundancy.md)
+- [What is Bicep?](What%20is%20Bicep.md)
+- [How does it work?](How%20odes%20it%20work.md)
+- [When to use Bicep?](When%20to%20use%20Bicep.md)
+- [Bicep resources defining](Bicep%20resources%20defining.md)
+- [Paramaters and variables](Parameters%20and%20variables.md)
