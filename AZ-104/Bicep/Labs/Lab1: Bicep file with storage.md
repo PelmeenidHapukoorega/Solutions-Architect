@@ -1,4 +1,4 @@
-# Lab: Bicep file that contains storage account
+# Lab 1: Bicep file that contains storage account
 
 ## Writing Bicep in VSC
 
