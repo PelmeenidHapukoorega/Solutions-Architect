@@ -239,6 +239,7 @@ var appServicePlanSkuName = (environmentType == 'prod') ? 'P2V3' : 'F1'
 The logic uses the ternary operator to evaluate an if/then statement.
 
 **Format**
+
 `(Expression) ? [Value if True] : [Value if False]`
 
 **Breakdown:**
