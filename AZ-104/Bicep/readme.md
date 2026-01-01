@@ -5,7 +5,7 @@ In this folder the focus will be on Bicep learning, as in i need to understand h
 Table of Contents
 
 - [What is Bicep?](What%20is%20Bicep.md)
-- [How does it work?](How%20odes%20it%20work.md)
+- [How does it work?](How%20does%20it%20work.md)
 - [When to use Bicep?](When%20to%20use%20Bicep.md)
 - [Bicep resources defining](Bicep%20resources%20defining.md)
 - [Paramaters and variables](Parameters%20and%20variables.md)
