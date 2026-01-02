@@ -9,4 +9,4 @@ Table of Contents
 - [When to use Bicep?](When%20to%20use%20Bicep.md)
 - [Bicep resources defining](Bicep%20resources%20defining.md)
 - [Paramaters and variables](Parameters%20and%20variables.md)
-- [Grouping Resources with Bicep Modules](Grouping%20Resources%20with%20Bicep%20Modules.md)
+- [Grouping Resources with Bicep Modules](Grouping%20Resources%20with%20Modules.md)
