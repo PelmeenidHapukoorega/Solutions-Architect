@@ -1,4 +1,4 @@
-# Lab 1 Continuation: Refactoring Bicep to use modules.
+# Lab 1: Refactoring Bicep to use modules.
 
 1. Opened up VSC and created a new folder `modules` in the `Bicep Projects` folder.
    * Added a new filed called `appService.bicep`.
