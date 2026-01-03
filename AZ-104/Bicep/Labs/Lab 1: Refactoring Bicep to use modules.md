@@ -142,3 +142,6 @@ I had successfully deployed the foundations for the app.
 
 ### Summary
 
+Now that the lab is finished i can honestly say that this wasnt as scary as i initally thought, its pretty straightforward when it comes to writing bicep. Now writing modules is actually a lot easier and logical. In essence all i had to do was copy necessary resources i wanted to use from the parent file, delete said resources from the main file to avoid conflict when deploying, add module code in the module template file with necessary parameters and add host name as output to both files so the parent file could read information that would have been private otherwise in order for the deployment to work.
+
+I learned how to create module files which i will definetly use in the future, understood how to do it and whats the logic behind it. Its a lot easier to maintain bicep this way because its seperated into clearly distinguished parts. So if i want to change parameters of variables that would apply to all the other subsequent modules i would edit main file, if i were to have a module about say VPN gateways i could just go edit that and make necessary smaller changes for it to work in the main file.
