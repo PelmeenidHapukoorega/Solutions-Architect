@@ -378,4 +378,8 @@ Success
 
 ### Summary
 
-Wow, what a lab this was, took me a lot longer than i expected because of the troubleshooting. The main issue was that my Bicep code and parameter files were trying to talk to resources that had the wrong names. Ran into "NotFoun" error because my resource IDs were pointed at the wrong house. I accidentally targeted `moonproject` in PWSL
+In this lab, i focused on integrating secure parameters and managed secrets into my Bicep deployments. I learned how to use the `@secure()` decorator to ensure sensitive data like SQL admin credentials arent logged or visible in plain text. To keep things "best practice" i moved these inputs out of the main code and into a dedicated `new.parameters.dev.json file`.
+
+The real challenge was troubleshooting a scenario where my parameters didnt match the live environment. I cleared `ResourceGroupNotFound` and `KeyVaultParameterReferenceNotFound` errors by fixing typos in PowerShell and using `(Get-AzKeyVault -Name $keyVaultName).ResourceId` to sync the exact vault path in my JSON. I also navigated Azures "Zero Trust" security by assigning myself the Key Vault Secrets Officer RBAC role and enabling ARM Template Deployment access so Bicep could actually reach the secrets.
+
+Finally i practiced populating an empty vault using PowerShell to push my login `(M00535)` and password as SecureString types which is mandatory for `@secure` parameters. This lab reinforced how critical it is for the "Identity," "Address," and "Data" to be perfectly aligned for a successful secure deployment.
