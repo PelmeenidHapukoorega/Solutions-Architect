@@ -50,7 +50,7 @@ Forces the user to pick from a specific list. Great for preventing typos or enfo
 param environmentType string
 ```
 
-**Length limits (`@minLength`, `@maxLength`)
+**Length limits (`@minLength`, `@maxLength`)**
 
 Used for strings (character count) or arrays (item count). Essential for resources with naming limits (e.g., Storage Accounts: 3-24 chars).
 ```Bicep
@@ -59,7 +59,7 @@ Used for strings (character count) or arrays (item count). Essential for resourc
 param storageName string
 ```
 
-**Numeric Limits (`@minValue`, `@maxValue`)
+**Numeric Limits (`@minValue`, `@maxValue`)**
 
 Used for integers, typically to control scale (e.g., Instance Count).
 ```Bicep
@@ -68,7 +68,7 @@ Used for integers, typically to control scale (e.g., Instance Count).
 param instanceCount int
 ```
 
-**Documentation (`@description`)
+**Documentation (`@description`)**
 
 Adds human readable help text. This text appears in the Azure Portal if you deploy the template via the GUI.
 ```Bicep
