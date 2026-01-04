@@ -377,3 +377,5 @@ Checked `Inputs` tab from left pane for details
 Success
 
 ### Summary
+
+Wow, what a lab this was, took me a lot longer than i expected because of the troubleshooting. The main issue was that my Bicep code and parameter files were trying to talk to resources that had the wrong names. Ran into "NotFoun" error because my resource IDs were pointed at the wrong house. I accidentally targeted `moonproject` in PWSL
