@@ -209,7 +209,7 @@ So i ran the following commands in terminal 1by1.
 
 1. First i needed to define the name for the key vault:
 ```PWSL
-$keyVaultName = 'moonproject`
+$keyVaultName = 'juhimeil`
 ```
 
 2. Then i added prompts so i as the host or someone else who would use the templates could understand what needs to be typed in.
@@ -237,7 +237,7 @@ Set-AzKeyVaultSecret - VaultName $keyVaultName -Name 'sqlServerAdministratorPass
 ```
 5. Created a new keyvault
 ```PWSL
-New-AzKeyVault -VaultName $keyVaultName -Location eastus -EnabledForTemplateDeployment
+New-AzKeyVault -VaultName $keyVaultName -Location norwayeast -EnabledForTemplateDeployment
 ```
 And ran into a name issue, since my `moonvault` name was already in use.
 
