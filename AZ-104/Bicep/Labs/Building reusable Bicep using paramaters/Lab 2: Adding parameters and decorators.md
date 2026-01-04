@@ -153,3 +153,12 @@ I could see that website and serverfarm both were deployed.
 
 Success
 
+### Summary
+
+This labs focus was to move onto using governed templates. I learned how to use decorators like `@description` to document what each part of the parameters is being used for and why, although this decorator can be used to explain code parts too! This means that in the future if my code is given to someone else they could understand what is what without me needing to overexplain it or for them to figure it out themselves.
+
+Learned how to make my deployments more "idiot proof" by using `@allowed` to limit environment names and `@minValue`, `@maxValue` to keep server instances withing a safe range of 1-10.
+
+Refined Bicep structure by splitting the code into parameters for user inputs and variables for internal name logic which ensures that resources like the App Service plan and Web App itself have unique standardized names, which minimizes naming conflict. 
+
+Practiced deploying solution via PowerShell, how to verify results in the Portal to see what inputs and resources were processed. I also kept my workspace tidy by creating `new.bicep` in the same folder as previous lab which reinforced the importance of file management and paths in VSC.
