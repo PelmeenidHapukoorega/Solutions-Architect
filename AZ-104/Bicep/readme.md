@@ -12,3 +12,4 @@ Table of Contents
 - [Grouping Resources with Bicep Modules](Grouping%20resources%20with%20modules.md)
 - [Parameters and decorators](Parameters%20and%20decorators.md)
 - [Providing Values using parameter files](Providing%20Values%20using%20parameter%20files.md)
+- [Securing parameters](Securing%20parameters.md)
