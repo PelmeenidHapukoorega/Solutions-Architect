@@ -1,7 +1,7 @@
 # Bicep Conditional Deployment
 
 ## Infrastructure Logic
-Purpose to use a single Bicep template for all environments (Dev, Prod), but only deploy specific resources (like Auditing or Premium Storage) when specific criteria are met.
+Purpose: To use a single Bicep template for all environments (Dev, Prod), but only deploy specific resources (like Auditing or Premium Storage) when specific criteria are met.
 
 **Key Syntax:**
 The `if` keyword placed immediately after the resource assignment.
