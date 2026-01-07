@@ -1,4 +1,3 @@
-
 # Lab 3: Deplying multiple instance using copy loop
 
 1. Made a new folder in VSC `Modules2`. Moved `lab3.bicep` into that folder and renamed it to `database.bicep`.
@@ -187,3 +186,11 @@ And
 <img width="597" height="33" alt="image" src="https://github.com/user-attachments/assets/7c97d5a4-7fe3-43bb-87bd-fffd9eeed669" />
 
 10. Deleted RG group to not have unnecessary costs.
+
+### Summary
+
+In this lab i leveled up from deplying single resources to building scalabel, multi region infra using Bicep loops and modules (which i learned previously). Instead of writing the same code over and over i moved my SQL database logic into dedicated `database.bicep` and called it reusable function.
+
+Here i learned copy loop syntax. To deploy multiple places at once i had to define `locations` array like `['westus','eastus2']` and use `for` lopp to tell Bicep to go through that list. Lesson here was avoiding naming conflicts. Found out the hardway that you cant name loop variables the same thing as parameter array.
+
+Ran into region error when `norwayseast` wouldnt accept SQL server, which taught me that Azures map isnt the same for every service. Had to pivto and use different regions like `westus` to get green light. In the end i had successfully deployed my stack across 3 different regions in 1 go, verified it in the portal and then cleaned up resources to keep credit balance safe.
