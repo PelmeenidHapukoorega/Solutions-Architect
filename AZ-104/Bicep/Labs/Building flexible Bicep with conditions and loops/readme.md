@@ -1,5 +1,5 @@
 Table of contents
 
-- [Lab 2: Adding parameters and decorators](Lab%202%3A%20Adding%20parameters%20and%20decorators.md)
-  - [Adding parameter files and secure parameters](Lab%202%3A%20Adding%20parameter%20files%20and%20secure%20parameters.md)
+- [Lab 3: Deploying resources conditionally](Lab%203%3A%20Deploying%20resources%20and%20conditionally.md)
+  - [Deploying multiple instances using copy loop](Lab%203%3A%20Deploying%20multiple%20instances%20using%20copy%20loop.md)
   
