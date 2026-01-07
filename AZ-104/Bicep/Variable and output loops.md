@@ -2,7 +2,7 @@
 
 # Bicep Variable and Output Loops
 
-##Variable Loops
+## Variable Loops
 **Purpose:** Create complex arrays or objects dynamically within the Bicep file. This is often used to transform simple, user-friendly parameters into the complex structure required by Azure resource definitions.
 
 ### Syntax
