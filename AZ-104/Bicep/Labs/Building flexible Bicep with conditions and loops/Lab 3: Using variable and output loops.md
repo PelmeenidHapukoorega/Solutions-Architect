@@ -280,3 +280,11 @@ Success
 Deleted RG group after, to not incur costs.
 
 ### Summary
+
+In this lab i moved away from simple loops to nested logic and output arrays. Learned how to deploy resources across multi regions but also how to force those resources to "talk back" and give me organized data once they are built. 
+
+Learned how to use variable loop (`subnetProperties`) to prepare subnets before the deployment. By mapping my `frontend` and `backend` ranges into standard Azure format once, i could shove them into every single VNet without writing repetitive code. The dopest part was output loop. Figured out how to use the `range()` function to reach into `databases` modules and pull out server names and FQGDNs for every region at once. Instead of 1 output i now got a array of objects that acts a master list for this entire global deployment, however the terminal didnt decide to print it out clean for me for some reason, probably issue on my end but will figure it out later.
+
+Got slapped with `LocationRequired` error because i set up the VNet loop but forgot to actuall pass the `location: location` property insde the resource block. It reminded me that even if looping Azure will still need to be told exactly where each individual instance belongs. Also learned that `addressPrefixes` is an array, so i had to make sure my `virtualNetworkAddressPrefix` was wrapped in `[]` to keep the bicep compiler happy.
+
+By the end i had a template that could print out VNets with pre configured subnets and SQL databases across different parts of the globe with 1 click. Verified everything in the portal, saw my `frontend` and `backend` subnets looking as they should and then deleted the RG group to keep costs close to 0.
