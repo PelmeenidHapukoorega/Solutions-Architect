@@ -277,4 +277,6 @@ VNets successfully deployed.
 
 Success
 
+Deleted RG group after, to not incur costs.
+
 ### Summary
