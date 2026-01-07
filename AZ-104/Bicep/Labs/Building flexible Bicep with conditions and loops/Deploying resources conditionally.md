@@ -211,5 +211,10 @@ Success
 
 Success.
 
+12. Deleted resource group to avoid unnecessary costs aka cleaned up.
+
 ### Summary
 
+In this lab i shifted focus to conditional deployment and dynamic resource logic. I learned how to use `if` expressions to only deploy expensive or heavy resources like the audit storage account when the `environmentName` is set to 'Production' keeping the 'Development' environment lean and cost effective.
+
+Practiced using ternary operators such as `? ;` to route data such as providing storage endpoint on when auditing is actually active. Refined naming conventions using `take()` function to ensure storage account names would stay withing 24 char limit. By verifying deployment in the portal i confirmed that conditional logic worked, auditing was enabled and connected to its storage backend onl when i requested speficifally 'Production' build.
