@@ -1,4 +1,4 @@
-# Bicep Advanced Looping (Control & Nesting)
+# Bicep Advanced Looping Control & Nesting
 
 ## Controlling Loop Execution (@batchSize)
 By default, Azure Resource Manager executes loops in **parallel** and in a **non-deterministic** order to minimize deployment time. However, specific scenarios (e.g., preventing simultaneous restarts of all App Services) require sequential or batched execution.
