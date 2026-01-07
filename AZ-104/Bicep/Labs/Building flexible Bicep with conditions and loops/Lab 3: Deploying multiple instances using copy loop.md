@@ -1,4 +1,4 @@
-# Lab 3: Deplying multiple instance using copy loop
+# Lab 3: Deploying multiple instance using copy loop
 
 1. Made a new folder in VSC `Modules2`. Moved `lab3.bicep` into that folder and renamed it to `database.bicep`.
 2. Created new `lab3.bicep` module file and added following parameters.
