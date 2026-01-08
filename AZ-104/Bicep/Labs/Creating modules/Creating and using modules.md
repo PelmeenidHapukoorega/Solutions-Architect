@@ -367,8 +367,28 @@ So basically:
 
 This solved all SKU retirement issues and successfully deployed the global network. The good part about it was that i didnt have to make edits to `lab4.bicep` or `app.bicep` just the `cdn.bicep`. 
 
+<img width="888" height="479" alt="image" src="https://github.com/user-attachments/assets/3be2ef23-d6b2-4d82-bf02-4737868d48a3" />
 
+16. Verified deployment in the portal.
 
+<img width="663" height="158" alt="image" src="https://github.com/user-attachments/assets/aa183f11-fb49-4ee5-8478-bf6844da0251" />
 
+Clicked main and deployment details:
 
+<img width="656" height="419" alt="image" src="https://github.com/user-attachments/assets/879e4241-bc22-4d81-b297-f12b86a028de" />
 
+17. Opened toy-launch-app and went to outputs tab, copied the following address: `https://toy-2fuhbfc67thv2.azurewebsites.net/` and pasted it into a new tab:
+
+<img width="784" height="1033" alt="image" src="https://github.com/user-attachments/assets/e9625e9d-845c-43e4-a93d-0a5bab357bef" />
+
+18. Went back to main and opened outputs tab to copy website host name output `https://endpoint-2fuhbfc67thv2-c2axedf3abd3aze2.z02.azurefd.net/`
+
+<img width="836" height="585" alt="image" src="https://github.com/user-attachments/assets/dde8f1d8-a83a-4ea3-b9a5-78f98de06faf" />
+
+Page not found because the Front Door was still being deployed and apparently it takes around an hour to finish smh.
+
+After waiting for around an hour i got the final result:
+
+<img width="798" height="1002" alt="image" src="https://github.com/user-attachments/assets/821230ee-268c-4d13-9d97-6d661f6d0a80" />
+
+### Summary
