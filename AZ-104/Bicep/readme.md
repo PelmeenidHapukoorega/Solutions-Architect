@@ -17,3 +17,4 @@ Table of Contents
 - [Advanced Looping (Control and Nesting)](Advanced%20Looping%20Control%20and%20Nesting.md)
 - [Variable and output loops](Variable%20and%20output%20loops.md)
 - [Module architecture](Module%20architecture.md)
+- [Module contracts (Inputs and Outputs)](Module%20contracts%20Inputs%20and%20Outputs.md)
