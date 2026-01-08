@@ -16,3 +16,4 @@ Table of Contents
 - [Conditional deployment](Conditional%20deployment.md)
 - [Advanced Looping (Control and Nesting)](Advanced%20Looping%20Control%20and%20Nesting.md)
 - [Variable and output loops](Variable%20and%20output%20loops.md)
+- [Module architecture](Module%20architecture.md)
