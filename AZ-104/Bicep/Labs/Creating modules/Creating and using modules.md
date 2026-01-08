@@ -392,3 +392,13 @@ After waiting for around an hour i got the final result:
 <img width="798" height="1002" alt="image" src="https://github.com/user-attachments/assets/821230ee-268c-4d13-9d97-6d661f6d0a80" />
 
 ### Summary
+
+So this lab was supposed to be just about modules splitting my big bicep file into `app.bicep` and `cdn.bicep` so they can talk to each other. The logic was solid: `lab4.bicep` controls everything, passes params to App then takes App output and feeds it to CDN.
+
+But then i hit the "End of Life" wall. Azure retired the Classic CDN SKUs (Microsoft, Akamai, Verizon). All dead. My code was bricked.
+
+I didnt give up though. I pivoted to Azure Front Door. Realized its a totally different architecture and more complex so i couldnt just change the name. Had to build an Endpoint, an Origin Group, and a Route. It was complex vs simple.
+
+The biggest headache was the "Chicken and Egg" error. The Route tried to deploy before the Origin was ready giving me a `BadRequest`. I fixed it by slapping a dependsOn in there to force Azure to wait.
+
+In the end, i got a full global setup working. Best part? I didnt touch my `lab4.bicep` or `app.bicep`. Only rewrote the CDN module. That proved to me that modular architecture actually saves you when you need to swap out an entire tech stack. Front Door takes forever to deploy (around 1 hr smh) but once it was up, the site was global.
