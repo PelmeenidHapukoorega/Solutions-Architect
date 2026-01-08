@@ -23,3 +23,5 @@ Table of Contents
 - [Grouping Resources with Bicep Modules](Grouping%20resources%20with%20modules.md)
 - [Module architecture](Module%20architecture.md)
 - [Module contracts (Inputs and Outputs)](Module%20contracts%20Inputs%20and%20Outputs.md)
+
+With Bicep Fundamentals learn path completed and labs done, i could now continue with AZ-104 learning.
