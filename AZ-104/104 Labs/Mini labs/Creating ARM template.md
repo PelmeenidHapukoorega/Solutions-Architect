@@ -89,7 +89,7 @@ New-AzResourceGroupDeployment `
   -TemplateFile $templateFile
 ```
 
-Since i set the default resource group earlier it will deploy to said resource group again.
+Since i set the default resource group earlier it would deploy to established resource group again.
 
 <img width="595" height="274" alt="image" src="https://github.com/user-attachments/assets/bb06d419-be1f-43ff-bdb6-f23efa673281" />
 
@@ -103,4 +103,4 @@ Checked deployment details for storage account:
 
 ### Summary
 
-In this lab i created a simple arm template, defined default resource group where resources would be deployed unless changed. 
+In this lab i created a simple arm template, defined default resource group where resources would be deployed unless changed. Since i had finished Bicep fundamentals lab i had some more extensive knowledge in how to do this, it felt basic but still necessary to understand. Things i learned from this that would differ from Bicep fundamentals would mainly be setting a default resource group for deployment, adding blank template and then editing code by adding storage account resource. Deployment would always use the same commands, however it under `$deploymentName` its a good idea to add a message as in what exactly is being added so it can be seen in the deployment itself. Overall a fairly simple lab compared to Bicep ones so far.
