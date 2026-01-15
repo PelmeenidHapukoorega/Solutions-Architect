@@ -111,3 +111,9 @@ Success.
 
 
 ###Summary
+
+Basically i stopped hardcoding values in the JSON file and made the template dynamic. Added storageName with character limits so i dont accidentally break Azure naming rules, and added storageSKU but locked it down with allowedValues.
+
+I actually tested the validation by trying to force a "Basic" SKU, and the deployment failed immediately, which proves the safety rails work. 
+
+Finally added an outputs block so the template spits out the endpoint URL after it finishes building. Writing all this brackets and commas in JSON is way more annoying than Bicep, but the logic is exactly the same: input params -> build resource -> return output.
