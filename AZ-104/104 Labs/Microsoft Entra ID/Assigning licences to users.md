@@ -33,7 +33,7 @@ Since no licenses are assigned to the group the portal will look empty with a di
 
 7. I couldnt log in with the entra ID i was using Azure with since admin centre apparently blocks all personal emails.
 
-I went back to Entra ID and created Admin user for myself, then under `assignments` tab i went to `role assignments` and gave it `global administrator` permissions since admin centre doesnt let anyone without admin privileges handle identity and billing.
+I went back to Entra ID and created Admin user for myself, then under `assignments` tab i went to `role assignments` and gave it `global administrator` permissions since admin centre doesnt let anyone without admin privileges handle identity and billing. Additionally turns out that you need an admin account to even create secuirity groups, whereas using Microsoft 365 groups can be made by users as well as admins and people outside the organization, perfect for collaboration projects.
 
 After creating admin role i managed to log in with ease and needed to set up MS authenticator by default for it before i could move on to licensing, so i scanned the QR code etc and logged in.
 
