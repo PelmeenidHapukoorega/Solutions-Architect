@@ -1,4 +1,4 @@
-Lab 1: Creating new Microsoft Entra ID, security group and assigning license to a group.
+# Lab 1: Creating new Microsoft Entra ID, security group and assigning license to a group.
 
 1. Went to Microsoft Entra admin centre
 2. Selected `Users` from the left panel and then `All users`
