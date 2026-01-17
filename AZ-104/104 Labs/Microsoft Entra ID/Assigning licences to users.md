@@ -58,13 +58,14 @@ Selected it and from top menu clicked `restore user` and that was it, now i knew
 
 Checks out, Entra restores users with full properties it was given prior to deletion.
 
-
 **Important!**
 
 If you delete a user the account remains in suspended state for 30 days, in that window the user account can be resotred along with its properties, after the window passes the permanent deletion process is automatically started. Restorable users can be viewed under Microsoft Entra ID user interface.
 
-
 ### Summary
 
+So the plan was simple: make a user, make a group assign a license. But Entra ID had other plans.
 
+First wall: Admin centre hates personal emails. Had to create a dedicated cloud only Global Admin just to get through the door. Once i got in, i hit the second wall: Group based licensing is a Premium feature. On the free tier, you cant assign licenses to groups, only users. So that part was a failure.
 
+Didnt want to waste the session though, so i pivoted to testing the user deletion and recovery. Deleted Vambola, found him in `Deleted Users` (which holds them for 30 days), and hit restore. Crucial find here: when you restore a user, they jump right back into their old groups automatically. You dont have to re add them manually, good to know for when HR fires someone by accident.
