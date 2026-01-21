@@ -1,4 +1,4 @@
-# Lab 1: Manage MS Entra ID identities
+# Lab 1: Managing MS Entra ID identities
 
 Job skills:
 
