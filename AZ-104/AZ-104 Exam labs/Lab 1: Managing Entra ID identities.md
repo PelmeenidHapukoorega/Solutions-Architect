@@ -1,6 +1,6 @@
 # Lab 1: Managing MS Entra ID identities
 
-Job skills:
+**Job skills**
 
 * Creating and configuring user accounts.
 * Creating groups and adding members.
