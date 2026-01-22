@@ -102,3 +102,4 @@ Note to self: Tried to remove the group with its full display name `Management g
 
 ### Summary
 
+Simple lab when it comes to creating management groups and roles. Learned how to implement management groups to organize subscriptions and how the hierarchy view shows everything perfectly from the tenant root down. Additionally noticed that when i wanted to create a custom role, cloning an existing one like Support request contributor is a great baseline, but i had to manually exclude Microsoft.Support permissions to prevent the Helpdesk from registering resource providers which could pose security risks. Finished by monitoring everything in the Activity log and realized that when deleting a management group via PowerShell, you must use the Group ID because the display name simply doesnt work.
