@@ -66,3 +66,10 @@ Success.
 ### Summary
 
 Quick and simple lab, nothing complex when it comes to creating users and groups. Learned how to invite external users and how the process for external users to get in looks like so that was pretty cool. Additonally noticed that when i wanted to delete my own user prior i couldnt do that because it was assigned global administrator role and also was a group owner, so in order to delete owners in this scenario you need to add a different owner for transfer.
+
+### Takeaways
+
+* Tenant represents organization and helps in managing specific instances of MS cloud services for internal and external users.
+* Entra ID has user and guest accounts, each account has a level os access specific to the scope of work expected to be done.
+* Groups combine together both the related users or devices. There are 2 types of groups that can be created: Security and Microsoft 365. Think security for IT and Microsoft 365 for sales, telemarketing etc.
+* Group memberships can be statically or dynamically assigned meaning that statically is a hassle, adding users manually, checking info etc. Whereas dynamically you can automate the process, meaning Azure handles it, you can create a role that checks for users department and location usage and it will assign users accordingly itself. This however requires Entra ID P1 or P2 plan to do since free tier doesnt support it.
