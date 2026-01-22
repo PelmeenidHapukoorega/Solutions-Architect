@@ -1,4 +1,4 @@
-# Lab 2: Managing Subscriptions and RBAC
+# Lab 2a: Managing Subscriptions and RBAC
 
 **Job skills**
 
