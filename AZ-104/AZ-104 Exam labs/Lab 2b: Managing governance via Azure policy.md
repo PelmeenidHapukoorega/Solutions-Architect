@@ -88,3 +88,17 @@ Worked out as expected:
 3. Deleted the lock and did cleanup.
 
 ### Summary 
+
+Interesting lab this time around. Learned how to create assign tags to resource groups to tracks costs and metadata easily. In order to enforce the tags i had to use Azure policy to assign the `Require a tag and its value on resources` definition. This worked as a passive block using deny effect. It was pretty cool to see that once the policy was live then trying to create storage account without the tag led to validation failing. 
+
+Practiced applying tags automatically by switching to the `Inherit a tag from the resource group if missing` policy. This was the active part and required Managed identity because it used a remediation taks with `Modify` effect to fix resources for me. Learned the difference between `System assigned` and `User assigned` which was that system assigned is 1-1 relationship for each resource seperately and user assigned is many to many aka the opposite.
+
+Then i set up resource lock which was the easiest part of the lab but i wanted to test it out by trying to delete RG group if the lock type was set to `Delete` and `Read` and yeah its bulletproof, you cant simply delete RG group like that, you need to remove the lock, luckily removing it wasnt complex at all. This lab taught me how to easily group resources for cost management and keep everything relatively safe while provisioning new stuff.
+
+### Key takeaways
+
+* Azure tags are metadata that consist of key value pairs. Tags describe resources in the environment. Tagging enables to label resources in logical manner.
+* Policy establishes conventions and rules for resources. Policy definitions describe resource compliance conditions and the effect to take if a condition is met. Condition compares resource property field or a value to required value. There are many built in definitions and policies can be customized.
+* Policy remediation task feature is used to bring resources into compliance based on definition and assignment. Resources that are non compliant to a `Modify` or `deployIfNotExist` definition assignment can be brought into compliance using remediation task.
+* Resource locks can be configured on subscriptions, resource groups or resources. Locks prevent all of those from accidental user deletions and modifications. Locks override any user permissions.
+* Policy is pre deployment security practice. RBAC and resource locks are post deployment security practice.
