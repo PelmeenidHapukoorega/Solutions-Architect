@@ -95,7 +95,7 @@ Practiced applying tags automatically by switching to the `Inherit a tag from th
 
 Then i set up resource lock which was the easiest part of the lab but i wanted to test it out by trying to delete RG group if the lock type was set to `Delete` and `Read` and yeah its bulletproof, you cant simply delete RG group like that, you need to remove the lock, luckily removing it wasnt complex at all. This lab taught me how to easily group resources for cost management and keep everything relatively safe while provisioning new stuff.
 
-### Key takeaways
+### Takeaways
 
 * Azure tags are metadata that consist of key value pairs. Tags describe resources in the environment. Tagging enables to label resources in logical manner.
 * Policy establishes conventions and rules for resources. Policy definitions describe resource compliance conditions and the effect to take if a condition is met. Condition compares resource property field or a value to required value. There are many built in definitions and policies can be customized.
