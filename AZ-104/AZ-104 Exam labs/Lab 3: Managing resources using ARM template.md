@@ -131,6 +131,10 @@ Verified disk 5 in portal:
 
 <img width="878" height="474" alt="image" src="https://github.com/user-attachments/assets/08ac9e5d-ba90-46e5-ac29-2f5f97194c13" />
 
-Did cleanup by deleting the resource group.
+Verified deployments too:
+
+<img width="637" height="202" alt="image" src="https://github.com/user-attachments/assets/abc0538f-8b6b-447f-ab2e-fe3fe44aa1e7" />
+
+Then did cleanup by deleting the resource group.
 
 ### Summary
