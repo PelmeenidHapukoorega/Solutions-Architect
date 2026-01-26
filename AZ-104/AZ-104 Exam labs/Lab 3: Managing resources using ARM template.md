@@ -138,3 +138,9 @@ Verified deployments too:
 Then did cleanup by deleting the resource group.
 
 ### Summary
+
+Learned how to create a simple managed disk and then export its JSON blueprint to use it as a "recipe" for more deployments. 
+
+Additionally noticed that when i wanted to scale up, i could just edit the template and parameters files to change the disk names. I practiced this in a few different ways, using the portal editor first and then moving to Cloud Shell with PowerShell and CLI. It was cool to see that every time i deployed, the `Microsoft.Template` log confirmed that Azure was just following my instructions to create identical resources with different names, however with bicep it shows up as main, or whichever name you used for bicep.
+
+Bicep is pretty smart because it just asks me for the disk name directly in the terminal during deployment instead of making me edit a file beforehand. Lab showed me how templates are the way to go for automation and making sure everything is consistent across the environment but luckily i was ahead on this labs by doing Bicep learn path couple of weeks ago.
