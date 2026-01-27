@@ -116,4 +116,17 @@ I now had created user defined route to direct traffic from DMZ to the new NVA
 
 ### Summary
 
+Learned how to create a couple VMs in different virtual networks `CoreServicesVnet` and `ManufacturingVnet` and realized they cant talk to each other by default even if they are in the same region.
+
+Additionally noticed that when i ran a connection test through Network Watcher using port 3389, it failed straight away because there was no bridge between the networks. I practiced fixing this by configuring VNet peering with that to/from logic like ManufacturingVnet-to-CoreServicesVnet which finally opened up the communication channels. It was cool to see that once peering was enabled, i could run a `Test-NetConnection` command directly from the portals `Run command` blade and see it actually succeed.
+
+Also practiced setting up a custom route by creating a new Perimeters subnet and a route table called `rt-CoreServices`. This taught me how to manually direct traffic to a Network Virtual Appliance (NVA) by adding a user defined route and associating it with the right subnet. Lab showed me that VNet peering and custom routing are the way to go when you need to connect different parts of your cloud infrastructure securely.
+
 ### Key Takeaways
+
+* By default resources in different VNets cannot communicate.
+* VNet peering enables you to seamlessly connect 2 or more VNets in Azure.
+* Peered VNets appear as 1 for connectivity purposes.
+* Traffic between VMs in peered VNets uses the microsoft backbone infrastructure.
+* System defined routes are automatically created for each subnet in a VNet. User defined routes override or add to the default system routes.
+* Azure network watcher provides a suite of tools to monitor, diagnose and view metrics/logs for Azure IaaS resources.
