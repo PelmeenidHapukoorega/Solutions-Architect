@@ -267,6 +267,13 @@ Performed cleanup.
 
 ### Summary
 
+Learned how to create a virtual network named `VnetForCoreServices` with two subnets, SharedServicesSubnet and DatabaseSubnet, and made sure the IP ranges didnt overlap so they could communicate properly.
+
+Additionally noticed that when i wanted to scale this out with a template, i had to be careful with how i defined the subnets. I practiced refactoring my ARM template for the `ManufacturingVnet` to use external subnet resources for SensorSubnet1 and SensorSubnet2 instead of inline ones, which fixed that NetcfgSubnetRangesOverlap error i kept getting when the template was fighting itself for IP space.
+
+I also practiced setting up security by creating an Application Security Group (ASG) named asg-web and a Network Security Group (NSG) called myNSGSecure. It was cool to see how i could associate the NSG with the SharedServicesSubnet and then create an inbound rule AllowASG to let traffic through on ports 80 and 443, while completely blocking internet access with a high priority DenyInternetOutbound rule.
+
+Finally i set up both public and private DNS zones, which taught me how to resolve hostnames like www.virtual.hermit to a specific IP like 10.1.1.4 and link my VNets for private name resolution. This lab showed me that keeping your network segments organized and secured with NSGs and proper DNS is the way to go for a solid cloud foundation.
 
 ### Key Takeaways
 
