@@ -1,5 +1,11 @@
 # Lab 1: Providing storage for IT deparment testing and training
 
+
+**Job Skills**
+
+* Configuring storage accounts
+* Configuring basic settings for security and networking
+
 1. Created resource group `StorageOnly`. Used norwayeast as region.
 2. Went to `storage accounts` landing page > `+ create` and filled out the basics:
 
