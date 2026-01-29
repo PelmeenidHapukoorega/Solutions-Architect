@@ -19,6 +19,12 @@ Checked under `Security + networking` > `networking` to make sure `Public networ
 
 ### Summary
 
+Learned nothing new when it came to necessarily creating resource groups or storage accounts itself but i messed around in storage accounts settings themselves and could see that there were a lot of things i could configure which was an eye opener.
+
+Additionally noticed that i had to double check a few security settings to keep things locked down. Made sure `Secure transfer required` was on for encrypted connections and set the `Minimal TLS version` to 1.2. I also disabled the `Allow storage account key access` because leaving it on lets people use shared keys or SAS which i didnt want. Finally, i made sure that `Public network access` was enabled from all networks just so i could test my connections without any hassle, even though in a real job this would be a massive security risk since it leaves the endpoint wide open to the internet.
+
+In essence, keeping the security protocols straight from the start is a way to go.
+
 ### Key takeaways
 
 * Storage account is a container that holds all azure storage data objects including blobs, files, queue and tables.
