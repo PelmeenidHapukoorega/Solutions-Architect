@@ -115,5 +115,17 @@ Next i performed cleanup by deleting resource group `StorageOnly`
 
 ### Summary
 
+For this lab i created a storage account called `private18` for internal documents. I made sure to switch the redundancy from the default RA-GRS to standard GRS which set my primary and secondary locations to norwayeast and west.
+
+Then i created a container named `private`. Since the default access is private i verified that i couldnt just open a file URL in the browser like in the last lab. To give temporary access to a partner i generated a shared access siognature (SAS). Set it to `Read` permissions only and gave it a 24 hour expiry window which allowed me to access the file using the specific SAS URL.
+
+To manage costs i set up a lifecycle management rule. I configured it so that blobs modified over 30 days ago move to the cool tier and if they were created more than 120 days ago they go to archive. I also enabled the option to skip blobs rehydrated in the last 15 days which basically gives me a grace period so costly restored files wouldnt get immediately shoved back into the archive (not that i had any restored files, but implemented it anyway for practice).
+
+Lastly i needed to backup my `publicwebsite71` storage account. Created a `backup` container in `private18` and configured object replication from the `publicwebsite71` account. Tested it with a new file but i also went back and edited the rule to ensure it copied all existing content not just new uploads. It took about 6 minutes for the replication to sync everything up before i deleted the resource group.
+
 ### Key Takeaways
 
+* Storage has many data protection features which inlcude: encryption, access contro, network security, monitoring and alerts.
+* Shared access signature provides secure delegated access to resources within storage account. SAS gives granular control over how a client can access data.
+* Blob storage lifecycle management offers a rule based policy that can be used to transition blob data to the appropriate access tiers or to expire data at the end of the data lifecycle.
+* Object replication asynchronously copies block blobs between a source storage account and a destination account.
