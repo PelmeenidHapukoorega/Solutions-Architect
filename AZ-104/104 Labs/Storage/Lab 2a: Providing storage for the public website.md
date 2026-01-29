@@ -93,6 +93,12 @@ For that i needed to go to `container` open up the exact file, then from the top
 
 ### Summary
 
+For this lab i set up a storage account named `publicwebsite71` and made sure it was highly available by selecting read access geo redundant storage. I also went into the configuration settings and enabled anonymous blob access so i could later adjust the container permissions.
+
+Once the account was ready i created a container called `public` and set the access level to anonymous read access for blobs. This allowed me to upload images and verify that they could be viewed via URL without needing any authentication.
+
+After that, i configured soft delete. I enabled it and changed the retention period to 21 days, which is safer than the default. I tested it by deleting a file, filtering the view to show deleted blobs, and successfully undeleting it. Finally i enabled blob versioning. Set up a rule to delete old versions after 3 days to keep things clean and confirmed i could see previous versions of a file by checking the versions tab inside the container.
+
 ### Key Takeaways
 
 * Blob storage is optimized for storing massive amounts of unstructured data (images, videos etc). Unstructured means data that doesnt adhere to particular model or definition like text or binary that would go to tables for example.
