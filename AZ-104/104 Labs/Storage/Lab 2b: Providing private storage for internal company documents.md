@@ -1,4 +1,4 @@
-<img width="931" height="625" alt="image" src="https://github.com/user-attachments/assets/d70c3697-f4e1-4ab0-9e56-5acf03132bf0" /># Lab 2b: Providing private storage for internal company documents
+# Lab 2b: Providing private storage for internal company documents
 
 **Job Skills**
 
