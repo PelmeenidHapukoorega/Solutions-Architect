@@ -87,6 +87,11 @@ I couldnt access the file share anymore because now the file share could only be
 
 ### Summary
 
+For this lab i started by creating a storage account named `azfiles27` specifically for file shares. I chose Premium performance because i wanted that low latency, and picked ZRS (Zone Redundant Storage) for redundancy. Since these files need to be accessed from multiple places, ZRS is crucial to protect against datacenter-level failures.
+
+Once the account was ready i created a file share called `sharing1` and added a directory named `finance` inside it. Uploaded a file so i could test out the snapshot capabilities. Took a manual snapshot of the share and then to test the recovery, i deleted the file from the main directory. I was able to go back into the snapshots find the file, and restore it by providing a new name for the recovered version.
+
+Finally i worked on network security. Created a virtual network called `azfiles` and enabled the `Microsoft.Storage` service endpoint on the default subnet. Then went to the storage accounts networking settings and switched public access to only allow "selected virtual networks." After adding my new VNet to the allow list, i tried accessing the share from the browser again and got an error message which confirmed that the storage was properly locked down and only accessible through that specific private network.
 
 ### Key Takeaways
 
