@@ -98,4 +98,15 @@ With that public access was enabled, scope could be used.
 
 ### Summary
 
+For this lab i focused on building a secure storage setup that uses managed identities and customer managed keys. I started by creating a storage account and made sure infrastructure encryption was enabled right from the start since i learned you cant change that setting later. I also set up a managed identity and gave it the storage blob data reader role so it could access the files.
+
+Then i moved on to securing the account with a key vault. I created a vault with purge protection, generated a key, and assigned the crypto service encryption user role to the managed identity so the storage account could actually use the key.
+
+The real trouble started when i tried to configure the encryption scope and the container access. The options were greyed out and i couldnt select what i needed. Turns out the lab guide missed some steps. I had to dig through the settings and manually enable blob versioning for the immutability support and turn on anonymous access. Once i fixed those settings i was finally able to apply the encryption scope and see the public access options. basically learned that even if you follow instructions, sometimes the default security settings block what you are trying to do.
+
 ### Key Takeaways
+
+* Azure has built in RBAC roles for storage of various types.
+* You can use your own encryption key to protect data within the storage account. When specifying customer managed key the key is used to protect and control access to the key that encrypts your data.
+* Immutable storage ensures that data cant be modified or deleted for a user specified interval. There are 2 types of immutable policies: times based and legal hold.
+* Infra encryption can be enabled for the entire storage account or for an encryption scope within an account. Infra encryption is recommended for scenarios where doubly encrypting data is necessary for compliance requirements.
