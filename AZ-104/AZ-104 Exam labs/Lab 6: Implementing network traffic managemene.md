@@ -564,4 +564,30 @@ Remove-AzResourceGroup -Name az104-rg6
 
 ### Summary
 
+This lab was basically about getting hands on with traffic management in azure and i pivoted from clicking in the portal to try to use commands instead, so lots of forum reading and trial and errors. First i deployed the whole setup with an arm template, which gave me a vnet, subnets and two vms. nothing crazy there.
+
+Then i built the load balancer. i made the public ip, frontend config, backend pool and attached the nics. at first i thought the backend pool was empty because the output looked blank, but thats just how the new azure module works. The nic holds the reference now not the pool. So i checked the nics directly and saw they were actually linked.
+
+When i tested the lb, only vm0 responded. vm1 didnt show up at all, so i figured it was failing the health probe. I checked vm1 with run command and saw it was responding locally, so eventually the probe passed and the lb started rotating properly. that taught me how important probes are and how misleading the backend pool output can be.
+
+The application gateway part was way more annoying. Half the commands in the lab dont match the current az module. I created the subnet, public ip, backend pools, listener, etc., but the gateway creation kept failing. first the sku string didn’t work, so i had to build a sku object. then it complained about the subnet reference even though i passed it. then i learned that v2 gateways use autoscaling and different parameters. then it wanted a priority on the routing rule. Then it complained that mincapacity couldn’t equal maxcapacity. basically error after error until i adjusted everything to the new syntax.
+
+After fixing all that, the gateway finally deployed. backend health showed both vms as healthy, and testing `/image/` and `/video/` worked exactly like it should. then i cleaned up the resource group.
+
+### Personal learnings
+
+* Azure powershell changes a lot and old labs dont match the new module which just shows how fast the environment can change over time.
+* backendipconfigurations being empty doesn’t mean the nics arent attached.
+* Health probes decide everything for the load balancer.
+* Application gateway v2 has different rules (sku object, autoscale config, priorities etc).
+* Troubleshooting azure networking is mostly reading errors carefully and adapting.
+* Sometimes the browser caches connections, so private mode helps.
+
 ### Key Takeaways
+
+* Azure Load Balancer is an excellent choice for distributing network traffic across multiple virtual machines at the transport layer (OSI layer 4 - TCP and UDP).
+* Public Load Balancers are used to load balance internet traffic to your VMs. An internal (or private) load balancer is used where private IPs are needed at the frontend only.
+* The Basic load balancer is for small scale applications that dont need high availability or redundancy. The Standard load balancer is for high performance and ultra low latency.
+* Azure Application Gateway is a web traffic (OSI layer 7) load balancer that enables you to manage traffic to your web applications.
+* The Application Gateway Standard tier offers all the L7 functionality, including load balancing, The WAF tier adds a firewall to check for malicious traffic.
+* An Application Gateway can make routing decisions based on additional attributes of an HTTP request, for example URI path or host headers.
