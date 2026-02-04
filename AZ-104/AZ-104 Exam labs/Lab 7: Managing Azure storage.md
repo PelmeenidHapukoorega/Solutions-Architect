@@ -14,7 +14,9 @@ How to create storage accounts for Blobs and Files, how to configure and secure 
 
 1. In the portal went to `Storage accounts` and created a new one.
 2. Filled out the basics tab:
+
 <img width="837" height="637" alt="image" src="https://github.com/user-attachments/assets/d8f9a175-dd0c-415e-bd4b-7b57fcfe21ae" />
+
 3. Went to `networking` tab and in the `public network access` set it to `disabled`. In the `data protection` noticed that 7 days is the default soft delete retention policy. Accepted defaults.
 4. Went to final review:
 
