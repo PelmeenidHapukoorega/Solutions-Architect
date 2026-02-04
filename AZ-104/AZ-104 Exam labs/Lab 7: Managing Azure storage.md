@@ -108,4 +108,18 @@ Lab success, because i restricted access to the storage.
 
 ### Summary
 
+Kicked off by spinning up a new storage account, nothing fancy just the usual basics tab → networking → data protection dance. Played with public network access first disabled it, then re enabled it but only for my own IP. Basically proving to myself how the access model behaves.
+
+Set up lifecycle mgmt too simple rule: “after 30 days, shove blobs to cool tier.” Nothing deep, just getting hands on with automation.
+
+Then moved into blob storage, made a container, slapped an immutable policy on it (time based, 180 days). Uploaded a file with all the advanced settings checked so i actually know whats happening under the hood (block blob, block size, hot tier, folder path, encryption scope). Tried accessing the blob directly → denied, as expected. Generated a SAS token → boom access works. Learned the difference between container ACLs and SAS‑based scoped access in a very real way.
+
+After that jumped into Azure Files. Created a share, made subfolders through Storage Browser, uploaded new image. Then locked the whole storage account down by using a VNet + service endpoints. Removed my public IP from the allow list and confirmed i locked myself out. Perfect that was the end goal.
+
 ### Key Takeaways
+
+* An Azure storage account contains all your Azure Storage data objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your Azure Storage data that is accessible from anywhere in the world over HTTP or HTTPS.
+* Azure storage provides several redundancy models including Locally redundant storage (LRS), Zone-redundant storage (ZRS), and Geo-redundant storage (GRS).
+* Azure blob storage allows you to store large amounts of unstructured data on Microsoft’s data storage platform. Blob stands for Binary Large Object, which includes objects such as images and multimedia files.
+* Azure file Storage provides shared storage for structured data. The data can be organized in folders.
+* Immutable storage provides the capability to store data in a write once, read many (WORM) state. Immutable storage policies can be time-based or legal-hold.
