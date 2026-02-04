@@ -4,9 +4,11 @@
 
 To learn how to configure and test a public load balancer and application gateway.
 
+**Job Skills**
+
 * Using template to provision infrastructure.
-* Configuring load balancer.
-* Configuring application gateway
+* Configuring load balancer via cmdlets.
+* Configuring application gateway via cmdlets.
 
 ## Part 1: Using a template to provision infra
 
