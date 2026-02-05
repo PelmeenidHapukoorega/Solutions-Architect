@@ -362,4 +362,35 @@ az group delete \
 
 ### Summary
 
+
+### What i learned
+
+Started off building zone resilient VMs. Basically letting Azure spit out vm1 + vm2 across zone1/zone2 just by ticking the availability zone boxes. Learned that Azure auto renames stuff when you span zones, which is both helpful and annoying. Picked the right image, disabled public ports, premium SSD, no fancy diagnostics. Just clean, minimal VM deployment.
+
+Then played with scaling a single VM: resized az104‑vm1 to a different SKU, attached a disk, detached it, changed the disk tier, reattached it. Basically got hands on with how compute + storage scaling actually feels instead of just reading “you can resize a VM” in docs.
+
+After that, moved into the big boy: VM scale sets. Created vmss1 across zones, set up networking from scratch (new vnet, subnet, NSG with HTTP rule), enabled public IP on NIC, added a load balancer. Learned how much wiring Azure hides when you deploy a single VM scale sets make you touch all the pieces manually.
+
+Then autoscaling: created scale out rule (CPU > 70% for 10 min → add 50%), created scale in rule (CPU < 30% → remove 20%). hit the classic “why is Azure yelling at me” moment until i realized `microsoft.insights` wasnt registered. Fixed that, everything saved fine.
+
+Then practiced VM creation using PowerShell, simple `New‑AzVM`, listed it, deallocated it. Nothing fancy but good muscle memory.
+
+Then did the same with CLI: hit region/SKU walls, adjusted location + size until it worked. Created, viewed, deallocated, cleaned up the RG.
+
+### What i learned
+
+* Zone resilient VMs are basically “same VM twice in different zones” with Azure doing the naming.
+* Resizing VMs + disks is straightforward but you need to detach/reattach if you change disk tiers.
+* Scale sets force you to understand networking, NSGs, load balancers, no shortcuts.
+* Autoscaling rules depend on `microsoft.insights` being registered, otherwise nothing works.
+* PowerShell + CLI both have their own quirks, especially around region/SKU availability.
+* Real Azure work = hitting walls, adjusting, retrying, learning why something failed.
+
 ### Key Takeaways
+
+* Azure virtual machines are on demand, scalable computing resources.
+* Azure virtual machines provide both vertical and horizontal scaling options.
+* Configuring Azure virtual machines includes choosing an operating system, size, storage and networking settings.
+* Azure Virtual Machine Scale Sets let you create and manage a group of load balanced VMs.
+* The virtual machines in a Virtual Machine Scale Set are created from the same image and configuration.
+* In a Virtual Machine Scale Set the number of VM instances can automatically increase or decrease in response to demand or a defined schedule.
