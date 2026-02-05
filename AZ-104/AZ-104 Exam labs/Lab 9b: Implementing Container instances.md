@@ -4,6 +4,18 @@
 
 To learn how to implement and deploy Azure container instances
 
+```ascii
++------------------------------+       +------------------------------+
+| TASK 1                       |       | TASK 2                       |
+| [ az104-rg9 ]                |       |                              |
+|                              |       |                              |
+|  +------------------------+  |       |                              |
+|  |   Container Instance   | <--------+       Test and verify        |
+|  +------------------------+  |       |                              |
+|                              |       |                              |
++------------------------------+       +------------------------------+
+```
+
 **Job Skills**
 
 * Deploying container instances using docker images.
