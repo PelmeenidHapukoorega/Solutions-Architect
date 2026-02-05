@@ -53,6 +53,24 @@ Performed cleanup
 
 ### Summary
 
+Started by deploying a simple Azure Container Instance using one of Microsofts quickstart docker images. Created the container in my existing resource group, gave it a name, selected norway east as region and used the default “hello world” image. Added a DNS label so the container would be reachable publicly, then left the rest of the settings at their defaults.
+
+Verified the deployment by checking the containers status on the overview page. Copied the `FQDN` and opened it in a browser confirming the container was running and serving the sample web page.
+
+Checked the container logs, which showed HTTP GET requests matching my browser visits. This confirmed that the container was responding correctly and that the logging pipeline worked even without enabling full diagnostic logs.
+
+Performed cleanup once everything was tested.
+
 ### What i learned
 
+* Learned how fast and lightweight Azure Container Instances are compared to full VM deployments.
+* Learned how to deploy a container directly from a public Docker image without needing Kubernetes or complex orchestration.
+* Learned how DNS labels make ACI containers instantly reachable from the internet.
+* Learned how to verify container health using both the browser and the built‑in log viewer.
+
 ### Key Takeaways
+
+* Azure Container Instances (ACI) is a service that enables you to deploy containers on the Microsoft Azure public cloud.
+* ACI doesnt require you to provision or manage any underlying infrastructure.
+* ACI supports both Linux containers and Windows containers.
+* Workloads on ACI are usually started and stopped by some kind of process or trigger and are usually short-lived.
