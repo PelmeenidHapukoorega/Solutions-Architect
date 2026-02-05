@@ -4,6 +4,31 @@
 
 Hosting web apps for company websites because because current ones are hosted on prem and nearing end of life, therefore in need to be replaced. To avoid new hardware costs Azure will be used to host new ones.
 
+```ascii
+_________________________________________________________________________
+| [az104-09a-rg9a]                                                      |
+|                                                                       |
+|  +---------------+       +---------------+                            |
+|  |    TASK 1     |       | Production    |---┐                        |
+|  |               |       |     slot      |   |                        |
+|  |  App Service  |       +---------------+   |  TASK 4                |
+|  |               |                           |  Swap                  |
+|  |    Web App    |       +---------------+   |                        |
+|  |               |       |    TASK 2     |---┘      +----------------+|
+|  +---------------+       |               |          |     TASK 5     ||
+|                          | Staging slot  |          |                ||
+|                          +---------------+          | App Service    ||
+|                                  ^                  | Plan           ||
+|                                  |                  |                ||
+|                          +---------------+          | Autoscale rule ||
+|                          |    TASK 3     |          |                ||
+|                          |               |          +----------------+|
+|                          | External git  |                            |
+|                          | Hello world!  |                            |
+|                          +---------------+                            |
+|_______________________________________________________________________|
+```
+
 **Job Skills**
 
 * Creating and configuring web apps.
