@@ -3,19 +3,20 @@
 ## Goal:
 
 Create and compare VMs to VM scale sets. Learning how to configure and resize single VM, how to create scale sets and configure autoscaling. 
-```Mermaid
-graph TD
-    subgraph Task_1 [Task 1]
-        direction LR
-        VM1["az104-vm1<br/>Zone1"]
-        VM2["az104-vm2<br/>Zone2"]
-    end
-
-    subgraph Task_2 [Task 2]
-        T2_Action["💻 💾<br/>resize and update"]
-    end
-
-    VM1 --> Task_2
+```ascii
++---------------------------------------+
+|                TASK 1                 |
+|                                       |
+|  [ az104-vm1 ]         [ az104-vm2 ]  |
+|     Zone 1                Zone 2      |
++-------------------+-------------------+
+                    |
+                    v
++---------------------------------------+
+|                TASK 2                 |
+|                                       |
+|           resize and update           |
++---------------------------------------+
 ```
 
 **Job Skills**
