@@ -144,5 +144,32 @@ I then hit `stop` at the top to complete the test run then performed cleanup.
 
 ### Summary
 
+Started by creating new azure web app to replace aging on prem websites. Set up the `SunStore` app using PHP on linux with  Premium plan in Norway East region. This gave me a clean, modern hosting environment without touching physical hardware.
+
+Created staging deployment slot which immediately showed why slots matter: each slot gets its own URL. This meant i could test changes safely before exposing anything to production.
+
+Configured deployment for the staging slot using an external Git repository. After saving the settings the staging URL showed the “hello world” sample app, confirming the deployment pipeline worked.
+
+Performed slot swap moving staging → production. After the swap the main domain showed the updated content. This demonstrated how Azure handles zero downtime transitions between environments.
+
+Set up autoscaling on the App Service Plan. Ran into the hidden “MinimumElasticInstanceCount” issue and fixed it by toggling scaling modes and then applied the correct settings: Always Ready = 1, Maximum Burst = 2.
+
+Created and executed load test to see how the app behaved under pressure. The client side metrics showed fast responses, no errors, and stable throughput. The server side metrics showed CPU around 60%, low memory usage, and steady network throughput. The app handled the load without any signs of stress.
+
+Then i stopped the test and cleaned up the resources afterward.
+
+### What i learned
+
+* Learned how easy it is to deploy and manage web apps in Azure compared to traditional servers.
+* How deployment slots give you a safe workflow for testing and swapping changes.
+* Learned how Git‑based deployments streamline updates.
+* How autoscaling works and how to troubleshoot the quirks behind the scenes.
+* How to run realistic load tests and interpret both client‑side and server‑side performance metrics.
+
 ### Key Takeaways
 
+* Azure App Services lets you quickly build, deploy, and scale web apps.
+* App Service includes support for many developer environments including ASP.NET, Java, PHP, and Python.
+* Deployment slots allow you to create separate environments for deploying and testing your web app.
+* You can manually or automatically scale a web app to handle additional demand.
+* A wide variety of diagnostics and testing tools are available.
