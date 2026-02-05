@@ -52,7 +52,21 @@ Performed cleanup
 
 ### Summary
 
+Started by creating a new container app. Added it to my existing resource group, named it `my‑app`, selected norway east as region, and created a new container apps environment called `my‑environment`. Used the quickstart “hello world” container image to keep the deployment simple.
+
+Deployed the app and then verified it by opening the application URL in the browser. The page loaded successfully, confirming that the container app was running inside the environment as expected.
+
+Performed cleanup once the test was complete.
+
 ### What i learned
+
+* Learned how container apps differ from container instances by giving you an environment layer for running multiple apps or microservices.
+* Learned how quickstart images make it easy to deploy a working container without building anything locally.
+* Learned how simple it is to verify a container app through its public endpoint.
+* Learned that container apps provide a managed, serverless style experience for container workloads.
 
 ### Key Takeaways
 
+* Azure Container Apps (ACA) is a serverless platform that allows you to maintain less infrastructure and save costs while running containerized applications.
+* Container Apps provides server configuration, container orchestration, and deployment details.
+* Workloads on ACA are usually long-running processes like a Web App.
