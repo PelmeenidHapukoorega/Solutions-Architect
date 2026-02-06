@@ -174,7 +174,7 @@ Then checked the VM itself for details:
 
 <img width="842" height="428" alt="image" src="https://github.com/user-attachments/assets/faa184f3-dfbc-4d37-87c8-74372e4d113a" />
 
-Everything was healthy and no configuration issues were found, lab was complete.
+Everything was healthy and no configuration issues were found, lab was complete and performed cleanup.
 
 ### Summary
 
