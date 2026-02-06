@@ -178,7 +178,32 @@ Everything was healthy and no configuration issues were found, lab was complete 
 
 ### Summary
 
+Started by deploying the entire lab environment using an ARM template. Loaded the template and parameters into the custom deployment blade, reviewed the visualiser to understand what resources would be created, and deployed the infrastructure.
+
+Created recovery services vault in region 1, configured its storage replication (G‑RS) and reviewed the security settings, including soft delete and retention defaults. This gave me the foundation for VM‑level backup.
+
+Configured VM backup by creating a new backup policy, assigning it to the VM, and enabling protection. I reviewed the backup pre check status and triggered an on demand backup to start the first snapshot.
+
+Set up monitoring by creating a storage account and enabling diagnostic settings on the vault. Selected all relevant backup and site recovery logs so that historical data, alerts, and job details would be archived for reporting and troubleshooting.
+
+Created a second recovery services vault in region 2 to support disaster recovery. Configured VM replication from Region 1 to Region 2, selected Sweden Central as the target region, and let Azure generate the required resources. Waited for replication to complete and verified that the VM was healthy and fully protected.
+
+Completed the lab by confirming backup status, replication health, and then performing cleanup by stopping backups in both regions and then soft deleting.
+
 ### What i learned
+
+* Learned how ARM templates can quickly deploy consistent infrastructure.
+* Learned how Recovery Services Vaults store backup and replication metadata.
+* Learned how to create and apply VM‑level backup policies with custom retention.
+* How to monitor backup jobs using diagnostic settings and storage accounts.
+* How Azure Site Recovery replicates VMs across paired regions for disaster recovery.
+* Learned how to validate replication health and understand the failover readiness workflow.
 
 ### Key Takeaways
 
+* Azure Backup service provides simple, secure, and cost-effective solutions to back up and recover your data.
+* Azure Backup can protect on-premises and cloud resources including virtual machines and file shares.
+* Azure Backup policies configure the frequency of backups and the retention period for recovery points.
+* Azure Site Recovery is a disaster recovery solution that provides protection for your virtual machines and applications.
+* Azure Site Recovery replicates your workloads to a secondary site, and in the event of an outage or disaster, you can failover to the secondary site and resume operations with minimal downtime.
+* A Recovery Services vault stores your backup data and minimizes management overhead.
