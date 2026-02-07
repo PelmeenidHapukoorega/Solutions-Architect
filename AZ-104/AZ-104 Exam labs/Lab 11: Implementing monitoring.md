@@ -39,4 +39,10 @@ _________________________________________________________________________
 * Configuring alert processing rule
 * Using monitor log queries
 
-1. Created new resource group `az104-rg11`. Then in `deploy a custome template` uploaded the template.json file i had downloaded from the official repo.
+1. Created new resource group `az104-rg11`. Then in `deploy a custome template` uploaded the template.json file i had downloaded from the official repo, then selected my resource group and for region took norway east.
+
+<img width="440" height="522" alt="image" src="https://github.com/user-attachments/assets/8975e80b-f01a-4a1a-a7b4-023bb28eb856" />
+
+2. Went to `Monitor` > `view` in Vm insights box then > `configure insights`.
+3. Enabled the setting next to VM and went for review:
+
