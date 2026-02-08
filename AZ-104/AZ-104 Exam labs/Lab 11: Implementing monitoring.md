@@ -144,6 +144,32 @@ Performed cleanup by deleting the workspace first. By deleting workspace azure w
 
 ### Summary
 
+I started by deploying the lab environment using the provided ARM template. Loaded the template into the custom deployment blade, selected my resource group, and deployed the VM and supporting resources automatically.
+
+Then i enabled VM Insights by going to Azure Monitor and configuring insights for the VM. This allowed Azure to start collecting performance and health data for monitoring.
+
+Created an alert rule that triggers whenever a virtual machine is deleted. Selected the “Delete Virtual Machine” signal, reviewed the alert logic, and kept the default event levels. Configured an action group to define how notifications should be delivered. I Added email and SMS notifications, named the action, and completed the setup. I then attached this action group to the alert rule and finalised the alert configuration.
+
+Triggered the alert by deleting the VM with force delete enabled. Waited for the notifications and confirmed that both the email and SMS alerts were delivered successfully. Then i created an alert processing rule to suppress notifications during a maintenance window. Applied it at the subscription level, configured the schedule, and added a name and description before creating the rule.
+
+Used Azure Monitor Logs to run queries. Started with the built in “count heartbeats” query, then switched to KQL mode and ran a custom query against the InsightsMetrics table to visualise CPU utilisation over time. This showed exactly when the VM was provisioned and when it stopped sending metrics.
+
+Completed the lab by cleaning up the workspace, which automatically removed associated monitoring resources.
+
 ### What i learned
 
+* Learned how to deploy monitoring‑ready infrastructure using ARM templates.
+* Learned how to enable VM Insights to collect performance and health data.
+* Learned how to create alert rules based on platform events such as VM deletion.
+* Learned how action groups define who gets notified and how.
+* Learned how to test alerts by triggering real events and verifying notifications.
+* Learned how alert processing rules help suppress noise during maintenance windows.
+* Learned how to run KQL queries in Azure Monitor Logs to analyse VM behaviour.
+
 ### Key Takeaways
+
+* Alerts help you detect and address issues before users notice there might be a problem with your infrastructure or application.
+* You can alert on any metric or log data source in the Azure Monitor data platform.
+* An alert rule monitors your data and captures a signal that indicates something is happening on the specified resource.
+* An alert is triggered if the conditions of the alert rule are met. Several actions (email, SMS, push, voice) can be triggered.
+* Action groups include individuals that should be notified of an alert.
