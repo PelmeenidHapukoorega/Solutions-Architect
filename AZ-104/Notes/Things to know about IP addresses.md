@@ -13,9 +13,9 @@ Allow resources to communicate with the internet. You can create public IP addre
 
 Diagram of Private and Public IP logic:
 ```
-Virtual networks, VPN              Private IP           +----------+            Public IP               Internet,
-  gateways, on-premises               address           |    VM    |             address              public-facing
-  networks, ExpressRoute <----------------------------->|----------|<-------------------------------->   services
+Virtual networks, VPN              Private IP           +----------+         Public IP         Internet,
+  gateways, on-premises              address            |    VM    |          address        public-facing
+  networks, ExpressRoute <----------------------------->|----------|<------------------------> services
                                                         | Resource |
                                                         +----------+
 ```
