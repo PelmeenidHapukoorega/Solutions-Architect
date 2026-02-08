@@ -21,3 +21,17 @@ New-AzPublicIpAddress @ip
 **Note**
 
 For `Az.Network` modules older than 4.5.0 the command above needs to be ran without specifying zone parameter to create zone-redundant IP address.
+
+## Creating public IP via CLI
+```CLI
+az network public-ip create \
+--resource-group QuickStartCreateIP-rg \
+--name myStandardPublicIP \
+--version IPv4 \
+--sku Standard \
+--zone 1 2 3
+```
+
+**Note**
+
+For versions of the API older than 2020-08-01 the command needs to be executed without specifying `--zone` parameter to create a zone-redundant IP address.
