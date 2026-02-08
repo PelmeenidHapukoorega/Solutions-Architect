@@ -48,7 +48,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## Creating VNet with CLI
 
-1. Creating VNet and subnet
+Creating VNet and subnet
 ```PWSH
 az network vnet create \
 --name vnet-1 \
