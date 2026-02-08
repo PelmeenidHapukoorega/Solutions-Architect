@@ -11,9 +11,14 @@ Enable communication within VNets and on premises networks. You can create a pri
 
 Allow resources to communicate with the internet. You can create public IP address to connect with Azure public-facing-services.
 
-Illustration of Private and Public IP logic:
-
-<img width="758" height="107" alt="image" src="https://github.com/user-attachments/assets/55aa54f1-bd2a-4792-b52d-6fb1493b430a" />
+Diagram of Private and Public IP logic:
+```
+Virtual networks, VPN              Private IP            +----------+            Public IP               Internet,
+  gateways, on-premises               address              |    VM    |             address              public-facing
+  networks, ExpressRoute <-------------------------------->|----------|<-------------------------------->   services
+                                                           | Resource |
+                                                           +----------+
+```
 
 ## Things to know about IP addresses
 
