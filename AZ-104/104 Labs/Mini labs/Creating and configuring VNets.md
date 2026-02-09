@@ -83,4 +83,18 @@ Now VNets could communicate with each other.
 
 ## Summary
 
+Started by creating the app‑vnet, assigning it the 10.1.0.0/16 address space, and adding the two required subnets: frontend (10.1.0.0/24) and backend (10.1.1.0/24). These represented the web tier and database tier of the application.
+
+Created the hub‑vnet next, using the 10.0.0.0/16 address space and adding the FirewallSubnet (10.0.0.0/26). This simulated the hub portion of a hub‑and‑spoke network design.
+
+Configured VNet peering between app‑vnet and hub‑vnet. Set up the peering from the app‑vnet side, named both peering links, and left the default settings in place. Once the connection showed as “Connected,” the two VNets could communicate privately and securely.
+
+Verified that the architecture matched the scenario requirements: Two VNets in the same region, proper subnet layout, and secure private connectivity through peering.
+
 ## Key Takeaways
+
+* Azure virtual networks (VNets) provide a secure and isolated network environment for your cloud resources. You can create multiple virtual networks per region per subscription.
+* When designing virtual networks make sure the VNet address space (CIDR block) doesnt overlap with your organization’s other network ranges.
+* A subnet is a range of IP addresses in the VNet. You can segment VNets into different size subnets, creating as many subnets as you require for organization and security within the subscription limit. Each subnet must have a unique address range.
+* Certain Azure services, such as Azure Firewall, require their own subnet.
+* Virtual network peering enables you to seamlessly connect two Azure virtual networks. The virtual networks appear as one for connectivity purposes.
