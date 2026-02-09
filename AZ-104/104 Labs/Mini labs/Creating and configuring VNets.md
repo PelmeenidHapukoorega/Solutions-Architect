@@ -1,5 +1,11 @@
 # Mini lab: Creating and configuring virtual networks
 
+**Job Skills**
+
+* Creating VNets
+* Creating subnets
+* Configuring VNet peering
+
 Scenario:
 
 Your organization is migrating a web-based application to Azure. Your first task is to put in place the virtual networks and subnets. You also need to securely peer the virtual networks. You identify these requirements.
