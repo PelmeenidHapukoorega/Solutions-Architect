@@ -120,6 +120,31 @@ Hit create.
 
 ### Summary
 
+Started by creating a new resource group called Contoso in East US to hold all three virtual networks. This gave me a clean, organised place to deploy the environment.
+
+Created the `CoreServicesVnet` with the 10.20.0.0/16 address space. Added 4 subnets: GatewaySubnet, SharedServicesSubnet, DatabaseSubnet, and PublicWebServiceSubnet. This VNet represented the central services layer of the architecture.
+
+Built the `ManufacturingVnet` in West Europe using the 10.30.0.0/16 address space. Added the ManufacturingSystemSubnet and 3 sensor subnets, matching the design for distributed manufacturing workloads.
+
+Created the `ResearchVnet` in Southeast Asia with the 10.40.0.0/16 address space and added the ResearchSystemSubnet. This completed the global layout of the three VNets.
+
+Verified each VNet and its subnets to ensure the address spaces and subnet ranges matched the design diagram. All VNets were successfully deployed with the correct structure.
+
 ### What i learned
 
+* Learned how to design and deploy multiple VNets across different regions.
+* Learned how to plan and assign address spaces and subnet ranges without overlap.
+* Learned how subnet naming and structure reflect real workload seperation.
+* How to validated VNet deployments and confirm that the architecture matches the intended design.
+
 ### Key Takeaways
+
+* Proper IP planning is essential when building multi VNet architectures.
+* Subnets help isolate workloads such as databases, shared services and sensors.
+* VNets can span multiple regions to support global architectures.
+* Verifying address spaces and subnet ranges prevents routing conflicts later.
+
+From MS Learn for reminders:
+
+* Azure Virtual Network is a service that provides the fundamental building block for your private network in Azure. An instance of the service (a virtual network) enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. Ensure nonoverlapping address spaces. Make sure your virtual network address space (CIDR block) doesn’t overlap with your organization’s other network ranges.
+* All Azure resources in a virtual network are deployed into subnets within the virtual network. Subnets enable you to segment the virtual network into one or more subnetworks and allocate a portion of the virtual network’s address space to each subnet. Your subnets shouldn’t cover the entire address space of the virtual network. Plan ahead and reserve some address space for the future.
