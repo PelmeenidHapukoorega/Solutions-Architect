@@ -43,3 +43,23 @@ Diagram:
     [ app-vnet-firewall-rt ]
 ```
 
+1. Opened up terminal in the portal, stored "RG1" name by running:
+```PWSH
+$RGName = "RG1"
+```
+
+2. Created new resource group:
+```PWSH
+New-AzResourceGroup `
+-Name "RG1" `
+-Location norwayeast
+```
+
+<img width="853" height="197" alt="image" src="https://github.com/user-attachments/assets/8c6b4202-700c-4e7e-898d-017834b08c4d" />
+
+3. Then deployed 2 VMs using template from microsofts Github repo to the resource group:
+```PWSH
+New-AzResourceGroupDeployment `
+-ResourceGroupName $RGName `
+-TemplateUri https://raw.githubusercontent.com/MicrosoftLearning/Configure-secure-access-to-workloads-with-Azure-virtual-networking-services/main/Instructions/Labs/azuredeploy.json
+```
