@@ -13,3 +13,7 @@ Table that summarizes how to associated public IP addresses for different resour
 Standard SKU features:
 
 <img width="703" height="188" alt="image" src="https://github.com/user-attachments/assets/397c9f04-4a0a-40f3-b8fa-a60470886474" />
+
+**Important**
+
+On septemeber 30, 2025 basic SKU public IPs were retired.
