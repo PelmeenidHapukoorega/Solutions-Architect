@@ -98,6 +98,23 @@ Remove-AzResourceGroup `
 
 ### Summary
 
+For this unit i had to get two different VNets (CoreServices and Manufacturing) to talk to each other even though they are in completely different regions: East US and West Europe.
+
+Started by spinning up the Manufacturing VM using JSON templates and powershell like before. Once that was up i tried to run a `Test-NetConnection` on port 3389 from one VM to the other but it failed immediately because they werent peered yet.
+
+Then i went into the portal and set up the VNet peering between them. Had to make sure both sides were set to allow access and receive forwarded traffic. Once both VNets showed "Connected," i ran the test command again and it worked! They could finally see each other across the global Azure backbone. After that i just nuked the whole `DragonEggs` resource group to save money.
+
 ### What i learned
 
-### Key takeaways
+* Even if VNets are in the same subscription or resource group, they cant talk to each other by default unless you link them.
+* Global VNet peering is what you use when your networks are in different regions (like East US to West Europe).
+* When setting up peering, you have to configure it on both ends for the traffic to actually flow both ways.
+* `Test-NetConnection` with the `-port 3389` flag is a much better test than just a regular ping because it checks if the specific RDP path is open.
+* Using the `-AsJob` flag when deleting a resource group is a life saver because it runs the cleanup in the background so i dont have to sit there staring at the terminal.
+
+### Key takeaways from MS learn
+
+* Virtual network peering enables you to seamlessly connect two Azure virtual networks. The virtual networks appear as one for connectivity purposes.
+* Azure supports connecting virtual networks within the same Azure region and across Azure regions (global).
+* The traffic between virtual machines in peered virtual networks is routed directly through the Microsoft backbone infrastructure, not through a gateway or over the public Internet.
+* You can resize the address space of Azure virtual networks that are peered without incurring any downtime on the currently peered address space.
