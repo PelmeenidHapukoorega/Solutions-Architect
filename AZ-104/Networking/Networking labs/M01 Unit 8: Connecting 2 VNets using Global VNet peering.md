@@ -30,3 +30,68 @@ ________________________________________________________________________________
 |              └------- Test RDP Session ------------------------------------------┘   Session
 |____________________________________________________________________________________________|
 ```
+
+1. Downloaded `ManufacturingVMazuredeploy.json` and `ManufacturingVMazuredeploy.parameters.json` then uploaded both to terminal.
+2. Set the variable for resource group with `$RGName = "DragonEggs"`
+3. Ran the template deployment for VM:
+```PWSH
+New-AzResourceGroupDeployment `
+-ResourceGroupName $RGName `
+-TemplateFile ManufacturingVMazuredeploy.json `
+-TemplateParameterFile ManufacturingVMazuredeploy.parameters.json `
+```
+
+<img width="813" height="406" alt="image" src="https://github.com/user-attachments/assets/8c7c27cc-eff9-461e-9976-89a6a0c59094" />
+
+Verified VM creation in the portal by going to `Virtual machines`:
+
+<img width="603" height="38" alt="image" src="https://github.com/user-attachments/assets/9c86a2e0-7c6e-4b86-8f41-e7f0ed9dfa91" />
+
+3. Selected `ManufacturingVM` > `Connect` > `RDP` and downloaded RDP file
+4. Logged into the VM.
+5. Then selected `TestVM1` and did the same thing.
+6. Once both VMs were logged into i went to `TestVM1` and opened up shell to run `ipconfig` and noted the IPv4 address `10.20.20.5`.
+
+## Testing connection between VMs
+
+1. In the `ManufacturingVM` opened up shell and verified that there was no connection to `TestVM1` on `CoreServicesVnet` by using the IP address i got from `TestVM1`:
+```PWSH
+Test-NetConnection 10.20.20.4 -port 3389
+```
+
+<img width="464" height="287" alt="image" src="https://github.com/user-attachments/assets/f443c26c-d1f3-4d00-8c16-796ddcabcee7" />
+
+Failed as i assumed since peering wasnt enabled yet.
+
+## Creating VNet peerings between CoreServicesVnet and ManufacturingVnet
+
+1. Went to `Virtual networks` in the portal, selected `CoreServicesVnet`, then `settings` > `Peerings`.
+2. Added new peering, named the peering link to `ManufacturingVnet-to-CoreServicesVnet` and selected `ManufacturingVnet`
+3. In remote VNet peering settings made sure that:
+
+* Allow `ManufacturingVnet` to access `CoreServicesVnet` was enabled
+* `ManufacturingVnet` to receive forwarded traffic from `CoreServicesVnet` was enabled
+* Did the same for `CoreServicesVnet`
+
+4. Verified that `CoreServicesVnet-to-ManufacturingVnet` peering said `connected`:
+
+<img width="1110" height="89" alt="image" src="https://github.com/user-attachments/assets/a98f191a-6530-4e1f-9c52-8360cbe8cb91" />
+
+Then verified the same for `ManufacturingVnet`:
+
+<img width="1029" height="79" alt="image" src="https://github.com/user-attachments/assets/dd63d899-e026-4e5a-ab90-d279a27a53ae" />
+
+5. Tested the connection again in `ManufacturingVM`:
+```PWSH
+ Test-NetConnection 10.20.20.4 -port 3389
+```
+
+<img width="550" height="218" alt="image" src="https://github.com/user-attachments/assets/5dcf0e20-6383-4d4f-b006-00fa84688776" />
+
+Now both VMs could communicate with each other through VNet peering.
+
+### Summary
+
+### What i learned
+
+### Key takeaways
