@@ -9,3 +9,10 @@
 * Azure automatically creates system routes and assigns the routes to each subnet in a virtual network. Each route contains an address prefix and next hop type.
 * You can create custom, or user-defined(static), routes. To troubleshoot routing issues, you can view the effective routes for each network interface.
 * NAT enables you to share a single public IPv4 address among multiple internal resources.
+
+# Main takeaways from "Configuring VNets" module
+
+* Azure virtual networks allow different Azure resources to securely communicate with each other, the internet, and on-premises networks.
+* Subnets within virtual networks provide logical divisions, improving security, performance, and management.
+* When creating virtual networks, ensure that the IP address space is unique and doesn't overlap with other subnets.
+* IP addresses can provide public or private access to resources.
