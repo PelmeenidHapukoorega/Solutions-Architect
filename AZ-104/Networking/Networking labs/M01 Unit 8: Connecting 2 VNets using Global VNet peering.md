@@ -90,6 +90,12 @@ Then verified the same for `ManufacturingVnet`:
 
 Now both VMs could communicate with each other through VNet peering.
 
+Performed cleanup by running resource group deletion in terminal:
+```PWSH
+Remove-AzResourceGroup `
+-Name 'DragonEggs' -Force -AsJob
+```
+
 ### Summary
 
 ### What i learned
