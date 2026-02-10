@@ -110,6 +110,23 @@ Performed cleanup.
 
 ## Summary
 
+For this unit i set up a private way for my Azure VMs to talk to each other using names instead of just messy IP addresses. I started by making a private DNS zone called DragonEggs.com and then linked it up to my `CoreServicesVnet`. 
+
+The main part was checking that `auto-registration` box so the VMs would talk to the DNS zone on their own. I used some JSON templates and Powershell to deploy two VMs quickly.
+
+After they were up I jumped into one of them with RDP to test it out. Ping didnt work at first because of the default Windows firewall but `nslookup` proved the DNS was working perfectly because it resolved the name to the right IP address.
+
 ## What i learned
 
-##
+* How to set up a Private DNS zone from scratch and link it to a VNet.
+* Auto-registration is awesome because it automatically creates the DNS records for you when you spin up new VMs.
+* Using `New-AzResourceGroupDeployment` with JSON templates is way faster for deploying stuff than clicking through the portal every time.
+* Just because a `ping` fails doesnt mean the DNS is broken its usually just the Windows firewall blocking ICMP, so nslookup is the real way to check if your DNS settings are actually solid.
+* Learned how to verify that the IP addresses in the `ipconfig` match exactly what showed up in the Azure DNS records.
+
+## Key Takeaways from MS learn
+
+* Azure DNS is a cloud service that allows you to host and manage domain name system (DNS) domains, also known as DNS zones.
+* Azure DNS public zones host domain name zone data for records that you intend to be resolved by any host on the internet.
+* Azure Private DNS zones allow you to configure a private DNS zone namespace for private Azure resources.
+* A DNS zone is a collection of DNS records. DNS records provide information about the domain.
