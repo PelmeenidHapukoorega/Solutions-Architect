@@ -2,7 +2,7 @@
 
 ### Goal:
 
-Configuring DNS name resolutioon, create private DNS zone then link VNets for registration and resolution and then create 2 VMs and test the configuration
+Configuring DNS name resolutioon, create private DNS zone then link VNets for registration and resolution and then create 2 VMs and test the configuration.
 
 **Job Skills**
 
