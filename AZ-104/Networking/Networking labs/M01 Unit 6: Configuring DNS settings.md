@@ -14,12 +14,12 @@ Configuring DNS name resolutioon, create private DNS zone then link VNets for re
 Diagram:
 ```ascii
 _______________________________________________________________________________
-| [ ContosoResourceGroup ]                                                    |
+| [ DragonEggs ]                                                              |
 |                                                                             |
 |                                       [ East US ]                           |
 |  +--------------------+        +-----------------------------------------+  |
 |  |  Private DNS Zone  |        | CoreServicesVnet (10.20.0.0/16)         |  |
-|  |   (contoso.com)    |        |                                         |  |
+|  |   (DragonEggs.com) |        |                                         |  |
 |  |                    |VNetLink|  +-----------------------------------+  |  |
 |  |       (DNS)        |<------>|  | DatabaseSubnet (10.20.20.0/24)    |  |  |
 |  +--------------------+        |  |                                   |  |  |
