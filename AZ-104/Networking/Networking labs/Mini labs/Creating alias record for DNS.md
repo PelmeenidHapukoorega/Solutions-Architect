@@ -41,5 +41,12 @@ Hit add
 
 ### Summary
 
+For this lab i used a bash script to automatically build a bunch of backend stuff like a Load Balancer, 2 VMs, and all the networking to go with it. Once the script finished, i went into my `Mmerch.com` DNS zone to set up an Alias record. Left the name blank so it would act as the "apex" or root of the domain. Instead of just pointing it to a static IP, linked it directly to the Load balancers public IP resource. To make sure it worked, i grabbed the IP and tossed it in a browser, and it successfully loaded up the test page from `VMtest1`.
+
 ### What i learned
 
+* Alias records are better than standard A records because they are "resource-aware" if the Azure resource changes, the DNS updates with it.
+* Leaving the record name blank is how you point the main domain (the apex) to a resource.
+* Running `.sh` scripts in the Azure CLI is a massive time-saver for setting up complex environments with Load balancers and multiple VMs.
+* Saw how a Load balancer actually sits in front of the VMs to handle the incoming traffic from the Public IP.
+* Learned that DNS isnt just about typing in numbers; linking to the actual Azure resource is the more professional way to handle cloud networking.
