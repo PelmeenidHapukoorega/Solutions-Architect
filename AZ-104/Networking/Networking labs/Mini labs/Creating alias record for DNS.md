@@ -29,4 +29,17 @@ This created:
 * Links the NICs to the load balancer.
 
 3. Once the set up was complete i copied the IP address  `20.100.195.91` to use later.
-4. Went to my  `NetworkWatcherRG` and selected 
+4. Went to my  `NetworkWatcherRG` and selected my `Mmerch.com` dns zone i created earlier, then added new record to it by taking defaults, enabling Alias record and leaving name blank:
+
+<img width="544" height="598" alt="image" src="https://github.com/user-attachments/assets/dc01bd65-534a-4a7a-990a-f57a20b2f4ea" />
+
+Hit add
+
+<img width="996" height="79" alt="image" src="https://github.com/user-attachments/assets/2ce4bb4f-351c-4ffc-892a-4e622b394588" />
+
+5. Verified that alias resolved to load balancer by going to the resource grouo, selecting `myPublicIP` then copying its IP address and pasting it to browser which returned me the basic webpage with VM name as `VMtest1`
+
+### Summary
+
+### What i learned
+
