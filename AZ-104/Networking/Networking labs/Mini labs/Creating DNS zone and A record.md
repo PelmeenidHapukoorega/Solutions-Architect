@@ -40,4 +40,11 @@ I now had successfully set up DNS zone and created an A record.
 
 ### Summary
 
+Basically for this mini lab i set up a public DNS zone in Azure for a site called `Mmerch.com`. Once the zone was made, i saw that Azure gave me 4 different name servers to use. Went ahead and added an "A record" for `www` and pointed it to `10.10.10.10`. Since i dont actually own the domain `Mmerch.com` in real life i couldnt just test it the normal way. I had to use `nslookup` in the terminal and tell it to talk specifically to one of the Azure name servers i noted earlier. It worked perfectly and returned the IP i set, which proves the DNS zone is configured right.
+
 ### What i learned
+
+* How to create a public DNS zone and add A records in the Azure portal.
+* Azure gives you 4 name servers (com, net, org, info) for redundancy so your DNS stays up.
+* The "A record" is what maps a name like `www` to a specific IP address.
+*  You dont need a real domain registrar to test your work. You can verify your DNS records are correct just by forcing nslookup to query the Azure name server directly.
