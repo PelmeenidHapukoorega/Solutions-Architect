@@ -29,7 +29,7 @@ If the statement were set to `true` it would block BGP routes from entering the 
 
 3. Next i created custom route with hop type and next hops IP address:
 ```bash
-az network route-table create \
+az network route-table route create \
 --route-table-name publictable \
 --resource-group "customroutestest \
 --name productionsubnet \
