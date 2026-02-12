@@ -15,7 +15,7 @@ Output:
 ```bash
 az network route-table create \
 --name publictable \
---resource-group "customroutestest" \
+--resource-group customroutestest \
 --disable-bgp-route-propagation false
 ```
 
@@ -50,7 +50,7 @@ I needed to create 3 subnets: publicsubnet, privatesubnet and dmzsubnet
 ```bash
 az network vnet create \
 --name vnet \
---resource-group "customroutestest" \
+--resource-group customroutestest \
 --address-prefixes 10.0.0.0/16 \
 --subnet-name publicsubnet \
 --subnet-prefixes 10.0.0.0/24
@@ -61,7 +61,7 @@ az network vnet create \
 az network vnet subnet create \
 --name privatesubnet \
 --vnet-name vnet \
---resource-group "customroutestest" \
+--resource-group customroutestest \
 --address-prefixes 10.0.1.0/24
 ```
 
@@ -77,7 +77,7 @@ az network vnet subnet create \
 4. Ran VNet subnet list to confirm that all 3 subnets now existed in the VNet:
 ```bash
 az network vnet subnet list \
---resource-group "customroutestest" \
+--resource-group customroutestest \
 --vnet-name vnet \
 --output table
 ```
