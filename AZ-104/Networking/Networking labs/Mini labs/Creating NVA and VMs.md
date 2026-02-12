@@ -137,4 +137,14 @@ Output:
 
 ## Summary
 
+For this mini lab i deployed an Ubuntu VM to act as a Network Virtual Appliance (NVA) inside my dmzsubnet. The goal was to turn this VM into a router that can "scrub" and pass along traffic instead of just being a standard server. To make this happen i had to configure two different layers of security. 
+
+First, i had to tell Azure to stop blocking traffic meant for other targets by enabling IP Forwarding on the VMs virtual NIC. Second i had to SSH into the actual Linux OS and flip the kernel setting (`net.ipv4.ip_forward=1`) so the operating system itself knew how to route packets. Without both of these steps, the NVA would just ignore any traffic that wasn't specifically addressed to it.
+
 ## What i learned
+
+* The "Double Gate" of IP Forwarding: Learned that enabling IP forwarding is a 2-step process, you have to do it at the Azure Infrastructure level (the NIC) AND at the OS level (the Linux Kernel). If you miss 1, the whole thing fails.
+* Security Defaults: By default Azure NICs block any traffic that doesn't match the VM's own IP address. This is a security feature, so you have to explicitly use the `--ip-forwarding true` command to bypass it for NVAs.
+* CLI Variable Magic: I saw how much easier it is to use variables like `$NICID` and `$NVAIP` to capture resource info. It saves a lot of time and prevents typos when you are running multiple commands in a row.
+* The Role of the DMZ: Putting the NVA in its own `dmzsubnet` keeps the "security gate" separate from the actual private data in the backend subnets.
+* Linux Networking: I learned the specific `sysctl` command used to turn a standard Ubuntu box into a functional network router.
