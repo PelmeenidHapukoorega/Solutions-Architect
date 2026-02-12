@@ -112,4 +112,17 @@ az group delete --name customroutestest
 
 ## Summary
 
+For this lab i wanted to move away from Azures default routing and manually control how traffic flows between my subnets. I started by spinning up a Route Table using the Azure CLI and made sure to keep BGP propagation on so it could handle dynamic routes if needed.
+
+The big move here was adding a custom route that forced any traffic headed for the private subnet (`10.0.1.0/24`) to go to a specific "Next Hop" IP address (`10.0.2.4`) which represents an NVA or firewall in my DMZ.
+
+After i built the VNet and the 3 different subnets (public, private, and DMZ), the final step was associating my Route Table with the publicsubnet. This basically told that specific subnet: "dont follow the default rules: use my custom table instead." This setup is exactly how you would force traffic through a security appliance before its allowed to reach sensitive data.
+
 ## What i learned
+
+* Default vs. Custom: Azure lets subnets talk to each other automatically but you have to use a Route Table if you want to break that and force traffic through a middleman like an NVA.
+* The Next Hop: Learned that setting the `NextHopType` to `VirtualAppliance` and giving it a private IP is the standard way to set up a firewall path.
+* BGP Propagation: Setting this to `false` would lock down the table to only my manual rules, but keeping it `true` lets the table learn routes from other gateways automatically.
+* Association is Key: Simply creating a Route Table doesnt do anything until you actually attach or associate it to a specific subnet.
+* CLI Efficiency: Its way faster to use `az network vnet subnet update` to link tables than clicking through several layers of the portal UI. Using CLI over pwsh feels much more efficient anyway because there is less importance on letter capitalization.
+* Traffic Scrubbing: This lab showed me the basics of "service chaining" > directing traffic through a DMZ before it gets to the private backend.
