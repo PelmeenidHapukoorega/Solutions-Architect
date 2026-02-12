@@ -31,7 +31,7 @@ If the statement were set to `true` it would block BGP routes from entering the 
 ```bash
 az network route-table route create \
 --route-table-name publictable \
---resource-group "customroutestest \
+--resource-group customroutestest \
 --name productionsubnet \
 --address-prefix 10.0.1.0/24 \
 --next-hop-type VirtualAppliance \
