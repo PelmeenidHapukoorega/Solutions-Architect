@@ -1,3 +1,140 @@
 # Mini lab: Creating NVA and VMs
 
 Here i had to deploy NVA to the `dmzsubnet` i created in earlier exercise. Then enable IP forwarding so traffic from `*` and traffic that uses custom route would then be sent to `privatesubnet` subnet.
+
+1. First i deployed NVA to previously created RG `customroutestest` and added admin PW
+```bash
+az vm create \
+--resource-group customroutestest \
+--name nva \
+--vnet-name vnet \
+--subnet dmzsubnet \
+--image Ubuntu2204 \
+--admin-username azureuser \
+--admin-password mypassword \
+--size Standard_B1ms
+```
+
+## Enabling IP forwarding for NIC
+
+Needed to enable IP forwarding for NIC.
+
+When traffic flows to the NVA but its meant for another target then NVA will route it to its correct destination.
+
+1. First i got the NVAs NIC ID
+```bash
+NICID=$(az vm nic list \
+--resource-group customroutestest \
+--vm-name nva \
+--query "[].{id:id}" \
+--output tsv)
+```
+
+Output:
+
+<img width="943" height="388" alt="image" src="https://github.com/user-attachments/assets/4130ef22-86e0-42bc-9c42-b9e7349b70c6" />
+
+2. Then i got the NVAs NIC name
+```bash
+NICNAME=$(az vm nic show \
+--resource-group customroutestest \
+--vm-name nva \
+--nic $NICID \
+--query "{name:name}" \
+--output tsv)
+```
+
+
+3. Enabled IP forwarding for the NIC
+```bash
+az network nic update \
+--name $NICNAME \
+--resource-group customroutestest \
+--ip-forwarding true
+```
+
+Output:
+```
+{
+  "auxiliaryMode": "None",
+  "auxiliarySku": "None",
+  "disableTcpStateTracking": false,
+  "dnsSettings": {
+    "appliedDnsServers": [],
+    "dnsServers": [],
+    "internalDomainNameSuffix": "g4slygxv4w0evorttkbyr5nkjc.oslx.internal.cloudapp.net"
+  },
+  "enableAcceleratedNetworking": false,
+  "enableIPForwarding": true,
+  "etag": "W/\"a92efbda-20da-427d-9fc3-79845ebbe0e7\"",
+  "hostedWorkloads": [],
+  "id": "/subscriptions/f37270cc-38a5-41a1-bd72-30ffc482d6c2/resourceGroups/customroutestest/providers/Microsoft.Network/networkInterfaces/nvaVMNic",
+  "ipConfigurations": [
+    {
+      "etag": "W/\"a92efbda-20da-427d-9fc3-79845ebbe0e7\"",
+      "id": "/subscriptions/f37270cc-38a5-41a1-bd72-30ffc482d6c2/resourceGroups/customroutestest/providers/Microsoft.Network/networkInterfaces/nvaVMNic/ipConfigurations/ipconfignva",
+      "name": "ipconfignva",
+      "primary": true,
+      "privateIPAddress": "10.0.2.4",
+      "privateIPAddressVersion": "IPv4",
+      "privateIPAllocationMethod": "Dynamic",
+      "provisioningState": "Succeeded",
+      "publicIPAddress": {
+        "id": "/subscriptions/f37270cc-38a5-41a1-bd72-30ffc482d6c2/resourceGroups/customroutestest/providers/Microsoft.Network/publicIPAddresses/nvaPublicIP",
+        "resourceGroup": "customroutestest"
+      },
+      "resourceGroup": "customroutestest",
+      "subnet": {
+        "id": "/subscriptions/f37270cc-38a5-41a1-bd72-30ffc482d6c2/resourceGroups/customroutestest/providers/Microsoft.Network/virtualNetworks/vnet/subnets/dmzsubnet",
+        "resourceGroup": "customroutestest"
+      },
+      "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
+    }
+  ],
+  "location": "norwayeast",
+  "macAddress": "7C-ED-8D-F5-B1-31",
+  "name": "nvaVMNic",
+  "networkSecurityGroup": {
+    "id": "/subscriptions/f37270cc-38a5-41a1-bd72-30ffc482d6c2/resourceGroups/customroutestest/providers/Microsoft.Network/networkSecurityGroups/nvaNSG",
+    "resourceGroup": "customroutestest"
+  },
+  "nicType": "Standard",
+  "primary": true,
+  "provisioningState": "Succeeded",
+  "resourceGroup": "customroutestest",
+  "resourceGuid": "a813f06b-a145-4716-9a74-549aa4853249",
+  "tags": {},
+  "tapConfigurations": [],
+  "type": "Microsoft.Network/networkInterfaces",
+  "virtualMachine": {
+    "id": "/subscriptions/f37270cc-38a5-41a1-bd72-30ffc482d6c2/resourceGroups/customroutestest/providers/Microsoft.Compute/virtualMachines/nva",
+    "resourceGroup": "customroutestest"
+  },
+  "vnetEncryptionSupported": false
+}
+```
+
+## Enabling IP forwarding for NVA
+
+1. Saved NVAs VM public IP address to `NVAIP` variable:
+```bash
+NVAIP="$(az vm list-ip-addresses \
+--resource-group customroutestest \
+--name nva \
+--query "[].virtualMachine.network.publicIpAddresses[*].ipAddress" \
+--output tsv)"
+```
+
+2. Then enabled IP forwarding within the NVA:
+```bash
+ssh -t -o StrictHostKeyChecking=no azureuser@$NVAIP 'sudo sysctl -w net.ipv4.ip_forward=1; exit;'
+```
+Entered my password
+
+Output:
+
+<img width="943" height="122" alt="image" src="https://github.com/user-attachments/assets/6203f156-4be9-4ed9-a251-4c44ece57c45" />
+
+## Summary
+
+## What i learned
