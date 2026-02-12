@@ -93,7 +93,7 @@ Associated the route table with public subnet to force outbound traffic through 
 az network vnet subnet update \
 --name publicsubnet \
 --vnet-name vnet \
---resource-group "customroutestest \
+--resource-group customroutestest \
 --route-table publictable
 ```
 
