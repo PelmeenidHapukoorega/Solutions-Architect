@@ -92,3 +92,44 @@ Technical summary so far:
 | Connection Troublesh.| End-to-End Test      | Diagnoses specific faults (DNS, CPU, NSG, UDR, etc).  |
 +----------------------+----------------------+-------------------------------------------------------+
 ```
+
+## 10. VPN trouble shoot
+
+**Purpose and Scope**
+
+* Target Resources: Specifically designed to diagnose health issues for Virtual Network Gateways and their active Connections (S2S VPN, P2S VPN, or ExpressRoute).
+* Availability: Can be triggered via the Azure Portal, PowerShell, Azure CLI, or REST API.
+
+**Operational logic**
+
+* Long-Running Transaction: Unlike simple ping tests, this is a deep diagnostic process that takes time to complete.
+* Preliminary Results: While the test is running, it provides an initial high-level view of the resource health before the final detailed report is generated.
+
+** Diagnostic outputs (results)
+
+When a test is completed, the tool returns specific data field to help identify root cause:
+
+* Status Code: Returns UnHealthy if even a single diagnosis failure is detected.
+* Fault Identification: Provides an ID (the fault type) and a Summary of the problem.
+* Deep Dive: Includes a Detailed Description of exactly what went wrong within the gateway or the tunnel.
+
+**Remediation guidance**
+
+* Recommended Actions: One of the most vital features; it doesn't just find the problem, it provides a collection of specific steps to fix it.
+* Actionable Documentation: Provides an Action URI (link to Microsoft documentation) and Action Text explaining exactly what you need to do to restore the connection.
+
+```
++----------------------+----------------------+-------------------------------------------------------+
+|       PROPERTY       |         FIELD        |                   VITAL INFORMATION                   |
++======================+======================+=======================================================+
+| Target               | Gateway/Connections  | Diagnoses VPN Gateways and their linked tunnels.      |
++----------------------+----------------------+-------------------------------------------------------+
+| Nature of Task       | Long-Running         | Deep transaction; provides preliminary health view.   |
++----------------------+----------------------+-------------------------------------------------------+
+| Health Indicator     | "code"               | Returns "UnHealthy" if any single fault is found.     |
++----------------------+----------------------+-------------------------------------------------------+
+| Troubleshooting Info | Results & Summary    | Lists specific Fault IDs and detailed descriptions.   |
++----------------------+----------------------+-------------------------------------------------------+
+| Remediation          | Recommended Actions  | Provides "how-to" text and links to fix-it docs.      |
++----------------------+----------------------+-------------------------------------------------------+
+```
