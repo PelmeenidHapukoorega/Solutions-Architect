@@ -485,5 +485,22 @@ With the UDRs in combination with firewall rules created a fully inspected hub a
 
 ## Deploying VPN gateway + S2S connection.
 
-Now i wanted to connect the Mock on prem VNet to the Hub to complete hybrid set up.
+Now i wanted to connect the Mock on prem VNet to the Hub VNet to complete hybrid set up.
 
+So i needed to create vpn gateway both in the Hub and in the On prem mockup. Establish local network gateway on each side, create connection between them and create a PSK.
+
+1. Created gateway public IP
+```bash
+az network public-ip create \
+--resource-group MedCenter \
+--name Hub-GW-PIP \
+--allocation-method Dynamic
+```
+
+2. Created mock gateway public IP
+```bash
+az network public-ip create \
+--resource-group MedCenter \
+--name OnPrem-GW-PIP \
+--allocation-method Dynamic
+```
