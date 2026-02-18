@@ -177,6 +177,64 @@ As well as subnets:
 * Research-VNet
 <img width="625" height="79" alt="image" src="https://github.com/user-attachments/assets/1532a4a5-d020-4377-a481-f3874467a2bd" />
 
+## VNet Peering
+
+Had to enable peerings to allow traffic flow between the spokes and the hub.
+
+1. Peering hub to pharmacy
+
+**Hub to Pharmacy** Allowing the hub to share its gateway
+```bash
+az network vnet peering create \
+--name Hub-To-Pharmacy \
+--resource-group MedCenter \
+--vnet-name Hub-VNet \
+--remote-vnet Pharmacy-VNet \
+--allow-vnet-access \
+--allow-forwarded-traffic \
+--allow-gateway-transit
+```
+
+**Pharmacy to Hub** Telling spoke to use hubs gateway
+```bash
+az network vnet peering create \
+--name Pharmacy-To-Hub \
+--resource-group MedCenter \
+--vnet-name Pharmacy-VNet \
+--remote-vnet Hub-VNet \
+--allow-vnet-access \
+--allow-forwarded-traffic \
+--use-remote-gateways
+```
+
+2. Peering hub to research
+
+**Hub to research**
+```bash
+az network vnet peering create \
+--name Hub-To-Research \
+--resource-group MedCenter \
+--vnet-name Hub-VNet \
+--remote-vnet Research-VNet \
+--allow-vnet-access \
+--allow-forwarded-traffic \
+--allow-gateway-transit
+```
+
+**Research to hub**
+```bash
+az network vnet peering create \
+--name Research-To-Hub \
+--resource-group MedCenter \
+--vnet-name Research-VNet \
+--remote-vnet Hub-VNet \
+--allow-vnet-access \
+--allow-forwarded-traffic \
+--use-remote-gateways
+```
+
+Now that peering existed my later UDRs would actually have a path to follow.
+
 ## Deploying firewall in the Hub
 
 1. Created Public IP for the firewall
