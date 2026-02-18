@@ -1,3 +1,13 @@
+# Personal projects of mine
+
+Take this folder as my portfolio of projects ive done in my spare time or inbetween studying Azure. Over time these projects will be more structured, easier to read as well as to understand.
+
+**For recruiters:**
+
+Below I have listed all my projects with you guys in mind to quickly understand my skills and my approach to work overall without the need to deep dive into details to see if im good enough candidate or not.
+
+Once more projects will eventually make their way to this portfolio, i will then create a menu for ease of filtering.
+
 # Project 01: Secure Hub-and-Spoke Hybrid Network
 
 Goal: Architect and deploy a compliant Azure environment for a medical company, centralizing security and establishing secure hybrid connectivity.
