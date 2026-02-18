@@ -105,7 +105,7 @@ Output:
 
 <img width="947" height="741" alt="image" src="https://github.com/user-attachments/assets/a2c5a86c-f4e1-4636-a59d-8485664675c4" />
 
-2. Created `Pharmacy`, `Research` and `On-prem Mock` with their subnets:
+2. Created `Pharmacy`, `Research` and `On-prem Mock` VNets with their subnets:
 
 * Pharmacy VNet:
 ```bash
@@ -141,11 +141,11 @@ az network vnet subnet create \
 --address-prefixes 10.2.0.0/24
 ```
 
-* On prem Mock VNet, but created it in a different region to simulate on prem:
+* On prem Mock VNet, but created it in a different region and RG to simulate on prem:
 ```
 az network vnet create \
 --name OnPrem-Mock-VNet \
---resource-group MedCenter \
+--resource-group MedCenter-OnPrem \
 --location westeurope \
 --address-prefixes 10.10.0.0/16
 ```
@@ -154,22 +154,22 @@ Added subnet:
 ```bash
 az network vnet subnet create \
 --name OnPrem-Subnet \
---resource-group MedCenter \
+--resource-group MedCenter-OnPrem \
 --vnet-name OnPrem-Mock-VNet \
 --address-prefixes 10.10.0.0/24
 ```
 
 Confirmed in the portal the existance of the VNets:
 
-<img width="656" height="191" alt="image" src="https://github.com/user-attachments/assets/d502a596-515b-436f-8fd7-db3adfb8d963" />
+<img width="684" height="161" alt="image" src="https://github.com/user-attachments/assets/f606ed5a-81ba-458a-88c6-b655819a1fdb" />
 
 As well as subnets:
 
 * Hub-VNet
-<img width="644" height="192" alt="image" src="https://github.com/user-attachments/assets/b88a5a78-02b1-4913-9923-7832400f7845" />
+<img width="668" height="160" alt="image" src="https://github.com/user-attachments/assets/22fe0e11-a220-4173-ada0-e234c73d67f0" />
 
 * OnPrem-Mock-VNet
-<img width="630" height="78" alt="image" src="https://github.com/user-attachments/assets/fedc279d-dc56-4328-9a6e-ffa6cb1676ce" />
+<img width="701" height="43" alt="image" src="https://github.com/user-attachments/assets/489d5c34-0aef-4616-9025-d66d6a814009" />
 
 * Pharmacy-VNet
 <img width="642" height="71" alt="image" src="https://github.com/user-attachments/assets/5cb6161d-50db-49ed-828a-b704479cb596" />
@@ -250,7 +250,7 @@ az network firewall show \
 --query "provisioningState"
 ```
 
-Note the private IP of the firewall for myself.
+Noted the private IP of the firewall for myself.
 
 ## Creating UDRs
 
@@ -479,7 +479,7 @@ az network firewall policy rule-collection-group collection rule add \
 
 Used 10.0.0.0/8 to apply rule to all addresses in that range instead of doing manual labor.
 
-My firewall now allowed Pharmacy <> Research communication, DNS, outbound internet. Would log all traffic and enforce compliance.
+My firewall now allowed `Pharmacy` <> `Research` communication, DNS, outbound internet. Would log all traffic and enforce compliance.
 
 With the UDRs in combination with firewall rules created a fully inspected hub and spoke network.
 
@@ -498,25 +498,43 @@ az network public-ip create \
 ```
 <img width="940" height="630" alt="image" src="https://github.com/user-attachments/assets/fb9d7e94-d0de-4918-aeab-c133b0dc406b" />
 
-2. Created mock gateway public IP
+2. Created mock gateway public IP in OnPrems RG
 ```bash
 az network public-ip create \
---resource-group MedCenter \
+--resource-group MedCenter-OnPrem \
 --name OnPrem-GW-PIP \
---location westeurope \
 --allocation-method Static
 ```
-<img width="946" height="629" alt="image" src="https://github.com/user-attachments/assets/7f9e4c0a-9dfc-4726-97dd-996186455b20" />
+<img width="944" height="599" alt="image" src="https://github.com/user-attachments/assets/b2818d5e-8ad3-411d-bb92-227817c5abb7" />
 
-3. Created GateWaySubnet for on prem mock VNet
+3. Deleted main subnet `10.0.0.0/16` from the On prem mock
+```bash
+az network vnet subnet delete \
+--resource-group MedCenter-OnPrem \
+--vnet-name OnPrem-Mock-VNet \
+--name OnPrem-Subnet
+```
+Needed to delete it because GW couldnt be created since the address space used up all the space (pun not intended)
+
+Recreated it in smaller CIDR
 ```bash
 az network vnet subnet create \
---resource-group MedCenter \
+--resource-group MedCenter-OnPrem \
+--vnet-name OnPrem-Mock-VNet \
+--name OnPrem-Subnet \
+--address-prefixes 10.10.0.0/24
+```
+<img width="942" height="343" alt="image" src="https://github.com/user-attachments/assets/8cd0094f-f063-4eb7-ab57-2305e47469ac" />
+
+Then created GateWaySubnet for on prem mock VNet
+```bash
+az network vnet subnet create \
+--resource-group MedCenter-OnPrem \
 --vnet-name OnPrem-Mock-VNet \
 --name GatewaySubnet \
 --address-prefixes 10.10.255.0/27
 ```
-<img width="946" height="367" alt="image" src="https://github.com/user-attachments/assets/048733fc-b6f8-4a1e-a9f2-16df6c9e9710" />
+<img width="945" height="348" alt="image" src="https://github.com/user-attachments/assets/1d6cb264-9a48-4e3b-8fcf-c75e7351e0fd" />
 
 **Note to self**
 
@@ -540,8 +558,7 @@ az network vnet-gateway create \
 OnPrem-Mock VPN gateway
 ```bash
 az network vnet-gateway create \
---resource-group MedCenter \
---location westeurope \
+--resource-group MedCenter-OnPrem \
 --name OnPrem-VPN-Gateway \
 --vnet OnPrem-Mock-VNet \
 --public-ip-address OnPrem-GW-PIP \
@@ -564,18 +581,18 @@ az network vnet-gateway show \
 --name Hub-VPN-Gateway \
 --output table
 ```
-<img width="944" height="322" alt="image" src="https://github.com/user-attachments/assets/11ff669b-2122-401a-98a6-0ca9a5066321" />
+<img width="1903" height="200" alt="image" src="https://github.com/user-attachments/assets/47ee03e4-59fd-42ff-91c8-5c53e140c68a" />
 
-Gateway was provisioned with necessary configurations and was in norway east region.
+Gateway was provisioned in norway east
 
-On-Prem Mock
+OnPrem VPN gateway
 ```bash
 az network vnet-gateway show \
---resource-group MedCenter \
+--resource-group MedCenter-OnPrem \
 --name OnPrem-VPN-Gateway \
 --output table
 ```
-<img width="364" height="85" alt="image" src="https://github.com/user-attachments/assets/d6adf425-4a6d-4ef8-866e-42f7de1982ae" />
+<img width="1906" height="199" alt="image" src="https://github.com/user-attachments/assets/e12a1afb-69c5-414c-b430-1ead5e55e7fd" />
 
 On prem was updating but the configurations were correct and location. VPN gateways usually take around 20 mins to fully provision.
 
@@ -588,11 +605,11 @@ On the Hub side (representing OnPrem)
 az network local-gateway create \
   --resource-group MedCenter \
   --name OnPrem-LNG \
-  --gateway-ip-address 52.233.248.161 \
+  --gateway-ip-address 20.126.101.41 \
   --local-address-prefixes 10.10.0.0/16 \
   --location norwayeast
 ```
-<img width="941" height="456" alt="image" src="https://github.com/user-attachments/assets/039c3323-6c93-4774-961c-152f58bb9f2c" />
+<img width="943" height="434" alt="image" src="https://github.com/user-attachments/assets/9f011db3-e27c-4f24-a9c9-57831ec7c09e" />
 
 **Note to self**
 
@@ -601,13 +618,13 @@ LNGs region is very important because it determines where the LNG resource itsel
 On the OnPrem side (representing Hub)
 ```bash
 az network local-gateway create \
-  --resource-group MedCenter \
+  --resource-group MedCenter-OnPrem \
   --name Hub-LNG \
   --gateway-ip-address 20.100.174.241 \
   --local-address-prefixes 10.0.0.0/16 \
   --location westeurope
 ```
-<img width="945" height="383" alt="image" src="https://github.com/user-attachments/assets/37bf673d-fc3c-4dd1-b186-b31a7f44aac1" />
+<img width="944" height="432" alt="image" src="https://github.com/user-attachments/assets/c1186ba3-466a-4c56-8ea1-0937651007b9" />
 
 **Note to self**
 
@@ -623,11 +640,21 @@ Checked my public IP list and local gateway lists to make sure everything was pe
 
 **Public IP list**
 
-<img width="922" height="159" alt="image" src="https://github.com/user-attachments/assets/75632508-5985-4191-88a4-1d8bc6fd6fa5" />
+**MedCenter**
 
-**LNG list**
+<img width="885" height="148" alt="image" src="https://github.com/user-attachments/assets/f30d93c4-6131-427a-922f-80106e2927f9" />
 
-<img width="912" height="156" alt="image" src="https://github.com/user-attachments/assets/ed547c29-1ca1-40f4-89c4-60daf2184f66" />
+**LNG list MedCenter**
+
+<img width="803" height="132" alt="image" src="https://github.com/user-attachments/assets/5ed728be-2002-4e25-8590-36225693c4a9" />
+
+**MedCenter-OnPrem**
+
+<img width="839" height="127" alt="image" src="https://github.com/user-attachments/assets/8a6bc99d-e992-4bbd-bf5b-609a28f0a5f2" />
+
+**LNG list of MedCenter-OnPrem**
+
+<img width="791" height="127" alt="image" src="https://github.com/user-attachments/assets/d154b544-7280-4eee-9849-ec7099b9d9f7" />
 
 Hub > OnPrem
 ```bash
@@ -638,18 +665,394 @@ az network vpn-connection create \
 --local-gateway2 OnPrem-LNG \
 --shared-key "MyPWwhichIwillNotDiscloseHere"
 ```
-<img width="945" height="667" alt="image" src="https://github.com/user-attachments/assets/34e1c322-d4d7-4223-b28c-96a6e11e8290" />
+<img width="945" height="636" alt="image" src="https://github.com/user-attachments/assets/5ca717af-8ea5-413a-9dfe-2eace62c931c" />
 
 OnPrem > Hub
 ```bash
 az network vpn-connection create \
---resource-group MedCenter \
+--resource-group MedCenter-OnPrem \
 --name OnPrem-To-Hub \
 --vnet-gateway1 OnPrem-VPN-Gateway \
 --local-gateway2 Hub-LNG \
 --shared-key "Kadgu7hbdzkyn1ax"
 ```
+<img width="943" height="633" alt="image" src="https://github.com/user-attachments/assets/815d419a-c124-4e1b-b486-b5ea1d49d315" />
 
+Verified that both were now connected
+
+**Hub-To-OnPrem**
+
+<img width="667" height="124" alt="image" src="https://github.com/user-attachments/assets/7e3bbd85-f0ca-448c-9e1a-61dbb118bf70" />
+
+**OnPrem-To-Hub**
+
+<img width="615" height="52" alt="image" src="https://github.com/user-attachments/assets/c9fe1504-06e4-479f-bbfb-14887b4efde5" />
+
+Created VMs for both Hub and OnPrem to test that tunnel worked 100%
+
+**Hub VM**
+```bash
+az vm create \
+--resource-group MedCenter \
+--name HubTestVM \
+--image Ubuntu2204 \
+--vnet-name Hub-VNet \
+--subnet Hub-Subnet \
+--size Standard_B1s \
+--admin-username azureuser \
+--generate-ssh-keys \
+--public-ip-address ""
+```
+
+**OnPrem VM**
+```bash
+az vm create \
+--resource-group MedCenter-OnPrem \
+--name OnPremTestVM \
+--image Ubuntu2204 \
+--vnet-name OnPrem-Mock-VNet \
+--subnet OnPrem-Subnet \
+--size Standard_B1s \
+--admin-username azureuser \
+--generate-ssh-keys \
+--public-ip-address ""
+```
+
+Next i got the private IPs for both VMs
+
+**Hub VM private IP**
+```bash
+az vm list-ip-addresses \
+--resource-group MedCenter \
+--name HubTestVM \
+--query "[].virtualMachine.network.privateIpAddresses[]" \
+--output tsv
+```
+<img width="476" height="114" alt="image" src="https://github.com/user-attachments/assets/ca99138e-fbd9-4254-a085-616c11e1c8dc" />
+
+**OnPrem VM private IP**
+```bash
+az vm list-ip-addresses \
+--resource-group MedCenter-OnPrem \
+--name OnPremTestVM \
+--query "[].virtualMachine.network.privateIpAddresses[]" \
+--output tsv
+```
+<img width="476" height="108" alt="image" src="https://github.com/user-attachments/assets/5ed3173d-e405-46c2-abf6-d8ab2db4a015" />
+
+Went to portal in the Hubs VM and under `operations` > `run command`, then picked `runshellscript`.
+
+ran the following to test connection
+```bash
+ping -c 4 10.10.0.4
+```
+<img width="949" height="726" alt="image" src="https://github.com/user-attachments/assets/f7300625-af4c-4496-b7a7-550fa2bf3e7d" />
+
+Checked routes
+```bash
+ip route
+```
+<img width="757" height="613" alt="image" src="https://github.com/user-attachments/assets/3fc6ad2c-1be7-4685-bcc1-33e675ddb05f" />
+
+Did the same for OnPrem
+```bash
+ping -c 4 10.0.0.4
+```
+<img width="955" height="704" alt="image" src="https://github.com/user-attachments/assets/7734cedc-89a8-49dd-bbfa-d3f9a5656308" />
+
+Checked routes
+```bash
+ip route
+```
+<img width="756" height="514" alt="image" src="https://github.com/user-attachments/assets/80d44b8b-b1d1-4fdc-a7aa-b8cd821b713c" />
+
+I wanted to use bastion here but my internet couldnt let me and connection timed out, luckily being able to run commands in portal without having to go inside the VM itself is pretty awesome ngl because it saves time.
+
+Now i knew that tunnel was working as intended, connection was established, gateways were working and i could move on to deploing appliocation gateway with WAF.
+
+## Deploying application gateway + WAF
+
+1. Created public IP for the app gateway
+```
+az network public-ip create\
+--resource-group MedCenter \
+--name AppGW-PIP \
+--sku Standard \
+--allocation-method Static
+```
+
+2. Created WAF policy
+```bash
+az network application-gateway waf-policy create \
+--name Pharmacy-WAF-Policy \
+--resource-group MedCenter \
+--location norwayeast
+```
+<img width="943" height="653" alt="image" src="https://github.com/user-attachments/assets/0d604e5f-b452-43c9-b72c-888cbc9b8673" />
+
+3. Created the app gateway with waf enabled and attached the policy
+```bash
+az network application-gateway create \
+--name Pharmacy-AppGW \
+--location norwayeast \
+--resource-group MedCenter \
+--vnet-name Hub-VNet \
+--subnet AppGatewaySubnet \
+--capacity 1 \
+--sku WAF_v2 \
+--public-ip-address AppGW-PIP \
+--priority 100 \
+--waf-policy Pharmacy-WAF-Policy
+```
+
+**Note to self**
+
+Terminal will disconnect when deploying gateway with WAF.
+
+4. Created Pharmacy-VM that i would later add to the backend pool
+```bash
+az vm create \
+--resource-group MedCenter \
+--name Pharmacy-VM \
+--image Ubuntu2204 \
+--vnet-name Hub-VNet \
+--subnet Hub-Subnet \
+--size Standard_B1s \
+--admin-username azureuser \
+--generate-ssh-keys \
+--public-ip-address ""
+```
+
+5. Installed web server on the Pharmacy VM by running commands in the operations
+```bash
+sudo apt update
+```
+```bash
+sudo apt install nginx -y
+```
+```bash
+sudo systemctl enable nginx
+```
+<img width="740" height="463" alt="image" src="https://github.com/user-attachments/assets/1aedb4d9-a88b-40a6-bf0c-f1e1ed1e7555" />
+
+```bash
+sudo systemctl start nginx
+```
+<img width="740" height="429" alt="image" src="https://github.com/user-attachments/assets/f2d740c2-9008-4bea-a327-92a055e041b0" />
+
+6. Added Pharmacy‑VM to the backend pool, i had saved private IP prior
+```bash
+az network application-gateway address-pool update \
+--gateway-name Pharmacy-AppGW \
+--resource-group MedCenter \
+--name appGatewayBackendPool \
+--servers 10.0.0.5
+```
+<img width="946" height="366" alt="image" src="https://github.com/user-attachments/assets/213b9e01-4878-4fe5-abc0-887a487fc769" />
+
+7. Updated HTTP settings to ensure it would match the backend
+```bash
+az network application-gateway http-settings update \
+--gateway-name Pharmacy-AppGW \
+--resource-group MedCenter \
+--name appGatewayBackendHttpSettings \
+--port 80 \
+--protocol Http \
+--timeout 30
+```
+<img width="944" height="530" alt="image" src="https://github.com/user-attachments/assets/7ac0d772-1136-47f2-bfcf-86c836ce49e1" />
+
+8. Checked the health of backend by going in the portal `Pharmacy-AppGW` > `Backend health` under `Monitoring`:
+
+<img width="1364" height="424" alt="image" src="https://github.com/user-attachments/assets/2096d558-8447-4ab2-a0b9-9f489e03a3ba" />
+
+9. Next i tested the App gateway
+```bash
+az network public-ip show \
+--resource-group MedCenter \
+--name AppGW-PIP \
+--query "ipAddress" \
+--output tsv
+```
+
+Copied the IP to another browser aaand:
+
+<img width="786" height="348" alt="image" src="https://github.com/user-attachments/assets/1e6d4c7f-1994-4edd-a720-0b1ea46220d6" />
+
+
+In short i created public IP for the app gateway, enabled web app firewall in the Hub. Pharmacy VM was added as backend with listener and routing rule and it could only be reached through the app gateway meaning that compliance was met.
+
+## Application security groups and NSG rules
+
+ASGs would let me group the VMs by function and in return the NSGs could target ASGs instead of individual IPs which is much more cleaner and scalable way of doing things.
+
+1. Created ASG for the pharmacy web
+```bash
+az network asg create \
+--resource-group MedCenter \
+--name asg-pharmacy-web \
+--location norwayeast
+```
+<img width="944" height="206" alt="image" src="https://github.com/user-attachments/assets/2c5800ad-bc12-47d9-9580-7e007e1ab102" />
+
+2. Added pharmacys VM NIC to the ASG
+
+First i got the nic
+```bash
+az vm show \
+--resource-group MedCenter \
+--name Pharmacy-VM \
+--query "networkProfile.networkInterfaces[0].id" \
+--output tsv
+```
+
+Then got the ASG resource ID which i copied
+```bash
+az network asg show \
+--resource-group MedCenter \
+--name asg-pharmacy-web \
+--query "id" \
+--output tsv
+```
+
+Added the pharmacy VM NIC to ASG
+```bash
+az network nic ip-config update \
+--nic-name Pharmacy-VMVMNic \
+--resource-group MedCenter \
+--name ipconfigPharmacy-VM \
+--application-security-groups "/subscriptions/f37270cc-38a5-41a1-bd72-30ffc482d6c2/resourceGroups/MedCenter/providers/Microsoft.Network/applicationSecurityGroups/asg-pharmacy-web"
+```
+<img width="946" height="582" alt="image" src="https://github.com/user-attachments/assets/36c127cb-79c7-49b4-adaa-29dfd7846b90" />
+
+It turns out that i had to use this command because azure stores ASG membership inside the NICs IP configuration, and my CLI only supports updating ASGs at that level and not on the NIC root object.
+
+3. Identified NSG on the pharmacy subnet
+
+I had to apply NSG rules at the subnet level so the Application Gateway could reach the VM.
+Azure evaluates NSG rules on both the NIC and the subnet, and the subnet NSG is the one that controls inbound traffic from the App Gateway.
+
+Got the NSG id
+```bash
+az network vnet subnet show \
+--resource-group MedCenter \
+--vnet-name Hub-VNet \
+--name Hub-Subnet \
+--query "networkSecurityGroup.id" \
+--output tsv
+```
+
+However it returned nothing, which meant that no NSG was associated with that subnet, so i needed to create NSG for it.
+
+```bash
+az network nsg create \
+--resource-group MedCenter \
+--name Hub-Subnet-NSG \
+--location norwayeast
+```
+
+Then associated the NSG with the subnet
+```bash
+az network vnet subnet update \
+--resource-group MedCenter \
+--vnet-name Hub-VNet \
+--name Hub-Subnet \
+--network-security-group Hub-Subnet-NSG
+```
+<img width="946" height="651" alt="image" src="https://github.com/user-attachments/assets/31c16bfc-490f-4809-a1cd-55665aff29b7" />
+
+4. Added Allow HTTP 80 and HTTPS 443 NSG rules that would target the ASG
+
+**Allow HTTP 80**
+```bash
+az network nsg rule create \
+--resource-group MedCenter \
+--nsg-name Hub-Subnet-NSG \
+--name Allow-AppGW-HTTP \
+--priority 200 \
+--direction Inbound \
+--access Allow \
+--protocol Tcp \
+--source-address-prefixes 10.0.4.0/24 \
+--destination-asgs asg-pharmacy-web \
+--destination-port-ranges 80
+```
+<img width="946" height="709" alt="image" src="https://github.com/user-attachments/assets/3a80504e-9b7a-4780-a62c-5a9e130de21c" />
+
+**Allow HTTPS 443**
+```bash
+az network nsg rule create \
+--resource-group MedCenter \
+--nsg-name Hub-Subnet-NSG \
+--name Allow-AppGW-HTTPS \
+--priority 210 \
+--direction Inbound \
+--access Allow \
+--protocol Tcp \
+--source-address-prefixes 10.0.4.0/24 \
+--destination-asgs asg-pharmacy-web \
+--destination-port-ranges 443
+```
+<img width="945" height="714" alt="image" src="https://github.com/user-attachments/assets/669a7041-b352-48d1-b22a-aaa0b518836a" />
+
+Basically, i used ASGs to manager traffic rules for the web servers in the Pharmacy spoke. 
+
+## Deploying AZ Bastion for secure management of VMs
+
+By deploying Bastion i could RDP/SSH into any VM without public IPs.
+
+**Note to self**
+
+Bastions live in the hub because the hubs are shared management planes.
+
+1. Created public IP for Bastion
+```bash
+az network public-ip create \
+--resource-group MedCenter \
+--name Bastion-PIP \
+--sku Standard \
+--allocation-method Static
+```
+<img width="941" height="625" alt="image" src="https://github.com/user-attachments/assets/f3f7e3ed-161f-4be8-bc57-87e8c9ad1b7d" />
+
+2. Deployed bastion in the Hub
+```bash
+az network bastion create \
+--name Hub-Bastion \
+--resource-group MedCenter \
+--location norwayeast \
+--vnet-name Hub-VNet \
+--subnet AzureBastionSubnet \
+--public-ip-address Bastion-PIP \
+--sku Basic
+```
+
+But it returned with:
+
+<img width="592" height="183" alt="image" src="https://github.com/user-attachments/assets/aad6918f-75d5-4904-95e0-b2325f7485bd" />
+
+So i got confused because i didnt remember deploying bastion before hand. I verified i indeed had bastion
+```bash
+az network bastion list \
+--resource-group MedCenter \
+--output table
+```
+<img width="913" height="126" alt="image" src="https://github.com/user-attachments/assets/c58d6c70-9103-4984-866c-f76b5c646cbf" />
+
+So i tried to trace back and think on how this might have happened, and i remembered that earlier i when i wanted to `ip route` inside the test VMs i clicked on `Deploy bastion` in the portal and it turns out that when you do that then bastion is deployed automatically with its subnet. 
+
+Pretty neat huh?
+
+Anyway the project itself was done, all i now needed to do was validation tests.
+
+## Validation tests
+
+### Testing interspoke traffic (Pharmacy > Research)
+
+Unfortunately i couldnt run any validations tests through bastion since my internet is just too flaky for it and bastion returns connection timeout even at the slightest packet loss. But i used a workaround for it.
+
+
+Instead of making new bastion i just used the existing one instead. No need for deploying bastion via CLI if you can just do it pretty fast through portal.
 ### Troubleshooting
 
 I kept running into error:
@@ -661,4 +1064,6 @@ I double checked every configuration, from public IPs, LNGs, regions to gateway 
 Cleaning the deployments didnt help, so the only reliable fix was to delete the entire On Prem side and rebuild it in a separate resource group. Splitting Hub and On Prem into different RGs avoids ARMs cached dependency issues and makes the VPN connections deploy cleanly.
 
 I troubleshooted this for hours and felt like i was going crazy and the takeaway here is, if you simulate on prem... please do it in a seperate resource group because otherwise youll have to rebuild everything. Luckily i know im getting a clean resource group to rebuild on prem mock with no hassle.
+
+Instead of walking through setting up the On prem side in a different RG i just made changes to the steps before.
 
