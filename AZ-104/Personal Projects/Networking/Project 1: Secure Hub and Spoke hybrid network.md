@@ -494,13 +494,171 @@ So i needed to create vpn gateway both in the Hub and in the On prem mockup. Est
 az network public-ip create \
 --resource-group MedCenter \
 --name Hub-GW-PIP \
---allocation-method Dynamic
+--allocation-method Static
 ```
+<img width="940" height="630" alt="image" src="https://github.com/user-attachments/assets/fb9d7e94-d0de-4918-aeab-c133b0dc406b" />
 
 2. Created mock gateway public IP
 ```bash
 az network public-ip create \
 --resource-group MedCenter \
 --name OnPrem-GW-PIP \
---allocation-method Dynamic
+--location westeurope \
+--allocation-method Static
 ```
+<img width="946" height="629" alt="image" src="https://github.com/user-attachments/assets/7f9e4c0a-9dfc-4726-97dd-996186455b20" />
+
+3. Created GateWaySubnet for on prem mock VNet
+```bash
+az network vnet subnet create \
+--resource-group MedCenter \
+--vnet-name OnPrem-Mock-VNet \
+--name GatewaySubnet \
+--address-prefixes 10.10.255.0/27
+```
+<img width="946" height="367" alt="image" src="https://github.com/user-attachments/assets/048733fc-b6f8-4a1e-a9f2-16df6c9e9710" />
+
+**Note to self**
+
+All VPN gateways require their dedicated subnets.
+
+4. Created VPN gateways
+
+Hub VPN gateway
+```bash
+az network vnet-gateway create \
+--resource-group MedCenter \
+--name Hub-VPN-Gateway \
+--vnet Hub-VNet \
+--public-ip-address Hub-GW-PIP \
+--gateway-type Vpn \
+--vpn-type RouteBased \
+--sku VpnGw1 \
+--no-wait
+```
+
+OnPrem-Mock VPN gateway
+```bash
+az network vnet-gateway create \
+--resource-group MedCenter \
+--location westeurope \
+--name OnPrem-VPN-Gateway \
+--vnet OnPrem-Mock-VNet \
+--public-ip-address OnPrem-GW-PIP \
+--gateway-type Vpn \
+--vpn-type RouteBased \
+--sku VpnGw1 \
+--no-wait
+```
+
+**Note to self** 
+
+For public IP address and VPN gateway creations, both need to exist in the same region to work. You cant create VPN gateway in 1 region if the public IP resides in a different region.
+
+Verified that both VPN gateways now existed with all the configurations
+
+Hub VPN gateway
+```bash
+az network vnet-gateway show \
+--resource-group MedCenter \
+--name Hub-VPN-Gateway \
+--output table
+```
+<img width="944" height="322" alt="image" src="https://github.com/user-attachments/assets/11ff669b-2122-401a-98a6-0ca9a5066321" />
+
+Gateway was provisioned with necessary configurations and was in norway east region.
+
+On-Prem Mock
+```bash
+az network vnet-gateway show \
+--resource-group MedCenter \
+--name OnPrem-VPN-Gateway \
+--output table
+```
+<img width="364" height="85" alt="image" src="https://github.com/user-attachments/assets/d6adf425-4a6d-4ef8-866e-42f7de1982ae" />
+
+On prem was updating but the configurations were correct and location. VPN gateways usually take around 20 mins to fully provision.
+
+## Created local network gateways
+
+These would represent the other side of the tunnel so to speak and would tell both gateways respectively where to send encrypted traffic. For this to work you need to know VPN gateways public IPs for both which i had copied earlier when i created public IPs, into my notepad so i wouldnt have to go through the hassle of running commands seperately to find it out.
+
+On the Hub side (representing OnPrem)
+```bash
+az network local-gateway create \
+  --resource-group MedCenter \
+  --name OnPrem-LNG \
+  --gateway-ip-address 52.233.248.161 \
+  --local-address-prefixes 10.10.0.0/16 \
+  --location norwayeast
+```
+<img width="941" height="456" alt="image" src="https://github.com/user-attachments/assets/039c3323-6c93-4774-961c-152f58bb9f2c" />
+
+**Note to self**
+
+LNGs region is very important because it determines where the LNG resource itself lives. Local Network Gateway must be created in the same region as the Virtual Network Gateway that will use it. It doesnt matter where the remote network lives or what address prefixes it has, those are just configuration details.
+
+On the OnPrem side (representing Hub)
+```bash
+az network local-gateway create \
+  --resource-group MedCenter \
+  --name Hub-LNG \
+  --gateway-ip-address 20.100.174.241 \
+  --local-address-prefixes 10.0.0.0/16 \
+  --location westeurope
+```
+<img width="945" height="383" alt="image" src="https://github.com/user-attachments/assets/37bf673d-fc3c-4dd1-b186-b31a7f44aac1" />
+
+**Note to self**
+
+Each local network gateway describes the other side of the tunnel, basically mirroring it.
+
+## Created VPN connections
+
+**Note to self**
+
+Both sides of the tunnel need to use same shared key
+
+Checked my public IP list and local gateway lists to make sure everything was perfect before creating vpn connections
+
+**Public IP list**
+
+<img width="922" height="159" alt="image" src="https://github.com/user-attachments/assets/75632508-5985-4191-88a4-1d8bc6fd6fa5" />
+
+**LNG list**
+
+<img width="912" height="156" alt="image" src="https://github.com/user-attachments/assets/ed547c29-1ca1-40f4-89c4-60daf2184f66" />
+
+Hub > OnPrem
+```bash
+az network vpn-connection create \
+--resource-group MedCenter \
+--name Hub-To-OnPrem \
+--vnet-gateway1 Hub-VPN-Gateway \
+--local-gateway2 OnPrem-LNG \
+--shared-key "MyPWwhichIwillNotDiscloseHere"
+```
+<img width="945" height="667" alt="image" src="https://github.com/user-attachments/assets/34e1c322-d4d7-4223-b28c-96a6e11e8290" />
+
+OnPrem > Hub
+```bash
+az network vpn-connection create \
+--resource-group MedCenter \
+--name OnPrem-To-Hub \
+--vnet-gateway1 OnPrem-VPN-Gateway \
+--local-gateway2 Hub-LNG \
+--shared-key "Kadgu7hbdzkyn1ax"
+```
+
+### Troubleshooting
+
+I kept running into error:
+`Message: /subscriptions/f37270cc-38a5-41a1-bd7230ffc482d6c2/resourceGroups/MEDCENTER/providers/Microsoft.Network/virtualNetworks/ONPREM-MOCK-VNET
+`
+
+I double checked every configuration, from public IPs, LNGs, regions to gateway names and everything was correct. The issue wasnt the setup, it was ARM holding onto stale, corrupted dependency data from earlier failed VPN deployments. 
+
+Cleaning the deployments didnt help, so the only reliable fix was to delete the entire On Prem side and rebuild it in a separate resource group. Splitting Hub and On Prem into different RGs avoids ARMs cached dependency issues and makes the VPN connections deploy cleanly.
+
+I troubleshooted this for hours and felt like i was going crazy and the takeaway here is, if you simulate on prem... please do it in a seperate resource group because otherwise youll have to rebuild everything. Luckily i know im getting a clean resource group to rebuild on prem mock with no hassle.
+
