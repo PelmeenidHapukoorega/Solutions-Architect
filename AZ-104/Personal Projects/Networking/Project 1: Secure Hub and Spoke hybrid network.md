@@ -1043,16 +1043,10 @@ So i tried to trace back and think on how this might have happened, and i rememb
 
 Pretty neat huh?
 
-Anyway the project itself was done, all i now needed to do was validation tests.
+Anyway the project itself was done, i had verified every deployment, made sure everything worked as intended, documented it all and now my next goal was to automate the entire thing.
 
-## Validation tests
+For now i performed cleanup by nuking both resource groups and i could now take a break.
 
-### Testing interspoke traffic (Pharmacy > Research)
-
-Unfortunately i couldnt run any validations tests through bastion since my internet is just too flaky for it and bastion returns connection timeout even at the slightest packet loss. But i used a workaround for it.
-
-
-Instead of making new bastion i just used the existing one instead. No need for deploying bastion via CLI if you can just do it pretty fast through portal.
 ### Troubleshooting
 
 I kept running into error:
@@ -1066,4 +1060,3 @@ Cleaning the deployments didnt help, so the only reliable fix was to delete the 
 I troubleshooted this for hours and felt like i was going crazy and the takeaway here is, if you simulate on prem... please do it in a seperate resource group because otherwise youll have to rebuild everything. Luckily i know im getting a clean resource group to rebuild on prem mock with no hassle.
 
 Instead of walking through setting up the On prem side in a different RG i just made changes to the steps before.
-
