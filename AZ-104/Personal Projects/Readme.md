@@ -21,3 +21,5 @@ Goal: Architect and deploy a compliant Azure environment for a medical company, 
 * Inter-Spoke Inspection: Implemented strict firewall rules to control and log communication between the Pharmacy and Research environments.
 * Centralized Shared Services: Deployed management and connectivity tools (VPN, Bastion, Firewall) in a central Hub to optimize costs and security posture.
 * Network Virtualization: Successfully managed complex routing logic and ARM dependency challenges across multiple resource groups and regions.
+
+[View Project 01: Secure Hub-and-Spoke Hybrid Network](./Project%2001)
