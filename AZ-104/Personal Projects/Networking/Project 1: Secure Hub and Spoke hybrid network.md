@@ -1060,3 +1060,5 @@ Cleaning the deployments didnt help, so the only reliable fix was to delete the 
 I troubleshooted this for hours and felt like i was going crazy and the takeaway here is, if you simulate on prem... please do it in a seperate resource group because otherwise youll have to rebuild everything. Luckily i know im getting a clean resource group to rebuild on prem mock with no hassle.
 
 Instead of walking through setting up the On prem side in a different RG i just made changes to the steps before.
+
+PS: AZ firewall is really goddamn expensive, wow!
