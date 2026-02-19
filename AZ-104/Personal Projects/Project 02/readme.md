@@ -1,6 +1,10 @@
-# Project 02: Secure Healthcare Data Tier and Automated Lifecycle
+# Project 02: Secure Data Tier and Automated Lifecycle
 
 ### Primary infrastructure:
+
+**GOAL:**
+
+Designing a multi-layered storage architecture for a medical provider that ensures 100% network isolation, automated cost-optimization, and granular data governance.
 
 * **Data Lake (ADLS Gen2):** Centralized repository for medical imaging and patient records using Hierarchical Namespace (HNS) for high-performance file-level operations.
 * **Legacy Integration Layer:** Enabled SFTP support on the primary storage account to support legacy diagnostic equipment that cannot use modern REST APIs.
