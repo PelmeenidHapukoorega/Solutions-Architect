@@ -6,6 +6,8 @@
 
 Designing a multi-layered storage architecture for a medical provider that ensures 100% network isolation, automated cost-optimization, and granular data governance.
 
+### Primary infrastructure
+
 * **Data Lake (ADLS Gen2):** Centralized repository for medical imaging and patient records using Hierarchical Namespace (HNS) for high-performance file-level operations.
 * **Legacy Integration Layer:** Enabled SFTP support on the primary storage account to support legacy diagnostic equipment that cannot use modern REST APIs.
 * **Shared Application Configs:** Deployed a Premium Azure File Share to host shared configuration files for web servers across multiple regions.
