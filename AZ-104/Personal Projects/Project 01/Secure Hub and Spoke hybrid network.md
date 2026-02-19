@@ -1,10 +1,6 @@
 # Project: Secure Hub-and-Spoke Hybrid network
 
-## Architecture scenario
-
-Scenario: Medical company is migrating its legacy patient management system to Azure.
-
-They have strict compliance requirement: All traffic leaving the application environments must be inspected by a central security appliance. In additon their `on-premises` staff needs to access AZ resouces securely as if they were on the local network.
+## Architecture
 
 * **Architecture:** Implementing Hub and Spoke topology
   * Hub: Has to contain shared infra (security and connectivity)
