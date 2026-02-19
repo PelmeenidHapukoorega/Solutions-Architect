@@ -24,4 +24,17 @@ Goal: A client needs a cloud-based location to store database backups. These bac
 
 * Create a container specifically for these backups.
 
+1. Creating storage account
+```bash
+az storage account create \
+--name ststore$random \
+--allow-blob-public-access false \
+--sku StandardV2_ZRS \
+--https-only true
+```
+
+Chose Zone redundant storage because it replicates data within the storage account to 3 or more availability zones located in the primary region, which means if the data center fails then its still available in the other availability zones.
+
+`HTTPS-only` allows storage account to either accept requests over secure connections when enabled or allows connections from everywhere when disabled.
+
 
