@@ -6,9 +6,9 @@ How to create storage accounts for Blobs and Files, how to configure and secure 
 
 **Job Skills**
 
-* Creating and configuring storage account via cmdlets.
-* Creating and configuring secure blob storage via cmdlets.
-* Creating and configuring secure Azure file storage via cmdlets.
+* Creating and configuring storage account via 
+* Creating and configuring secure blob storage 
+* Creating and configuring secure Azure file storage
 
 ## Part 1: Creating and configuring storage account
 
