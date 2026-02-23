@@ -45,6 +45,12 @@
 3. `az storage account keys list` with `--query [0]` > To retrieve primary key.
 4. `EnableShareDeleteRetentionPolicy` with `$false` > Only disables soft delete on the storage account.
 
+**PWSH script to upload blob to specific tier**
+
+1. `New-AzStorageContext` > Creates new AZ storage context. Context allows to authenticate ST account and it is generally the ST account key and connection string used to create it.
+2. `New-AzStorageContainer` > Creates new container.
+3. `Set-AzStorageBlobContent` > Used to upload local file to blob container.
+
 **Note**
 
 To permanently delete file share that has been soft deleted, you must undelete it, disable soft delete and then delete it again.
