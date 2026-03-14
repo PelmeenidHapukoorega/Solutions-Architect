@@ -41,7 +41,7 @@ Diagram:
                               +------------------+
 ```
 
-1. Created resource grouo `Contoso` in Eastu US region
+1. Created resource group `Contoso` in East US region
 2. Went to `Virtual networks` and created a new one with `10.20.0.0/16` as IPv4 address space and named it `CoreServicesVnet`
 3. Added following subnets under `IP addresses` tab:
 
