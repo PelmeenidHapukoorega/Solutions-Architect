@@ -1,6 +1,6 @@
 # Notes about how network watcher works
 
-## 1. Activaion and accessibility
+## 1. Activation and accessibility
 
 * Automatic Availability: Network Watcher is automatically enabled in a region as soon as you create a Virtual Network (VNet) in your subscription for that region.
 * Access: It is reached directly via the Azure Portal search bar. No complex "install" is needed for the main interface.
