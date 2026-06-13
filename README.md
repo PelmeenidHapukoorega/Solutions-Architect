@@ -14,7 +14,7 @@ Me doing my best to master Azure and eventually become Solutions architect.
 
 I figured id make a short description of why this profile and repo exist in the first place. I used to study IT years ago but never grasped the concepts at the time but always wanted to work in IT since its always been my passion. After finishing trades school I wounded up working in sales. Over the years ive continued to work in sales but in various companys and in various roles.
 
-However it was never smt that i wanted to do, all my life ive been searching for this 1 thing as im guessing a lot of people look for throught their lives, some may not even ever find it. 
+However it was never smt that i wanted to do, all my life ive been searching for this 1 thing as im guessing a lot of people look for throughout their lives, some may not even ever find it. 
 I was lucky, and i did the unthinkable. In 2025 August i decided i had enough. I had worked in sales for 6 years total (well technically) and it had made me extremely unhappy. 
 So i decided to quit my job without knowing what exactly it is that im going to do, i had no idea where to start, i had to move from the city i had lived in for 7 years, back to my parents house. Literal ground 0. For weeks i was stressed, unmotivated, with no idea what to do.
 
