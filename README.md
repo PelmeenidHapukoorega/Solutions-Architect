@@ -110,7 +110,7 @@ Okay wow, been a while since ive done one of these readmes so i dont really know
 
 I guess ill start where i left of huh? After passing AZ-900 i didnt waste any time with diving into AZ-104 and got started. The struggle was from going from theory to actual practical hands on, specifically i struggled with how to even approach the AZ-104. At first i thought of doing the learn path on Microsoft learn which i did briefly since there was a lot of information to go through, so months December, January and February was a lot of trial and error and switching between different study methods. I was also really concerned with documenting everything as i did with AZ-900 but opted out of it and only documented concepts i was struggling with. 
 
-I was correct when i assumed months back that AZ-900 was theoretical, AZ-104 was hands on and AZ-305 is scenario thinking. So sometime between February and March i decided that instead of reading theory, docs and how services worked to actually starting to deploying things and creating more stuff in Azure. 
+I was correct when i assumed months back that AZ-900 was theoretical, AZ-104 was hands on and AZ-305 is scenario thinking. So sometime between February and March i decided that instead of reading theory, docs and how services worked to actually starting to deploy things and creating more stuff in Azure. 
 
 However the problem was that i couldnt really think on anything to build, i mean how could i right? Considering all of this was very new for me and there was no way of me thinking like Senior engineer creating architecture to build from thin air. 
 
@@ -147,9 +147,9 @@ Eventually started to score over 85% but also realised I was starting to memoriz
 
 Then I started using Claude for teaching me the scenarios I used from practice exams and told it to teach me the concepts of it. 
 I then told it to provide me with labs from those scenarios and mix them up in order to avoid memorization, and honestly I gotta say that taught me a lot. 
-Using Claude for labs genuinely helped me the most as to actually understand how each piece fit together, but still read up on the best practices anyway and tried to things my way.
+Using Claude for labs genuinely helped me the most as to actually understand how each piece fit together, but still read up on the best practices anyway and tried to do things my way.
 
-For cmdlets and such I never outright copy pasted anything, wrote out everything myself as to not to cheese and at first understand what I'm typing, doing and achieving. 
+For cmdlets and such I never outright copy pasted anything, wrote out everything myself as to not to cheese and at first understand what I was typing, doing and achieving. 
 Once I felt more comfortable with that it started to come off as muscle memory and I then moved on to IaC.
 
 Practice exam progression:
@@ -191,11 +191,17 @@ Practice tests, exams, docs and whatever else is completely useless if you haven
 I hope this helps anyone along!
 #
 
+To my surprise, the post got quite big and what was genuinely overwhelming for me in the best possible way. People were thanking me and saying they booked their exam, i got DMs asking about Azure in general how set up some specific things and advice in general. I remember 1 guy was very concerned with running out of his trial credits and he thought that it would be the end and that he couldnt deploy anthing after. I advised him to upgrade to pay as you go, set up billing as well as treshold alert for budget. Then i recommended him to use the same approach as me when doing lab work which was: Deploy resources > verify your work > destroy. Its the best method to learn Azure, granted when you want to actually measure metrics, logs etc youll need to keep them running a bit longer. I then recommended him to dive into Azure Advisor and sent him pricing calculator to genuinely have a look at costs on specific SKUs, VMs, databases, AKS runtimes and whatever else have you in order for him to be more careful around cloud.
+
+Its genuinely crazy how fast you can rack up costs in cloud so if on budget use Pricing cal for Infrastructure decisions prior to deployment and Advisor for seeing whats underutilized, what can be cut etc.
+
+The whole point of this little story is that, i felt like my post genuinely helped a lot of people and it made me happy. So if you ever wonder if you should voice your experience and think to yourself that nobody cares or it wouldnt help anyone, well im here to tell you it genuinely does. I think it resonated with a lot of people because i wasnt pretending, i voiced my struggle, the back and forth and i think that there are a lot of people in similar situations and it provided hope or motivation for a lot of them to actually pull the trigger on taking the exam and honestly, that was the best part about it all.
+
 I passed the exam on the 17.06.26 and honestly i didnt think id pass, because all of the months i was studying i doubted myself a lot, i mean people who actually have worked in the IT for years on end fail this exam multiple times, how could i possibly do it right? Well i did it, my mindset was constantly that ill just keep building stuff on Azure, try terraform, json, IAM permissions, break stuff and just keep at it until i felt ready for the exam.
 
-The funny part? I still didnt feel ready for the exam, like at all and thats when i realised (which i mentioned in the post as well) that ready isnt a "feeling" its a decision, you decide to pull the trigger.
+The funny part? I still didnt feel ready for the exam, like at all and thats when i realised (which i mentioned in the post as well) that ready isnt a "feeling" its a decision, you decide to pull the trigger and it doesnt apply only in this scenario, it applies in life itself with whatever you do.
 
-Same day i was thinking on booking it i thought to myself that ive been at it consistently for months and i felt like i knew quite a bit already. And i actually did it.
+Same day i was thinking on booking it i thought to myself that ive been at it consistently for months and i felt like i knew quite a bit already, then pulled the trigger and actually did it.
 
 The exam itself didnt fail me in expectations, it was quite tough, and a lot of the questions were about details for both Cloud and OnPrem and specifically how they interacted with each other in different scenarios.
 
@@ -209,23 +215,25 @@ You would think i was ecstatic right? Actually... no, the complete opposite. I w
 
 For me?
 
-I knew i was just starting, and i keep proving myself right. You see my goal is still becoming architect at the end of the day, so for me it was the main starting step to the world where i have yet to discover so so much.
+I knew i was just starting, and i keep proving myself right even now. You see my goal is still becoming architect at the end of the day, so for me it was the main starting step to the world where i have yet to discover so so much.
 
 In short, AZ-104 wasnt the goal, it was a stepping stone for myself and get credibility in the world of Cloud. 
 
 The real work began on the 17th. 
 
-When i was studying for the exam, i thought that maybe i should document the labs i deployed to then simultaneously document as portfolio projects. That didnt work for me, i couldnt focus on both the exam and portfolio building. I figured if i was focusing on both at the same time, it would split my focus between the 2 and neither of the 2 goals would get my full devoted attention. So i decided to postpone portfolio building until i passed AZ-104 exam. I also did a small course for SC-200 which was 3 days at the start of June to get a better understanding about MS Sentinel for security reasons because i remembered from one of Savills videos where he said that "Good infrastructure starts with good security" and that really did stuck with me, so everytime ive done labs/projects since ive focused on security at the start. Mostly the course was about creating DCE endpoints and enabling log collection which i had already done to an extent, but it was nice to get some repetition in, what interested me more was KQL query and how to use it. 3 days may not seem much, but to me it was valuable still.
+When i was studying for the exam, i thought that maybe i should document the labs i deployed to then simultaneously document as portfolio projects. That didnt work for me, i couldnt focus on both the exam and portfolio building. 
 
+I figured if i was focusing on both at the same time, it would split my focus between the 2 and neither of the 2 goals would get my full devoted attention. So i decided to postpone portfolio building until i passed AZ-104 exam. 
 
+I also did a small course for SC-200 which was 3 days at the start of June to get a better understanding about MS Sentinel for security reasons because i remembered from one of Savills videos where he said that "Good infrastructure starts with good security" and that really did stuck with me, so everytime ive done labs/projects since ive focused on security at the start. Mostly the course was about creating DCE endpoints and enabling log collection which i had already done to an extent, but it was nice to get some repetition in, what interested me more was KQL query and how to use it. 3 days may not seem much, but to me it was valuable still.
 
 So whats next for me?
 
-Well now that i have some credibility in the cloud world my current focus has been on portfolio building and landing my first cloud job. Might take a while considering the job market but my approach is to make myself visible which ive done, apply where i can and not stress about the "No" answers since i have no real experience. So basically > make projects > get more experience > apply. Ill keep doing this cycle until its enough.
+Well now that i have some credibility in the cloud world my current focus has been on portfolio building and landing my first cloud job. Might take a while considering the job market but my approach is to make myself visible which ive done, apply where i can and not stress about the "No" answers since i have no real experience. So basically > make projects > get more experience > apply. Ill keep doing this cycle until it eventually lands i.e CONSISTENCY.
 
-But i dont want to stop there, recently ive dived into more CI/CD pipelines and using that to deploy IaC, make decisions, test things aout that im curious about all while trying to think in scenarios, architecture decisions so that i can slowly but surely start thinking like an architect. Once i feel more comfortable explaining, deploing, creating, managing and what have you, ill use the same study method for AZ-305 as well as AZ-400.
+But i dont want to stop there, recently ive dived into more CI/CD pipelines and using that to deploy IaC, make decisions, test things that im curious about all while trying to think in scenarios, architecture decisions so that i can slowly but surely start thinking more like an architect. Once i feel more comfortable explaining, deploing, creating, managing and what have you, ill use the same study method for AZ-305 as well as AZ-400.
 
-You may wonder isnt that a bit too much since certs are renewed each year? Also why would i want both 305 and 400 when one is focused on architecture and the other is DevOps? Well i want understand DevOps in order to be better at infrastructure, thats my general idea.
+You may wonder isnt that a bit too much since certs are renewed each year? Also why would i want both 305 and 400 when one is focused on architecture and the other is DevOps? Well i want to understand DevOps in order to be better at infrastructure, thats my general idea.
 
 Overall, honestly looking back in hindsight none of this that has transpired over the last months has been really easy or guaranteed. It was my determination that "jep, im gonna do this, dont know how or when that happens but it will" and well? Here i am.
 
@@ -233,6 +241,8 @@ I think the biggest lesson im taking away from all of this right now is that, co
 
 Whereas if you are consistent no matter how you feel at any given day, you will actually accomplish what you set out to accomplish. Couple that with the mindset of "if i fail ill try again" youll be unstoppable.
 
-Consistency doesnt necessarily mean that youll do a lot of work and studying each day, its more that youll do smt towards that every day, even if its just an hour a day. Breaks are necessary but cant be dragged on for too long. It hasnt been glamarous, it never really is its just a question how much you want it.
+Consistency doesnt necessarily mean that youll do a lot of work and studying each day, its more that youll do smt towards that every day, even if its just an hour a day. Breaks are necessary but cant be dragged on for too long. It hasnt been glamarous, it never really is its just a question how much you want it and i want it a lot.
 
 In hindsight i can now say confidently that what ive been doing ever since i made the pivot up to now, has been incredibly rewarding and im very much looking forward to where this whole thing takes me in a few years.
+
+And on that note, until next time!
