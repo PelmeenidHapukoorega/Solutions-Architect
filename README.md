@@ -1,7 +1,9 @@
 ## Current Status
 
 * AZ-900: Passed ✅
-* AZ-104: Exam preparation complete — booked
+* AZ-104: Passed ✅
+* AZ-305: Studying
+* AZ-400: Studying in correlation with AZ-305
 * Building: Azure Lab Automation (Bicep, Terraform, Python, GitHub Actions)
 
 
