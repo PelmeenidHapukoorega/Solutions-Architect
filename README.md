@@ -245,4 +245,6 @@ Consistency doesnt necessarily mean that youll do a lot of work and studying eac
 
 In hindsight i can now say confidently that what ive been doing ever since i made the pivot up to now, has been incredibly rewarding and im very much looking forward to where this whole thing takes me in a few years.
 
-And on that note, until next time!
+Its actually crazy for me to think back on November when i made a promise to myself that i will do it and actually get here where i am now where i have done it. Its been wild and im just getting started.
+
+Next: AZ-305
