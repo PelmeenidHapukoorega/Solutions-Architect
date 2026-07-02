@@ -231,7 +231,7 @@ So whats next for me?
 
 Well now that i have some credibility in the cloud world my current focus has been on portfolio building and landing my first cloud job. Might take a while considering the job market but my approach is to make myself visible which ive done, apply where i can and not stress about the "No" answers since i have no real experience. So basically > make projects > get more experience > apply. Ill keep doing this cycle until it eventually lands i.e CONSISTENCY.
 
-But i dont want to stop there, recently ive dived into more CI/CD pipelines and using that to deploy IaC, make decisions, test things that im curious about all while trying to think in scenarios, architecture decisions so that i can slowly but surely start thinking more like an architect. Once i feel more comfortable explaining, deploing, creating, managing and what have you, ill use the same study method for AZ-305 as well as AZ-400.
+But i dont want to stop there, recently ive dived into more CI/CD pipelines and using that to deploy IaC, make decisions, test things that im curious about all while trying to think in scenarios, architecture decisions so that i can slowly but surely start thinking more like an architect. Once i feel more comfortable explaining, deploying, creating, managing and what have you, ill use the same study method for AZ-305 as well as AZ-400.
 
 You may wonder isnt that a bit too much since certs are renewed each year? Also why would i want both 305 and 400 when one is focused on architecture and the other is DevOps? Well i want to understand DevOps in order to be better at infrastructure, thats my general idea.
 
