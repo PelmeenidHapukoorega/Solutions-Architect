@@ -2,8 +2,8 @@
 
 * AZ-900: Passed ✅
 * AZ-104: Passed ✅
-* AZ-305: Studying
-* AZ-400: Studying in correlation with AZ-305
+* AZ-305: Postponed for later after actually working in the field for at least a year or 2.
+* AZ-400: Current main focus to gain better understanding regarding cloud overall, automation and CI/CD pipelines.
 * Building: Azure Lab Automation (Bicep, Terraform, Python, GitHub Actions)
 
 
@@ -248,3 +248,33 @@ In hindsight i can now say confidently that what ive been doing ever since i mad
 Its actually crazy for me to think back on November when i made a promise to myself that i will do it and actually get here where i am now where i have done it. Its been wild and im just getting started.
 
 Next: AZ-305
+
+### July 19.07.26
+
+Ill make a short update about my progression towards landing a job. Honestly life has gotten in the way quite a bit recently so ive split my focus between studying for AZ-400 and building skills whenever i can.
+
+So first of all ive hit multiple dilemmas, was close to burn out because of the sheer amount of daily information, services, tools etc to learn about so i had to dial it down a bit. I also realised that pursuing 305 right now wouldnt give me much of anything because i think ill get a better understanding once ive actually worked in a live environment for a year if not 2, hence the reason the focus has been more about DevOps and az 400.
+
+Also the impostor syndrome came back here and i wanted to figure out how do i actually tackle the following question: How do i leverage AI in todays world while not becoming a vibe coder or feel like a cheat?
+
+So far ive used AI for documentation once ive completed projects because its much faster, cleaner and gives a better understanding, but again i still read over it and make corrections where needed. I dont use it to give me entire plans etc that i would then use to deploy.
+
+My approach with it so far has been that i do leverage it for bits of code here and there, but im writing it all in myself resource by resource to actually understand what ive been building, i prompt it to get information from legitimate provider docs depending on the provider and cross reference from there myself.
+
+Thing is, i dont want to use AI to just print me out code just yet because it wouldnt count for anything real because i still lack the fluency of understanding that im chasing.
+
+So i started to think on how would i actually prove my authenticity in learning? I didnt want to restructure everything either when it comes to documentation, readmes etc. So i decided to add `Learnings.md` readmes from now on where i write down everything in raw format as it happens.
+
+Another thing i actually didnt realise doing before is tracking everything from the get go. Before i just wrote the code and did my projects in VSC in a way that once it was finished i then pushed the entire thing... and from POV of recruiters it would show up as vibecoding, so now ive adopted the mindset of going block for block, verify > commit > run > fix > commit > run etc so its all tracked as is.
+
+Then i had a conversation with a friend of mine who works in DevOps who gave me good advice about using short recordings showcasing the end result of project instead of screenshots which i have adopted starting with project 7. 
+
+Created some landing zones templates for myself in both terraform and bicep to call whenever needed as well as 3 projects where i familiarised myself with different tools just to see how they actually worked. 
+
+Overall the progress will be a bit slower but so far its also been more fulfilling and my gut feeling tells me this is the way to do it, i dont want a situation where im being asked technical questions and i wouldnt have the ability to actually answer because i would lack understanding.  
+
+I think the trick is to not get caught up in the vast sea of information but instead stay grounded and focus on the core skills for now. 
+
+Another thing ive adopted is looking at different job offers and specifically what they are looking for me to then have better understanding on what i should learn more in depth about and what should be prioritised a bit less.
+
+For now the mindset is just: Do projects, keep learning new skills, apply where i can > rinse and repeat.
