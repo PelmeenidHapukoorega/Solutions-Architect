@@ -248,6 +248,7 @@ In hindsight i can now say confidently that what ive been doing ever since i mad
 Its actually crazy for me to think back on November when i made a promise to myself that i will do it and actually get here where i am now where i have done it. Its been wild and im just getting started.
 
 Next: AZ-305
+#
 
 ### July 19.07.26
 
@@ -278,3 +279,4 @@ I think the trick is to not get caught up in the vast sea of information but ins
 Another thing ive adopted is looking at different job offers and specifically what they are looking for me to then have better understanding on what i should learn more in depth about and what should be prioritised a bit less.
 
 For now the mindset is just: Do projects, keep learning new skills, apply where i can > rinse and repeat.
+#
