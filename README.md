@@ -7,10 +7,15 @@
 * Building: Azure Lab Automation (Bicep, Terraform, Python, GitHub Actions)
 
 
-## The start of it all 
+## Table of Contents
 
+- [November 15.11.25](#november-151125)
+- [December update 07.12.25](#december-update-071225)
+- [December update 27.12.25](#december-update-271225)
+- [July 01.07.26](#july-010726)
+- [July 19.07.26](#july-190726)
 
-### November 15.11
+### November 15.11.25
 
 Me doing my best to master Azure and eventually become Solutions architect.
 
@@ -37,6 +42,9 @@ The whole point of this monologue is: This repo, this profile and everything in 
 I sincerely hope that some of the readers may find a bit of hope in all this. Just when you think that nothing is gonna work out, it does. And it didnt happen because i was sulking and cursing the world, it was the opposite. Never lose hope, never give up and most importantly... 
 
 Just start doing.
+
+[Back to top](#table-of-contents)
+
 #
 
 ### December update 07.12.25
@@ -78,6 +86,9 @@ So to put it shortly, this months focus has been going back to fundamentals to r
 My goal still remains the same, and i dont see this as setback, if anything this has been a great learning point and i will continue to push on. 
 
 Next update will be after I pass AZ 900 which im sure i will, now that i have genuine foundation without the hype.
+
+[Back to top](#table-of-contents)
+
 #
 
 ### December update 27.12.25
@@ -119,8 +130,6 @@ So i got myself practice exams and tests, specifically the recommended Measureup
 Ill be honest, with Measureup i eventually started to memorize questions and that wasnt smt i wanted to do, so i got TD later but i coupled it with Claude and prompted it to give me scenarios, some of the scenarios it gave me were a bit too bland so i added detail myself depending on the situation.
 
 Instead of explaining the study method, ill copy paste what i had posted on r/azurecertification subreddit about my study approach specifically for AZ-104 in hopes that if somebody actually reads this and is considering taking the exam:
-
-#
 
 #### Passed AZ-104 today with first try 
 
@@ -248,6 +257,9 @@ In hindsight i can now say confidently that what ive been doing ever since i mad
 Its actually crazy for me to think back on November when i made a promise to myself that i will do it and actually get here where i am now where i have done it. Its been wild and im just getting started.
 
 Next: AZ-305
+
+[Back to top](#table-of-contents)
+
 #
 
 ### July 19.07.26
@@ -279,4 +291,7 @@ I think the trick is to not get caught up in the vast sea of information but ins
 Another thing ive adopted is looking at different job offers and specifically what they are looking for me to then have better understanding on what i should learn more in depth about and what should be prioritised a bit less.
 
 For now the mindset is just: Do projects, keep learning new skills, apply where i can > rinse and repeat.
+
+[Back to top](#table-of-contents)
+
 #
