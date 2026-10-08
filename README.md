@@ -218,7 +218,7 @@ Thing is you cant pass this exam without genuine hands on practice in Azure, its
 
 Nothing more nothing less.
 
-Now after i finished the exam i was ready for failure, i kept reading up on how its actually fairly normal to fail it on the first try and my mindset was "Okay ill probably fail this, but then ill know my gaps to improve" however to my surprise i actually passed it. 
+Now before the exam i was ready for failure, i kept reading up on how its actually fairly normal to fail it on the first try and my mindset was "Okay ill probably fail this, but then ill know my gaps to improve" however to my surprise i actually passed it. 
 
 You would think i was ecstatic right? Actually... no, the complete opposite. I was genuinely curious about the feeling, i mean you should feel ecstatic after accomplishing smt like that right? Well it turns out that if you set yourself a goal and you complete it and would then feel ecstatic then that means that it was the main goal, hence the dopamine.
 
